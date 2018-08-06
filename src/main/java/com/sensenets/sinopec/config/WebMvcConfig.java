@@ -1,6 +1,5 @@
 package com.sensenets.sinopec.config;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -8,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.sensenets.sinopec.common.interceptor.RequestParamsInterceptor;
 
 @Configuration
-@EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurationSupport {
    
     @Override

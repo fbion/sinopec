@@ -41,12 +41,12 @@ public class DemoController {
     }
     )
     @RequestMapping(value = "/list", method= RequestMethod.GET, produces = "application/json")
-    public Iterable<Product> list(Model model){
+    public Iterable<Test> list(Model model){
         Iterable<Product> productList = new ArrayList<Product>();
         log.info("list product");
         Iterable<Test> list = testService.findAll();
-        log.info("list test data ");
-        return productList;
+        log.info("list test data :");
+        return list;
     }
     @ApiOperation(value = "Search a product with an ID",response = Product.class)
     @RequestMapping(value = "/show/{id}", method= RequestMethod.GET, produces = "application/json")

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -26,7 +27,7 @@ import com.sensenets.sinopec.common.utils.JasyptUtil;
   * @date 2018年8月5日 下午6:07:29
   *
   */
-@Component
+@Configuration
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "spring.datasource")
 @MapperScan(basePackages = "com.sensenets.sinopec.persistence.mapper")

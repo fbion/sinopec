@@ -1,4 +1,4 @@
-package com.sensenets.sinopec.persistence.model;
+package com.sensenets.sinopec.model;
 
 import java.util.Date;
 import javax.persistence.*;

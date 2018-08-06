@@ -12,6 +12,6 @@ import tk.mybatis.mapper.common.MySqlMapper;
   *
   * @param <T>
   */
-public interface CustomMapper<T> extends Mapper<T>, MySqlMapper<T> {
+public interface CustomMapper<T> extends Mapper<T>,MySqlMapper<T>{
 
 }
