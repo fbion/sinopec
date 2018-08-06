@@ -1,0 +1,57 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties resource="application.properties"/>
+
+    <context id="Postgresql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <!-- beginningDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <property name="beginningDelimiter" value="`"/>
+        <!-- endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <property name="endingDelimiter" value="`"/>
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+	    <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+	    <!-- 格式化XML代码 -->
+	    <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <!-- <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/> -->
+            <property name="mappers" value="com.sensenets.sinopec.common.base.CustomMapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+         <!-- 生成模型的包名和位置--> 
+        <javaModelGenerator targetPackage="com.sensenets.sinopec.persistence.model" 
+                            targetProject="src/main/java"/>
+        <!-- 生成映射文件的包名和位置--> 
+        <sqlMapGenerator targetPackage="mapper" 
+                         targetProject="src/main/resources"/>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator targetPackage="com.sensenets.sinopec.persistence.mapper" 
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+                             
+        <table tableName="test">
+            <!--postgresql 配置-->
+            <generatedKey column="id" sqlStatement="nextval('id_seq'::regclass)" identity="true"  />
+            
+            <!-- <generatedKey column="id" sqlStatement="JDBC"/> -->
+            
+            <!--mysql 配置-->
+            <!-- <generatedKey column="id" sqlStatement="Mysql" identity="true"/> -->
+            
+            <!--oracle 配置-->
+            <!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>-->
+            
+        </table>
+    </context>
+</generatorConfiguration>

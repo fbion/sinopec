@@ -1,0 +1,17 @@
+package ${service.packageName}.impl;
+
+<% for(import in service.serviceImplImports!){ %>
+import ${import};
+<% } %>
+
+ /**
+  * @ClassName: ${context.bizEnBigName}ServiceImpl
+  * @Description: ${context.bizChName}业务层接口实现
+  * @author think
+  * @date ${tool.currentChTime()}
+  */
+@Service
+public class ${context.bizEnBigName}ServiceImpl implements I${context.bizEnBigName}Service {
+
+
+}

@@ -1,0 +1,21 @@
+package ${controller.packageName};
+
+<% for(import in controller.imports!){ %>
+import ${import};
+<% } %>
+
+ /**
+  * @ClassName: ${context.bizEnBigName}Controller
+  * @Description: ${context.bizChName}控制层
+  * @author think
+  * @date ${tool.currentChTime()}
+  */
+  
+@RestController
+@RequestMapping("/${context.bizEnName}")
+@Api(value="sinopec", description="sinopec ${context.bizChName}")
+@Slf4j
+public class ${context.bizEnBigName}Controller extends BaseController {
+
+    
+}

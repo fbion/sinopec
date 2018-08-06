@@ -1,0 +1,63 @@
+package com.sensenets.sinopec.core.template.engine.base;
+
+import com.sensenets.sinopec.core.template.config.ContextConfig;
+import com.sensenets.sinopec.core.template.config.ControllerConfig;
+import com.sensenets.sinopec.core.template.config.ServiceConfig;
+
+
+/**
+  * @ClassName: AbstractTemplateEngine
+  * @Description: 模板生成父类
+  * @author think
+  * @date 2018年8月6日 下午2:19:19
+  *
+  */
+public class AbstractTemplateEngine {
+
+    protected ContextConfig contextConfig;                //全局配置
+    protected ControllerConfig controllerConfig;          //控制器的配置
+    protected ServiceConfig serviceConfig;                //Service配置
+
+    public void initConfig() {
+        if (this.contextConfig == null) {
+            this.contextConfig = new ContextConfig();
+        }
+        if (this.controllerConfig == null) {
+            this.controllerConfig = new ControllerConfig();
+        }
+        if (this.serviceConfig == null) {
+            this.serviceConfig = new ServiceConfig();
+        }
+
+        this.controllerConfig.setContextConfig(this.contextConfig);
+        this.controllerConfig.init();
+
+        this.serviceConfig.setContextConfig(this.contextConfig);
+        this.serviceConfig.init();
+    }
+
+    public ContextConfig getContextConfig() {
+        return contextConfig;
+    }
+
+    public void setContextConfig(ContextConfig contextConfig) {
+        this.contextConfig = contextConfig;
+    }
+
+    public ControllerConfig getControllerConfig() {
+        return controllerConfig;
+    }
+
+    public void setControllerConfig(ControllerConfig controllerConfig) {
+        this.controllerConfig = controllerConfig;
+    }
+
+    public ServiceConfig getServiceConfig() {
+        return serviceConfig;
+    }
+
+    public void setServiceConfig(ServiceConfig serviceConfig) {
+        this.serviceConfig = serviceConfig;
+    }
+}
+

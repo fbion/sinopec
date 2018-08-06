@@ -1,0 +1,52 @@
+package com.sensenets.sinopec.common.constant.state;
+
+
+/**
+  * @ClassName: MenuStatus
+  * @Description: 菜单的状态
+  * @author think
+  * @date 2018年8月6日 下午3:14:43
+  *
+  */
+public enum MenuStatus {
+
+    ENABLE(1, "启用"),
+    DISABLE(0, "禁用");
+
+    int code;
+    String message;
+
+    MenuStatus(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public static String valueOf(Integer status) {
+        if (status == null) {
+            return "";
+        } else {
+            for (MenuStatus s : MenuStatus.values()) {
+                if (s.getCode() == status) {
+                    return s.getMessage();
+                }
+            }
+            return "";
+        }
+    }
+}
