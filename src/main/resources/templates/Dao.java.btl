@@ -1,0 +1,13 @@
+package ${dao.packageName};
+
+
+ /**
+  * @ClassName: ${context.bizEnBigName}Dao
+  * @Description: ${context.bizChName}数据层接口
+  * @author think
+  * @date ${tool.currentChTime()}
+  */
+public interface ${context.bizEnBigName}Dao {
+
+
+}

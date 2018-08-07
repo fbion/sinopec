@@ -1,7 +1,6 @@
 package com.sensenets.sinopec.buiness.controller;
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -11,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sensenets.sinopec.buiness.test.service.ITestService;
-import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.Product;
-import com.sensenets.sinopec.persistence.model.Test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,10 +24,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DemoController {
 
-
-    @Autowired
-    ITestService testService;
-    
     @ApiOperation(value = "View a list of available products",response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list"),
@@ -41,12 +33,12 @@ public class DemoController {
     }
     )
     @RequestMapping(value = "/list", method= RequestMethod.GET, produces = "application/json")
-    public Iterable<Test> list(Model model){
+    public Iterable<Product> list(Model model){
         Iterable<Product> productList = new ArrayList<Product>();
-        log.info("list product");
-        Iterable<Test> list = testService.findAll();
+//        log.info("list product");
+//        Iterable<Test> list = testService.findAll();
         log.info("list test data :");
-        return list;
+        return productList;
     }
     @ApiOperation(value = "Search a product with an ID",response = Product.class)
     @RequestMapping(value = "/show/{id}", method= RequestMethod.GET, produces = "application/json")

@@ -35,4 +35,17 @@ public class SimpleTemplateEngine extends BaseTemplateEngine {
         generateFile(tmeplateFilePath+"ServiceImpl.java.btl", serviceImplPath);
         System.out.println("生成ServiceImpl成功!");
     }
+    
+    @Override
+    protected void generateDao() {
+        String daoPath = ToolUtil.format(super.getContextConfig().getProjectPath() + super.getDaoConfig().getDaoPathTemplate(),
+                ToolUtil.firstLetterToUpper(super.getContextConfig().getBizEnName()));
+        generateFile(tmeplateFilePath+"Dao.java.btl", daoPath);
+        System.out.println("生成Dao成功!");
+
+        String mappingPath = ToolUtil.format(super.getContextConfig().getProjectPath() + super.getDaoConfig().getXmlPathTemplate(),
+                ToolUtil.firstLetterToUpper(super.getContextConfig().getBizEnName()));
+        generateFile(tmeplateFilePath+"Mapping.xml.btl", mappingPath);
+        System.out.println("生成Dao Mapping xml成功!");
+    }
 }

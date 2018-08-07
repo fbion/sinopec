@@ -2,23 +2,23 @@ package com.sensenets.sinopec.core.template.config;
 
 import com.sensenets.sinopec.core.support.ToolUtil;
 
-
 /**
   * @ClassName: ContextConfig
   * @Description: 全局配置
   * @author think
-  * @date 2018年8月6日 下午2:30:01
+  * @date 2018年8月7日 上午9:56:20
   *
   */
 public class ContextConfig {
 
-    private String projectPath = "D:\\tmp\\sinopec";//模板输出的项目目录
+    private String projectPath = "D:\\ideaSpace\\guns";//模板输出的项目目录
     private String bizChName;   //业务名称
     private String bizEnName;   //业务英文名称
     private String bizEnBigName;//业务英文名称(大写)
     private String moduleName = "system";  //模块名称
 
     private Boolean controllerSwitch = true;    //是否生成控制器代码开关
+    private Boolean daoSwitch = true;           //dao
     private Boolean serviceSwitch = true;       //service
 
     public String getBizEnBigName() {
@@ -68,6 +68,14 @@ public class ContextConfig {
 
     public void setControllerSwitch(Boolean controllerSwitch) {
         this.controllerSwitch = controllerSwitch;
+    }
+
+    public Boolean getDaoSwitch() {
+        return daoSwitch;
+    }
+
+    public void setDaoSwitch(Boolean daoSwitch) {
+        this.daoSwitch = daoSwitch;
     }
 
     public Boolean getServiceSwitch() {

@@ -51,6 +51,7 @@ public abstract class BaseTemplateEngine extends AbstractTemplateEngine {
         template.binding("context", super.getContextConfig());
         template.binding("controller", super.getControllerConfig());
         template.binding("service", super.getServiceConfig());
+        template.binding("dao", super.getDaoConfig());
     }
 
     public void generateFile(String template,String filePath){
@@ -84,11 +85,16 @@ public abstract class BaseTemplateEngine extends AbstractTemplateEngine {
         if(super.contextConfig.getServiceSwitch()){
             generateService();
         }
+        if(super.contextConfig.getDaoSwitch()){
+            generateDao();
+        }
 
     }
 
     protected abstract void generateController();
 
     protected abstract void generateService();
+    
+    protected abstract void generateDao();
 
 }

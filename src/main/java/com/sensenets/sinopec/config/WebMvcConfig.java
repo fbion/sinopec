@@ -22,8 +22,5 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
-        // 映射 resources下面的静态资源
-        registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/resources/static/");
     }
 }

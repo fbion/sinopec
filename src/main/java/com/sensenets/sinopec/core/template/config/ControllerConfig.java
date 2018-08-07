@@ -42,8 +42,8 @@ public class ControllerConfig {
         imports.add("org.springframework.ui.Model");
         
         this.imports = imports;
-        this.packageName = "com.sensenets.sinopec.buiness." + contextConfig.getModuleName() + ".controller";
-        this.controllerPathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\" + contextConfig.getModuleName() + "\\controller\\{}Controller.java";
+        this.packageName = "com.sensenets.sinopec.buiness.controller";
+        this.controllerPathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\controller\\{}Controller.java";
     }
 
     public String getPackageName() {

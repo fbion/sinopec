@@ -25,11 +25,11 @@ public class ServiceConfig {
     public void init() {
         ArrayList<String> imports = new ArrayList<>();
         imports.add("org.springframework.stereotype.Service");
-        imports.add("com.sensenets.sinopec.buiness." + contextConfig.getModuleName() + ".service.I" + contextConfig.getBizEnBigName() + "Service");
+        imports.add("com.sensenets.sinopec.buiness.service.I" + contextConfig.getBizEnBigName() + "Service");
         this.serviceImplImports = imports;
-        this.servicePathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\" + contextConfig.getModuleName() + "\\service\\I{}Service.java";
-        this.serviceImplPathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\" + contextConfig.getModuleName() + "\\service\\impl\\{}ServiceImpl.java";
-        this.packageName = "com.sensenets.sinopec.buiness." + contextConfig.getModuleName() + ".service";
+        this.servicePathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\service\\I{}Service.java";
+        this.serviceImplPathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\service\\impl\\{}ServiceImpl.java";
+        this.packageName = "com.sensenets.sinopec.buiness.service";
     }
 
 
