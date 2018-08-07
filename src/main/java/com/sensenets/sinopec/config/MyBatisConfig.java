@@ -26,12 +26,12 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
     @Autowired
-    DataSource dataSource;//默认配置文件中的数据源
+    DataSource dataSource;
 
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSession = new SqlSessionFactoryBean();
-        sqlSession.setDataSource(dataSource);// 指定数据源(这个必须有，否则报错)
+        sqlSession.setDataSource(dataSource);
         return sqlSession.getObject();
     }
 
