@@ -10,27 +10,8 @@ import lombok.Data;
  *
  */
 @Data
-public class BusinessException extends RuntimeException {
+public class BusinessException extends BaseException {
 
-    /**
-     * @Fields serialVersionUID
-     */
-    private static final long serialVersionUID = 8795813052731529234L;
-
-    /**
-     * @Fields errorCode : 错误码
-     */
-    private Integer errorCode;
-
-    /**
-     * @Fields errorMsg : 错误提示信息
-     */
-    private String errorMsg;
-    
-    /**
-     * @Fields urlPath : 业务异常跳转的页面
-     */
-    private String urlPath;
 
     public BusinessException(BizExceptionEnum bizExceptionEnum) {
         super();

@@ -1,13 +1,11 @@
 package com.sensenets.sinopec.common.exception;
 
+import com.sensenets.sinopec.common.domain.ResponseInfo;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import com.sensenets.sinopec.common.domain.ResponseInfo;
 
 
 /**
@@ -21,37 +19,31 @@ import com.sensenets.sinopec.common.domain.ResponseInfo;
 @ResponseBody
 public class ExceptionResolver {
 
-    @ExceptionHandler(value = BusinessException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseInfo serviceCommonExceptionHandler(BusinessException e) {
+    private ResponseInfo generateInfo(BaseException e){
         ResponseInfo info = new ResponseInfo();
         info.setCode(e.getErrorCode());
         info.setMessage(e.getErrorMsg());
         info.setStatus(ResponseInfo.Status.ERROR);
         info.setError(e.getMessage());
         return info;
+    }
+
+    @ExceptionHandler(value = BusinessException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseInfo serviceCommonExceptionHandler(BusinessException e) {
+        return generateInfo(e);
     }
     
     @ExceptionHandler(value = SystemException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseInfo systemCommonExceptionHandler(SystemException e) {
-        ResponseInfo info = new ResponseInfo();
-        info.setCode(e.getErrorCode());
-        info.setMessage(e.getErrorMsg());
-        info.setStatus(ResponseInfo.Status.ERROR);
-        info.setError(e.getMessage());
-        return info;
+        return generateInfo(e);
     }
     
     @ExceptionHandler(value = ToolInitException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public  ResponseInfo toolInitCommonExceptionHandler(ToolInitException e) {
-        ResponseInfo info = new ResponseInfo();
-        info.setCode(e.getErrorCode());
-        info.setMessage(e.getErrorMsg());
-        info.setStatus(ResponseInfo.Status.ERROR);
-        info.setError(e.getMessage());
-        return info;
+        return generateInfo(e);
     }
 
     

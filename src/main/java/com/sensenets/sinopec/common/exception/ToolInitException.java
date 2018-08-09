@@ -1,22 +1,7 @@
-/**
- * Copyright (c) 2015-2017, Chill Zhuang 庄骞 (smallchill@163.com).
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 package com.sensenets.sinopec.common.exception;
 
 import com.sensenets.sinopec.core.support.StrKit;
-
 import lombok.Data;
 
 
@@ -28,20 +13,9 @@ import lombok.Data;
   *
   */
 @Data
-public class ToolInitException extends RuntimeException{
+public class ToolInitException extends BaseException{
 	private static final long serialVersionUID = 8247610319171014183L;
 
-    /**
-     * @Fields errorCode : 错误码
-     */
-    private Integer errorCode;
-
-    /**
-     * @Fields errorMsg : 错误提示信息
-     */
-    private String errorMsg;
-    
-    
     public ToolInitException(Integer code) {
         super();
         this.errorCode = code;
@@ -58,24 +32,25 @@ public class ToolInitException extends RuntimeException{
         this.errorCode = code;
         this.errorMsg = message;
     }
-	
-	public ToolInitException(Throwable e) {
-		super(e.getMessage(), e);
-	}
-	
-	public ToolInitException(String message) {
-		super(message);
-	}
-	
-	public ToolInitException(String messageTemplate, Object... params) {
-		super(StrKit.format(messageTemplate, params));
-	}
-	
-	public ToolInitException(String message, Throwable throwable) {
-		super(message, throwable);
-	}
-	
-	public ToolInitException(Throwable throwable, String messageTemplate, Object... params) {
-		super(StrKit.format(messageTemplate, params), throwable);
-	}
+
+    public ToolInitException(Throwable e) {
+        super(e.getMessage(), e);
+    }
+
+    public ToolInitException(String message) {
+        super(message);
+    }
+
+    public ToolInitException(String messageTemplate, Object... params) {
+        super(StrKit.format(messageTemplate, params));
+    }
+
+    public ToolInitException(String message, Throwable throwable) {
+        super(message, throwable);
+    }
+
+    public ToolInitException(Throwable throwable, String messageTemplate, Object... params) {
+        super(StrKit.format(messageTemplate, params), throwable);
+    }
+
 }
