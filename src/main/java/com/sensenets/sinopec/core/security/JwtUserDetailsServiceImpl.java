@@ -1,19 +1,16 @@
 package com.sensenets.sinopec.core.security;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.sensenets.sinopec.buiness.model.User;
+import com.sensenets.sinopec.common.utils.MD5Helper;
+import com.sensenets.sinopec.core.security.entity.AuthorityName;
+import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.sensenets.sinopec.buiness.model.User;
-import com.sensenets.sinopec.common.utils.DateHelper;
-import com.sensenets.sinopec.common.utils.MD5Helper;
-import com.sensenets.sinopec.core.security.entity.AuthorityName;
-import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**

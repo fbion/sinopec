@@ -1,5 +1,8 @@
 package com.sensenets.sinopec.common.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @ClassName: Product
  * @Description: demo
@@ -7,12 +10,18 @@ package com.sensenets.sinopec.common.domain;
  * @date 2018年8月5日 上午11:33:08
  *
  */
+@ApiModel(value="product实体",description="商品实体对象")
 public class Product {
-    
-    
+
+    @ApiModelProperty(value="商品id",name="id")
     private Integer id;
-    
+
+    @ApiModelProperty(value="商品名称",name="name")
     private String name;
+
+    @ApiModelProperty(value="id数组",hidden=true)
+    private String[] ids;
+
 
     public Product(){
         

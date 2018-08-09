@@ -6,6 +6,8 @@
     <result column="uts" jdbcType="TIMESTAMP" property="uts" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
+  <sql id="BaseColumn">id, name, uts </sql>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from public.test
     where id = #{id,jdbcType=BIGINT}
@@ -31,4 +33,12 @@
     select id, uts, name
     from public.test
   </select>
+
+  <select id="selectPage" parameterType="com.sensenets.sinopec.buiness.condition.TestCondition" resultMap="BaseResultMap">
+    select <include refid="BaseColumn"/>
+    from public.test
+    where 1=1
+
+  </select>
+
 </mapper>

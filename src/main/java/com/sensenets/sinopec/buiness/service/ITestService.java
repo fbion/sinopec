@@ -1,8 +1,10 @@
 package com.sensenets.sinopec.buiness.service;
 
-import java.util.List;
-
+import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.buiness.condition.CommonCondition;
 import com.sensenets.sinopec.buiness.model.Test;
+
+import java.util.List;
 
 /**
   * @ClassName: TestService
@@ -21,5 +23,8 @@ public interface ITestService {
     int save(Test record);
     
     List<Test> findAll();
+
+    PageInfo<Test> findPage(CommonCondition condition);
+
     
 }

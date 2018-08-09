@@ -1,15 +1,18 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.buiness.condition.CommonCondition;
+import com.sensenets.sinopec.buiness.condition.TestCondition;
 import com.sensenets.sinopec.buiness.dao.TestMapper;
 import com.sensenets.sinopec.buiness.model.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
- /**
+import java.util.List;
+
+/**
   * @ClassName: TestServiceImpl
   * @Description: 测试业务层接口实现
   * @author think
@@ -47,4 +50,12 @@ public class TestServiceImpl implements ITestService {
         return testDao.selectAll();
     }
 
-}
+     @Override
+     public PageInfo<Test> findPage(CommonCondition condition) {
+         PageHelper.startPage(condition.getPageNumber(), condition.getPageSize());
+         List<Test>  list = testDao.selectPage((TestCondition) condition);
+         PageInfo<Test> pageInfo = new PageInfo<Test>(list);
+         return pageInfo;
+     }
+
+ }

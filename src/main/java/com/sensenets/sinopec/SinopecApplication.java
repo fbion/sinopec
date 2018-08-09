@@ -1,7 +1,9 @@
 package com.sensenets.sinopec;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -23,24 +25,12 @@ import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
   */
 @EnableWebMvc
 @SpringBootApplication
+@EnableAutoConfiguration(exclude = { JacksonAutoConfiguration.class })
 @IntegrationComponentScan
 public class SinopecApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SinopecApplication.class, args);
 	}
-	
 
-    @Bean
-    public Module jacksonAfterBurnerModule() {
-        return new AfterburnerModule();
-    }
-
-    @Bean
-    public HttpMessageConverter httpSmileJackson2MessageConverter() {
-        return new AbstractJackson2HttpMessageConverter(
-                new ObjectMapper(new SmileFactory()).registerModule(new AfterburnerModule()),
-                new MediaType("application", "x-jackson-smile")) {
-        };
-    }
 }

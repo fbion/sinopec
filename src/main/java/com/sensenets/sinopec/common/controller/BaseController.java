@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.common.domain.ResponsePage;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -91,6 +93,17 @@ public class BaseController {
     protected ResponseInfo warpObject(Object obj) {
         ResponseInfo responseInfo = new ResponseInfo();
         BaseControllerWarpper warpper = new CommonControllerWarpper(obj);
+        responseInfo.setData(warpper.warp());
+        return responseInfo;
+    }
+
+    protected <T> ResponseInfo warpPageObject( PageInfo<T> page) {
+        ResponseInfo responseInfo = new ResponseInfo();
+        ResponsePage<T> response = new ResponsePage<T>(page.getList());
+        response.setPageNumber(page.getPageNum());
+        response.setPageSize(page.getPageSize());
+        response.setTotal(page.getTotal());
+        BaseControllerWarpper warpper = new CommonControllerWarpper(response);
         responseInfo.setData(warpper.warp());
         return responseInfo;
     }

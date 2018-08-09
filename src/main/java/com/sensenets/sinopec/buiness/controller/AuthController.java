@@ -1,9 +1,18 @@
-package com.sensenets.sinopec.core.security.controller;
+package com.sensenets.sinopec.buiness.controller;
 
+import com.sensenets.sinopec.common.controller.BaseController;
+import com.sensenets.sinopec.common.domain.ResponseInfo;
+import com.sensenets.sinopec.common.utils.SpringMVCHelper;
+import com.sensenets.sinopec.config.JwtConfig;
+import com.sensenets.sinopec.core.security.entity.*;
+import com.sensenets.sinopec.core.security.util.JwtUtil;
+import com.sensenets.sinopec.core.security.util.SecurityHelper;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -17,21 +26,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sensenets.sinopec.common.controller.BaseController;
-import com.sensenets.sinopec.common.domain.ResponseInfo;
-import com.sensenets.sinopec.common.utils.SpringMVCHelper;
-import com.sensenets.sinopec.config.JwtConfig;
-import com.sensenets.sinopec.core.security.entity.AuthorityName;
-import com.sensenets.sinopec.core.security.entity.JwtAuthRequest;
-import com.sensenets.sinopec.core.security.entity.JwtAuthResponse;
-import com.sensenets.sinopec.core.security.entity.JwtUser;
-import com.sensenets.sinopec.core.security.entity.ResponseMessage;
-import com.sensenets.sinopec.core.security.util.JwtUtil;
-import com.sensenets.sinopec.core.security.util.SecurityHelper;
-
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
-
 
 /**
   * @ClassName: AuthController
@@ -42,6 +36,8 @@ import lombok.extern.slf4j.Slf4j;
   */
 @RestController
 @Slf4j
+@Api(value="AuthController",tags="认证操作接口", description="AuthController")
+@RequestMapping("/service/auth")
 public class AuthController extends BaseController{
   
     @Autowired
@@ -58,7 +54,7 @@ public class AuthController extends BaseController{
 
 
     @ApiOperation(value = "用户验证，创建token")
-    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseInfo createToken(@RequestBody JwtAuthRequest authRequest) throws Exception {
         try {
             // 将认证信息保存
@@ -99,7 +95,7 @@ public class AuthController extends BaseController{
      * @return 异常
      */
     @ApiOperation(value = "刷新令牌")
-    @RequestMapping(value = "/auth/refresh-token", method = RequestMethod.GET)
+    @RequestMapping(value = "/refresh-token", method = RequestMethod.GET)
     public ResponseInfo refreshToken() {
         String token = SpringMVCHelper.getRequest().getHeader(jwtConfig.getHeader());
         String realToken = token.startsWith(jwtConfig.getTokenHead())?StringUtils.substringAfterLast(token, jwtConfig.getTokenHead()):token;
@@ -114,7 +110,7 @@ public class AuthController extends BaseController{
      * @return 异常
      */
     @ApiOperation(value = "退出登录")
-    @RequestMapping(value = "/auth/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public ResponseInfo logout() {
         SecurityHelper.logout(SpringMVCHelper.getRequest());
         return this.warpObject(new ResponseInfo(ResponseMessage.RESULT_SUSSECC.getIndex(), ResponseMessage.RESULT_SUSSECC.getName()),null);

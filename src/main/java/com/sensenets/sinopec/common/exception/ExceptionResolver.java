@@ -55,6 +55,7 @@ public class ExceptionResolver {
         info.setMessage("操作失败");
         info.setStatus(ResponseInfo.Status.ERROR);
         info.setError(e.getMessage());
+        e.printStackTrace();
         return info;
     }
     

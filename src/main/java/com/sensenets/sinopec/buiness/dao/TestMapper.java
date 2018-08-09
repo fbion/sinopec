@@ -1,11 +1,11 @@
 package com.sensenets.sinopec.buiness.dao;
 
-import java.util.List;
-
+import com.sensenets.sinopec.buiness.condition.TestCondition;
+import com.sensenets.sinopec.buiness.model.Test;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.sensenets.sinopec.buiness.model.Test;
+import java.util.List;
 
 
 @Mapper
@@ -20,4 +20,7 @@ public interface TestMapper {
     List<Test> selectAll();
 
     int updateByPrimaryKey(@Param("test")Test record);
+
+    List<Test> selectPage(@Param("condition") TestCondition condition);
+
 }
