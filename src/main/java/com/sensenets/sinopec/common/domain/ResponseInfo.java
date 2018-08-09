@@ -10,6 +10,10 @@ public class ResponseInfo implements Serializable{
 	
 	private String message = "操作成功";
 	
+    private String error = "";
+	
+	private long  timestamp = System.currentTimeMillis();
+	
 	private Object data;
 	
 	private Status status = Status.SUCCESS;
@@ -20,6 +24,13 @@ public class ResponseInfo implements Serializable{
 		WARN
 	}
 
+	public ResponseInfo(int code, String message) {
+        this.code = code;
+        if(code != 200)
+            status = Status.ERROR;
+        this.message = message;
+    }
+	
 	public ResponseInfo(int code, String message, Object data) {
 		this.code = code;
 		if(code != 200)
@@ -35,6 +46,7 @@ public class ResponseInfo implements Serializable{
 		if(status != Status.SUCCESS)
 			code = 500;
 	}
+
 
 	public ResponseInfo() {
 		super();
@@ -80,8 +92,29 @@ public class ResponseInfo implements Serializable{
 		return this;
 	}
 	
-	@Override
-	public String toString() {
-		return "{status:"+status+",code:"+code+",message:"+message+",data:"+data+"}";
-	}
+	public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseInfo [code=" + code + ", message=" + message + ", error=" + error + ", timestamp=" + timestamp + ", data=" + data + ", status=" + status
+                + "]";
+    }
+
+    
+
+    
 }

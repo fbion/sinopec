@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sensenets.sinopec.common.exception.BizExceptionEnum;
-import com.sensenets.sinopec.common.exception.BussinessException;
+import com.sensenets.sinopec.common.exception.BusinessException;
 
 public class FileUtil {
 	
@@ -24,7 +24,7 @@ public class FileUtil {
 		File f = new File(filename);
 		if (!f.exists()) {
 			log.error("文件未找到！" + filename);
-			throw new BussinessException(BizExceptionEnum.FILE_NOT_FOUND);
+			throw new BusinessException(BizExceptionEnum.FILE_NOT_FOUND);
 		}
 		FileChannel channel = null;
 		FileInputStream fs = null;
@@ -38,17 +38,17 @@ public class FileUtil {
 			}
 			return byteBuffer.array();
 		} catch (IOException e) {
-			throw new BussinessException(BizExceptionEnum.FILE_READING_ERROR);
+			throw new BusinessException(BizExceptionEnum.FILE_READING_ERROR);
 		} finally {
 			try {
 				channel.close();
 			} catch (IOException e) {
-				throw new BussinessException(BizExceptionEnum.FILE_READING_ERROR);
+				throw new BusinessException(BizExceptionEnum.FILE_READING_ERROR);
 			}
 			try {
 				fs.close();
 			} catch (IOException e) {
-				throw new BussinessException(BizExceptionEnum.FILE_READING_ERROR);
+				throw new BusinessException(BizExceptionEnum.FILE_READING_ERROR);
 			}
 		}
 	}

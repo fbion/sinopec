@@ -3,7 +3,7 @@ package com.sensenets.sinopec.common.constant.dictmap.factory;
 import com.sensenets.sinopec.common.constant.dictmap.base.AbstractDictMap;
 import com.sensenets.sinopec.common.constant.dictmap.base.SystemDict;
 import com.sensenets.sinopec.common.exception.BizExceptionEnum;
-import com.sensenets.sinopec.common.exception.BussinessException;
+import com.sensenets.sinopec.common.exception.BusinessException;
 
 
 /**
@@ -28,7 +28,7 @@ public class DictMapFactory {
                 Class<AbstractDictMap> clazz = (Class<AbstractDictMap>) Class.forName(basePath + className);
                 return clazz.newInstance();
             } catch (Exception e) {
-                throw new BussinessException(BizExceptionEnum.ERROR_CREATE_DICT);
+                throw new BusinessException(BizExceptionEnum.ERROR_CREATE_DICT);
             }
         }
     }

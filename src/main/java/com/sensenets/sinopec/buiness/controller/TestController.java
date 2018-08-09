@@ -1,10 +1,11 @@
 package com.sensenets.sinopec.buiness.controller;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sensenets.sinopec.buiness.model.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
 import com.sensenets.sinopec.common.controller.BaseController;
-import com.sensenets.sinopec.common.domain.Product;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
 
 import io.swagger.annotations.Api;
@@ -30,8 +30,8 @@ import lombok.extern.slf4j.Slf4j;
   */
   
 @RestController
-@RequestMapping("/test")
-@Api(value="sinopec", description="sinopec 测试")
+@RequestMapping(value = "/test",produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE, "application/x-smile"})
+@Api(value="/test", tags = "Test", description="sinopec 测试")
 @Slf4j
 public class TestController extends BaseController {
 

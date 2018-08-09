@@ -94,6 +94,14 @@ public class BaseController {
         responseInfo.setData(warpper.warp());
         return responseInfo;
     }
+    
+    protected ResponseInfo warpObject(ResponseInfo info,Object obj) {
+        if(obj!=null){
+            BaseControllerWarpper warpper = new CommonControllerWarpper(obj);
+            info.setData(warpper.warp());
+        }
+        return info;
+    }
 
     /**
      * 删除cookie

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 
-import com.sensenets.sinopec.common.exception.ToolBoxException;
+import com.sensenets.sinopec.common.exception.ToolInitException;
 import com.sensenets.sinopec.common.utils.DateTime;
 
 /**
@@ -278,7 +278,7 @@ public class DateTimeKit {
 		try {
 			return new DateTime(simpleDateFormat.parse(dateStr));
 		} catch (Exception e) {
-			throw new ToolBoxException(StrKit.format("Parse [{}] with format [{}] error!", dateStr, simpleDateFormat.toPattern()), e);
+			throw new ToolInitException(StrKit.format("Parse [{}] with format [{}] error!", dateStr, simpleDateFormat.toPattern()), e);
 		}
 	}
 
@@ -352,11 +352,11 @@ public class DateTimeKit {
 				return parse(dateStr, NORM_DATETIME_MS_PATTERN);
 			}
 		} catch (Exception e) {
-			throw new ToolBoxException(StrKit.format("Parse [{}] with format normal error!", dateStr));
+			throw new ToolInitException(StrKit.format("Parse [{}] with format normal error!", dateStr));
 		}
 
 		// 没有更多匹配的时间格式
-		throw new ToolBoxException(StrKit.format(" [{}] format is not fit for date pattern!", dateStr));
+		throw new ToolInitException(StrKit.format(" [{}] format is not fit for date pattern!", dateStr));
 	}
 	// ------------------------------------ Parse end ----------------------------------------------
 

@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
 
-import com.sensenets.sinopec.common.exception.ToolBoxException;
+import com.sensenets.sinopec.common.exception.ToolInitException;
 
 /**
  * 集合相关工具类，包括数组
@@ -804,7 +804,7 @@ public class CollectionKit {
 					case "double":
 						return Arrays.toString((double[]) obj);
 					default:
-						throw new ToolBoxException(e);
+						throw new ToolInitException(e);
 				}
 			}
 		}

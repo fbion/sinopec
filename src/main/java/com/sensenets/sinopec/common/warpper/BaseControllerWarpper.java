@@ -1,11 +1,5 @@
 package com.sensenets.sinopec.common.warpper;
 
-import java.util.List;
-import java.util.Map;
-
-import com.sensenets.sinopec.common.utils.JsonHelper;
-
-
 /**
   * @ClassName: BaseControllerWarpper
   * @Description: 控制器查询结果的包装类基类
@@ -22,13 +16,7 @@ public abstract class BaseControllerWarpper {
     }
 
     public Object warp() {
-        if (this.obj instanceof List) {
-            return JsonHelper.toJson(this.obj);
-        } else if (this.obj instanceof Map) {
-            return JsonHelper.toJson(this.obj);
-        } else {
-            return JsonHelper.toJson(this.obj);
-        }
+       return this.obj;
     }
     
     

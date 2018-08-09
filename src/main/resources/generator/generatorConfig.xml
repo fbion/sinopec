@@ -19,16 +19,16 @@
 	    <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 
         
-        <!-- 注释生成器 -->
+        <!-- 注释生成器 是否去除自动生成的注释 true：是 ： false:否-->
          <commentGenerator>
              <property name="suppressDate" value="true"/>
-             <property name="suppressAllComments" value="true" />
+             <property name="suppressAllComments" value="false" />
          </commentGenerator>
 
-        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
-                        connectionURL="${spring.datasource.url}"
-                        userId="${spring.datasource.username}"
-                        password="${spring.datasource.password}">
+        <jdbcConnection driverClass="${spring.datasource.druid.driverClassName}"
+                        connectionURL="${spring.datasource.druid.url}"
+                        userId="${spring.datasource.druid.username}"
+                        password="${spring.datasource.druid.password}">
         </jdbcConnection>
          <!-- 生成模型的包名和位置--> 
         <javaModelGenerator targetPackage="com.sensenets.sinopec.buiness.model" 
@@ -41,6 +41,15 @@
                              targetProject="src/main/java"
                              type="XMLMAPPER"/>
                              
-        <table tableName="test" schema="public" ></table>
+        <table tableName="user" schema="public" domainObjectName="user" 
+            enableCountByExample="false" 
+            enableUpdateByExample="false"
+            enableDeleteByExample="false" 
+            enableSelectByExample="false"
+            selectByExampleQueryId="false"
+            >
+        </table>
+        
+            
     </context>
 </generatorConfiguration>

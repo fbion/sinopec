@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import com.sensenets.sinopec.common.constant.factory.ConstantFactory;
 import com.sensenets.sinopec.common.constant.factory.IConstantFactory;
 import com.sensenets.sinopec.common.exception.BizExceptionEnum;
-import com.sensenets.sinopec.common.exception.BussinessException;
+import com.sensenets.sinopec.common.exception.BusinessException;
 
 
 /**
@@ -29,7 +29,7 @@ public class DictFieldWarpperFactory {
                 Object result = method.invoke(me, Integer.parseInt(field.toString()));
                 return result;
             } catch (Exception e1) {
-                throw new BussinessException(BizExceptionEnum.ERROR_WRAPPER_FIELD);
+                throw new BusinessException(BizExceptionEnum.ERROR_WRAPPER_FIELD);
             }
         }
     }
