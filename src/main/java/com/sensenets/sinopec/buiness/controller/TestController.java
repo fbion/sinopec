@@ -1,21 +1,28 @@
 package com.sensenets.sinopec.buiness.controller;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.TestCondition;
+import com.sensenets.sinopec.buiness.kafka.kafkaSender;
 import com.sensenets.sinopec.buiness.model.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
  /**
   * @ClassName: TestController
@@ -33,6 +40,9 @@ public class TestController extends BaseController {
     @Autowired
     ITestService testService;
     
+    @Autowired
+    kafkaSender kafkaSender;
+    
     @ApiOperation(value = "列表")
     @RequestMapping(value = "/list", method= RequestMethod.GET, produces = "application/json")
     public ResponseInfo list(Model model){
@@ -44,12 +54,14 @@ public class TestController extends BaseController {
      @RequestMapping(value = "/listPage", method= RequestMethod.POST, produces = "application/json")
      public ResponseInfo listPage(@RequestBody TestCondition condition){
          PageInfo<Test> page = testService.findPage(condition);
+         kafkaSender.send("face", "人脸消息ok");
          return this.warpPageObject(page);
      }
 
     @ApiOperation(value = "根据id查询")
     @RequestMapping(value = "/query/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseInfo findProduct(@PathVariable Long id){
+        kafkaSender.send("vehicle", "车消息ok");
         return this.warpObject(testService.findById(id));
     }
 

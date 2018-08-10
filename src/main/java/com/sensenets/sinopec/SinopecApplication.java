@@ -20,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @IntegrationComponentScan
 public class SinopecApplication {
 
+  
 	public static void main(String[] args) {
 		SpringApplication.run(SinopecApplication.class, args);
 	}

@@ -46,7 +46,7 @@
     from public.test
     where 1=1
     <if test="condition.name != null and condition.name!=''">
-      and name::text like concat('%', #{condition.name},'%')
+    and name::text like concat('%', #{condition.name},'%')
     </if>
 
     <if test="condition.genStartTime != null">
