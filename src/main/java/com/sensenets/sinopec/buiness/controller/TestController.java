@@ -6,7 +6,6 @@ import com.sensenets.sinopec.buiness.model.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
-import com.sensenets.sinopec.common.domain.ResponsePage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,10 @@
 package com.sensenets.sinopec.buiness.condition;
 
-import com.sensenets.sinopec.buiness.model.Test;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sensenets.sinopec.common.utils.JsonHelper;
+
 import lombok.Data;
 
 /**
@@ -20,16 +23,28 @@ public class TestCondition  extends CommonCondition {
     private String startTime;
 
     private String endTime;
+    
+    @JsonIgnore
+    private Timestamp genStartTime ;
+    @JsonIgnore
+    private Timestamp genEndTime;
+    
+   public TestCondition() {
+       super();
+   }
 
     public TestCondition(String name) {
+        super();
         this.name = name;
     }
 
     public TestCondition(long id) {
+        super();
         this.id = id;
     }
 
     public TestCondition(String name, long id) {
+        super();
         this.name = name;
         this.id = id;
     }
@@ -41,4 +56,6 @@ public class TestCondition  extends CommonCondition {
         condition.setPageNumber(1);
         System.out.println(JsonHelper.toJson(condition));
     }
+
+  
 }

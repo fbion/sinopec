@@ -7,9 +7,12 @@ import com.sensenets.sinopec.buiness.condition.TestCondition;
 import com.sensenets.sinopec.buiness.dao.TestMapper;
 import com.sensenets.sinopec.buiness.model.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -53,7 +56,15 @@ public class TestServiceImpl implements ITestService {
      @Override
      public PageInfo<Test> findPage(CommonCondition condition) {
          PageHelper.startPage(condition.getPageNumber(), condition.getPageSize());
-         List<Test>  list = testDao.selectPage((TestCondition) condition);
+         TestCondition testCondition = (TestCondition) condition;
+         if(StringUtils.isNotBlank(testCondition.getEndTime())){
+             testCondition.setGenEndTime(Timestamp.valueOf(testCondition.getEndTime()));
+         }
+         if(StringUtils.isNotBlank(testCondition.getStartTime())){
+             testCondition.setGenStartTime(Timestamp.valueOf(testCondition.getStartTime()));
+         }
+         
+         List<Test>  list = testDao.selectPage(testCondition);
          PageInfo<Test> pageInfo = new PageInfo<Test>(list);
          return pageInfo;
      }
