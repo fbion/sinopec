@@ -75,7 +75,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
                 }
             }
         }else {
-            logger.debug("忽略的url:"+httpServletRequest.getRequestURI());
+            logger.info("忽略的url:"+httpServletRequest.getRequestURI());
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

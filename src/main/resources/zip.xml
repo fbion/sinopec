@@ -1,0 +1,56 @@
+<assembly xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2
+        http://maven.apache.org/xsd/assembly-1.1.2.xsd"
+        xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        >
+    <id>final</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <!-- 是否将工程名作为包的根路径 -->
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/src/main/resources</directory>
+            <!-- 过滤 -->
+            <excludes>
+                <exclude>zip.xml</exclude>
+                <exclude>*.so</exclude>
+                <exclude>*.dll</exclude>
+                <exclude>*.sql</exclude>
+                <exclude>*.0</exclude>
+                <exclude>*.2</exclude>
+                <exclude>static</exclude>
+            </excludes>
+            <includes>
+                <include>application.properties</include>
+                <include>application-dev.properties</include>
+                <include>application-pro.properties</include>
+                <include>run.bat</include>
+                <include>log4j2.xml</include>
+                <include>install.sh</include>
+                <include>sinopec</include>
+                <include>db</include>
+                <include>*.xml</include>
+                <include>*.properties</include>
+                <include>META-INF/**</include>
+                <include>com/**</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        
+     
+        <fileSet>
+            <directory>${project.build.directory}/lib</directory>
+            <outputDirectory>lib</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory> <!-- 将scope为runtime的依赖包打包到lib目录下。 -->
+            <scope>system</scope>
+        </dependencySet>
+    </dependencySets>
+</assembly>
