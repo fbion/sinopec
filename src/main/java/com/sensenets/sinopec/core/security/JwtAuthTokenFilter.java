@@ -61,7 +61,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
             } catch(SignatureException e){
                 logger.error("认证失败 ，用户名或者密码错误！");
             }
-            logger.info("JwtAuthTokenFilter[doFilterInternal] checking authentication " + useraccount);
+            logger.debug("JwtAuthTokenFilter[doFilterInternal] checking authentication " + useraccount);
             if (useraccount != null && SecurityContextHolder.getContext().getAuthentication() == null) {//token校验通过
                 //根据account去数据库中查询user数据，足够信任token的情况下，可以省略这一步
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(useraccount);
@@ -70,12 +70,12 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
                             httpServletRequest));
-                    logger.info("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
+                    logger.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
         }else {
-            logger.warn("忽略的url:"+httpServletRequest.getRequestURI());
+            logger.debug("忽略的url:"+httpServletRequest.getRequestURI());
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

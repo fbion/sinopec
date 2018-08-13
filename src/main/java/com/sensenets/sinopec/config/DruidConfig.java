@@ -50,7 +50,7 @@ public class DruidConfig {
     @Value("${spring.datasource.druid.logSlowSql}")
     private String logSlowSql;
     
-    @Bean
+    @Bean(destroyMethod = "close", initMethod = "init")
     @Primary
     public DataSource dataSource(Environment environment) {
         return DruidDataSourceBuilder

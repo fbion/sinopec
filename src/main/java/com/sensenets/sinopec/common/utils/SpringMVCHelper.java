@@ -1,5 +1,6 @@
 package com.sensenets.sinopec.common.utils;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -123,6 +125,7 @@ public class SpringMVCHelper {
     public static void showParams() throws IOException {
         Map<String, Object> map = new HashMap<String, Object>();
         Enumeration<String> paramNames = getRequest().getParameterNames();
+        
         while (paramNames.hasMoreElements()) {
             String paramName = paramNames.nextElement();
 
@@ -135,15 +138,13 @@ public class SpringMVCHelper {
             }
         }
         Set<Map.Entry<String, Object>> set = map.entrySet();
-        log.info(String.format("%s%s%s", "--------------", getRequest().getRequestURI(), "--------------"));
+        log.info(String.format("%s%s", "====>", getRequest().getRequestURI()));
         if (null != set && !set.isEmpty()) {
             for (Map.Entry<String, Object> entry : set) {
                 log.info(String.format("%s%s%s", entry.getKey(), ":", entry.getValue()));
             }
-        } else {
-            log.info("无请求参数！");
-        }
-        log.info(String.format("%s%s%s", "--------------", getRequest().getRequestURI(), "--------------"));
+        } 
+        
     }
 
     /**
