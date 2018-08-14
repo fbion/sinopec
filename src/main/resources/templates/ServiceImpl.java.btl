@@ -13,5 +13,41 @@ import ${import};
 @Service
 public class ${context.bizEnBigName}ServiceImpl implements I${context.bizEnBigName}Service {
 
+    @Autowired
+    ${context.bizEnBigName}Mapper ${context.bizEnName}Dao;
+
+    @Override
+    public int save(${context.bizEnBigName} record) {
+        return ${context.bizEnName}Dao.insert(record);
+    }
+
+    @Override
+    public boolean deleteById(Long id) {
+        return ${context.bizEnName}Dao.deleteByPrimaryKey(id) > 0 ? true : false;
+    }
+
+    @Override
+    public int updateById(${context.bizEnBigName} record) {
+        return ${context.bizEnName}Dao.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public ${context.bizEnBigName} findById(Long id) {
+        return ${context.bizEnName}Dao.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<${context.bizEnBigName}> findAll() {
+        return ${context.bizEnName}Dao.selectAll();
+    }
+
+    @Override
+    public PageInfo<${context.bizEnBigName}> findPage(CommonCondition commonCondition) {
+        PageHelper.startPage(commonCondition.getPageNumber(), commonCondition.getPageSize());
+        ${context.bizEnBigName}Condition condition = (${context.bizEnBigName}Condition) commonCondition;
+        List<${context.bizEnBigName}> list = ${context.bizEnName}Dao.selectPage(condition);
+        PageInfo<${context.bizEnBigName}> pageInfo = new PageInfo<${context.bizEnBigName}>(list);
+        return pageInfo;
+    }
 
 }

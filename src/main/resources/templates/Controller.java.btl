@@ -12,10 +12,55 @@ import ${import};
   */
   
 @RestController
-@RequestMapping("/${context.bizEnName}")
-@Api(value="sinopec", description="sinopec ${context.bizChName}")
+@Api(value="${context.bizEnBigName}Controller", tags = "${context.bizChName}接口", description="${context.bizEnBigName}Controller")
+@RequestMapping(value = "/service/${context.bizEnName}",produces = {APPLICATION_JSON_UTF8_VALUE})
 @Slf4j
 public class ${context.bizEnBigName}Controller extends BaseController {
 
+    @Autowired
+    I${context.bizEnBigName}Service ${context.bizEnName}Service;
+    
+    @ApiOperation(value = "列表")
+    @RequestMapping(value = "/list", method= RequestMethod.GET, produces = "application/json")
+    public ResponseInfo list(Model model){
+        List<${context.bizEnBigName}> list = ${context.bizEnName}Service.findAll();
+        return this.warpObject(list);
+    }
+
+     @ApiOperation(value = "分页列表")
+     @RequestMapping(value = "/listPage", method= RequestMethod.POST, produces = "application/json")
+     public ResponseInfo listPage(@RequestBody ${context.bizEnBigName}Condition condition){
+         PageInfo<${context.bizEnBigName}> page = ${context.bizEnName}Service.findPage(condition);
+         return this.warpPageObject(page);
+     }
+
+    @ApiOperation(value = "根据id查询")
+    @RequestMapping(value = "/query/{id}", method= RequestMethod.GET, produces = "application/json")
+    public ResponseInfo findProduct(@PathVariable Long id){
+        return this.warpObject(${context.bizEnName}Service.findById(id));
+    }
+
+    @ApiOperation(value = "添加")
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
+    public ResponseInfo saveProduct(@RequestBody ${context.bizEnBigName} ${context.bizEnName}){
+        return this.warpObject(${context.bizEnName}Service.save(${context.bizEnName}));
+    }
+
+    @ApiOperation(value = "修改")
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseInfo updateProduct(@PathVariable Long id, @RequestBody ${context.bizEnBigName} ${context.bizEnName}){
+        return this.warpObject(${context.bizEnName}Service.updateById(${context.bizEnName}));
+    }
+
+    @ApiOperation(value = "删除")
+    @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
+    public ResponseInfo delete(@PathVariable Long id){
+        return this.warpObject(${context.bizEnName}Service.deleteById(id));
+    }
+    
     
 }
+
+
+
+

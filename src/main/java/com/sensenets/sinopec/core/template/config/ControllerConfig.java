@@ -25,6 +25,7 @@ public class ControllerConfig {
         imports.add("com.sensenets.sinopec.common.controller.BaseController");
         imports.add("lombok.extern.slf4j.Slf4j");
         
+        
         imports.add("io.swagger.annotations.Api");
         imports.add("io.swagger.annotations.ApiOperation");
         imports.add("io.swagger.annotations.ApiResponse");
@@ -33,13 +34,26 @@ public class ControllerConfig {
         imports.add("org.springframework.http.ResponseEntity");
         imports.add("org.springframework.http.HttpStatus");
         imports.add("org.springframework.stereotype.Controller");
+        
         imports.add("org.springframework.web.bind.annotation.RequestMapping");
         imports.add("org.springframework.web.bind.annotation.ResponseBody");
         imports.add("org.springframework.web.bind.annotation.RestController");
         imports.add("org.springframework.web.bind.annotation.RequestMethod");
         imports.add("org.springframework.web.bind.annotation.PathVariable");
         
+        imports.add("static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE");
+        
+        imports.add("org.springframework.beans.factory.annotation.Autowired");
         imports.add("org.springframework.ui.Model");
+        
+        
+        imports.add("java.util.List");
+        imports.add("com.github.pagehelper.PageInfo");
+        
+        imports.add("com.sensenets.sinopec.common.domain.ResponseInfo");
+        imports.add("com.sensenets.sinopec.buiness.service.I"+contextConfig.getBizEnBigName()+"Service");
+        imports.add("com.sensenets.sinopec.buiness.condition."+contextConfig.getBizEnBigName()+"Condition");
+        imports.add("com.sensenets.sinopec.buiness.model."+contextConfig.getBizEnBigName()+"");
         
         this.imports = imports;
         this.packageName = "com.sensenets.sinopec.buiness.controller";

@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date 2018年8月5日 上午11:33:08
  *
  */
-@ApiModel(value="product实体",description="商品实体对象")
+@ApiModel(value="Product",description="商品实体对象")
 public class Product {
 
     @ApiModelProperty(value="商品id",name="id")

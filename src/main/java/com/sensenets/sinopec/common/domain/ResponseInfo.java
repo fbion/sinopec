@@ -2,20 +2,30 @@ package com.sensenets.sinopec.common.domain;
 
 import java.io.Serializable;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value="ResponseInfo",description="通用响应对象")
 public class ResponseInfo implements Serializable{
 	
     private static final long serialVersionUID = 377149733311412205L;
 
+    @ApiModelProperty(value="响应码",name="code",example="如：400,500,12000等")
     private int code = 200;
 	
+    @ApiModelProperty(value="响应提示",name="message",example="如：操作成功，操作失败，系统异常等")
 	private String message = "操作成功";
 	
+    @ApiModelProperty(value="异常响应提示",name="error",example="如：服务器异常")
     private String error = "";
 	
+    @ApiModelProperty(value="时间戳",name="timestamp",example="13458638658")
 	private long  timestamp = System.currentTimeMillis();
 	
+    @ApiModelProperty(value="响应数据",name="data")
 	private Object data;
 	
+    @ApiModelProperty(value="响应状态",name="status",example="如：ERROR,SUCCESS,WARN")
 	private Status status = Status.SUCCESS;
 	
 	public enum Status{

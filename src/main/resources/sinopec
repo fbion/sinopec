@@ -1,6 +1,4 @@
 #!/bin/sh
-# chkconfig: 345 64 36
-# description: Sinopec  Server.
 project=sinopec
 jarpath=/home/sinopec-release-final
 jarname=sinopec-release.jar
@@ -19,16 +17,20 @@ log_file_dir="${jarpath}/logs"
 log_file_url="$log_file_dir/$project.log"
 command="java -server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms128m -Xmx2048m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps -XX:+PrintGCDetails -verbose:gc -Xloggc:gc.log -cp $CLASSPATH -jar $jarpath/$jarname "
 
-if [ ! -x $log_file_dir ] ; then
+if [ ! -x $log_file_dir ] 
+ then
     mkdir -p  $log_file_dir
 fi
-if [ ! -f $log_file_url ] ; then
+if [ ! -f $log_file_url ]  
+ then
 	touch $log_file_url 
 fi
 start(){
-	proStartCount=`jps | grep $jarname |wc -l`
-    if [ 0 == $proStartCount ];then
-		if [ "$log_file_url" != "" ]; then
+	proStartCount=`jps | grep $jarname |wc -l` ;
+    if [  $proStartCount -eq 0 ] 
+	  then
+		if [ "$log_file_url" != "" ] 
+		 then
           exec $command  > "$log_file_url" &
           echo "$project started "
         else
@@ -48,8 +50,9 @@ stop(){
 }
 
 status(){  
- proCount=`jps | grep $jarname |wc -l`
-	if [ 0 == $proCount ];then
+ proCount=`jps | grep $jarname |wc -l` ;
+	if [ $proCount -eq 0 ] 
+	  then
 		echo "$project is not running"
 	else
         echo "$project is running"

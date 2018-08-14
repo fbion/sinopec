@@ -20,13 +20,38 @@ public class ServiceConfig {
 
     private String packageName;
 
+    private List<String> serviceImports;
     private List<String> serviceImplImports;
 
     public void init() {
         ArrayList<String> imports = new ArrayList<>();
-        imports.add("org.springframework.stereotype.Service");
-        imports.add("com.sensenets.sinopec.buiness.service.I" + contextConfig.getBizEnBigName() + "Service");
-        this.serviceImplImports = imports;
+        imports.add("com.github.pagehelper.PageInfo");
+        imports.add("com.sensenets.sinopec.buiness.condition.CommonCondition");
+        imports.add("com.sensenets.sinopec.buiness.model."+contextConfig.getBizEnBigName()+"");
+        imports.add("java.util.List");
+        
+        this.serviceImports = imports;
+        
+        ArrayList<String> implImports = new ArrayList<>();
+        implImports.add("org.springframework.stereotype.Service");
+        implImports.add("com.sensenets.sinopec.buiness.service.I" + contextConfig.getBizEnBigName() + "Service");
+        implImports.add("com.github.pagehelper.PageInfo");
+        implImports.add("com.sensenets.sinopec.buiness.condition.CommonCondition");
+        
+        implImports.add("com.sensenets.sinopec.buiness.condition."+contextConfig.getBizEnBigName()+"Condition");
+        
+        implImports.add("com.sensenets.sinopec.buiness.model."+contextConfig.getBizEnBigName()+"");
+        implImports.add("com.sensenets.sinopec.buiness.dao."+contextConfig.getBizEnBigName()+"Mapper");
+        implImports.add("java.util.List");
+        implImports.add("org.apache.commons.lang3.StringUtils");
+        implImports.add("org.springframework.beans.factory.annotation.Autowired");
+        implImports.add("com.github.pagehelper.PageHelper");
+        implImports.add("com.github.pagehelper.PageInfo");
+        
+        
+        this.serviceImplImports = implImports;
+        
+        
         this.servicePathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\service\\I{}Service.java";
         this.serviceImplPathTemplate = "\\src\\main\\java\\com\\sensenets\\sinopec\\buiness\\service\\impl\\{}ServiceImpl.java";
         this.packageName = "com.sensenets.sinopec.buiness.service";
@@ -63,6 +88,14 @@ public class ServiceConfig {
 
     public void setServiceImplImports(List<String> serviceImplImports) {
         this.serviceImplImports = serviceImplImports;
+    }
+    
+    public List<String> getServiceImports() {
+        return serviceImports;
+    }
+
+    public void setServiceImports(List<String> serviceImports) {
+        this.serviceImports = serviceImports;
     }
 
     public ContextConfig getContextConfig() {

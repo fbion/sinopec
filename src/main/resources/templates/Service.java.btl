@@ -1,6 +1,10 @@
 package ${service.packageName};
 
 
+<% for(import in service.serviceImports!){ %>
+import ${import};
+<% } %>
+
  /**
   * @ClassName: ${context.bizEnBigName}Service
   * @Description: ${context.bizChName}业务层接口
@@ -9,4 +13,18 @@ package ${service.packageName};
   */
 public interface I${context.bizEnBigName}Service {
 
+    ${context.bizEnBigName} findById(Long id);
+
+    boolean deleteById(Long id);
+    
+    int updateById(${context.bizEnBigName} ${context.bizEnName});
+    
+    int save(${context.bizEnBigName} ${context.bizEnName});
+    
+    List<${context.bizEnBigName}> findAll();
+
+    PageInfo<${context.bizEnBigName}> findPage(CommonCondition commonCondition);
+
 }
+
+
