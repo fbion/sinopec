@@ -15,7 +15,7 @@ export CLASSPATH=$CLASSPATH
 now=$(date +%Y%m%d)
 log_file_dir="${jarpath}/logs"
 log_file_url="$log_file_dir/$project.log"
-command="java -server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms128m -Xmx2048m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps -XX:+PrintGCDetails -verbose:gc -Xloggc:gc.log -cp $CLASSPATH -jar $jarpath/$jarname "
+command="java -server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms128m -Xmx2048m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps -XX:+PrintGCDetails -verbose:gc -Xloggc:gc.log -cp $CLASSPATH -jar $jarpath/$jarname  --spring.config.location=classpath:/application.properties   "
 
 if [ ! -x $log_file_dir ] 
  then
