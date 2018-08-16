@@ -30,7 +30,7 @@
                         userId="${spring.datasource.druid.username}"
                         password="${spring.datasource.druid.password}">
         </jdbcConnection>
-         <!-- 生成模型的包名和位置--> 
+        <!-- 生成模型的包名和位置--> 
         <javaModelGenerator targetPackage="com.sensenets.sinopec.buiness.model" 
                             targetProject="src/main/java"/>
         <!-- 生成映射文件的包名和位置 ,此处需注意 DAO和Mapper文件必须在同一个包名下--> 
