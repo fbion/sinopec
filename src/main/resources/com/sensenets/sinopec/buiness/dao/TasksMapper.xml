@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.TasksMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.Tasks">
+        <id column="task_id" jdbcType="VARCHAR" property="taskId" />
+        <result column="id" jdbcType="BIGINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="ts" jdbcType="BIGINT" property="ts" />
+        <result column="source_id" jdbcType="VARCHAR" property="sourceId" />
+        <result column="olympus_id" jdbcType="VARCHAR" property="olympusId" />
+        <result column="stream_id" jdbcType="VARCHAR" property="streamId" />
+        <result column="det_types" jdbcType="VARCHAR" property="detTypes" />
+        <result column="speed" jdbcType="INTEGER" property="speed" />
+        <result column="relative_rois" jdbcType="VARCHAR" property="relativeRois" />
+        <result column="polygon_rois" jdbcType="VARCHAR" property="polygonRois" />
+        <result column="user_configs" jdbcType="VARCHAR" property="userConfigs" />
+        <result column="base_time" jdbcType="BIGINT" property="baseTime" />
+        <result column="start_time" jdbcType="BIGINT" property="startTime" />
+        <result column="terminate_time" jdbcType="BIGINT" property="terminateTime" />
+        <result column="finish_time" jdbcType="BIGINT" property="finishTime" />
+        <result column="switcher" jdbcType="SMALLINT" property="switcher" />
+        <result column="task_status" jdbcType="SMALLINT" property="taskStatus" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="filter_threshold" jdbcType="DOUBLE" property="filterThreshold" />
+        <result column="snapshot" jdbcType="INTEGER" property="snapshot" />
+        <result column="priority" jdbcType="SMALLINT" property="priority" />
+        <result column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="lanes" jdbcType="VARCHAR" property="lanes" />
+        <result column="additional_infos" jdbcType="VARCHAR" property="additionalInfos" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from "tasks"
+        where task_id = #{taskId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.Tasks">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "tasks" (task_id, uts, name, 
+            ts, source_id, olympus_id, 
+            stream_id, det_types, speed, 
+            relative_rois, polygon_rois, user_configs, 
+            base_time, start_time, terminate_time, 
+            finish_time, switcher, task_status, 
+            status, filter_threshold, snapshot, 
+            priority, user_id, lanes, 
+            additional_infos)
+        values (#{taskId,jdbcType=VARCHAR}, #{uts,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, 
+            #{ts,jdbcType=BIGINT}, #{sourceId,jdbcType=VARCHAR}, #{olympusId,jdbcType=VARCHAR}, 
+            #{streamId,jdbcType=VARCHAR}, #{detTypes,jdbcType=VARCHAR}, #{speed,jdbcType=INTEGER}, 
+            #{relativeRois,jdbcType=VARCHAR}, #{polygonRois,jdbcType=VARCHAR}, #{userConfigs,jdbcType=VARCHAR}, 
+            #{baseTime,jdbcType=BIGINT}, #{startTime,jdbcType=BIGINT}, #{terminateTime,jdbcType=BIGINT}, 
+            #{finishTime,jdbcType=BIGINT}, #{switcher,jdbcType=SMALLINT}, #{taskStatus,jdbcType=SMALLINT}, 
+            #{status,jdbcType=SMALLINT}, #{filterThreshold,jdbcType=DOUBLE}, #{snapshot,jdbcType=INTEGER}, 
+            #{priority,jdbcType=SMALLINT}, #{userId,jdbcType=VARCHAR}, #{lanes,jdbcType=VARCHAR}, 
+            #{additionalInfos,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.Tasks">
+        update "tasks"
+        set id = #{id,jdbcType=BIGINT},
+            uts = #{uts,jdbcType=TIMESTAMP},
+            name = #{name,jdbcType=VARCHAR},
+            ts = #{ts,jdbcType=BIGINT},
+            source_id = #{sourceId,jdbcType=VARCHAR},
+            olympus_id = #{olympusId,jdbcType=VARCHAR},
+            stream_id = #{streamId,jdbcType=VARCHAR},
+            det_types = #{detTypes,jdbcType=VARCHAR},
+            speed = #{speed,jdbcType=INTEGER},
+            relative_rois = #{relativeRois,jdbcType=VARCHAR},
+            polygon_rois = #{polygonRois,jdbcType=VARCHAR},
+            user_configs = #{userConfigs,jdbcType=VARCHAR},
+            base_time = #{baseTime,jdbcType=BIGINT},
+            start_time = #{startTime,jdbcType=BIGINT},
+            terminate_time = #{terminateTime,jdbcType=BIGINT},
+            finish_time = #{finishTime,jdbcType=BIGINT},
+            switcher = #{switcher,jdbcType=SMALLINT},
+            task_status = #{taskStatus,jdbcType=SMALLINT},
+            status = #{status,jdbcType=SMALLINT},
+            filter_threshold = #{filterThreshold,jdbcType=DOUBLE},
+            snapshot = #{snapshot,jdbcType=INTEGER},
+            priority = #{priority,jdbcType=SMALLINT},
+            user_id = #{userId,jdbcType=VARCHAR},
+            lanes = #{lanes,jdbcType=VARCHAR},
+            additional_infos = #{additionalInfos,jdbcType=VARCHAR}
+        where task_id = #{taskId,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select task_id, id, uts, name, ts, source_id, olympus_id, stream_id, det_types, speed, 
+        relative_rois, polygon_rois, user_configs, base_time, start_time, terminate_time, 
+        finish_time, switcher, task_status, status, filter_threshold, snapshot, priority, 
+        user_id, lanes, additional_infos
+        from "tasks"
+        where task_id = #{taskId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select task_id, id, uts, name, ts, source_id, olympus_id, stream_id, det_types, speed, 
+        relative_rois, polygon_rois, user_configs, base_time, start_time, terminate_time, 
+        finish_time, switcher, task_status, status, filter_threshold, snapshot, priority, 
+        user_id, lanes, additional_infos
+        from "tasks"
+    </select>
+</mapper>

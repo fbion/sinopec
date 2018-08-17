@@ -1,16 +1,17 @@
 package com.sensenets.sinopec.core.security;
 
-import com.sensenets.sinopec.buiness.model.User;
-import com.sensenets.sinopec.common.utils.MD5Helper;
-import com.sensenets.sinopec.core.security.entity.AuthorityName;
-import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.sensenets.sinopec.buiness.model.VjUserLoginView;
+import com.sensenets.sinopec.buiness.service.IVjUserLoginViewService;
+import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
 
 
 /**
@@ -23,6 +24,9 @@ import java.util.List;
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
+    @Autowired
+    private IVjUserLoginViewService  userLoginViewService;
+    
     /**
      * 提供一种从用户名可以查到用户并返回的方法
      * @param account
@@ -31,14 +35,12 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
-        /**TODO:此处需要写明从用户表里面跟根据用户account查询用户的方法**/
-        User user =new User();
-        user.setAccount("admin");
-        user.setPwd(MD5Helper.toMD5("123"));
-        user.setId(1L);
-        List<String> roles=new ArrayList<>();
-        roles.add(AuthorityName.ROLE_PLATFORM.getIndex());
-        user.setRoles(roles);
-        return JwtUserFactory.create(user);
+        List<VjUserLoginView> views = userLoginViewService.findForLogin(account);
+        if(CollectionUtils.isNotEmpty(views)){
+            return JwtUserFactory.createFromList(views);
+        } else {
+            throw new UsernameNotFoundException("登录的用户不存在！");
+        }
     }
 }
+

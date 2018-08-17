@@ -1,0 +1,34 @@
+package com.sensenets.sinopec.buiness.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sensenets.sinopec.buiness.dao.VjUserLoginViewMapper;
+import com.sensenets.sinopec.buiness.model.VjUserLoginView;
+import com.sensenets.sinopec.buiness.service.IVjUserLoginViewService;
+
+ /**
+  * @ClassName: VjUserLoginViewServiceImpl
+  * @Description: 用户登录视图业务层接口实现
+  * @author think
+  * @date 2018年08月16日 19:12:36
+  */
+@Service
+public class VjUserLoginViewServiceImpl implements IVjUserLoginViewService {
+
+    @Autowired
+    VjUserLoginViewMapper vjUserLoginViewDao;
+
+    @Override
+    public List<VjUserLoginView> findForLogin(String username){
+        VjUserLoginView view = new VjUserLoginView();
+        view.setUserName(username);
+        List<VjUserLoginView> reView = vjUserLoginViewDao.selectByUserInfo(view);
+        return reView;
+    }
+
+   
+
+}

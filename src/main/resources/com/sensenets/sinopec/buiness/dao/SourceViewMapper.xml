@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.SourceViewMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.SourceView">
+        <result column="id" jdbcType="BIGINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="source_id" jdbcType="VARCHAR" property="sourceId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="type" jdbcType="SMALLINT" property="type" />
+        <result column="uri" jdbcType="VARCHAR" property="uri" />
+        <result column="repo_id" jdbcType="VARCHAR" property="repoId" />
+        <result column="sensor_id" jdbcType="VARCHAR" property="sensorId" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="repo_name" jdbcType="VARCHAR" property="repoName" />
+        <result column="sensor_name" jdbcType="VARCHAR" property="sensorName" />
+        <result column="comment" jdbcType="VARCHAR" property="comment" />
+        <result column="source_comment" jdbcType="VARCHAR" property="sourceComment" />
+    </resultMap>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.SourceView">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "source_view" (uts, source_id, name, 
+            type, uri, repo_id, 
+            sensor_id, status, repo_name, 
+            sensor_name, comment, source_comment
+            )
+        values (#{uts,jdbcType=TIMESTAMP}, #{sourceId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+            #{type,jdbcType=SMALLINT}, #{uri,jdbcType=VARCHAR}, #{repoId,jdbcType=VARCHAR}, 
+            #{sensorId,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, #{repoName,jdbcType=VARCHAR}, 
+            #{sensorName,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{sourceComment,jdbcType=VARCHAR}
+            )
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, uts, source_id, name, type, uri, repo_id, sensor_id, status, repo_name, 
+        sensor_name, comment, source_comment
+        from "source_view"
+    </select>
+</mapper>

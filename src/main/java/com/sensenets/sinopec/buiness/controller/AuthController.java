@@ -1,5 +1,6 @@
 package com.sensenets.sinopec.buiness.controller;
 
+import com.sensenets.sinopec.buiness.kafka.kafkaSender;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
 import com.sensenets.sinopec.common.utils.SpringMVCHelper;
@@ -51,24 +52,21 @@ public class AuthController extends BaseController{
 
     @Autowired
     private UserDetailsService userDetailsService;
-
-
+    
+    @Autowired
+    kafkaSender sender;
+    
     @ApiOperation(value = "用户验证，创建token")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseInfo createToken(@RequestBody JwtAuthRequest authRequest) throws Exception {
         try {
+            sender.send("devo-topic", "hello！");
             // 将认证信息保存
             final Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             // 认证通过后，重新加载密码，生成token
             final JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(authRequest.getUsername());
-            // 限定用户角色
-            if (CollectionUtils.isEmpty(jwtUser.getAuthorities())
-                    || (!StringUtils.equals(jwtUser.getAuthorities().toArray(new GrantedAuthority[jwtUser.getAuthorities().size()])[0].getAuthority(),
-                            AuthorityName.ROLE_PLATFORM.getIndex()))) {
-                return this.warpObject(new ResponseInfo(ResponseMessage.RESULT_FAIL_ROLE.getIndex(), ResponseMessage.RESULT_FAIL_ROLE.getName()),null);
-            }
             // 账户大小写敏感校验
             if (!JwtUtil.isSameUid(authRequest.getUsername(), jwtUser.getUsername())) {
                 return this.warpObject(new ResponseInfo(ResponseMessage.RESULT_FAIL_NAME.getIndex(), ResponseMessage.RESULT_FAIL_NAME.getName()),null);
@@ -83,6 +81,7 @@ public class AuthController extends BaseController{
             // 正常禁用
             return this.warpObject(new ResponseInfo(ResponseMessage.ACCOUNT_DISABLE.getIndex(), ResponseMessage.ACCOUNT_DISABLE.getName()),null);
         } catch (Exception e) {
+            e.printStackTrace();
             // 系统异常
             return this.warpObject(new ResponseInfo(ResponseMessage.RESULT_FAIL_SYSTEM.getIndex(), ResponseMessage.RESULT_FAIL_SYSTEM.getName()),null);
         }

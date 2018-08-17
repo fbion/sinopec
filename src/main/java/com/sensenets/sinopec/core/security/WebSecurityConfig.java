@@ -1,8 +1,5 @@
 package com.sensenets.sinopec.core.security;
 
-import com.sensenets.sinopec.common.utils.MD5Helper;
-import com.sensenets.sinopec.config.JwtConfig;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +13,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.sensenets.sinopec.common.utils.MD5Helper;
+import com.sensenets.sinopec.config.JwtConfig;
+import com.sensenets.sinopec.core.security.url.UrlAccessDecisionManager;
+import com.sensenets.sinopec.core.security.url.UrlAccessDeniedHandler;
+import com.sensenets.sinopec.core.security.url.UrlFilterSecurityInterceptor;
+import com.sensenets.sinopec.core.security.url.UrlSecurityMetadataSource;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -39,8 +46,51 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
     
     @Autowired
+    private  UrlAccessDecisionManager accessDecisionManager;
+    
+    @Autowired
+    private  UrlSecurityMetadataSource securityMetadataSource;
+    
+    @Autowired
+    private UrlAccessDeniedHandler accessDeniedHandler;
+    
+    
+    @Autowired
     private JwtConfig jwtConfig;
 
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManagerBean();
+    }
+   
+    /**
+      * @Title: authenticationTokenFilter
+      * @Description: token过滤器
+      * @return
+      * @throws Exception
+      */
+    @Bean
+    public JwtAuthTokenFilter authenticationTokenFilter() throws Exception {
+        JwtAuthTokenFilter authTokenFilter = new JwtAuthTokenFilter();
+        authTokenFilter.setAuthenticationManager(authenticationManager());
+        return authTokenFilter;
+    }
+    
+    
+    /**
+      * @Title: filterSecurityInterceptor
+      * @Description: url权限控制过滤拦截器
+      * @return
+      * @throws Exception
+      */
+    @Bean
+    public UrlFilterSecurityInterceptor filterSecurityInterceptor() throws Exception {
+        UrlFilterSecurityInterceptor urlFilterSecurityInterceptor = 
+                new UrlFilterSecurityInterceptor(authenticationManager(),securityMetadataSource,accessDecisionManager);
+        return urlFilterSecurityInterceptor;
+    }
+    
   
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -56,17 +106,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return passwordEncoder;
     }
 
-    @Bean
-    public JwtAuthTokenFilter authenticationTokenFilterBean() throws Exception {
-        return new JwtAuthTokenFilter();
-    }
-  
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-  
+    
+   
     /**
      * 密码比对方式MD5 
      * @return
@@ -75,6 +116,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
     }
+    
+    
     
     /**
      * token请求授权
@@ -86,18 +129,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 // 由于使用的是JWT，我们这里不需要csrf
                 .csrf().disable()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()//未授权处理
+                // 没有权限禁止访问异常处理
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
+                //未授权处理
+                .authenticationEntryPoint(unauthorizedHandler).and()
                 // 基于token，所以不需要session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
-                // 除上面外的所有请求全部需要鉴权认证
-//                .antMatchers(jwtConfig.getExceptUrl()).permitAll()
                 .anyRequest().authenticated();
-
-        // 添加JWT filter
-        //将token验证添加在密码验证前面
-        httpSecurity
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);  
+        
+        //将JWT验证添加在密码验证前面
+        httpSecurity.addFilterBefore(authenticationTokenFilter(),UsernamePasswordAuthenticationFilter.class);
+        //将url验证添加在默认拦截器FilterSecurityInterceptor验证位置
+        httpSecurity.addFilterAt(filterSecurityInterceptor(),FilterSecurityInterceptor.class);
         // 禁用缓存
         httpSecurity.headers().cacheControl();
     }

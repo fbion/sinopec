@@ -1,11 +1,13 @@
 package com.sensenets.sinopec.common.exception;
 
-import com.sensenets.sinopec.common.domain.ResponseInfo;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.sensenets.sinopec.common.domain.ResponseInfo;
 
 
 /**
@@ -58,6 +60,20 @@ public class ExceptionResolver {
         e.printStackTrace();
         return info;
     }
+    
+    @ExceptionHandler(value = AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public @ResponseBody ResponseInfo commonAccessDeniedExceptionHandler(AccessDeniedException e) {
+        ResponseInfo info = new ResponseInfo();
+        info.setCode(403);
+        info.setMessage("操作失败");
+        info.setStatus(ResponseInfo.Status.ERROR);
+        info.setError(e.getMessage());
+        e.printStackTrace();
+        return info;
+    }
+    
+    
     
 
 }

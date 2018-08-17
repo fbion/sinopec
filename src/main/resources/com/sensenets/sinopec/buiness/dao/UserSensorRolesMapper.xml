@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.UserSensorRolesMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.UserSensorRoles">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="sensor_role_id" jdbcType="VARCHAR" property="sensorRoleId" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="type" jdbcType="SMALLINT" property="type" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from "user_sensor_roles"
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.UserSensorRoles">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "user_sensor_roles" (uts, user_id, sensor_role_id, 
+            status, type)
+        values (#{uts,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}, #{sensorRoleId,jdbcType=VARCHAR}, 
+            #{status,jdbcType=SMALLINT}, #{type,jdbcType=SMALLINT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.UserSensorRoles">
+        update "user_sensor_roles"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            user_id = #{userId,jdbcType=VARCHAR},
+            sensor_role_id = #{sensorRoleId,jdbcType=VARCHAR},
+            status = #{status,jdbcType=SMALLINT},
+            type = #{type,jdbcType=SMALLINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, uts, user_id, sensor_role_id, status, type
+        from "user_sensor_roles"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, uts, user_id, sensor_role_id, status, type
+        from "user_sensor_roles"
+    </select>
+</mapper>

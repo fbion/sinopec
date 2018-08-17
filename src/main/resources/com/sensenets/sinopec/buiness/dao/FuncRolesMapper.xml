@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.FuncRolesMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.FuncRoles">
+        <id column="func_role_id" jdbcType="VARCHAR" property="funcRoleId" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="func_role_name" jdbcType="VARCHAR" property="funcRoleName" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="comment" jdbcType="VARCHAR" property="comment" />
+        <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from "func_roles"
+        where func_role_id = #{funcRoleId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.FuncRoles">
+        <selectKey keyProperty="funcRoleId" order="AFTER" resultType="java.lang.String">
+            PostgreSQL
+        </selectKey>
+        insert into "func_roles" (uts, func_role_name, status, 
+            comment, create_user)
+        values (#{uts,jdbcType=TIMESTAMP}, #{funcRoleName,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
+            #{comment,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.FuncRoles">
+        update "func_roles"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            func_role_name = #{funcRoleName,jdbcType=VARCHAR},
+            status = #{status,jdbcType=SMALLINT},
+            comment = #{comment,jdbcType=VARCHAR},
+            create_user = #{createUser,jdbcType=VARCHAR}
+        where func_role_id = #{funcRoleId,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select func_role_id, uts, func_role_name, status, comment, create_user
+        from "func_roles"
+        where func_role_id = #{funcRoleId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select func_role_id, uts, func_role_name, status, comment, create_user
+        from "func_roles"
+    </select>
+</mapper>

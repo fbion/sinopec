@@ -5,6 +5,10 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.Data;
+
+import lombok.Data;
+
 /**
   * @ClassName: JwtUser
   * @Description: 为了安全服务的User
@@ -12,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
   * @date 2018年8月8日 上午9:31:27
   *
   */
+@Data
 public class JwtUser  implements UserDetails {
 
     /**
@@ -19,25 +24,38 @@ public class JwtUser  implements UserDetails {
       */
     private static final long serialVersionUID = -1511562200158179564L;
     
-    private final Long id;
-    private final String username; //设置为account
+    private final String userId;
+    private final String username; 
     private final String password;
-    private final Collection<? extends GrantedAuthority> authorities;
+    // 是否启用
+    private final boolean enable;
+    // 是否删除
+    private final boolean status;
+    
+    // 功能角色
+    private final Collection<? extends GrantedAuthority> funAuthorities;
+    // 设备角色
+    private final Collection<? extends GrantedAuthority> sensorAuthorities;
+    
+    
 
-    public JwtUser(Long id, String username, String password,  Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
+    public JwtUser(String userId,String username, String password,boolean enable,boolean status,Collection<? extends GrantedAuthority> funAuthorities,Collection<? extends GrantedAuthority> sensorAuthorities) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
-        this.authorities = authorities;
+        this.enable = enable;
+        this.status = status;
+        this.funAuthorities = funAuthorities;
+        this.sensorAuthorities = sensorAuthorities;
     }
 
     /**
-     * 返回分配给用户的角色列表
+     * 返回分配给用户的功能角色列表
      * @return
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
+        return this.funAuthorities;
     }
 
     @Override
@@ -60,7 +78,7 @@ public class JwtUser  implements UserDetails {
     }
 
     /**
-     * 账户是否未锁定
+     * 账户是否启用
      * @return
      */
     @Override

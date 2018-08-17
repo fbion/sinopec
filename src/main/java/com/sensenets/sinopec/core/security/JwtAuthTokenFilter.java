@@ -4,8 +4,9 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +14,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.sensenets.sinopec.core.security.util.JwtUtil;
 
@@ -24,13 +24,12 @@ import io.jsonwebtoken.SignatureException;
 
 /**
   * @ClassName: JwtAuthenticationTokenFilter
-  * @Description: 验证token
+  * @Description: 验证token(本类不要加Component注解否则无法创建JwtAuthTokenFilter对象)
   * @author think
   * @date 2018年8月8日 上午9:51:58
   *
   */
-@Component
-public class JwtAuthTokenFilter extends OncePerRequestFilter {
+public class JwtAuthTokenFilter extends UsernamePasswordAuthenticationFilter {
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -46,8 +45,9 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        String authHeader = httpServletRequest.getHeader(this.tokenHeader);
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException{
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        String authHeader = request.getHeader(this.tokenHeader);
         if (authHeader != null) {
             // 如果带有"Bearer "截取"Bearer "之后的token字符串，否则直接获取
             final String authToken = authHeader.startsWith(tokenHead)?authHeader.substring(tokenHead.length()+1):authHeader; 
@@ -69,14 +69,14 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
-                            httpServletRequest));
+                            request));
                     logger.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
         }else {
-            logger.info("忽略的url:"+httpServletRequest.getRequestURI());
+            logger.info("忽略的url:"+request.getRequestURI());
         }
-        filterChain.doFilter(httpServletRequest, httpServletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
