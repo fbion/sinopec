@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang.ObjectUtils;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
@@ -44,15 +44,8 @@ public class UrlAccessDecisionManager implements AccessDecisionManager {
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
         HttpServletRequest request = ((FilterInvocation) object).getHttpRequest();
-        if ("anonymousUser".equals(authentication.getPrincipal())
-                || matchers("/images/**", request)
-                || matchers("/js/**", request)
-                || matchers("/css/**", request)
-                || matchers("/fonts/**", request)
-                || matchers("/", request)
-                || matchers("/index.html", request)
-                || matchers("/favicon.ico", request)
-                || matchers("/login", request)) {
+        boolean isAnonymousUser = ObjectUtils.toString(authentication.getPrincipal()).equals("anonymousUser") ;
+        if (isAnonymousUser) {
             return;
         } else {
             if(configAttributes!=null&&configAttributes.size()==1) {

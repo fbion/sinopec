@@ -1,21 +1,22 @@
 package com.sensenets.sinopec.config;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.context.annotation.Bean;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.sensenets.sinopec.common.interceptor.RequestParamsInterceptor;
-
-import java.util.List;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
-   
+
+    @Autowired
+    private FastJsonHttpMessageConverter fastJsonHttpMessageConverter;
+    
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new RequestParamsInterceptor());
@@ -30,6 +31,13 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+    
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+           super.configureMessageConverters(converters);
+           converters.add(fastJsonHttpMessageConverter);
+    }
+
 
 
 

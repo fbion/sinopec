@@ -1,12 +1,13 @@
 package com.sensenets.sinopec;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.integration.annotation.IntegrationComponentScan;
+import org.springframework.integration.config.EnableIntegration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.sensenets.sinopec.common.startup.SysAppContextInitializer;
 
 /**
   * @ClassName: SinopecApplication
@@ -17,14 +18,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
   */
 @EnableWebMvc
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = { JacksonAutoConfiguration.class })
+@EnableIntegration
 @IntegrationComponentScan
 @ServletComponentScan 
 public class SinopecApplication {
-
   
 	public static void main(String[] args) {
-		SpringApplication.run(SinopecApplication.class, args);
+	    SpringApplication app = new SpringApplication(SinopecApplication.class);
+        app.addInitializers(new SysAppContextInitializer());
+        app.run(args);
 	}
 
 }

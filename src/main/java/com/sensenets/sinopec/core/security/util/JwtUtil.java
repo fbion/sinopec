@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -31,10 +33,10 @@ public class JwtUtil {
     private static final String CLAIM_KEY_CREATED = "created";
 
     @Value("${jwt.secret}")
-    private String secret; //秘钥
+    private  String secret; //秘钥
 
     @Value("${jwt.expiration}")
-    private Long expiration; //过期时间
+    private  Long expiration; //过期时间
 
     /**
      * 从token中获取用户account
@@ -109,6 +111,8 @@ public class JwtUtil {
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
+    
+    
 
     /**
      * 判断token是否过期
@@ -132,6 +136,18 @@ public class JwtUtil {
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
+    
+    /**
+     * 生成token
+     * @param  user
+     * @return
+     */
+    public  String generateToken(Authentication authentication) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put(CLAIM_KEY_USER_ACCOUNT, authentication.getName());
+        claims.put(CLAIM_KEY_CREATED, new Date());
+        return generateToken(claims);
+    }
 
 
     /**
@@ -146,7 +162,7 @@ public class JwtUtil {
         return generateToken(claims);
     }
 
-    String generateToken(Map<String, Object> claims) {
+     String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())

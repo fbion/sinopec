@@ -1,8 +1,18 @@
+/**
+ * Copyright: Copyright (c) 2018 
+ * Company:深圳市深网视界科技有限公司
+ * 
+ * @author think
+ * @date 2018年8月18日 下午8:45:30
+ * @version V1.0
+ */
 package com.sensenets.sinopec.core.security;
 
 import java.io.IOException;
 
+import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -14,23 +24,26 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
 
 import com.sensenets.sinopec.core.security.util.JwtUtil;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
+import lombok.extern.slf4j.Slf4j;
 
 /**
-  * @ClassName: JwtAuthenticationTokenFilter
-  * @Description: 验证token(本类不要加Component注解否则无法创建JwtAuthTokenFilter对象)
+  * @ClassName: JwtTokenFilter
+  * @Description: token过滤器
   * @author think
-  * @date 2018年8月8日 上午9:51:58
+  * @date 2018年8月18日 下午8:45:30
   *
   */
-public class JwtAuthTokenFilter extends UsernamePasswordAuthenticationFilter {
-
+@Component
+@Slf4j
+public class JwtTokenFilter  implements Filter{
+    
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -44,8 +57,14 @@ public class JwtAuthTokenFilter extends UsernamePasswordAuthenticationFilter {
     private String tokenHead;
 
 
+    
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException{
+    public void init(FilterConfig filterConfig) throws ServletException {
+        
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String authHeader = request.getHeader(this.tokenHeader);
         if (authHeader != null) {
@@ -55,13 +74,13 @@ public class JwtAuthTokenFilter extends UsernamePasswordAuthenticationFilter {
             try {
                 useraccount = jwtUtil.getUsernameFromToken(authToken);
             } catch (IllegalArgumentException e) {
-                logger.error("认证获取令牌异常！", e);
+                log.error("认证获取令牌异常！", e);
             } catch (ExpiredJwtException e) {
-                logger.warn("认证令牌过期！", e);
+                log.warn("认证令牌过期！", e);
             } catch(SignatureException e){
-                logger.error("认证失败 ，用户名或者密码错误！");
+                log.error("认证失败 ，用户名或者密码错误！");
             }
-            logger.debug("JwtAuthTokenFilter[doFilterInternal] checking authentication " + useraccount);
+            log.debug("JwtAuthTokenFilter[doFilterInternal] checking authentication " + useraccount);
             if (useraccount != null && SecurityContextHolder.getContext().getAuthentication() == null) {//token校验通过
                 //根据account去数据库中查询user数据，足够信任token的情况下，可以省略这一步
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(useraccount);
@@ -70,13 +89,20 @@ public class JwtAuthTokenFilter extends UsernamePasswordAuthenticationFilter {
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
                             request));
-                    logger.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
+                    log.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
         }else {
-            logger.info("忽略的url:"+request.getRequestURI());
+            log.info("忽略的url:"+request.getRequestURI());
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
+
+   
+    @Override
+    public void destroy() {
+        
+    }
+
 }

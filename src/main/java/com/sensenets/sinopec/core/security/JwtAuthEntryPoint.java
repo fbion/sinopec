@@ -7,9 +7,6 @@ import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -47,6 +44,7 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint, Serializable
             ResponseInfo info = new ResponseInfo();
             info.setCode(HttpServletResponse.SC_UNAUTHORIZED);
             info.setMessage("未授权，拒绝访问");
+            info.setError(authException.getMessage());
             out.println(new Gson().toJson(info));
             out.flush();
         } catch (IOException e) {

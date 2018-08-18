@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import com.sensenets.sinopec.buiness.model.VjFuncRoleUrlView;
 import com.sensenets.sinopec.buiness.service.IVjFuncRoleUrlViewService;
 import com.sensenets.sinopec.common.enums.UrlMethod;
+import com.sensenets.sinopec.config.JwtConfig;
 
 /**
  * @ClassName: UrlMetadataSourceService
@@ -43,6 +44,10 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
 
     private static Map<UrlGrantedAuthority, Set<ConfigAttribute>> resourceMap = null;
 
+    @Autowired
+    private JwtConfig jwtConfig ;
+    
+    
     /**
      * @Title: loadResourceDefine
      * @Description: 加载定义的所有权限资源
@@ -75,6 +80,7 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         final HttpServletRequest request = ((FilterInvocation) object).getRequest();
+        // 如果是静态资源直接放开
         if (resourceMap == null) {
             loadResourceDefine();
         }

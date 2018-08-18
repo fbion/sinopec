@@ -1,9 +1,16 @@
 package com.sensenets.sinopec.core.security;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,7 +18,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -41,9 +47,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtAuthEntryPoint unauthorizedHandler;
+    
+    @Autowired
+    private JwtLoginHandler jwtLoginHandler;
+    
+    
+    @Autowired
+    private  JwtTokenFilter jwtTokenFilter;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private JwtUserDetailsService userDetailsService;
     
     @Autowired
     private  UrlAccessDecisionManager accessDecisionManager;
@@ -61,9 +74,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManagerBean();
+       ProviderManager authenticationManager = new ProviderManager(Arrays.asList(authenticationProvider()));
+       //不擦除认证密码，擦除会导致TokenBasedRememberMeServices因为找不到Credentials再调用UserDetailsService而抛出UsernameNotFoundException
+       authenticationManager.setEraseCredentialsAfterAuthentication(false);
+       return authenticationManager;
     }
    
+    @Bean
+    public AuthenticationProvider authenticationProvider() throws Exception {
+        return new JwtAuthProvider(userDetailsService,passwordEncoder());
+    }
+
+    
     /**
       * @Title: authenticationTokenFilter
       * @Description: token过滤器
@@ -71,10 +93,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       * @throws Exception
       */
     @Bean
-    public JwtAuthTokenFilter authenticationTokenFilter() throws Exception {
-        JwtAuthTokenFilter authTokenFilter = new JwtAuthTokenFilter();
-        authTokenFilter.setAuthenticationManager(authenticationManager());
-        return authTokenFilter;
+    public JwtAuthFilter authFilter() throws Exception {
+        JwtAuthFilter authFilter = new JwtAuthFilter();
+        authFilter.setAuthenticationSuccessHandler(jwtLoginHandler);
+        authFilter.setAuthenticationFailureHandler(jwtLoginHandler);
+        authFilter.setAuthenticationManager(authenticationManager());
+        return authFilter;
     }
     
     
@@ -115,6 +139,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
+        auth.authenticationProvider(authenticationProvider());
     }
     
     
@@ -128,50 +153,61 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 // 由于使用的是JWT，我们这里不需要csrf
-                .csrf().disable()
-                // 没有权限禁止访问异常处理
-                .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
+                .csrf().ignoringAntMatchers(new String[]{"/druid/**","/favicon.ico"}).and()
+                 // 没有权限禁止访问异常处理
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandler) 
                 //未授权处理
                 .authenticationEntryPoint(unauthorizedHandler).and()
                 // 基于token，所以不需要session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                // 对请求进行认证
+                .authorizeRequests()
+                //.antMatchers(new String[]{"/druid/**","/favicon.ico"}).permitAll()
+                .antMatchers(new String[]{
+                        "//swagger-ui.html"
+                        ,"/swagger-resources/**"
+                        ,"/webjars/**"
+                        ,"/v2/api-docs"
+                        ,"/configuration/ui"
+                        ,"/configuration/security"
+                        }).permitAll()
+                .antMatchers("/login").permitAll()
+                 // 所有请求需要身份认证
                 .anyRequest().authenticated();
-        
+               
+        httpSecurity.formLogin();
         //将JWT验证添加在密码验证前面
-        httpSecurity.addFilterBefore(authenticationTokenFilter(),UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.addFilterBefore(jwtTokenFilter,UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.addFilterAt(authFilter(),UsernamePasswordAuthenticationFilter.class);
         //将url验证添加在默认拦截器FilterSecurityInterceptor验证位置
         httpSecurity.addFilterAt(filterSecurityInterceptor(),FilterSecurityInterceptor.class);
         // 禁用缓存
         httpSecurity.headers().cacheControl();
     }
     
+    /**
+     * 本方法如果开启了 忽略规则后，自定义的拦截仍然会拦截下面的文件，所以暂时注释掉
+      */
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 设置忽略规则
-        web.ignoring().antMatchers(
-                jwtConfig.getExceptUrl(),
-                "/swagger-ui.html",
-                "/swagger-resources/**",
-                "/images/**",
-                "/webjars/**",
-                "/v2/api-docs",
-                "/configuration/ui",
-                "/configuration/security",
-                
-                "/metrics/**",
-                "/druid/**",
-                "/actuator",
-                "/actuator/**",
-                "/favicon.ico",
-                "/**/*.css",
-                "/**/*.js",
-                "/**/*.gif",
-                "/**/*.png",
-                "/**/*.ttf",
-                "/**/*.jpeg",
-                "/**/*.jpg"
-                );
+        List<String> ignoreList = new ArrayList<String>();
+        if(!jwtConfig.isDruidEnabled()){
+            ignoreList.add("/druid/**");
+            ignoreList.add("/favicon.ico");
+        }
+        if(!jwtConfig.isSwaggerEnabled()){
+            ignoreList.add("/swagger-ui.html");
+            ignoreList.add("/swagger-resources/**");
+            ignoreList.add("/webjars/**");
+            ignoreList.add("/v2/api-docs");
+            ignoreList.add("/configuration/ui");
+            ignoreList.add("/configuration/security");
+        }
+        if(CollectionUtils.isNotEmpty(ignoreList)){
+            String[] ary = ignoreList.toArray(new String[ignoreList.size()]);
+            web.ignoring().antMatchers(ary);
+        }
     }
 
 }

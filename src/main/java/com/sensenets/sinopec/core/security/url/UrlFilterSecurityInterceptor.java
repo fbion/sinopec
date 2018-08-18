@@ -8,9 +8,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.springframework.security.access.AccessDecisionManager;
+import org.springframework.security.access.intercept.InterceptorStatusToken;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+
+import com.sensenets.sinopec.common.exception.AuthCredentialsNotFoundException;
 /**
  * @ClassName: UrlFilterSecurityInterceptor
  * @Description: url过滤拦截器
@@ -41,9 +46,18 @@ public class UrlFilterSecurityInterceptor extends FilterSecurityInterceptor {
      */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        super.doFilter(request,response,chain);
+        FilterInvocation fi = new FilterInvocation(request, response, chain);
+        InterceptorStatusToken  token = null;
+        try {
+            token = super.beforeInvocation(fi);
+            fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+        }catch(AuthenticationCredentialsNotFoundException e){
+            throw new AuthCredentialsNotFoundException("权限不足");
+        }finally {
+            super.afterInvocation(token, null);
+        }
     }
-   
+    
 }
 
 

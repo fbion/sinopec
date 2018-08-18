@@ -1,0 +1,10 @@
+ ${AnsiColor.BRIGHT_BLACK}
+  ____    _
+ / ___|  (_)  _ __     ___    _ __     ___    ___
+ \___ \  | | | '_ \   / _ \  | '_ \   / _ \  / __|
+  ___) | | | | | | | | (_) | | |_) | |  __/ | (__
+ |____/  |_| |_| |_|  \___/  | .__/   \___|  \___|
+                             |_|
+ ${AnsiColor.BRIGHT_RED}${spring.application.name}${AnsiColor.BRIGHT_RED}版本${AnsiColor.BRIGHT_RED}${spring.application.version}${AnsiColor.BRIGHT_RED}
+ ${AnsiColor.BRIGHT_RED}spring boot版本${spring-boot.version}${AnsiColor.BRIGHT_RED}
+ ${AnsiColor.BRIGHT_BLACK}

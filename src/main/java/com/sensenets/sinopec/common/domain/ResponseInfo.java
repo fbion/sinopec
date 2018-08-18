@@ -20,7 +20,7 @@ public class ResponseInfo implements Serializable{
     private String error = "";
 	
     @ApiModelProperty(value="时间戳",name="timestamp",example="13458638658")
-	private long  timestamp = System.currentTimeMillis();
+	private String  timestamp = String.valueOf(System.currentTimeMillis());
 	
     @ApiModelProperty(value="响应数据",name="data")
 	private Object data;
@@ -110,11 +110,11 @@ public class ResponseInfo implements Serializable{
         this.error = error;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

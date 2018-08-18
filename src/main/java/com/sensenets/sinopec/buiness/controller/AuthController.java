@@ -38,7 +38,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @Api(value="AuthController",tags="认证操作接口", description="AuthController")
-@RequestMapping("/service/auth")
 public class AuthController extends BaseController{
   
     @Autowired
@@ -57,7 +56,7 @@ public class AuthController extends BaseController{
     kafkaSender sender;
     
     @ApiOperation(value = "用户验证，创建token")
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseInfo createToken(@RequestBody JwtAuthRequest authRequest) throws Exception {
         try {
             sender.send("devo-topic", "hello！");
@@ -94,7 +93,7 @@ public class AuthController extends BaseController{
      * @return 异常
      */
     @ApiOperation(value = "刷新令牌")
-    @RequestMapping(value = "/refresh-token", method = RequestMethod.GET)
+    @RequestMapping(value = "/service/refresh-token", method = RequestMethod.GET)
     public ResponseInfo refreshToken() {
         String token = SpringMVCHelper.getRequest().getHeader(jwtConfig.getHeader());
         String realToken = token.startsWith(jwtConfig.getTokenHead())?StringUtils.substringAfterLast(token, jwtConfig.getTokenHead()):token;
@@ -109,7 +108,7 @@ public class AuthController extends BaseController{
      * @return 异常
      */
     @ApiOperation(value = "退出登录")
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/service/logout", method = RequestMethod.POST)
     public ResponseInfo logout() {
         SecurityHelper.logout(SpringMVCHelper.getRequest());
         return this.warpObject(new ResponseInfo(ResponseMessage.RESULT_SUSSECC.getIndex(), ResponseMessage.RESULT_SUSSECC.getName()),null);

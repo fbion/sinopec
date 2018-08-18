@@ -22,7 +22,7 @@ import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
   *
   */
 @Service
-public class JwtUserDetailsServiceImpl implements UserDetailsService {
+public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
     private IVjUserLoginViewService  userLoginViewService;

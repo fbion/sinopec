@@ -35,6 +35,9 @@ public class JwtConfig {
     private String header;
     
     private String secret;
-
     
+    private boolean swaggerEnabled = false;
+    
+    private boolean druidEnabled = false;
+
 }
