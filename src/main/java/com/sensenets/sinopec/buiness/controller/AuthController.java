@@ -52,14 +52,10 @@ public class AuthController extends BaseController{
     @Autowired
     private UserDetailsService userDetailsService;
     
-    @Autowired
-    kafkaSender sender;
-    
     @ApiOperation(value = "用户验证，创建token")
     @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseInfo createToken(@RequestBody JwtAuthRequest authRequest) throws Exception {
         try {
-            sender.send("devo-topic", "hello！");
             // 将认证信息保存
             final Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));

@@ -17,12 +17,15 @@ import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Service;
 
 import com.sensenets.sinopec.buiness.model.VjFuncRoleUrlView;
 import com.sensenets.sinopec.buiness.service.IVjFuncRoleUrlViewService;
 import com.sensenets.sinopec.common.enums.UrlMethod;
 import com.sensenets.sinopec.config.JwtConfig;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @ClassName: UrlMetadataSourceService
@@ -31,6 +34,7 @@ import com.sensenets.sinopec.config.JwtConfig;
  * @date 2018年8月17日 上午10:48:01
  *
  */
+@Slf4j
 @Service
 public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
@@ -43,6 +47,7 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
     private IVjFuncRoleUrlViewService funcRoleUrlViewService;
 
     private static Map<UrlGrantedAuthority, Set<ConfigAttribute>> resourceMap = null;
+    
 
     @Autowired
     private JwtConfig jwtConfig ;
@@ -87,6 +92,14 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
         UrlConfigAttribute attribute = new UrlConfigAttribute(request);
         Set<ConfigAttribute> configAttributes = resourceMap.get(attribute.getRequestAuthority());
         if(CollectionUtils.isEmpty(configAttributes)){
+            Map<String,String> map = jwtConfig.getAllIgnoreMap();
+            for(Map.Entry<String,String> entry : map.entrySet()){
+                // 此处排除需要放开的url
+                if(matchers(entry.getValue(), request)){
+                    log.info("匹配上忽略url直接返回");
+                    return configAttributes;
+                }
+            }
             // 此处为空需要判断并添加默认的资源不存在权限，否则自定义的AccessDecisionManager不执行
             configAttributes = new HashSet<ConfigAttribute>();
             configAttributes.add(new SecurityConfig(ROLE_NO_EXIST));
@@ -102,5 +115,13 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
     @Override
     public boolean supports(Class<?> clazz) {
         return true;
+    }
+    
+    private boolean matchers(String url, HttpServletRequest request) {
+        AntPathRequestMatcher matcher = new AntPathRequestMatcher(url);
+        if (matcher.matches(request)) {
+            return true;
+        }
+        return false;
     }
 }

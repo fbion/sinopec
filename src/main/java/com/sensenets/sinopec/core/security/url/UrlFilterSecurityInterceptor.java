@@ -52,6 +52,7 @@ public class UrlFilterSecurityInterceptor extends FilterSecurityInterceptor {
             token = super.beforeInvocation(fi);
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
         }catch(AuthenticationCredentialsNotFoundException e){
+            e.printStackTrace();
             throw new AuthCredentialsNotFoundException("权限不足");
         }finally {
             super.afterInvocation(token, null);

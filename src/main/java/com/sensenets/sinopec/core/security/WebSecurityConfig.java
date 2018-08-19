@@ -51,6 +51,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtLoginHandler jwtLoginHandler;
     
+    @Autowired
+    private UrlAccessDeniedHandler accessDeniedHandler;
+    
     
     @Autowired
     private  JwtTokenFilter jwtTokenFilter;
@@ -64,8 +67,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private  UrlSecurityMetadataSource securityMetadataSource;
     
-    @Autowired
-    private UrlAccessDeniedHandler accessDeniedHandler;
     
     
     @Autowired
@@ -75,7 +76,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
        ProviderManager authenticationManager = new ProviderManager(Arrays.asList(authenticationProvider()));
-       //不擦除认证密码，擦除会导致TokenBasedRememberMeServices因为找不到Credentials再调用UserDetailsService而抛出UsernameNotFoundException
+       // 不擦除认证密码，擦除会导致TokenBasedRememberMeServices
+       // 因为找不到Credentials再调用UserDetailsService而抛出UsernameNotFoundException
        authenticationManager.setEraseCredentialsAfterAuthentication(false);
        return authenticationManager;
     }
@@ -153,34 +155,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 // 由于使用的是JWT，我们这里不需要csrf
-                .csrf().ignoringAntMatchers(new String[]{"/druid/**","/favicon.ico"}).and()
+                .csrf().disable()
                  // 没有权限禁止访问异常处理
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler) 
                 //未授权处理
                 .authenticationEntryPoint(unauthorizedHandler).and()
                 // 基于token，所以不需要session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                // 对请求进行认证
-                .authorizeRequests()
-                //.antMatchers(new String[]{"/druid/**","/favicon.ico"}).permitAll()
-                .antMatchers(new String[]{
-                        "//swagger-ui.html"
-                        ,"/swagger-resources/**"
-                        ,"/webjars/**"
-                        ,"/v2/api-docs"
-                        ,"/configuration/ui"
-                        ,"/configuration/security"
-                        }).permitAll()
-                .antMatchers("/login").permitAll()
-                 // 所有请求需要身份认证
-                .anyRequest().authenticated();
-               
-        httpSecurity.formLogin();
+                .sessionManagement().
+                sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
+                  
+        httpSecurity.authorizeRequests()
+                      .antMatchers("/login").permitAll()
+                      //其他所有路径都需要权限校验
+                     .anyRequest().authenticated();
+       //内部注册 UsernamePasswordAuthenticationFilter
+        httpSecurity.formLogin()
+         //form表单POST请求url提交地址，默认为/login
+        .loginProcessingUrl("/login")
+        .passwordParameter("password")//form表单用户名参数名
+        .usernameParameter("username"); //form表单密码参数名
         //将JWT验证添加在密码验证前面
         httpSecurity.addFilterBefore(jwtTokenFilter,UsernamePasswordAuthenticationFilter.class);
         httpSecurity.addFilterAt(authFilter(),UsernamePasswordAuthenticationFilter.class);
         //将url验证添加在默认拦截器FilterSecurityInterceptor验证位置
-        httpSecurity.addFilterAt(filterSecurityInterceptor(),FilterSecurityInterceptor.class);
+        httpSecurity.addFilterAfter(filterSecurityInterceptor(),FilterSecurityInterceptor.class);
         // 禁用缓存
         httpSecurity.headers().cacheControl();
     }
@@ -191,22 +189,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 设置忽略规则
-        List<String> ignoreList = new ArrayList<String>();
-        if(!jwtConfig.isDruidEnabled()){
-            ignoreList.add("/druid/**");
-            ignoreList.add("/favicon.ico");
+        List<String> list = new ArrayList<String>();
+        if(jwtConfig.isDruidEnabled()){
+            log.info("启用druid页面");
+            List<String> druid = jwtConfig.getDruidIgnoreUrlList();
+            if(CollectionUtils.isNotEmpty(druid)){
+                list.addAll(druid);
+            }
         }
-        if(!jwtConfig.isSwaggerEnabled()){
-            ignoreList.add("/swagger-ui.html");
-            ignoreList.add("/swagger-resources/**");
-            ignoreList.add("/webjars/**");
-            ignoreList.add("/v2/api-docs");
-            ignoreList.add("/configuration/ui");
-            ignoreList.add("/configuration/security");
+        if(jwtConfig.isSwaggerEnabled()){
+            log.info("启用swagger页面");
+            List<String> swagger = jwtConfig.getSwaggerIgnoreUrlList();
+            if(CollectionUtils.isNotEmpty(swagger)){
+                list.addAll(swagger);
+            }
         }
-        if(CollectionUtils.isNotEmpty(ignoreList)){
-            String[] ary = ignoreList.toArray(new String[ignoreList.size()]);
-            web.ignoring().antMatchers(ary);
+        if(jwtConfig.isCommonEnabled()){
+            log.info("启用排除特定请求");
+            List<String> common = jwtConfig.getCommonIgnoreUrlList();
+            if(CollectionUtils.isNotEmpty(common)){
+                list.addAll(common);
+            }
+        }
+        
+        if(CollectionUtils.isNotEmpty(list)){
+            web.ignoring().antMatchers(list.toArray(new String[list.size()]));
         }
     }
 
