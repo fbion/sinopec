@@ -1,5 +1,12 @@
 package com.sensenets.sinopec.buiness.kafka;
 
+import com.google.protobuf.InvalidProtocolBufferException;
+import dg.model.PimpObject;
+import dg.model.PimpOilEvent;
+import org.apache.kafka.clients.consumer.Consumer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +26,22 @@ public class KafkaReceiver {
 
     
     @KafkaListener(topics = {"${kafka.faceTopic}"})
-    public void processFaceMsg(String content) {
-        log.info("接收人脸消息:" + content);
+    public void processFaceMsg(PimpObject.ObjectPublish content) {
+        PimpObject.ObjectPublish obj  = content;
+        switch (obj.getObjectTypeValue()){
+        case PimpObject.ObjectType.Object_Type_Oil_Event_VALUE:
+            try {
+                PimpOilEvent.OilEvent event =  PimpOilEvent.OilEvent.parseFrom(obj.getBinData());
+                log.info("接收人脸消息:" + event.getEventId());
+            } catch (InvalidProtocolBufferException e) {
+                e.printStackTrace();
+            }
+            break;
+            default:
+                break;
+        }
+
+
     }
     
 

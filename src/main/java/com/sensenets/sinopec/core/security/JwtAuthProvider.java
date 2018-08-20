@@ -8,8 +8,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
-import org.springframework.util.DigestUtils;
 
 
 /**
@@ -39,7 +37,6 @@ public class JwtAuthProvider implements AuthenticationProvider {
         // 认证逻辑
         UserDetails userDetails = userDetailsService.loadUserByUsername(name);
         if (null != userDetails) {
-//            String encodePassword = passwordEncoder.encode(password);
             if (userDetails.getPassword().equals(password)) {
                 // 生成令牌 这里令牌里面存入了:name,password,authorities, 当然你也可以放其他内容
                 Authentication auth = new UsernamePasswordAuthenticationToken(name, password, userDetails.getAuthorities());

@@ -8,11 +8,15 @@
  */
 package com.sensenets.sinopec.common.startup;
 
+import dg.model.PimpObject;
+import dg.model.PimpOilEvent;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
   * @ClassName: SystemRunner
@@ -25,9 +29,33 @@ import lombok.extern.slf4j.Slf4j;
 @Order(-1)
 public class SystemInitRunner implements CommandLineRunner{
 
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
+    @Value("${kafka.faceTopic}")
+    private String faceTopic;
+
     @Override
     public void run(String... args) throws Exception {
+        test();
         log.info("程序启动完成");
+    }
+
+    public void test(){
+        PimpOilEvent.OilEvent oilEvent = PimpOilEvent.OilEvent.newBuilder()
+                .setEventId("11111")
+                .setAmount(111.00f)
+                .setOilCardId("沃尔沃二")
+                .build();
+        PimpObject.ObjectPublish objectPublish  =  PimpObject.ObjectPublish.newBuilder()
+                .setObjectType(PimpObject.ObjectType.Object_Type_Oil_Event)
+                .setBinData(oilEvent.toByteString())
+                .build();
+        objectPublish.toByteString();
+
+        kafkaTemplate.send(faceTopic,objectPublish);
+
+
     }
 
 }

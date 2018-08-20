@@ -10,6 +10,8 @@ package com.sensenets.sinopec.common.exception;
   */
 public enum BizExceptionEnum {
 
+	ERROR_TOKEN_EXPIRED(100001,"认证令牌已过期"),
+	ERROR_TOKEN_ERROR(100002,"认证令牌错误"),
 	/**
 	 * 字典
 	 */

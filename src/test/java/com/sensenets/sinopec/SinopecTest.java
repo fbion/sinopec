@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.sensenets.sinopec.buiness.kafka.kafkaSender;
+import com.sensenets.sinopec.buiness.kafka.KafkaSender;
 
 
 @WebAppConfiguration
@@ -26,7 +26,7 @@ public class SinopecTest {
     private WebApplicationContext wac;
     
     @Autowired
-    private  kafkaSender kafkaSender;
+    private KafkaSender kafkaSender;
     
     
     @Before

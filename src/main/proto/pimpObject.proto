@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package dg.model;
+
+enum ObjectType {
+    //未知
+    Object_Type_Unknown = 0;
+    //提挂枪对象
+    Object_Type_Oil_Event = 1;
+    //油品交易对象
+    Object_Type_Oil_Trade = 2;
+    //非油品交易对象
+    Object_Type_Non_Oil_Trade = 3;
+    //开票
+    Object_Type_Ticket_Open = 4;
+    //扫卷
+    Object_Type_Coupon_Used = 5;
+}
+
+message ObjectPublish {
+    ObjectType ObjectType = 1;
+    //proto序列化
+    bytes BinData = 2;
+}

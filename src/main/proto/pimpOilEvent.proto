@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package dg.model;
+//加油枪操作类型
+enum OilGunEventType {
+    //未知
+    Oil_Gun_Event_Type_Unknown = 0;
+    //提抢
+    Oil_Gun_Event_Type_Lift = 1;
+    //挂枪
+    Oil_Gun_Event_Type_Hang = 2;
+}
+//提挂枪接收对象
+message OilEvent {
+    //加油站ID
+    string OilStationId = 1;
+    //加油事件ID
+    string EventId = 2;
+    //加油机号
+    string OilTankId = 3;
+    //加油枪号
+    string OilGunId = 4;
+    //事件时间
+    string Timestamp = 5;
+    //油品类型
+    string OilType = 6;
+    //加油量
+    float Amount = 7;
+    //加油枪操作类型
+    OilGunEventType EventType = 8;
+    //加油卡卡号
+    string OilCardId = 9;
+    //流水号
+    string TCCNo = 10;
+    //油品代码
+    string OilTypeNum = 11;
+    //附加信息
+    map<string, string> AdditionalInfos = 12;
+}
+//提挂枪推送对象
+message OilEventWithPlate {
+    //加油站ID
+    string OilStationId = 1;
+    //加油枪号
+    string OilGunId = 2;
+    //提枪时间
+    string LiftTimestamp = 3;
+    //挂枪时间
+    string HangTimestamp = 4;
+    //流水号
+    string TCCNo = 5;
+    //油品代码
+    string OilTypeNum = 6;
+    //加油卡卡号
+    string OilCardId = 7;
+    //限制车牌号
+    string LimitVehiclePlate = 8;
+    //车牌号
+    string VehiclePlate = 9;
+    //车辆品牌
+    string VehicleBrand = 10;
+    //车辆子品牌
+    string VehicleSubBrand = 11;
+    //车款
+    string VehicleStyle = 12;
+    //车辆类型
+    string VehicleType = 13;
+    //车辆颜色
+    string VehicleColor = 14;
+    //车牌类型
+    string VehiclePlateTyle = 15;
+    //车牌颜色
+    string VehiclePlateColor = 16;
+    //图片链接
+    string VehiclePlateImageUrl = 17;
+    //附加信息
+    map<string, string> AdditionalInfos = 18;
+}
+
+message PedestrianBehavior {
+    string ArrivalTime = 1;
+    string DepartureTime = 2;
+}
+
+message FaceBehavior {
+    string ArrivalTime = 1;
+    string DepartureTime = 2;
+}

@@ -39,9 +39,14 @@ import lombok.extern.slf4j.Slf4j;
 public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     /**
-      * @Fields ROLE_NO_EXIST : 资源权限不存在默认角色
+      * @Fields ROLE_NO_EXIST : 资源权限不存在角色
       */
     public static final String ROLE_NO_EXIST = "ROLE_NO_EXIST";
+    
+    /**
+     * @Fields ROLE_BASIC : 每个登录的用户基本资源权限角色
+     */
+    public static final String ROLE_BASIC = "ROLE_BASIC";
     
     @Autowired
     private IVjFuncRoleUrlViewService funcRoleUrlViewService;
@@ -97,6 +102,16 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
                 // 此处排除需要放开的url
                 if(matchers(entry.getValue(), request)){
                     log.info("匹配上忽略url直接返回");
+                    return configAttributes;
+                }
+            }
+            List<String> basicList = jwtConfig.getBasicAuthenticatedUrlList();
+            for(String basicUrl:basicList){
+                // 此处需要授权后放开的url
+                if(matchers(basicUrl, request)){
+                    log.info("匹配上基本授权url直接返回");
+                    configAttributes = new HashSet<ConfigAttribute>();
+                    configAttributes.add(new SecurityConfig(ROLE_BASIC));
                     return configAttributes;
                 }
             }

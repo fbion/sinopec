@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package dg.model;
+//开票事件操作类型
+enum TicketOpenEventType {
+    //未知
+    Ticket_Open_Event_Type_Unknown = 0;
+    //加油卡开票
+    Ticket_Open_Event_Type_1 = 1;
+    //现金油品开票
+    Ticket_Open_Event_Type_2 = 2;
+    Ticket_Open_Event_Type_3 = 3;
+    //ERP开票
+    Ticket_Open_Event_Type_4 = 4;
+    //非油品POS零售开票
+    Ticket_Open_Event_Type_5 = 5;
+    //非油品WebPos零售开票
+    Ticket_Open_Event_Type_6 = 6;
+    //非油品团购开票
+    Ticket_Open_Event_Type_7 = 7;
+    //电子商务开票
+    Ticket_Open_Event_Type_8 = 8;
+    //充值卡开票
+    Ticket_Open_Event_Type_9 = 9;
+    //增值税开票
+    Ticket_Open_Event_Type_10 = 10;
+}
+
+//开票接收对象
+message TicketOpen {
+    //加油站ID
+    string OilStationId = 1;
+    //开票事件ID
+    string EventId = 2;
+    //开票时间
+    string Timestamp = 3;
+    //开票事件操作类型
+    string EventType = 4;
+    //流水号
+    string OilFlowNumber = 5;
+    //附加信息
+    map<string, string> AdditionalInfos = 6;
+}
+//开票推送对象
+message TicketOpenPublish {
+    //加油站ID
+    string OilStationId = 1;
+    //开票事件流水号
+    string OilFlowNumber = 2;
+    //事件时间
+    string Timestamp = 3;
+    //开票事件类型
+    string EventType = 4;
+    //是否有拍摄到人脸
+    string TakeFaceOrNot = 5;
+    //是否是员工
+    string EmployeeOrNot = 6;
+    //收银区是否有人
+    string CashierHasPerson = 7;
+    //图片链接1
+    string FaceImageUrl1 = 8;
+    //图片链接2
+    string FaceImageUrl2 = 9;
+    //附加信息
+    map<string, string> AdditionalInfos = 10;
+}

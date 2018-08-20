@@ -158,16 +158,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                  // 没有权限禁止访问异常处理
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler) 
-                //未授权处理
+                 // 未授权处理
                 .authenticationEntryPoint(unauthorizedHandler).and()
-                // 基于token，所以不需要session
+                 // 基于token，所以不需要session
                 .sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
                   
         httpSecurity.authorizeRequests()
                       .antMatchers("/login").permitAll()
                       //其他所有路径都需要权限校验
-                     .anyRequest().authenticated();
+                      .anyRequest().authenticated();
        //内部注册 UsernamePasswordAuthenticationFilter
         httpSecurity.formLogin()
          //form表单POST请求url提交地址，默认为/login
@@ -176,6 +176,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .usernameParameter("username"); //form表单密码参数名
         //将JWT验证添加在密码验证前面
         httpSecurity.addFilterBefore(jwtTokenFilter,UsernamePasswordAuthenticationFilter.class);
+        // 自定义密码验证拦截器
         httpSecurity.addFilterAt(authFilter(),UsernamePasswordAuthenticationFilter.class);
         //将url验证添加在默认拦截器FilterSecurityInterceptor验证位置
         httpSecurity.addFilterAfter(filterSecurityInterceptor(),FilterSecurityInterceptor.class);

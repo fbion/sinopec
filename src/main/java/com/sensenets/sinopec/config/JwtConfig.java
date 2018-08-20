@@ -48,12 +48,17 @@ public class JwtConfig {
     
     private boolean commonEnabled = false;
     
+    private boolean basicEnabled = false;
     
     private String druidIgnoreUrls;
     
     private String swaggerIgnoreUrls;
     
     private String commonIgnoreUrls;
+    
+    private String basicAuthenticatedUrls;
+    
+    
     
     public List<String> getDruidIgnoreUrlList(){
         List<String> urls = new ArrayList<String>();
@@ -79,6 +84,13 @@ public class JwtConfig {
         return urls;
     }
     
+    public List<String> getBasicAuthenticatedUrlList(){
+        List<String> urls = new ArrayList<String>();
+        if(StringUtils.isNotBlank(basicAuthenticatedUrls)&&basicEnabled){
+            urls.addAll(Arrays.asList(basicAuthenticatedUrls.split(",")));
+        }
+        return urls;
+    }
     
     
     public Map<String,String> getAllIgnoreMap(){

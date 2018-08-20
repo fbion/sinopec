@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package dg.model;
+//交易操作类型
+enum NonOilTradeEventType {
+    //未知
+    Non_Oil_Trade_Event_Type_Unknown = 0;
+    //开始交易
+    Non_Oil_Trade_Event_Type_Begin = 1;
+    //结束交易
+    Non_Oil_Trade_Event_Type_End = 2;
+}
+
+//支付类型
+enum NonOilTradePaymentType {
+    //未知
+    Non_Oil_Trade_Payment_Type_Unknown = 0;
+    //卫星
+    Non_Oil_Trade_Payment_Type_Wechat = 1;
+    //支付宝
+    Non_Oil_Trade_Payment_Type_Alipay = 2;
+    //银行卡
+    Non_Oil_Trade_Payment_Type_Card = 3;
+    //现金
+    Non_Oil_Trade_Payment_Type_Cash = 4;
+}
+//非油品交易接收对象
+message NonOilTrade {
+    //加油站ID
+    string OilStationId = 1;
+    //交易事件ID
+    string EventId = 2;
+    //订单流水
+    string OrderNo = 3;
+    //支付流水号
+    string PaymentID = 4;
+    //事件时间
+    string Timestamp = 5;
+    //交易操作类型
+    NonOilTradeEventType EventType = 6;
+    //支付类型
+    NonOilTradePaymentType PaymentType = 7;
+    //附加信息
+    map<string, string> AdditionalInfos = 8;
+}
+//非油品交易推送对象
+message NonOilTradePublish {
+    //加油站ID
+    string OilStationId = 1;
+    //订单流水号
+    string OrderNo = 2;
+    //事件时间
+    string EndTimestamp = 3;
+    //支付流水号
+    string PaymentID = 4;
+    //图片链接
+    string FaceImageUrl = 5;
+    //是否有拍摄到人脸
+    string TakeFaceOrNot = 6;
+    //是否是员工
+    string EmployeeOrNot = 7;
+    //收银台是否有人
+    string CashierHasPerson = 8;
+    //附加信息
+    map<string, string> AdditionalInfos = 9;
+}

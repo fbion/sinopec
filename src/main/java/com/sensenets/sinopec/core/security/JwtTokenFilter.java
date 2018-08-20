@@ -8,16 +8,12 @@
  */
 package com.sensenets.sinopec.core.security;
 
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-
+import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.exception.BusinessException;
+import com.sensenets.sinopec.core.security.util.JwtUtil;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.SignatureException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,11 +23,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 
-import com.sensenets.sinopec.core.security.util.JwtUtil;
-
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.SignatureException;
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
   * @ClassName: JwtTokenFilter
@@ -78,19 +72,24 @@ public class JwtTokenFilter  implements Filter{
             } catch (ExpiredJwtException e) {
                 log.warn("认证令牌过期！", e);
             } catch(SignatureException e){
-                log.error("认证失败 ，用户名或者密码错误！");
+                log.error("认证令牌信息有误！");
             }
             log.debug("JwtAuthTokenFilter[doFilterInternal] checking authentication " + useraccount);
             if (useraccount != null && SecurityContextHolder.getContext().getAuthentication() == null) {//token校验通过
                 //根据account去数据库中查询user数据，足够信任token的情况下，可以省略这一步
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(useraccount);
-                if (jwtUtil.validateToken(authToken, userDetails)) {
+                if(!jwtUtil.validateTokenNotExpired(authToken, userDetails)){
+                    throw new BusinessException(BizExceptionEnum.ERROR_TOKEN_EXPIRED);
+                }
+                if (jwtUtil.validateTokenUserInfo(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                             userDetails, null, userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(
                             request));
                     log.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
+                }else{
+                    throw new BusinessException(BizExceptionEnum.ERROR_TOKEN_ERROR);
                 }
             }
         }else {

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package dg.model;
+//开票事件操作类型
+enum CouponUsedEventType {
+    //未知
+    Coupon_Used_Event_Type_Unknown = 0;
+    //油品
+    Coupon_Used_Event_Type_Oil = 1;
+    //非油品
+    Coupon_Used_Event_Type_Non_Oil = 2;
+}
+
+//扫卷接收对象
+message CouponUsed {
+    //加油站ID
+    string OilStationId = 1;
+    //扫劵事件ID
+    string EventId = 2;
+    //扫卷时间
+    string Timestamp = 3;
+    //优惠券编码
+    string CouponNo = 4;
+    //事件操作类型
+    string CouponUsedEventType = 5;
+    //订单流水
+    string OrderNo = 6;
+    //附加信息
+    map<string, string> AdditionalInfos = 7;
+}
+//扫卷推送对象
+message CouponUsedPublish {
+    //加油站ID
+    string OilStationId = 1;
+    //订单流水号
+    string OrderNo = 2;
+    //事件时间
+    string Timestamp = 3;
+    //券号
+    string CouponNo = 4;
+    //事件操作类型
+    string EventType = 5;
+    //是否有拍摄到人脸
+    string TakeFaceOrNot = 6;
+    //是否是员工
+    string EmployeeOrNot = 7;
+    //收银台是否有人
+    string CashierHasPerson = 8;
+    //图片链接1
+    string FaceImageUrl1 = 9;
+    //图片链接2
+    string FaceImageUrl2 = 10;
+    //附加信息
+    map<string, string> AdditionalInfos = 11;
+}

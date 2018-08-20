@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -30,13 +29,14 @@ public class JwtUtil {
 
 
     private static final String CLAIM_KEY_USER_ACCOUNT = "sub";
-    private static final String CLAIM_KEY_CREATED = "created";
 
     @Value("${jwt.secret}")
     private  String secret; //秘钥
 
     @Value("${jwt.expiration}")
     private  Long expiration; //过期时间
+
+
 
     /**
      * 从token中获取用户account
@@ -63,7 +63,7 @@ public class JwtUtil {
         Date created;
         try {
             final Claims claims = getClaimsFromToken(token);
-            created = new Date((Long) claims.get(CLAIM_KEY_CREATED));
+            created = claims.getExpiration();
         } catch (Exception e) {
             created = null;
         }
@@ -133,19 +133,17 @@ public class JwtUtil {
     public String generateToken(JwtUser user) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USER_ACCOUNT, user.getUsername());
-        claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
     
     /**
      * 生成token
-     * @param  user
+     * @param  authentication
      * @return
      */
     public  String generateToken(Authentication authentication) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USER_ACCOUNT, authentication.getName());
-        claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
 
@@ -158,15 +156,15 @@ public class JwtUtil {
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USER_ACCOUNT, userDetails.getUsername());
-        claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
 
      String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
-                .setClaims(claims)
+                .setClaims(claims).setHeaderParam("typ","JWT")
                 .setExpiration(generateExpirationDate())
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .setIssuedAt(new Date())
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
@@ -188,7 +186,6 @@ public class JwtUtil {
         String refreshedToken;
         try {
             final Claims claims = getClaimsFromToken(token);
-            claims.put(CLAIM_KEY_CREATED, new Date());
             refreshedToken = generateToken(claims);
         } catch (Exception e) {
             refreshedToken = null;
@@ -211,7 +208,30 @@ public class JwtUtil {
         );
         return result;
     }
-    
+
+    /**
+     * 验证token
+     * @param token
+     * @param userDetails
+     * @return
+     */
+    public Boolean validateTokenUserInfo(String token, UserDetails userDetails) {
+        JwtUser user = (JwtUser) userDetails;
+        final String useraccount = getUsernameFromToken(token);
+        Boolean result= useraccount.equals(user.getUsername());
+        return result;
+    }
+
+    /**
+     * 验证token
+     * @param token
+     * @param userDetails
+     * @return
+     */
+    public Boolean validateTokenNotExpired(String token, UserDetails userDetails) {
+        Boolean result= !isTokenExpired(token);
+        return result;
+    }
     
 
     
