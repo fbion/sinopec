@@ -22,12 +22,12 @@ import dg.model.PimpTicketOpen;
 @Component
 public class KafkaSender {
     @Autowired
-    private KafkaTemplate<String,PimpObject.ObjectPublish> kafkaTemplate;
+    private KafkaTemplate<Long,PimpObject.ObjectPublish> kafkaTemplate;
     
     @Value("${kafka.faceTopic}")
     private String faceTopic;
 
-    public void sendPimpObject(String topic,PimpObject.ObjectPublish objectPublish){
+    public void sendPimpObject(final String topic,final PimpObject.ObjectPublish objectPublish){
         if(objectPublish!=null){
             kafkaTemplate.send(topic,objectPublish);
         }

@@ -1,5 +1,9 @@
 package com.sensenets.sinopec.buiness.kafka;
 
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -27,8 +31,16 @@ public class KafkaReceiver {
 
     
     @KafkaListener(topics = {"${kafka.faceTopic}"})
-    public void processFaceMsg(PimpObject.ObjectPublish content) {
-        PimpObject.ObjectPublish obj  = content;
+    public void processFaceMsg(List<ConsumerRecord<?, PimpObject.ObjectPublish>> contents) {
+        if(CollectionUtils.isNotEmpty(contents)){
+            contents.stream().forEach(record ->{
+                parseReceiveMsg(record);
+            });
+        }
+    }
+    
+    private  void parseReceiveMsg(ConsumerRecord<?, PimpObject.ObjectPublish> record){
+        PimpObject.ObjectPublish obj = record.value();
         switch (obj.getObjectTypeValue()){
         case PimpObject.ObjectType.Object_Type_Oil_Event_VALUE:
             try {
@@ -76,9 +88,7 @@ public class KafkaReceiver {
                     break;
         }
 
-
     }
-    
 
     @KafkaListener(topics = {"${kafka.vehicleTopic}"})
     public void processVehicleMsg(String content) {
