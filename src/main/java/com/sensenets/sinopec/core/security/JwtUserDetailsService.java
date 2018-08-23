@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.sensenets.sinopec.buiness.model.VjUserLoginView;
+import com.sensenets.sinopec.buiness.model.one.VjUserLoginView;
 import com.sensenets.sinopec.buiness.service.IVjUserLoginViewService;
 import com.sensenets.sinopec.core.security.entity.JwtUserFactory;
 

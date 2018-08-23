@@ -1,16 +1,14 @@
 package com.sensenets.sinopec;
 
-import com.sensenets.sinopec.common.startup.SysAppContextInitializer;
-import dg.model.PimpObject;
-import dg.model.PimpOilEvent;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.integration.annotation.IntegrationComponentScan;
 import org.springframework.integration.config.EnableIntegration;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.sensenets.sinopec.common.startup.SysAppContextInitializer;
 
 /**
   * @ClassName: SinopecApplication
@@ -20,10 +18,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
   *
   */
 @EnableWebMvc
-@SpringBootApplication
 @EnableIntegration
 @IntegrationComponentScan
-@ServletComponentScan 
+@ServletComponentScan
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class SinopecApplication {
 
 	public static void main(String[] args) {

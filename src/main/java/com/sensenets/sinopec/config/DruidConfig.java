@@ -8,11 +8,16 @@
  */
 package com.sensenets.sinopec.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 
 import org.springframework.aop.Advisor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.JdkRegexpMethodPointcut;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -20,15 +25,14 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.env.Environment;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.support.spring.stat.BeanTypeAutoProxyCreator;
 import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
+import com.sensenets.sinopec.core.datasource.DataSourceKey;
+import com.sensenets.sinopec.core.datasource.DynamicDataSource;
 
 /**
   * @ClassName: DatabaseConfig
@@ -41,22 +45,39 @@ import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 @ConditionalOnProperty(name = "spring.datasource.type", havingValue = "com.alibaba.druid.pool.DruidDataSource", matchIfMissing = true)
 public class DruidConfig {
 
-    @Value("${spring.datasource.druid.username}")
+    @Value("${spring.datasource.druid.console.name}")
     private String username;
 
-    @Value("${spring.datasource.druid.password}")
+    @Value("${spring.datasource.druid.console.password}")
     private String password;
     
-    @Value("${spring.datasource.druid.logSlowSql}")
+    @Value("${spring.datasource.druid.console.logSlowSql}")
     private String logSlowSql;
     
-    @Bean(destroyMethod = "close", initMethod = "init")
-    @Primary
-    public DataSource dataSource(Environment environment) {
-        return DruidDataSourceBuilder
-                .create()
-                .build(environment, "spring.datasource.druid.");
-   }
+    @Autowired
+    @Qualifier("oneDataSource")
+    private DataSource oneDataSource;
+    
+    @Autowired
+    @Qualifier("twoDataSource")
+    private DataSource twoDataSource;
+  
+   
+    /**
+      * @Title: dynamicDataSource
+      * @Description: 核心动态数据源
+      * @return 数据源实例
+      */
+    @Bean
+    public DataSource dynamicDataSource() {
+        DynamicDataSource dataSource = new DynamicDataSource();
+        dataSource.setDefaultTargetDataSource(oneDataSource);
+        Map<Object, Object> dataSourceMap = new HashMap<>(2);
+        dataSourceMap.put(DataSourceKey.DS1,oneDataSource);
+        dataSourceMap.put(DataSourceKey.DS2,twoDataSource);
+        dataSource.setTargetDataSources(dataSourceMap);
+        return dataSource;
+    }
     
     @Bean
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -127,6 +148,8 @@ public class DruidConfig {
     public Advisor druidStatAdvisor() {
         return new DefaultPointcutAdvisor(druidStatPointcut(), druidStatInterceptor());
     }
+    
+    
 
     
 }

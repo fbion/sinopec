@@ -86,7 +86,11 @@ public class UrlAccessDecisionManager implements AccessDecisionManager {
             //所请求的资源拥有的权限(一个资源对多个角色权限)
             Iterator<ConfigAttribute> iterator = configAttributes.iterator();
             while(iterator.hasNext()) {
+                
                 ConfigAttribute configAttribute = iterator.next();
+                if(configAttribute.getAttribute().equals(UrlSecurityMetadataSource.ROLE_BASIC)){
+                    return ;
+                }
                 //访问所请求资源所需要的角色权限
                 String role = configAttribute.getAttribute();
                 log.info("访问本资源："+request.getRequestURI()+" 需要角色权限："+role);

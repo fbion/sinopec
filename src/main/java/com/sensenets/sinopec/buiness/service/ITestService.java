@@ -1,10 +1,10 @@
 package com.sensenets.sinopec.buiness.service;
 
+import java.util.List;
+
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.CommonCondition;
-import com.sensenets.sinopec.buiness.model.Test;
-
-import java.util.List;
+import com.sensenets.sinopec.buiness.model.one.Test;
 
 /**
   * @ClassName: TestService

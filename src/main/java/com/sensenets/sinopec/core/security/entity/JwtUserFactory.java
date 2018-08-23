@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.sensenets.sinopec.buiness.model.VjUserLoginView;
+import com.sensenets.sinopec.buiness.model.one.VjUserLoginView;
 
 /**
   * @ClassName: JwtUserFactory

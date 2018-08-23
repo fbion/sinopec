@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sensenets.sinopec.buiness.dao.VjFuncRoleUrlViewMapper;
-import com.sensenets.sinopec.buiness.model.VjFuncRoleUrlView;
+import com.sensenets.sinopec.buiness.dao.one.VjFuncRoleUrlViewMapper;
+import com.sensenets.sinopec.buiness.model.one.VjFuncRoleUrlView;
 import com.sensenets.sinopec.buiness.service.IVjFuncRoleUrlViewService;
 
  /**

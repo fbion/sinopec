@@ -3,7 +3,7 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
-import com.sensenets.sinopec.buiness.model.VjUserLoginView;
+import com.sensenets.sinopec.buiness.model.one.VjUserLoginView;
 
  /**
   * @ClassName: VjUserLoginViewService

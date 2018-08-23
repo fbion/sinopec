@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.TestCondition;
-import com.sensenets.sinopec.buiness.model.Test;
+import com.sensenets.sinopec.buiness.model.one.Test;
 import com.sensenets.sinopec.buiness.service.ITestService;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;

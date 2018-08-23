@@ -20,7 +20,7 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Service;
 
-import com.sensenets.sinopec.buiness.model.VjFuncRoleUrlView;
+import com.sensenets.sinopec.buiness.model.one.VjFuncRoleUrlView;
 import com.sensenets.sinopec.buiness.service.IVjFuncRoleUrlViewService;
 import com.sensenets.sinopec.common.enums.UrlMethod;
 import com.sensenets.sinopec.config.JwtConfig;

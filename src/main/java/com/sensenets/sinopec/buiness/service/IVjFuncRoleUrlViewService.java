@@ -3,7 +3,7 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
-import com.sensenets.sinopec.buiness.model.VjFuncRoleUrlView;
+import com.sensenets.sinopec.buiness.model.one.VjFuncRoleUrlView;
 
  /**
   * @ClassName: VjFuncRoleUrlViewService

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.one.OilgunsMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.one.Oilguns">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="task_id" jdbcType="VARCHAR" property="taskId" />
+        <result column="sensor_id" jdbcType="VARCHAR" property="sensorId" />
+        <result column="oil_gun_id" jdbcType="VARCHAR" property="oilGunId" />
+        <result column="oil_gun_rect" jdbcType="VARCHAR" property="oilGunRect" />
+        <result column="additional_infos" jdbcType="VARCHAR" property="additionalInfos" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="threshold" jdbcType="REAL" property="threshold" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from "oilguns"
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.Oilguns">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "oilguns" (uts, name, task_id, 
+            sensor_id, oil_gun_id, oil_gun_rect, 
+            additional_infos, status, threshold
+            )
+        values (#{uts,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, 
+            #{sensorId,jdbcType=VARCHAR}, #{oilGunId,jdbcType=VARCHAR}, #{oilGunRect,jdbcType=VARCHAR}, 
+            #{additionalInfos,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, #{threshold,jdbcType=REAL}
+            )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.Oilguns">
+        update "oilguns"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            name = #{name,jdbcType=VARCHAR},
+            task_id = #{taskId,jdbcType=VARCHAR},
+            sensor_id = #{sensorId,jdbcType=VARCHAR},
+            oil_gun_id = #{oilGunId,jdbcType=VARCHAR},
+            oil_gun_rect = #{oilGunRect,jdbcType=VARCHAR},
+            additional_infos = #{additionalInfos,jdbcType=VARCHAR},
+            status = #{status,jdbcType=SMALLINT},
+            threshold = #{threshold,jdbcType=REAL}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, uts, name, task_id, sensor_id, oil_gun_id, oil_gun_rect, additional_infos, 
+        status, threshold
+        from "oilguns"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, uts, name, task_id, sensor_id, oil_gun_id, oil_gun_rect, additional_infos, 
+        status, threshold
+        from "oilguns"
+    </select>
+</mapper>

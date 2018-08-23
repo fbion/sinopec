@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.one.SysConfigMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.one.SysConfig">
+        <id column="id" jdbcType="SMALLINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="config_key" jdbcType="VARCHAR" property="configKey" />
+        <result column="config_value" jdbcType="VARCHAR" property="configValue" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+        delete from "sys_config"
+        where id = #{id,jdbcType=SMALLINT}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.SysConfig">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Short">
+            PostgreSQL
+        </selectKey>
+        insert into "sys_config" (uts, config_key, config_value
+            )
+        values (#{uts,jdbcType=TIMESTAMP}, #{configKey,jdbcType=VARCHAR}, #{configValue,jdbcType=VARCHAR}
+            )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.SysConfig">
+        update "sys_config"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            config_key = #{configKey,jdbcType=VARCHAR},
+            config_value = #{configValue,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=SMALLINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+        select id, uts, config_key, config_value
+        from "sys_config"
+        where id = #{id,jdbcType=SMALLINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, uts, config_key, config_value
+        from "sys_config"
+    </select>
+</mapper>

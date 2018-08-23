@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.one.FuncsMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.one.Funcs">
+        <id column="func_id" jdbcType="VARCHAR" property="funcId" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="func_name" jdbcType="VARCHAR" property="funcName" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="func_uri" jdbcType="VARCHAR" property="funcUri" />
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from "funcs"
+        where func_id = #{funcId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.Funcs">
+        <selectKey keyProperty="funcId" order="AFTER" resultType="java.lang.String">
+            PostgreSQL
+        </selectKey>
+        insert into "funcs" (uts, func_name, status, 
+            func_uri)
+        values (#{uts,jdbcType=TIMESTAMP}, #{funcName,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
+            #{funcUri,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.Funcs">
+        update "funcs"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            func_name = #{funcName,jdbcType=VARCHAR},
+            status = #{status,jdbcType=SMALLINT},
+            func_uri = #{funcUri,jdbcType=VARCHAR}
+        where func_id = #{funcId,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select func_id, uts, func_name, status, func_uri
+        from "funcs"
+        where func_id = #{funcId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select func_id, uts, func_name, status, func_uri
+        from "funcs"
+    </select>
+</mapper>
