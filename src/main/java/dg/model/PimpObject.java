@@ -122,7 +122,7 @@ public final class PimpObject {
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -131,7 +131,7 @@ public final class PimpObject {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ObjectType valueOf(int value) {
       return forNumber(value);
     }
@@ -170,7 +170,7 @@ public final class PimpObject {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return dg.model.PimpObject.getDescriptor().getEnumTypes().get(0);
+      return PimpObject.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final ObjectType[] VALUES = values();
@@ -178,7 +178,7 @@ public final class PimpObject {
     public static ObjectType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -207,7 +207,7 @@ public final class PimpObject {
     /**
      * <code>.dg.model.ObjectType ObjectType = 1;</code>
      */
-    dg.model.PimpObject.ObjectType getObjectType();
+    PimpObject.ObjectType getObjectType();
 
     /**
      * <pre>
@@ -235,7 +235,7 @@ public final class PimpObject {
       binData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -246,7 +246,7 @@ public final class PimpObject {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -291,15 +291,15 @@ public final class PimpObject {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dg.model.PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
+      return PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dg.model.PimpObject.internal_static_dg_model_ObjectPublish_fieldAccessorTable
+      return PimpObject.internal_static_dg_model_ObjectPublish_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dg.model.PimpObject.ObjectPublish.class, dg.model.PimpObject.ObjectPublish.Builder.class);
+              PimpObject.ObjectPublish.class, PimpObject.ObjectPublish.Builder.class);
     }
 
     public static final int OBJECTTYPE_FIELD_NUMBER = 1;
@@ -313,10 +313,10 @@ public final class PimpObject {
     /**
      * <code>.dg.model.ObjectType ObjectType = 1;</code>
      */
-    public dg.model.PimpObject.ObjectType getObjectType() {
+    public PimpObject.ObjectType getObjectType() {
       @SuppressWarnings("deprecation")
-      dg.model.PimpObject.ObjectType result = dg.model.PimpObject.ObjectType.valueOf(objectType_);
-      return result == null ? dg.model.PimpObject.ObjectType.UNRECOGNIZED : result;
+      PimpObject.ObjectType result = PimpObject.ObjectType.valueOf(objectType_);
+      return result == null ? PimpObject.ObjectType.UNRECOGNIZED : result;
     }
 
     public static final int BINDATA_FIELD_NUMBER = 2;
@@ -333,7 +333,7 @@ public final class PimpObject {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -343,10 +343,10 @@ public final class PimpObject {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (objectType_ != dg.model.PimpObject.ObjectType.Object_Type_Unknown.getNumber()) {
+      if (objectType_ != PimpObject.ObjectType.Object_Type_Unknown.getNumber()) {
         output.writeEnum(1, objectType_);
       }
       if (!binData_.isEmpty()) {
@@ -355,13 +355,13 @@ public final class PimpObject {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (objectType_ != dg.model.PimpObject.ObjectType.Object_Type_Unknown.getNumber()) {
+      if (objectType_ != PimpObject.ObjectType.Object_Type_Unknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, objectType_);
       }
@@ -374,15 +374,15 @@ public final class PimpObject {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof dg.model.PimpObject.ObjectPublish)) {
+      if (!(obj instanceof PimpObject.ObjectPublish)) {
         return super.equals(obj);
       }
-      dg.model.PimpObject.ObjectPublish other = (dg.model.PimpObject.ObjectPublish) obj;
+      PimpObject.ObjectPublish other = (PimpObject.ObjectPublish) obj;
 
       boolean result = true;
       result = result && objectType_ == other.objectType_;
@@ -392,7 +392,7 @@ public final class PimpObject {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -408,69 +408,69 @@ public final class PimpObject {
       return hash;
     }
 
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(byte[] data)
+    public static PimpObject.ObjectPublish parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(java.io.InputStream input)
+    public static PimpObject.ObjectPublish parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static dg.model.PimpObject.ObjectPublish parseDelimitedFrom(java.io.InputStream input)
+    public static PimpObject.ObjectPublish parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static dg.model.PimpObject.ObjectPublish parseDelimitedFrom(
+    public static PimpObject.ObjectPublish parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static dg.model.PimpObject.ObjectPublish parseFrom(
+    public static PimpObject.ObjectPublish parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -478,23 +478,23 @@ public final class PimpObject {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(dg.model.PimpObject.ObjectPublish prototype) {
+    public static Builder newBuilder(PimpObject.ObjectPublish prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -504,18 +504,18 @@ public final class PimpObject {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.ObjectPublish)
-        dg.model.PimpObject.ObjectPublishOrBuilder {
+        PimpObject.ObjectPublishOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return dg.model.PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
+        return PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return dg.model.PimpObject.internal_static_dg_model_ObjectPublish_fieldAccessorTable
+        return PimpObject.internal_static_dg_model_ObjectPublish_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                dg.model.PimpObject.ObjectPublish.class, dg.model.PimpObject.ObjectPublish.Builder.class);
+                PimpObject.ObjectPublish.class, PimpObject.ObjectPublish.Builder.class);
       }
 
       // Construct using dg.model.PimpObject.ObjectPublish.newBuilder()
@@ -524,7 +524,7 @@ public final class PimpObject {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -533,7 +533,7 @@ public final class PimpObject {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         objectType_ = 0;
@@ -543,79 +543,79 @@ public final class PimpObject {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return dg.model.PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
+        return PimpObject.internal_static_dg_model_ObjectPublish_descriptor;
       }
 
-      @java.lang.Override
-      public dg.model.PimpObject.ObjectPublish getDefaultInstanceForType() {
-        return dg.model.PimpObject.ObjectPublish.getDefaultInstance();
+      @Override
+      public PimpObject.ObjectPublish getDefaultInstanceForType() {
+        return PimpObject.ObjectPublish.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public dg.model.PimpObject.ObjectPublish build() {
-        dg.model.PimpObject.ObjectPublish result = buildPartial();
+      @Override
+      public PimpObject.ObjectPublish build() {
+        PimpObject.ObjectPublish result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public dg.model.PimpObject.ObjectPublish buildPartial() {
-        dg.model.PimpObject.ObjectPublish result = new dg.model.PimpObject.ObjectPublish(this);
+      @Override
+      public PimpObject.ObjectPublish buildPartial() {
+        PimpObject.ObjectPublish result = new PimpObject.ObjectPublish(this);
         result.objectType_ = objectType_;
         result.binData_ = binData_;
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof dg.model.PimpObject.ObjectPublish) {
-          return mergeFrom((dg.model.PimpObject.ObjectPublish)other);
+        if (other instanceof PimpObject.ObjectPublish) {
+          return mergeFrom((PimpObject.ObjectPublish)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(dg.model.PimpObject.ObjectPublish other) {
-        if (other == dg.model.PimpObject.ObjectPublish.getDefaultInstance()) return this;
+      public Builder mergeFrom(PimpObject.ObjectPublish other) {
+        if (other == PimpObject.ObjectPublish.getDefaultInstance()) return this;
         if (other.objectType_ != 0) {
           setObjectTypeValue(other.getObjectTypeValue());
         }
@@ -627,21 +627,21 @@ public final class PimpObject {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        dg.model.PimpObject.ObjectPublish parsedMessage = null;
+        PimpObject.ObjectPublish parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (dg.model.PimpObject.ObjectPublish) e.getUnfinishedMessage();
+          parsedMessage = (PimpObject.ObjectPublish) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -669,19 +669,19 @@ public final class PimpObject {
       /**
        * <code>.dg.model.ObjectType ObjectType = 1;</code>
        */
-      public dg.model.PimpObject.ObjectType getObjectType() {
+      public PimpObject.ObjectType getObjectType() {
         @SuppressWarnings("deprecation")
-        dg.model.PimpObject.ObjectType result = dg.model.PimpObject.ObjectType.valueOf(objectType_);
-        return result == null ? dg.model.PimpObject.ObjectType.UNRECOGNIZED : result;
+        PimpObject.ObjectType result = PimpObject.ObjectType.valueOf(objectType_);
+        return result == null ? PimpObject.ObjectType.UNRECOGNIZED : result;
       }
       /**
        * <code>.dg.model.ObjectType ObjectType = 1;</code>
        */
-      public Builder setObjectType(dg.model.PimpObject.ObjectType value) {
+      public Builder setObjectType(PimpObject.ObjectType value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+
         objectType_ = value.getNumber();
         onChanged();
         return this;
@@ -690,7 +690,7 @@ public final class PimpObject {
        * <code>.dg.model.ObjectType ObjectType = 1;</code>
        */
       public Builder clearObjectType() {
-        
+
         objectType_ = 0;
         onChanged();
         return this;
@@ -718,7 +718,7 @@ public final class PimpObject {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+
         binData_ = value;
         onChanged();
         return this;
@@ -731,18 +731,18 @@ public final class PimpObject {
        * <code>bytes BinData = 2;</code>
        */
       public Builder clearBinData() {
-        
+
         binData_ = getDefaultInstance().getBinData();
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -753,18 +753,18 @@ public final class PimpObject {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.ObjectPublish)
-    private static final dg.model.PimpObject.ObjectPublish DEFAULT_INSTANCE;
+    private static final PimpObject.ObjectPublish DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new dg.model.PimpObject.ObjectPublish();
+      DEFAULT_INSTANCE = new PimpObject.ObjectPublish();
     }
 
-    public static dg.model.PimpObject.ObjectPublish getDefaultInstance() {
+    public static PimpObject.ObjectPublish getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ObjectPublish>
         PARSER = new com.google.protobuf.AbstractParser<ObjectPublish>() {
-      @java.lang.Override
+      @Override
       public ObjectPublish parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -777,13 +777,13 @@ public final class PimpObject {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ObjectPublish> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public dg.model.PimpObject.ObjectPublish getDefaultInstanceForType() {
+    @Override
+    public PimpObject.ObjectPublish getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -791,7 +791,7 @@ public final class PimpObject {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_ObjectPublish_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_ObjectPublish_fieldAccessorTable;
 
@@ -802,7 +802,7 @@ public final class PimpObject {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\020pimpObject.proto\022\010dg.model\"J\n\rObjectPu" +
       "blish\022(\n\nObjectType\030\001 \001(\0162\024.dg.model.Obj" +
       "ectType\022\017\n\007BinData\030\002 \001(\014*\264\001\n\nObjectType\022" +
@@ -829,7 +829,7 @@ public final class PimpObject {
     internal_static_dg_model_ObjectPublish_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_ObjectPublish_descriptor,
-        new java.lang.String[] { "ObjectType", "BinData", });
+        new String[] { "ObjectType", "BinData", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

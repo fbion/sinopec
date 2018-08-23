@@ -25,19 +25,11 @@ public class SinopecTest {
     @Autowired
     private WebApplicationContext wac;
     
-    @Autowired
-    private KafkaSender kafkaSender;
-    
+ 
     
     @Before
     public void init(){
         mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-    }
-
-
-    @Test
-    public void testKafka(){
-        kafkaSender.send("face", "消息face");
     }
     
     

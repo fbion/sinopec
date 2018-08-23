@@ -35,7 +35,7 @@ message TicketOpen {
     //开票时间
     string Timestamp = 3;
     //开票事件操作类型
-    string EventType = 4;
+    TicketOpenEventType EventType = 4;
     //流水号
     string OilFlowNumber = 5;
     //附加信息

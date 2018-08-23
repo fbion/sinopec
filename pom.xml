@@ -270,8 +270,6 @@
 			<groupId>org.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
 		</dependency>
-
-
 		<dependency>
 			<groupId>io.github.swagger2markup</groupId>
 			<artifactId>swagger2markup</artifactId>
@@ -340,14 +338,14 @@
 					<clearOutputDirectory>false</clearOutputDirectory>
 					<temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies</temporaryProtoFileDirectory>
                 </configuration>
-                <executions>
+               <!--  <executions>
                     <execution>
                         <goals>
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>

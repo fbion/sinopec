@@ -22,7 +22,7 @@ message CouponUsed {
     //优惠券编码
     string CouponNo = 4;
     //事件操作类型
-    string CouponUsedEventType = 5;
+    CouponUsedEventType EventType = 5;
     //订单流水
     string OrderNo = 6;
     //附加信息

@@ -1,22 +1,20 @@
 package com.sensenets.sinopec.buiness.kafka;
 
-import com.google.protobuf.InvalidProtocolBufferException;
-import dg.model.PimpObject;
+import java.util.Map;
+
 import org.apache.kafka.common.serialization.Deserializer;
 
-import java.util.Map;
+import com.google.protobuf.InvalidProtocolBufferException;
+
+import dg.model.PimpObject;
 
 /**
  * @author kelly
  * @version V1.0
  * @date 2018-08-20 15:47
- * @desc TODO
+ * @desc protobuf反序列化
  */
 public class ProtoObjDeserializer implements Deserializer<PimpObject.ObjectPublish> {
-    @Override
-    public void configure(Map<String, ?> map, boolean b) {
-
-    }
 
     @Override
     public PimpObject.ObjectPublish deserialize(String s, byte[] bytes) {
@@ -32,5 +30,12 @@ public class ProtoObjDeserializer implements Deserializer<PimpObject.ObjectPubli
     @Override
     public void close() {
 
+    }
+ 
+
+   
+    @Override
+    public void configure(Map<String, ?> arg0, boolean arg1) {
+        
     }
 }

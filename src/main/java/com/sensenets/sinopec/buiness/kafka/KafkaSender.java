@@ -1,12 +1,16 @@
 package com.sensenets.sinopec.buiness.kafka;
 
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaOperations;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.ProducerListener;
 import org.springframework.stereotype.Component;
+
+import dg.model.PimpCouponUsed;
+import dg.model.PimpNonOilTrade;
+import dg.model.PimpObject;
+import dg.model.PimpOilEvent;
+import dg.model.PimpOilTrade;
+import dg.model.PimpTicketOpen;
 
 /**
  * @ClassName: kafkaProducer
@@ -18,33 +22,72 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaSender {
     @Autowired
-    private KafkaTemplate kafkaTemplate;
+    private KafkaTemplate<String,PimpObject.ObjectPublish> kafkaTemplate;
+    
+    @Value("${kafka.faceTopic}")
+    private String faceTopic;
 
-    public  void send(String topic, String content) {
-        kafkaTemplate.send(topic, content);
-        kafkaTemplate.metrics();
-        kafkaTemplate.execute(new KafkaOperations.ProducerCallback<String, String, Object>() {
-            @Override
-            public Object doInKafka(Producer<String, String> producer) {
-                // 这里可以编写kafka原生的api操作
-                return null;
-            }
-        });
-
-        // 消息发送的监听器，用于回调返回信息
-        kafkaTemplate.setProducerListener(new ProducerListener<String, String>() {
-            @Override
-            public void onSuccess(String topic, Integer partition, String key, String value, RecordMetadata recordMetadata) {
-            }
-
-            @Override
-            public void onError(String topic, Integer partition, String key, String value, Exception exception) {
-            }
-
-            @Override
-            public boolean isInterestedInSuccess() {
-                return false;
-            }
-        });
+    public void sendPimpObject(String topic,PimpObject.ObjectPublish objectPublish){
+        if(objectPublish!=null){
+            kafkaTemplate.send(topic,objectPublish);
+        }
     }
+    
+    public <T> PimpObject.ObjectPublish generatePublishObj(PimpObject.ObjectType type,PimpObjParams<T>  params){
+        PimpObject.ObjectPublish objectPublish = null;
+        switch(type){
+        // 未知
+        case Object_Type_Unknown:
+            objectPublish  =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Unknown)
+            .build();
+            break;
+        // 提挂枪对象
+        case Object_Type_Oil_Event:
+            PimpOilEvent.OilEvent  oilEvent = (PimpOilEvent.OilEvent)params.getObj();
+            objectPublish  =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Oil_Event)
+            .setBinData(oilEvent.toByteString())
+            .build();
+            break;
+        // 油品交易对象
+        case Object_Type_Oil_Trade:
+            PimpOilTrade.OilTrade  oilTrade = (PimpOilTrade.OilTrade)params.getObj();
+            objectPublish  =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Oil_Trade)
+            .setBinData(oilTrade.toByteString())
+            .build();
+        
+        // 非油品交易对象
+        case Object_Type_Non_Oil_Trade :
+            PimpNonOilTrade.NonOilTrade  nonOilTrade = (PimpNonOilTrade.NonOilTrade)params.getObj();
+            objectPublish =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Non_Oil_Trade)
+            .setBinData(nonOilTrade.toByteString())
+            .build();
+        // 开票
+        case Object_Type_Ticket_Open :
+            PimpTicketOpen.TicketOpen  ticketOpen = (PimpTicketOpen.TicketOpen)params.getObj();
+            objectPublish =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Ticket_Open)
+            .setBinData(ticketOpen.toByteString())
+            .build();
+        // 优惠券
+        case Object_Type_Coupon_Used :
+            PimpCouponUsed.CouponUsed  couponUsed = (PimpCouponUsed.CouponUsed)params.getObj();
+            objectPublish =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.Object_Type_Coupon_Used)
+            .setBinData(couponUsed.toByteString())
+            .build();
+        // 不能识别
+        case UNRECOGNIZED:
+            objectPublish  =  PimpObject.ObjectPublish.newBuilder()
+            .setObjectType(PimpObject.ObjectType.UNRECOGNIZED)
+            .build();
+            break;
+        }
+        return  objectPublish;
+    } 
+    
+    
 }

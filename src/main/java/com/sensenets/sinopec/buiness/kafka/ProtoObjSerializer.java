@@ -9,7 +9,7 @@ import java.util.Map;
  * @author kelly
  * @version V1.0
  * @date 2018-08-20 15:32
- * @desc TODO
+ * @desc protobuf序列化
  */
 public class ProtoObjSerializer implements Serializer<PimpObject.ObjectPublish> {
     @Override
