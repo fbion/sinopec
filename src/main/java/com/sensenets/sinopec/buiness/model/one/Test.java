@@ -1,5 +1,9 @@
 package com.sensenets.sinopec.buiness.model.one;
 
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,5 +19,6 @@ public class Test {
     private String name;
 
     @ApiModelProperty(value="时间戳",name="uts",example="2018-08-12 12:12:34")
-    private String uts;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Timestamp uts;
 }

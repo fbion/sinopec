@@ -14,7 +14,7 @@ public interface OrgMapper {
     
     int deleteByPrimaryKey(@Param("id") Long id);
 
-    int insert(@Param("org")Org record);
+    int insert(Org record);
 
     Org selectByPrimaryKey(@Param("id") Long id);
 

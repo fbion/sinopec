@@ -1,5 +1,6 @@
 package com.sensenets.sinopec.common.utils;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -139,6 +140,8 @@ public class DateHelper {
 		final int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 		return DateUtils.setDays(calendar.getTime(), lastDay);
 	}
+	
+	
 
 	/**
 	 * @Title: fromToday
@@ -270,6 +273,18 @@ public class DateHelper {
 		return str;
 	}
 	
+
+    /**
+     * @Title: getTimestampFormat0
+     * @Description: 日期转格式0:yyyy-MM-dd HH:mm:ss
+     * @return Timestamp
+     */
+    public static Timestamp getTimestampFormat0() {
+        String str = null;
+        str = date2String(new Date(), FORMAT_0);
+        return new Timestamp(string2Date(str, FORMAT_0).getTime());
+    }
+    
 	
 	   /**
      * @Title: convertDateStrToOtherFormat
@@ -553,6 +568,15 @@ public class DateHelper {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);  
     }  
 	
+	   /**
+     * @Title: getCurrentDateFormat0
+     * @Description: 获取当前天的时间标准格式
+     * @return 当前时间
+     */
+    public static String getCurrentDateFormat0() {
+        return date2String(new Date(), FORMAT_0);
+    }
+	
 	/**
 	 * 
 	 * 根据字符串格式去转换相应格式的日期和时间
@@ -796,6 +820,7 @@ public class DateHelper {
 //		System.out.println(DateHelper.dateAddDay(new Date(), DateHelper.FORMAT_0_1, -10));
 //		2018-6-19 20:3:57
 		System.out.println(DateHelper.convertCommDateStrToOtherFormatByJodaTime(null,DateHelper.FORMAT_0 , DateHelper.FORMAT_3));
+		System.out.println(getTimestampFormat0());
 	}
 
 	/**
@@ -842,4 +867,5 @@ public class DateHelper {
 
 		return new String[] { firstDay, lastDay };
 	}
+	
 }

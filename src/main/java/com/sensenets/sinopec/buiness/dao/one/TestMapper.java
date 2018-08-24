@@ -14,7 +14,7 @@ public interface TestMapper {
     
     int deleteByPrimaryKey(@Param("id") Long id);
 
-    int insert(@Param("test")Test record);
+    int insert(Test record);
 
     Test selectByPrimaryKey(@Param("id") Long id);
 

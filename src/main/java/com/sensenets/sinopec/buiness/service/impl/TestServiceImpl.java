@@ -1,6 +1,7 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,8 +13,11 @@ import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.CommonCondition;
 import com.sensenets.sinopec.buiness.condition.TestCondition;
 import com.sensenets.sinopec.buiness.dao.one.TestMapper;
+import com.sensenets.sinopec.buiness.dao.two.OrgMapper;
 import com.sensenets.sinopec.buiness.model.one.Test;
+import com.sensenets.sinopec.buiness.model.two.Org;
 import com.sensenets.sinopec.buiness.service.ITestService;
+import com.sensenets.sinopec.common.utils.DateHelper;
 
 /**
  * @ClassName: TestServiceImpl
@@ -26,11 +30,23 @@ public class TestServiceImpl implements ITestService {
 
     @Autowired
     TestMapper testDao;
+    
+    @Autowired
+    OrgMapper orgDao;
 
     @Override
     public int save(Test record) {
-        return testDao.insert(record);
+        Test test  = new Test();
+        test.setName("222");
+        test.setUts(DateHelper.getTimestampFormat0());
+        int  t1 = testDao.insert(test);
+        Org org  = new Org();
+        org.setName("12131");
+        org.setUts(DateHelper.getTimestampFormat0());
+        int  t2 = orgDao.insert(org);
+        return t1+t2;
     }
+    
 
     @Override
     public boolean deleteById(Long id) {

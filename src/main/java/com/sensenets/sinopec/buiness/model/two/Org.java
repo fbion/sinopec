@@ -1,5 +1,7 @@
 package com.sensenets.sinopec.buiness.model.two;
 
+import java.sql.Timestamp;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,5 +17,5 @@ public class Org {
     private String name;
 
     @ApiModelProperty(value="时间戳",name="uts",example="2018-08-12 12:12:34")
-    private String uts;
+    private Timestamp uts;
 }

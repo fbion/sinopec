@@ -16,10 +16,10 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id"  >
-    insert into public.org (id, uts, name
+  <insert id="insert" useGeneratedKeys="true"  >
+    insert into public.org (uts, name
       )
-    values (#{id,jdbcType=BIGINT}, #{uts,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}
+    values ( #{uts,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}
       )
   </insert>
 
