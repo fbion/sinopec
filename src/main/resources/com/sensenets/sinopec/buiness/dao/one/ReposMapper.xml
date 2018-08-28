@@ -16,15 +16,103 @@
         <result column="comment" jdbcType="VARCHAR" property="comment" />
         <result column="status" jdbcType="SMALLINT" property="status" />
     </resultMap>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from "repos"
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        repo_id, id, uts, repo_name, type, repo_sn, repo_level, level_id, parent_id, left_id, 
+        right_id, comment, status
+    </sql>
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.one.ReposCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."repos"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."repos"
         where repo_id = #{repoId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from "public"."repos"
+        where repo_id = #{repoId,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.one.ReposCriteria">
+        delete from "public"."repos"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
     </delete>
     <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.Repos">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
             PostgreSQL
         </selectKey>
-        insert into "repos" (repo_id, uts, repo_name, 
+        insert into "public"."repos" (repo_id, uts, repo_name, 
             type, repo_sn, repo_level, 
             level_id, parent_id, left_id, 
             right_id, comment, status
@@ -35,8 +123,204 @@
             #{rightId,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}
             )
     </insert>
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.one.Repos">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "public"."repos"
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="repoId != null">
+                repo_id,
+            </if>
+            <if test="uts != null">
+                uts,
+            </if>
+            <if test="repoName != null">
+                repo_name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="repoSn != null">
+                repo_sn,
+            </if>
+            <if test="repoLevel != null">
+                repo_level,
+            </if>
+            <if test="levelId != null">
+                level_id,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="leftId != null">
+                left_id,
+            </if>
+            <if test="rightId != null">
+                right_id,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="repoId != null">
+                #{repoId,jdbcType=VARCHAR},
+            </if>
+            <if test="uts != null">
+                #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repoName != null">
+                #{repoName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="repoSn != null">
+                #{repoSn,jdbcType=VARCHAR},
+            </if>
+            <if test="repoLevel != null">
+                #{repoLevel,jdbcType=SMALLINT},
+            </if>
+            <if test="levelId != null">
+                #{levelId,jdbcType=SMALLINT},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="leftId != null">
+                #{leftId,jdbcType=VARCHAR},
+            </if>
+            <if test="rightId != null">
+                #{rightId,jdbcType=VARCHAR},
+            </if>
+            <if test="comment != null">
+                #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.one.ReposCriteria" resultType="java.lang.Long">
+        select count(*) from "public"."repos"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."repos"
+        <set>
+            <if test="record.repoId != null">
+                repo_id = #{record.repoId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.uts != null">
+                uts = #{record.uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.repoName != null">
+                repo_name = #{record.repoName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                type = #{record.type,jdbcType=SMALLINT},
+            </if>
+            <if test="record.repoSn != null">
+                repo_sn = #{record.repoSn,jdbcType=VARCHAR},
+            </if>
+            <if test="record.repoLevel != null">
+                repo_level = #{record.repoLevel,jdbcType=SMALLINT},
+            </if>
+            <if test="record.levelId != null">
+                level_id = #{record.levelId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.parentId != null">
+                parent_id = #{record.parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.leftId != null">
+                left_id = #{record.leftId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rightId != null">
+                right_id = #{record.rightId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.comment != null">
+                comment = #{record.comment,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=SMALLINT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."repos"
+        set repo_id = #{record.repoId,jdbcType=VARCHAR},
+            id = #{record.id,jdbcType=BIGINT},
+            uts = #{record.uts,jdbcType=TIMESTAMP},
+            repo_name = #{record.repoName,jdbcType=VARCHAR},
+            type = #{record.type,jdbcType=SMALLINT},
+            repo_sn = #{record.repoSn,jdbcType=VARCHAR},
+            repo_level = #{record.repoLevel,jdbcType=SMALLINT},
+            level_id = #{record.levelId,jdbcType=SMALLINT},
+            parent_id = #{record.parentId,jdbcType=VARCHAR},
+            left_id = #{record.leftId,jdbcType=VARCHAR},
+            right_id = #{record.rightId,jdbcType=VARCHAR},
+            comment = #{record.comment,jdbcType=VARCHAR},
+            status = #{record.status,jdbcType=SMALLINT}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.one.Repos">
+        update "public"."repos"
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="uts != null">
+                uts = #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repoName != null">
+                repo_name = #{repoName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="repoSn != null">
+                repo_sn = #{repoSn,jdbcType=VARCHAR},
+            </if>
+            <if test="repoLevel != null">
+                repo_level = #{repoLevel,jdbcType=SMALLINT},
+            </if>
+            <if test="levelId != null">
+                level_id = #{levelId,jdbcType=SMALLINT},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="leftId != null">
+                left_id = #{leftId,jdbcType=VARCHAR},
+            </if>
+            <if test="rightId != null">
+                right_id = #{rightId,jdbcType=VARCHAR},
+            </if>
+            <if test="comment != null">
+                comment = #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where repo_id = #{repoId,jdbcType=VARCHAR}
+    </update>
     <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.Repos">
-        update "repos"
+        update "public"."repos"
         set id = #{id,jdbcType=BIGINT},
             uts = #{uts,jdbcType=TIMESTAMP},
             repo_name = #{repoName,jdbcType=VARCHAR},
@@ -51,15 +335,4 @@
             status = #{status,jdbcType=SMALLINT}
         where repo_id = #{repoId,jdbcType=VARCHAR}
     </update>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select repo_id, id, uts, repo_name, type, repo_sn, repo_level, level_id, parent_id, 
-        left_id, right_id, comment, status
-        from "repos"
-        where repo_id = #{repoId,jdbcType=VARCHAR}
-    </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-        select repo_id, id, uts, repo_name, type, repo_sn, repo_level, level_id, parent_id, 
-        left_id, right_id, comment, status
-        from "repos"
-    </select>
 </mapper>
