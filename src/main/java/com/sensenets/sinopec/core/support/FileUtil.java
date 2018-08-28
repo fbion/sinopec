@@ -9,7 +9,7 @@ import java.nio.channels.FileChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 
 public class FileUtil {

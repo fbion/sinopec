@@ -38,7 +38,7 @@ public class DataSourceOneConfig {
     /**
       * @Fields MAPPER_LOCATION : xml文件位置
       */
-    static final String MAPPER_LOCATION ="classpath:com/sensenets/sinopec/buiness/dao/one/*Mapper.xml" ;
+    static final String MAPPER_LOCATION ="classpath:com/sensenets/sinopec/buiness/dao/one/*/*Mapper.xml" ;
 
     static final String  PREFIX = "spring.datasource.one.druid.";
     

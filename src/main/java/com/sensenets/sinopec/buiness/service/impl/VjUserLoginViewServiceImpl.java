@@ -9,6 +9,8 @@ import com.sensenets.sinopec.buiness.dao.one.VjUserLoginViewMapper;
 import com.sensenets.sinopec.buiness.model.one.VjUserLoginView;
 import com.sensenets.sinopec.buiness.service.IVjUserLoginViewService;
 
+import lombok.extern.slf4j.Slf4j;
+
  /**
   * @ClassName: VjUserLoginViewServiceImpl
   * @Description: 用户登录视图业务层接口实现
@@ -16,6 +18,7 @@ import com.sensenets.sinopec.buiness.service.IVjUserLoginViewService;
   * @date 2018年08月16日 19:12:36
   */
 @Service
+@Slf4j
 public class VjUserLoginViewServiceImpl implements IVjUserLoginViewService {
 
     @Autowired

@@ -1,4 +1,4 @@
-package com.sensenets.sinopec.common.exception;
+package com.sensenets.sinopec.common.enums;
 
 
 /**
@@ -10,8 +10,23 @@ package com.sensenets.sinopec.common.exception;
   */
 public enum BizExceptionEnum {
 
-	ERROR_TOKEN_EXPIRED(100001,"认证令牌已过期"),
-	ERROR_TOKEN_ERROR(100002,"认证令牌错误"),
+    /*****权限认证模块*****/
+	RIGHT_AUTH_ERROR_TOKEN_EXPIRED(100001,"认证令牌已过期"),
+	RIGHT_AUTH_ERROR_TOKEN_ERROR(100002,"认证令牌错误"),
+	
+	/*****移动数据采集模块*****/
+    MOBILE_COLLECT_ERROR_TIME_PARAMS_NULL(200001,"采集时间的参数不能为空"),
+    MOBILE_COLLECT_ERROR_TYPE_PARAMS_NULL(200002,"采集类型的参数不能为空"),
+    MOBILE_COLLECT_ERROR_NAME_PARAMS_NULL(200003,"请选择采集名称"),
+    MOBILE_COLLECT_ERROR_STATION_NAME_PARAMS_NULL(200004,"请选择油站名称"),
+    MOBILE_COLLECT_ERROR_ID_PARAMS_ERROR(200005,"传入的参数有误"),
+    MOBILE_COLLECT_TIP_NOT_UPDATE(200006,"您未修改任何参数，将不做任何更新！"),
+    MOBILE_COLLECT_ERROR_ID_PARAMS_NULL(200007,"采集记录id不能为空"),
+	
+	
+	
+	
+	
 	/**
 	 * 字典
 	 */

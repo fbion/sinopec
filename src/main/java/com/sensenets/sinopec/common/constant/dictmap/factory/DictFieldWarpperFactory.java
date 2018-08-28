@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import com.sensenets.sinopec.common.constant.factory.ConstantFactory;
 import com.sensenets.sinopec.common.constant.factory.IConstantFactory;
-import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 
 

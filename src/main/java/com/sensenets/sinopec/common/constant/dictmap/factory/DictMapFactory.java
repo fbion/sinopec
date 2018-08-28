@@ -2,7 +2,7 @@ package com.sensenets.sinopec.common.constant.dictmap.factory;
 
 import com.sensenets.sinopec.common.constant.dictmap.base.AbstractDictMap;
 import com.sensenets.sinopec.common.constant.dictmap.base.SystemDict;
-import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 
 

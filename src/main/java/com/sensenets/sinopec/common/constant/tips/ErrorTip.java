@@ -1,6 +1,6 @@
 package com.sensenets.sinopec.common.constant.tips;
 
-import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 
 
 /**

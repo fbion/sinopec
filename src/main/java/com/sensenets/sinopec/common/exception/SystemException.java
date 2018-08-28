@@ -1,5 +1,6 @@
 package com.sensenets.sinopec.common.exception;
 
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.core.support.StrKit;
 
 import lombok.Data;

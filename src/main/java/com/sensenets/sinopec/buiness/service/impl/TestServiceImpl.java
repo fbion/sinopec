@@ -1,7 +1,6 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,43 +28,44 @@ import com.sensenets.sinopec.common.utils.DateHelper;
 public class TestServiceImpl implements ITestService {
 
     @Autowired
-    TestMapper testDao;
+    TestMapper testMapper;
     
     @Autowired
-    OrgMapper orgDao;
+    OrgMapper orgMapper;
+    
 
     @Override
     public int save(Test record) {
         Test test  = new Test();
         test.setName("222");
         test.setUts(DateHelper.getTimestampFormat0());
-        int  t1 = testDao.insert(test);
+        int  t1 = testMapper.insert(test);
         Org org  = new Org();
         org.setName("12131");
         org.setUts(DateHelper.getTimestampFormat0());
-        int  t2 = orgDao.insert(org);
+        int  t2 = orgMapper.insert(org);
         return t1+t2;
     }
     
 
     @Override
     public boolean deleteById(Long id) {
-        return testDao.deleteByPrimaryKey(id) > 0 ? true : false;
+        return testMapper.deleteByPrimaryKey(id) > 0 ? true : false;
     }
 
     @Override
     public int updateById(Test record) {
-        return testDao.updateByPrimaryKey(record);
+        return testMapper.updateByPrimaryKey(record);
     }
 
     @Override
     public Test findById(Long id) {
-        return testDao.selectByPrimaryKey(id);
+        return testMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public List<Test> findAll() {
-        return testDao.selectAll();
+        return testMapper.selectAll();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class TestServiceImpl implements ITestService {
             testCondition.setGenStartTime(Timestamp.valueOf(testCondition.getStartTime()));
         }
 
-        List<Test> list = testDao.selectPage(testCondition);
+        List<Test> list = testMapper.selectPage(testCondition);
         PageInfo<Test> pageInfo = new PageInfo<Test>(list);
         return pageInfo;
     }

@@ -8,7 +8,7 @@
  */
 package com.sensenets.sinopec.core.security;
 
-import com.sensenets.sinopec.common.exception.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 import com.sensenets.sinopec.core.security.util.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -79,7 +79,7 @@ public class JwtTokenFilter  implements Filter{
                 //根据account去数据库中查询user数据，足够信任token的情况下，可以省略这一步
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(useraccount);
                 if(!jwtUtil.validateTokenNotExpired(authToken, userDetails)){
-                    throw new BusinessException(BizExceptionEnum.ERROR_TOKEN_EXPIRED);
+                    throw new BusinessException(BizExceptionEnum.RIGHT_AUTH_ERROR_TOKEN_EXPIRED);
                 }
                 if (jwtUtil.validateTokenUserInfo(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
@@ -89,7 +89,7 @@ public class JwtTokenFilter  implements Filter{
                     log.debug("JwtAuthTokenFilter[doFilterInternal]  authenticated user " + useraccount + ", setting security context");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }else{
-                    throw new BusinessException(BizExceptionEnum.ERROR_TOKEN_ERROR);
+                    throw new BusinessException(BizExceptionEnum.RIGHT_AUTH_ERROR_TOKEN_ERROR);
                 }
             }
         }else {

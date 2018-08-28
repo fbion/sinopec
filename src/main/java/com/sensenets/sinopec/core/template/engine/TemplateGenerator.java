@@ -18,10 +18,10 @@ public class TemplateGenerator {
 
     public static void main(String[] args) throws IOException {
         ContextConfig contextConfig = new ContextConfig();
-        contextConfig.setBizChName("功能权限视图");
-        contextConfig.setBizEnName("vjFuncRoleUrlView");
-        contextConfig.setModuleName("vjFuncRoleUrlView");
-        contextConfig.setProjectPath("D:\\tmp\\sinopec");
+        contextConfig.setBizChName("移动数据采集");
+        contextConfig.setBizEnName("mobileCollectTask");
+        contextConfig.setModuleName("mobileCollectTask");
+        contextConfig.setProjectPath("D:\\project\\sinopec");
         // 不生成Dao
         contextConfig.setDaoSwitch(false);
         BaseTemplateEngine gunsTemplateEngine = new SimpleTemplateEngine();
