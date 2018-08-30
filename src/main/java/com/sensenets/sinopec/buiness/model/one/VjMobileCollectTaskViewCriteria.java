@@ -1,7 +1,7 @@
 /**
   * VjMobileCollectTaskViewCriteria.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-28
+  * @date 2018-08-29
   */
 package com.sensenets.sinopec.buiness.model.one;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-08-28 16:16:20
+ * @Date 2018-08-29 20:23:32
  */
 public class VjMobileCollectTaskViewCriteria {
     protected String orderByClause;
@@ -140,7 +140,7 @@ public class VjMobileCollectTaskViewCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-28 16:16:20
+     * @Date 2018-08-29 20:23:32
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -693,6 +693,126 @@ public class VjMobileCollectTaskViewCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andTaskStatusIsNull() {
+            addCriterion("task_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusIsNotNull() {
+            addCriterion("task_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusEqualTo(Short value) {
+            addCriterion("task_status =", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusNotEqualTo(Short value) {
+            addCriterion("task_status <>", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusGreaterThan(Short value) {
+            addCriterion("task_status >", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusGreaterThanOrEqualTo(Short value) {
+            addCriterion("task_status >=", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusLessThan(Short value) {
+            addCriterion("task_status <", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusLessThanOrEqualTo(Short value) {
+            addCriterion("task_status <=", value, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusIn(List<Short> values) {
+            addCriterion("task_status in", values, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusNotIn(List<Short> values) {
+            addCriterion("task_status not in", values, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusBetween(Short value1, Short value2) {
+            addCriterion("task_status between", value1, value2, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTaskStatusNotBetween(Short value1, Short value2) {
+            addCriterion("task_status not between", value1, value2, "taskStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Short value) {
+            addCriterion("status =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Short value) {
+            addCriterion("status <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Short value) {
+            addCriterion("status >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Short value) {
+            addCriterion("status >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Short value) {
+            addCriterion("status <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Short value) {
+            addCriterion("status <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Short> values) {
+            addCriterion("status in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Short> values) {
+            addCriterion("status not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Short value1, Short value2) {
+            addCriterion("status between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Short value1, Short value2) {
+            addCriterion("status not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
         public Criteria andRaRepoIdIdIsNull() {
             addCriterion("ra_repo_id_id is null");
             return (Criteria) this;
@@ -1239,7 +1359,7 @@ public class VjMobileCollectTaskViewCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-28 16:16:20
+     * @Date 2018-08-29 20:23:32
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -1253,7 +1373,7 @@ public class VjMobileCollectTaskViewCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-28 16:16:20
+     * @Date 2018-08-29 20:23:32
      */
     public static class Criterion {
         private String condition;

@@ -1,6 +1,7 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,6 +20,7 @@ import com.sensenets.sinopec.buiness.dao.one.MobileCollectTaskMapper;
 import com.sensenets.sinopec.buiness.dao.one.ReposMapper;
 import com.sensenets.sinopec.buiness.dao.one.VjMobileCollectTaskViewMapper;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
+import com.sensenets.sinopec.buiness.dto.RepoIdDto;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria;
 import com.sensenets.sinopec.buiness.model.one.Repos;
@@ -26,6 +28,7 @@ import com.sensenets.sinopec.buiness.model.one.ReposCriteria;
 import com.sensenets.sinopec.buiness.model.one.VjMobileCollectTaskView;
 import com.sensenets.sinopec.buiness.model.one.VjMobileCollectTaskViewCriteria;
 import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
+import com.sensenets.sinopec.common.utils.JsonHelper;
 
 import io.jsonwebtoken.lang.Collections;
 import lombok.extern.slf4j.Slf4j;
@@ -81,10 +84,10 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             ReposCriteria.Criteria reposCri = parentEx.createCriteria();
             reposCri.andIdIn(new ArrayList<Long>(repoid));
             List<Repos> parentList = reposMapper.selectByExample(parentEx);
-            Map<Long, String> pMap = Maps.newHashMap();
+            Map<Long, RepoIdDto> pMap = new HashMap<Long, RepoIdDto>();
             if (CollectionUtils.isNotEmpty(parentList)) {
                 for (Repos p : parentList) {
-                    pMap.put(p.getId(), p.getRepoName());
+                    pMap.put(p.getId(), new RepoIdDto(p.getId(),p.getRepoId(), p.getRepoName(),p.getRepoLevel()));
                 }
             }
             List<MobileCollectTaskDto> pageList = Lists.newArrayList();
@@ -96,15 +99,15 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         return pageInfo;
     }
 
-    private MobileCollectTaskDto getDto(final Map<Long, String> pMap, final VjMobileCollectTaskView view) {
+    private MobileCollectTaskDto getDto(final Map<Long, RepoIdDto> pMap, final VjMobileCollectTaskView view) {
         Map<String, String> map = Maps.newHashMap();
         if (ArrayUtils.isNotEmpty(view.getCollectRpath()) && view.getCollectRpath().length >= 3) {
             int len = view.getCollectRpath().length;
             Long[] colletAry = view.getCollectRpath();
             // 采集站点信息
-            map.put("collect_1", pMap.get(colletAry[len - 3]));
-            map.put("collect_2", pMap.get(colletAry[len - 2]));
-            map.put("collect_3", pMap.get(colletAry[len - 1]));
+            map.put("collect_1", pMap.get(colletAry[len - 3]).getRepoName());
+            map.put("collect_2", pMap.get(colletAry[len - 2]).getRepoName());
+            map.put("collect_3", pMap.get(colletAry[len - 1]).getRepoName());
         } else {
             map.put("collect_1", "");
             map.put("collect_2", "");
@@ -115,24 +118,25 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             int len = view.getStationRpath().length;
             Long[] colletAry = view.getStationRpath();
             // 采集站点信息
-            map.put("station_1", pMap.get(colletAry[len - 3]));
-            map.put("station_2", pMap.get(colletAry[len - 2]));
-            map.put("station_3", pMap.get(colletAry[len - 1]));
+            map.put("station_1", pMap.get(colletAry[len - 3]).getRepoName());
+            map.put("station_2", pMap.get(colletAry[len - 2]).getRepoName());
+            map.put("station_3", pMap.get(colletAry[len - 1]).getRepoName());
+           
         } else {
             map.put("station_1", "");
             map.put("station_2", "");
             map.put("station_3", "");
         }
         MobileCollectTaskDto dto = new MobileCollectTaskDto();
+        
         dto.setCollectionRepoName(map.get("collect_3"));
+        dto.setCollectRepoId(view.getCollectRepoId());
         dto.setCollectAeraName(map.get("collect_2"));
         dto.setCollectCityName(map.get("collect_1"));
-        dto.setCollectRepoId(view.getCollectRepoId());
-
         dto.setOilStationRepoName(map.get("station_3"));
-        dto.setOilStationManager(map.get("station_2"));
-        dto.setOilStationRepoName(map.get("station_1"));
         dto.setOilStationRepoId(view.getOilStationRepoId());
+        dto.setOilStationManager(map.get("station_2"));
+        dto.setOilStationCityName(map.get("station_1"));
 
         dto.setCollectStartTime(view.getCollectStartTime());
         dto.setCollectEndTime(view.getCollectEndTime());
@@ -142,7 +146,21 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         dto.setType(view.getType());
         dto.setUserId(view.getUserId());
         dto.setUts(view.getUts());
-
+        
+        if (ArrayUtils.isNotEmpty(view.getCollectRpath())) {
+            String[] collectParents = new String[view.getCollectRpath().length];
+            for(int i= 0;i<view.getCollectRpath().length;i++){
+                collectParents[i] = pMap.get(view.getCollectRpath()[i]).getRepoId();
+            }
+            dto.setCollectParent(JsonHelper.toJson(collectParents));
+        }
+        if (ArrayUtils.isNotEmpty(view.getStationRpath())) {
+            String[] oilStationParents = new String[view.getCollectRpath().length];
+            for(int i= 0;i<view.getStationRpath().length;i++){
+                oilStationParents[i] = pMap.get(view.getStationRpath()[i]).getRepoId();
+            }
+            dto.setOilStationParent(JsonHelper.toJson(oilStationParents));
+        }
         return dto;
     }
 
@@ -176,5 +194,10 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
 
     public int insertSelective(MobileCollectTask record) {
         return this.mobileCollectTaskMapper.insertSelective(record);
+    }
+
+    @Override
+    public int updateBatchStatusByPrimaryKey(Short status, List<Long> ids) {
+        return this.mobileCollectTaskMapper.updateBatchStatusByPrimaryKey(ids,status);
     }
 }

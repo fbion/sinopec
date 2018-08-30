@@ -12,6 +12,7 @@
         <result column="ts" jdbcType="BIGINT" property="ts" />
         <result column="user_id" jdbcType="VARCHAR" property="userId" />
         <result column="task_status" jdbcType="SMALLINT" property="taskStatus" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -73,7 +74,7 @@
     </sql>
     <sql id="Base_Column_List">
         id, collect_repo_id, oil_station_repo_id, collect_start_time, collect_end_time, type, 
-        uts, ts, user_id, task_status
+        uts, ts, user_id, task_status, status
     </sql>
     <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria" resultMap="BaseResultMap">
         select
@@ -105,17 +106,34 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
+    
+    <update id="updateBatchStatusByPrimaryKey" > 
+	  update "public"."mobile_collect_task"  
+	  set  
+	  status = #{status,jdbcType=SMALLINT}
+	  where id in
+	   <foreach separator="," index="index" item="item" collection="ids" close=")" open="("> 
+	     #{item}
+	  </foreach> 
+    </update>
+    
+    
+    
     <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.MobileCollectTask">
+        
         insert into "public"."mobile_collect_task" (collect_repo_id, oil_station_repo_id, 
             collect_start_time, collect_end_time, 
             type, uts, ts, 
-            user_id, task_status)
+            user_id, task_status, status
+            )
         values (#{collectRepoId,jdbcType=VARCHAR}, #{oilStationRepoId,jdbcType=VARCHAR}, 
             #{collectStartTime,jdbcType=TIMESTAMP}, #{collectEndTime,jdbcType=TIMESTAMP}, 
             #{type,jdbcType=SMALLINT}, #{uts,jdbcType=TIMESTAMP}, #{ts,jdbcType=BIGINT}, 
-            #{userId,jdbcType=VARCHAR}, #{taskStatus,jdbcType=SMALLINT})
+            #{userId,jdbcType=VARCHAR}, #{taskStatus,jdbcType=SMALLINT}, #{status,jdbcType=SMALLINT}
+            )
     </insert>
     <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.one.MobileCollectTask">
+       
         insert into "public"."mobile_collect_task"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="collectRepoId != null">
@@ -145,6 +163,9 @@
             <if test="taskStatus != null">
                 task_status,
             </if>
+            <if test="status != null">
+                status,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="collectRepoId != null">
@@ -173,6 +194,9 @@
             </if>
             <if test="taskStatus != null">
                 #{taskStatus,jdbcType=SMALLINT},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
             </if>
         </trim>
     </insert>
@@ -215,6 +239,9 @@
             <if test="record.taskStatus != null">
                 task_status = #{record.taskStatus,jdbcType=SMALLINT},
             </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=SMALLINT},
+            </if>
         </set>
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause" />
@@ -231,7 +258,8 @@
             uts = #{record.uts,jdbcType=TIMESTAMP},
             ts = #{record.ts,jdbcType=BIGINT},
             user_id = #{record.userId,jdbcType=VARCHAR},
-            task_status = #{record.taskStatus,jdbcType=SMALLINT}
+            task_status = #{record.taskStatus,jdbcType=SMALLINT},
+            status = #{record.status,jdbcType=SMALLINT}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause" />
         </if>
@@ -266,6 +294,9 @@
             <if test="taskStatus != null">
                 task_status = #{taskStatus,jdbcType=SMALLINT},
             </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
@@ -279,7 +310,8 @@
             uts = #{uts,jdbcType=TIMESTAMP},
             ts = #{ts,jdbcType=BIGINT},
             user_id = #{userId,jdbcType=VARCHAR},
-            task_status = #{taskStatus,jdbcType=SMALLINT}
+            task_status = #{taskStatus,jdbcType=SMALLINT},
+            status = #{status,jdbcType=SMALLINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.two.CollectResultTypeMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.two.CollectResultType">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="collect_task_id" jdbcType="BIGINT" property="collectTaskId" />
+        <result column="mob_rep_id" jdbcType="BIGINT" property="mobRepId" />
+        <result column="station_rep_id" jdbcType="BIGINT" property="stationRepId" />
+        <result column="collect_in_count" jdbcType="INTEGER" property="collectInCount" />
+        <result column="station_in_count" jdbcType="INTEGER" property="stationInCount" />
+        <result column="collect_out_count" jdbcType="INTEGER" property="collectOutCount" />
+        <result column="station_out_count" jdbcType="INTEGER" property="stationOutCount" />
+        <result column="verhicle_type" jdbcType="VARCHAR" property="verhicleType" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, collect_task_id, mob_rep_id, station_rep_id, collect_in_count, station_in_count, 
+        collect_out_count, station_out_count, verhicle_type, uts
+    </sql>
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."collect_result_type"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."collect_result_type"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from "public"."collect_result_type"
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria">
+        delete from "public"."collect_result_type"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultType">
+        insert into "public"."collect_result_type" (collect_task_id, mob_rep_id, station_rep_id, 
+            collect_in_count, station_in_count, collect_out_count, 
+            station_out_count, verhicle_type, uts
+            )
+        values (#{collectTaskId,jdbcType=BIGINT}, #{mobRepId,jdbcType=BIGINT}, #{stationRepId,jdbcType=BIGINT}, 
+            #{collectInCount,jdbcType=INTEGER}, #{stationInCount,jdbcType=INTEGER}, #{collectOutCount,jdbcType=INTEGER}, 
+            #{stationOutCount,jdbcType=INTEGER}, #{verhicleType,jdbcType=VARCHAR}, #{uts,jdbcType=TIMESTAMP}
+            )
+    </insert>
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultType">
+        insert into "public"."collect_result_type"
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="collectTaskId != null">
+                collect_task_id,
+            </if>
+            <if test="mobRepId != null">
+                mob_rep_id,
+            </if>
+            <if test="stationRepId != null">
+                station_rep_id,
+            </if>
+            <if test="collectInCount != null">
+                collect_in_count,
+            </if>
+            <if test="stationInCount != null">
+                station_in_count,
+            </if>
+            <if test="collectOutCount != null">
+                collect_out_count,
+            </if>
+            <if test="stationOutCount != null">
+                station_out_count,
+            </if>
+            <if test="verhicleType != null">
+                verhicle_type,
+            </if>
+            <if test="uts != null">
+                uts,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="collectTaskId != null">
+                #{collectTaskId,jdbcType=BIGINT},
+            </if>
+            <if test="mobRepId != null">
+                #{mobRepId,jdbcType=BIGINT},
+            </if>
+            <if test="stationRepId != null">
+                #{stationRepId,jdbcType=BIGINT},
+            </if>
+            <if test="collectInCount != null">
+                #{collectInCount,jdbcType=INTEGER},
+            </if>
+            <if test="stationInCount != null">
+                #{stationInCount,jdbcType=INTEGER},
+            </if>
+            <if test="collectOutCount != null">
+                #{collectOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="stationOutCount != null">
+                #{stationOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="verhicleType != null">
+                #{verhicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="uts != null">
+                #{uts,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria" resultType="java.lang.Long">
+        select count(*) from "public"."collect_result_type"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."collect_result_type"
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.collectTaskId != null">
+                collect_task_id = #{record.collectTaskId,jdbcType=BIGINT},
+            </if>
+            <if test="record.mobRepId != null">
+                mob_rep_id = #{record.mobRepId,jdbcType=BIGINT},
+            </if>
+            <if test="record.stationRepId != null">
+                station_rep_id = #{record.stationRepId,jdbcType=BIGINT},
+            </if>
+            <if test="record.collectInCount != null">
+                collect_in_count = #{record.collectInCount,jdbcType=INTEGER},
+            </if>
+            <if test="record.stationInCount != null">
+                station_in_count = #{record.stationInCount,jdbcType=INTEGER},
+            </if>
+            <if test="record.collectOutCount != null">
+                collect_out_count = #{record.collectOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="record.stationOutCount != null">
+                station_out_count = #{record.stationOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="record.verhicleType != null">
+                verhicle_type = #{record.verhicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uts != null">
+                uts = #{record.uts,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."collect_result_type"
+        set id = #{record.id,jdbcType=BIGINT},
+            collect_task_id = #{record.collectTaskId,jdbcType=BIGINT},
+            mob_rep_id = #{record.mobRepId,jdbcType=BIGINT},
+            station_rep_id = #{record.stationRepId,jdbcType=BIGINT},
+            collect_in_count = #{record.collectInCount,jdbcType=INTEGER},
+            station_in_count = #{record.stationInCount,jdbcType=INTEGER},
+            collect_out_count = #{record.collectOutCount,jdbcType=INTEGER},
+            station_out_count = #{record.stationOutCount,jdbcType=INTEGER},
+            verhicle_type = #{record.verhicleType,jdbcType=VARCHAR},
+            uts = #{record.uts,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultType">
+        update "public"."collect_result_type"
+        <set>
+            <if test="collectTaskId != null">
+                collect_task_id = #{collectTaskId,jdbcType=BIGINT},
+            </if>
+            <if test="mobRepId != null">
+                mob_rep_id = #{mobRepId,jdbcType=BIGINT},
+            </if>
+            <if test="stationRepId != null">
+                station_rep_id = #{stationRepId,jdbcType=BIGINT},
+            </if>
+            <if test="collectInCount != null">
+                collect_in_count = #{collectInCount,jdbcType=INTEGER},
+            </if>
+            <if test="stationInCount != null">
+                station_in_count = #{stationInCount,jdbcType=INTEGER},
+            </if>
+            <if test="collectOutCount != null">
+                collect_out_count = #{collectOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="stationOutCount != null">
+                station_out_count = #{stationOutCount,jdbcType=INTEGER},
+            </if>
+            <if test="verhicleType != null">
+                verhicle_type = #{verhicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="uts != null">
+                uts = #{uts,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultType">
+        update "public"."collect_result_type"
+        set collect_task_id = #{collectTaskId,jdbcType=BIGINT},
+            mob_rep_id = #{mobRepId,jdbcType=BIGINT},
+            station_rep_id = #{stationRepId,jdbcType=BIGINT},
+            collect_in_count = #{collectInCount,jdbcType=INTEGER},
+            station_in_count = #{stationInCount,jdbcType=INTEGER},
+            collect_out_count = #{collectOutCount,jdbcType=INTEGER},
+            station_out_count = #{stationOutCount,jdbcType=INTEGER},
+            verhicle_type = #{verhicleType,jdbcType=VARCHAR},
+            uts = #{uts,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

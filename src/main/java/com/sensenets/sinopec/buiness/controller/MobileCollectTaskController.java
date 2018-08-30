@@ -30,6 +30,7 @@ import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.enums.CollectTaskStatusEnum;
+import com.sensenets.sinopec.common.enums.DeleteStatusEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 import com.sensenets.sinopec.common.utils.DateHelper;
 
@@ -93,7 +94,7 @@ public class MobileCollectTaskController extends BaseController {
          example.setPageNumber(condition.getPageNumber());
          example.setPageSize(condition.getPageSize());
          VjMobileCollectTaskViewCriteria.Criteria cri = example.createCriteria();
-        
+         
          if(StringUtils.isNotBlank(condition.getCollectStartTime())){
              Date startTime = DateHelper.string2Date(condition.getCollectStartTime(), DateHelper.FORMAT_0);
              cri.andCollectStartTimeGreaterThanOrEqualTo(startTime);
@@ -137,7 +138,7 @@ public class MobileCollectTaskController extends BaseController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         record.setUserId(username);
         record.setTs(System.currentTimeMillis());
-        record.setType(CollectTaskStatusEnum.RUNNING.getCode());
+        record.setTaskStatus(CollectTaskStatusEnum.RUNNING.getCode());
         record.setUts(DateHelper.string2Date(DateHelper.getCurrentDateFormat0(),DateHelper.FORMAT_0));
         return this.warpObject(mobileCollectTaskService.insert(record));
     }
@@ -161,11 +162,6 @@ public class MobileCollectTaskController extends BaseController {
         return this.warpObject(mobileCollectTaskService.updateByPrimaryKeySelective(record));
     }
 
-    @ApiOperation(value = "删除")
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseInfo delete(@PathVariable Long id){
-        return this.warpObject(mobileCollectTaskService.deleteByPrimaryKey(id));
-    }
     
     @ApiOperation(value = "批量删除")
     @RequestMapping(value="/deleteBatch", method = RequestMethod.POST, produces = "application/json")
@@ -186,8 +182,9 @@ public class MobileCollectTaskController extends BaseController {
         if(CollectionUtils.isEmpty(list)){
             throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_ID_PARAMS_NULL);
         }
-        cri.andIdIn(list);
-        return this.warpObject(mobileCollectTaskService.deleteByExample(example));
+        cri.andStatusEqualTo(DeleteStatusEnum.DELETE.getCode());
+        
+        return this.warpObject(mobileCollectTaskService.updateBatchStatusByPrimaryKey(DeleteStatusEnum.DELETE.getCode(),list));
     }
     
     

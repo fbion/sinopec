@@ -6,20 +6,21 @@ import java.util.Date;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 /**
  * @Title public.mobile_collect_task表实体类
- * @Description 
- * @Version 1.0 
- * @Author kelly 
+ * @Description
+ * @Version 1.0
+ * @Author kelly
  * @Date 2018-08-28 12:24:39
  */
 
-@ApiModel(value ="MobileCollectTaskDto")
+@ApiModel(value = "MobileCollectTaskDto")
 @Data
 public class MobileCollectTaskDto implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     /**
      * @Fields id 主键
      */
@@ -31,42 +32,54 @@ public class MobileCollectTaskDto implements Serializable {
      */
     @ApiModelProperty(value = "采集的设备id")
     private String collectRepoId;
-    
+
     /**
-      * @Fields collectionRepoName : 采集设备名称
-      */
+     * @Fields collectionRepoName : 采集设备名称
+     */
     private String collectionRepoName;
-    
+
     /**
-      * @Fields collectAeraName : 区名称
-      */
+     * @Fields collectAeraName : 区名称
+     */
     private String collectAeraName;
+
+
+    /**
+     * @Fields collectCityName : 城市名称
+     */
+    private String collectCityName;
     
     /**
-      * @Fields collectCityName : 城市名称
+      * @Fields collectParent : 采集父集合
       */
-    private String collectCityName;
+    private String collectParent;
+
 
     /**
      * @Fields oilStationRepoId 油站id
      */
     @ApiModelProperty(value = "油站id")
     private String oilStationRepoId;
-    
+
     /**
-      * @Fields oilStationRepoName : 油站名称
-      */
+     * @Fields oilStationRepoName : 油站名称
+     */
     private String oilStationRepoName;
-    
+
     /**
-      * @Fields oilStationCityName : 油站所属城市名称
-      */
+     * @Fields oilStationCityName : 油站所属城市名称
+     */
     private String oilStationCityName;
+
+    /**
+     * @Fields oilStationManager : 油站所属经营管理部名称
+     */
+    private String oilStationManager;
     
     /**
-      * @Fields oilStationManager :  油站所属经营管理部名称
+      * @Fields oilStationParent : 油站父集合
       */
-    private String oilStationManager;
+    private String oilStationParent;
 
     /**
      * @Fields collectStartTime 采集开始时间
@@ -110,6 +123,4 @@ public class MobileCollectTaskDto implements Serializable {
     @ApiModelProperty(value = "任务状态(1.正在分析,2.分析完成)")
     private Short taskStatus;
 
-    
-    
 }

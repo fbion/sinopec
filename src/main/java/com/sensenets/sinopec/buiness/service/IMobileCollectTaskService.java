@@ -26,6 +26,8 @@ public interface IMobileCollectTaskService {
     int deleteByExample(MobileCollectTaskCriteria example);
 
     int updateByExampleSelective(MobileCollectTask record, MobileCollectTaskCriteria example);
+    
+    int updateBatchStatusByPrimaryKey(Short status,List<Long> ids);
 
     int updateByExample(MobileCollectTask record, MobileCollectTaskCriteria example);
 

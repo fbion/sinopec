@@ -1,7 +1,7 @@
 /**
   * VjMobileCollectTaskView.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-28
+  * @date 2018-08-29
   */
 package com.sensenets.sinopec.buiness.model.one;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-08-28 16:16:20
+ * @Date 2018-08-29 20:23:32
  */
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,9 +21,6 @@ import lombok.Data;
 @ApiModel(value ="VjMobileCollectTaskView")
 @Data
 public class VjMobileCollectTaskView implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    
     /**
      * @Fields id 
      */
@@ -59,12 +56,6 @@ public class VjMobileCollectTaskView implements Serializable {
      */
     @ApiModelProperty(value = "")
     private Short type;
-    
-    /**
-     * @Fields taskStatus 
-     */
-    @ApiModelProperty(value = "")
-    private Short taskStatus;
 
     /**
      * @Fields userId 
@@ -77,6 +68,18 @@ public class VjMobileCollectTaskView implements Serializable {
      */
     @ApiModelProperty(value = "")
     private Date uts;
+
+    /**
+     * @Fields taskStatus 
+     */
+    @ApiModelProperty(value = "")
+    private Short taskStatus;
+
+    /**
+     * @Fields status 
+     */
+    @ApiModelProperty(value = "")
+    private Short status;
 
     /**
      * @Fields raRepoIdId 
@@ -118,15 +121,15 @@ public class VjMobileCollectTaskView implements Serializable {
      * @Fields collectRpath 
      */
     @ApiModelProperty(value = "")
-    private Long[] collectRpath;
+    private Long[]  collectRpath;
 
     /**
      * @Fields stationRpath 
      */
     @ApiModelProperty(value = "")
-    private Long[] stationRpath;
+    private Long[]  stationRpath;
+
+    private static final long serialVersionUID = 1L;
 
    
-
-    
 }

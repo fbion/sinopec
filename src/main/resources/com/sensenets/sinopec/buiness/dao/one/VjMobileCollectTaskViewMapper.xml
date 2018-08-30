@@ -19,6 +19,7 @@
         <result column="rb_parent_id" jdbcType="VARCHAR" property="rbParentId" />
         <result column="collect_rpath" jdbcType="ARRAY" property="collectRpath"   typeHandler="com.sensenets.sinopec.common.domain.ArrayTypeHandler" />
         <result column="station_rpath" jdbcType="ARRAY" property="stationRpath" typeHandler="com.sensenets.sinopec.common.domain.ArrayTypeHandler"  />
+        <result column="status" jdbcType="SMALLINT" property="status" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -52,7 +53,7 @@
     
     <sql id="Base_Column_List">
         id, collect_repo_id, oil_station_repo_id, collect_start_time, collect_end_time, type, task_status,
-        user_id, uts, ra_repo_id_id, ra_repo_name, ra_parent_id, rb_repo_id, rb_repo_name, 
+        status,user_id, uts, ra_repo_id_id, ra_repo_name, ra_parent_id, rb_repo_id, rb_repo_name, 
         rb_parent_id, collect_rpath, station_rpath
     </sql>
     <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.one.VjMobileCollectTaskViewCriteria" resultMap="BaseResultMap">

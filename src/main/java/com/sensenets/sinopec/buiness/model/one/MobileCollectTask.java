@@ -1,7 +1,7 @@
 /**
   * MobileCollectTask.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-28
+  * @date 2018-08-29
   */
 package com.sensenets.sinopec.buiness.model.one;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-08-28 12:24:39
+ * @Date 2018-08-29 19:43:33
  */
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,9 +50,9 @@ public class MobileCollectTask implements Serializable {
     private Date collectEndTime;
 
     /**
-     * @Fields type 分析类型（1.进/出站流量2.站外流量）
+     * @Fields type 分析类型（1.进/出站流量2.站外流量3全部）
      */
-    @ApiModelProperty(value = "分析类型（1.进/出站流量2.站外流量）")
+    @ApiModelProperty(value = "分析类型（1.进/出站流量2.站外流量3全部）")
     private Short type;
 
     /**
@@ -78,6 +78,12 @@ public class MobileCollectTask implements Serializable {
      */
     @ApiModelProperty(value = "任务类型(1.正在分析,2.分析完成)")
     private Short taskStatus;
+
+    /**
+     * @Fields status 状态(1正常   4 删除)
+     */
+    @ApiModelProperty(value = "状态(1正常   4 删除)")
+    private Short status;
 
     private static final long serialVersionUID = 1L;
 
@@ -172,18 +178,18 @@ public class MobileCollectTask implements Serializable {
     }
 
     /**
-     * 获取 分析类型（1.进/出站流量2.站外流量） 字段:public.mobile_collect_task.type
+     * 获取 分析类型（1.进/出站流量2.站外流量3全部） 字段:public.mobile_collect_task.type
      *
-     * @return public.mobile_collect_task.type, 分析类型（1.进/出站流量2.站外流量）
+     * @return public.mobile_collect_task.type, 分析类型（1.进/出站流量2.站外流量3全部）
      */
     public Short getType() {
         return type;
     }
 
     /**
-     * 设置 分析类型（1.进/出站流量2.站外流量） 字段:public.mobile_collect_task.type
+     * 设置 分析类型（1.进/出站流量2.站外流量3全部） 字段:public.mobile_collect_task.type
      *
-     * @param type the value for public.mobile_collect_task.type, 分析类型（1.进/出站流量2.站外流量）
+     * @param type the value for public.mobile_collect_task.type, 分析类型（1.进/出站流量2.站外流量3全部）
      */
     public void setType(Short type) {
         this.type = type;
@@ -259,5 +265,23 @@ public class MobileCollectTask implements Serializable {
      */
     public void setTaskStatus(Short taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    /**
+     * 获取 状态(1正常   4 删除) 字段:public.mobile_collect_task.status
+     *
+     * @return public.mobile_collect_task.status, 状态(1正常   4 删除)
+     */
+    public Short getStatus() {
+        return status;
+    }
+
+    /**
+     * 设置 状态(1正常   4 删除) 字段:public.mobile_collect_task.status
+     *
+     * @param status the value for public.mobile_collect_task.status, 状态(1正常   4 删除)
+     */
+    public void setStatus(Short status) {
+        this.status = status;
     }
 }
