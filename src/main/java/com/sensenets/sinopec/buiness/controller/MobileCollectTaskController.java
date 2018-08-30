@@ -140,6 +140,7 @@ public class MobileCollectTaskController extends BaseController {
         record.setTs(System.currentTimeMillis());
         record.setTaskStatus(CollectTaskStatusEnum.RUNNING.getCode());
         record.setUts(DateHelper.string2Date(DateHelper.getCurrentDateFormat0(),DateHelper.FORMAT_0));
+        record.setStatus(DeleteStatusEnum.EXIST.getCode());
         return this.warpObject(mobileCollectTaskService.insert(record));
     }
 
