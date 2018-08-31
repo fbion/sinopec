@@ -73,6 +73,16 @@ public class DateHelper {
 	 * @Fields FORMAT_5 : yyyyMMddHH
 	 */
 	public static final String FORMAT_5 = "yyyyMMddHH";
+	
+	/**
+     * @Fields FORMAT_5 : yyyy-MM-dd HH:00:00
+     */
+    public static final String FORMAT_5_1 = "yyyy-MM-dd HH:00:00";
+    
+    /**
+     * @Fields FORMAT_5 : yyyy-MM-dd HH
+     */
+    public static final String FORMAT_5_2 = "yyyy-MM-dd HH";
 
 	/**
 	 * @Fields FORMAT_6 : yyyyMMdd

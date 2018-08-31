@@ -8,20 +8,15 @@
  */
 package com.sensenets.sinopec.buiness.schedule;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
+import com.sensenets.sinopec.buiness.dto.CollectTaskDto;
 import com.sensenets.sinopec.common.enums.CollectTaskStatusEnum;
 import com.sensenets.sinopec.common.utils.ThreadHelper;
 
@@ -36,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
   *
   */
 @Slf4j
-public class MobCollectTaskProxy extends Thread {
+public class CollectTaskProxy extends Thread {
     
     /**
      * @Fields TASKEXECUTOR : 线程池
@@ -51,22 +46,20 @@ public class MobCollectTaskProxy extends Thread {
     private static volatile ConcurrentMap<Long, Long> taskIdMap = new ConcurrentHashMap<Long, Long>();
     
     private static boolean running = false;
-    
-    private BlockingQueue<MobileCollectTask> taskQueue = new LinkedBlockingQueue<MobileCollectTask>();
-
+ 
     /**
      * @Fields INSTANCE
      */
-    private static volatile MobCollectTaskProxy INSTANCE;
+    private static volatile CollectTaskProxy INSTANCE;
 
     /**
      * @Title: getInstance
      * @Description: 获取实例
      * @return ExportImgHelper
      */
-    public static MobCollectTaskProxy init() {
+    public static CollectTaskProxy init() {
         if (INSTANCE == null) {
-            synchronized (MobCollectTaskProxy.class) {
+            synchronized (CollectTaskProxy.class) {
                 if (INSTANCE == null) {
                     TASKEXECUTOR = new ThreadPoolTaskExecutor();
                     TASKEXECUTOR.setCorePoolSize(0);
@@ -75,7 +68,7 @@ public class MobCollectTaskProxy extends Thread {
                     TASKEXECUTOR.setQueueCapacity(5);
                     TASKEXECUTOR.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
                     TASKEXECUTOR.initialize();
-                    INSTANCE = new MobCollectTaskProxy();
+                    INSTANCE = new CollectTaskProxy();
                     log.info("------MobCollectTaskProxy init ------");
                 }
             }
@@ -83,7 +76,7 @@ public class MobCollectTaskProxy extends Thread {
         return INSTANCE;
     }
 
-    private MobCollectTaskProxy() {
+    private CollectTaskProxy() {
         
     }
 
@@ -92,7 +85,7 @@ public class MobCollectTaskProxy extends Thread {
         while (true) {
             if (checkRunning()) {
                 try {
-                    MobileCollectTask task = taskQueue.poll();
+                    CollectTaskDto task = CollectTaskQueue.take();
                     if (!isExist(task.getId())) {
                         if (task.getTaskStatus() == CollectTaskStatusEnum.RUNNING.getCode()) {
                             log.debug(String.format("***************存在采集任务，开始采集数据*********"));
@@ -107,9 +100,8 @@ public class MobCollectTaskProxy extends Thread {
         }
     }
 
-    private void executeCollect(MobileCollectTask task) {
-        CollectTaskDto dto = (CollectTaskDto)task;
-        TASKEXECUTOR.submit(new CollectSubTask(dto));
+    private void executeCollect(CollectTaskDto task) {
+        TASKEXECUTOR.submit(new CollectSubTask(task));
     }
 
     private boolean checkRunning() {
@@ -186,5 +178,5 @@ public class MobCollectTaskProxy extends Thread {
         readWritLock.writeLock().unlock();
     }
 
-
+    
 }

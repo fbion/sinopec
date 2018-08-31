@@ -1,0 +1,108 @@
+/**
+ * Copyright: Copyright (c) 2018 
+ * Company:深圳市深网视界科技有限公司
+ * 
+ * @author think
+ * @date 2018年8月31日 下午6:36:02
+ * @version V1.0
+ */
+package com.sensenets.sinopec.buiness.dto;
+
+import java.io.Serializable;
+import java.util.List;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+  * @ClassName: CollectResultDto
+  * @Description:采集结果对象返回给页面
+  * @author think
+  * @date 2018年8月31日 下午6:36:02
+  *
+  */
+@ApiModel(value ="CollectResultDto")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CollectResultDto implements Serializable{
+
+    /**
+      * @Fields serialVersionUID 
+      */
+    private static final long serialVersionUID = -7051180714632536771L;
+    
+  
+    @ApiModelProperty(value = "任务id")
+    private Long taskId;
+    
+    @ApiModelProperty(value = "进站车流量分析结果")
+    private List<ResultInFlow> inFlows;
+    
+    @ApiModelProperty(value = "站外车流量分析结果")
+    private List<ResultOutFlow> outFlows;
+    
+    @ApiModelProperty(value = "进站车类型分析结果")
+    private List<ResultInVehicleType> inVehicleTypes;
+    
+    @ApiModelProperty(value = "站外车类型分析结果")
+    private List<ResultOutVehicleType> outVehicleTypes;
+    
+    @Data
+    @ApiModel(value ="ResultInFlow")
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ResultInFlow{
+        
+        @ApiModelProperty(value = "采集进站车流量数量")
+        private int collectInCount = 0 ;
+        @ApiModelProperty(value = "油站进站车流量数量")
+        private int stationInCount = 0 ;
+        @ApiModelProperty(value = "时间单位")
+        private String dataTime =  "" ; 
+    }
+    
+    @Data
+    @ApiModel(value ="ResultOutFlow")
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ResultOutFlow{
+        
+        @ApiModelProperty(value = "采集站外车流量数量")
+        private int collectOutCount = 0 ;
+        @ApiModelProperty(value = "油站站外车流量数量")
+        private int stationOutCount = 0 ;
+        @ApiModelProperty(value = "时间单位")
+        private String dataTime =  "" ; 
+    }
+    
+    @Data
+    @ApiModel(value ="ResultInVehicleType")
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ResultInVehicleType{
+        @ApiModelProperty(value = "采集进站车类型数量")
+        private int collectInCount = 0 ;
+        @ApiModelProperty(value = "油站进站车类型数量")
+        private int stationInCount = 0 ;
+        @ApiModelProperty(value = "车类型单位")
+        private String vehicleType =  "" ; 
+    }
+    
+    @Data
+    @ApiModel(value ="ResultOutVehicleType")
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ResultOutVehicleType{
+        @ApiModelProperty(value = "采集出站车类型数量")
+        private int collectOutCount = 0 ;
+        @ApiModelProperty(value = "油站出站车类型数量")
+        private int stationOutCount = 0 ;
+        @ApiModelProperty(value = "车类型单位")
+        private String vehicleType =  "" ; 
+    }
+
+}

@@ -1,7 +1,7 @@
 /**
   * CollectResultType.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-29
+  * @date 2018-08-31
   */
 package com.sensenets.sinopec.buiness.model.two;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-08-29 16:48:01
+ * @Date 2018-08-31 10:30:07
  */
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,15 +44,15 @@ public class CollectResultType implements Serializable {
     private Long stationRepId;
 
     /**
-     * @Fields collectInCount 采集进出数据量
+     * @Fields collectInCount 采集进站数据量
      */
-    @ApiModelProperty(value = "采集进出数据量")
+    @ApiModelProperty(value = "采集进站数据量")
     private Integer collectInCount;
 
     /**
-     * @Fields stationInCount 油站进出数据量
+     * @Fields stationInCount 油站进站数据量
      */
-    @ApiModelProperty(value = "油站进出数据量")
+    @ApiModelProperty(value = "油站进站数据量")
     private Integer stationInCount;
 
     /**
@@ -78,6 +78,12 @@ public class CollectResultType implements Serializable {
      */
     @ApiModelProperty(value = "添加时间")
     private Date uts;
+
+    /**
+     * @Fields countStatus 统计状态(1未统计 2统计完成)
+     */
+    @ApiModelProperty(value = "统计状态(1未统计 2统计完成)")
+    private Short countStatus;
 
     private static final long serialVersionUID = 1L;
 
@@ -154,36 +160,36 @@ public class CollectResultType implements Serializable {
     }
 
     /**
-     * 获取 采集进出数据量 字段:public.collect_result_type.collect_in_count
+     * 获取 采集进站数据量 字段:public.collect_result_type.collect_in_count
      *
-     * @return public.collect_result_type.collect_in_count, 采集进出数据量
+     * @return public.collect_result_type.collect_in_count, 采集进站数据量
      */
     public Integer getCollectInCount() {
         return collectInCount;
     }
 
     /**
-     * 设置 采集进出数据量 字段:public.collect_result_type.collect_in_count
+     * 设置 采集进站数据量 字段:public.collect_result_type.collect_in_count
      *
-     * @param collectInCount the value for public.collect_result_type.collect_in_count, 采集进出数据量
+     * @param collectInCount the value for public.collect_result_type.collect_in_count, 采集进站数据量
      */
     public void setCollectInCount(Integer collectInCount) {
         this.collectInCount = collectInCount;
     }
 
     /**
-     * 获取 油站进出数据量 字段:public.collect_result_type.station_in_count
+     * 获取 油站进站数据量 字段:public.collect_result_type.station_in_count
      *
-     * @return public.collect_result_type.station_in_count, 油站进出数据量
+     * @return public.collect_result_type.station_in_count, 油站进站数据量
      */
     public Integer getStationInCount() {
         return stationInCount;
     }
 
     /**
-     * 设置 油站进出数据量 字段:public.collect_result_type.station_in_count
+     * 设置 油站进站数据量 字段:public.collect_result_type.station_in_count
      *
-     * @param stationInCount the value for public.collect_result_type.station_in_count, 油站进出数据量
+     * @param stationInCount the value for public.collect_result_type.station_in_count, 油站进站数据量
      */
     public void setStationInCount(Integer stationInCount) {
         this.stationInCount = stationInCount;
@@ -259,5 +265,23 @@ public class CollectResultType implements Serializable {
      */
     public void setUts(Date uts) {
         this.uts = uts;
+    }
+
+    /**
+     * 获取 统计状态(1未统计 2统计完成) 字段:public.collect_result_type.count_status
+     *
+     * @return public.collect_result_type.count_status, 统计状态(1未统计 2统计完成)
+     */
+    public Short getCountStatus() {
+        return countStatus;
+    }
+
+    /**
+     * 设置 统计状态(1未统计 2统计完成) 字段:public.collect_result_type.count_status
+     *
+     * @param countStatus the value for public.collect_result_type.count_status, 统计状态(1未统计 2统计完成)
+     */
+    public void setCountStatus(Short countStatus) {
+        this.countStatus = countStatus;
     }
 }

@@ -6,6 +6,9 @@ import com.sensenets.sinopec.buiness.dao.two.CollectResultFlowMapper;
 import com.sensenets.sinopec.buiness.model.two.CollectResultFlow;
 import com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria;
 import com.sensenets.sinopec.buiness.service.ICollectResultFlowService;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
+import com.sensenets.sinopec.common.exception.BusinessException;
+
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,8 +65,13 @@ public class CollectResultFlowServiceImpl implements ICollectResultFlowService {
         return this.collectResultFlowMapper.updateByExample(record, example);
     }
 
-    public int insert(CollectResultFlow record) {
-        return this.collectResultFlowMapper.insert(record);
+    public long insert(CollectResultFlow record) {
+        int i = this.collectResultFlowMapper.insert(record);
+        if(i>0){
+            return record.getId();
+        }else{
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_FLOW_INSERT_ERROR);
+        }
     }
 
     public int insertSelective(CollectResultFlow record) {

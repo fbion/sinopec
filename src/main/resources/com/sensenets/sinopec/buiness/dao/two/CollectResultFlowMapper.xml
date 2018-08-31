@@ -13,6 +13,7 @@
         <result column="collect_out_count" jdbcType="INTEGER" property="collectOutCount" />
         <result column="station_out_count" jdbcType="INTEGER" property="stationOutCount" />
         <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="count_status" jdbcType="SMALLINT" property="countStatus" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -74,7 +75,7 @@
     </sql>
     <sql id="Base_Column_List">
         id, collect_task_id, mob_rep_id, station_rep_id, data_hour, data_day, collect_in_count, 
-        station_in_count, collect_out_count, station_out_count, uts
+        station_in_count, collect_out_count, station_out_count, uts, count_status
     </sql>
     <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria" resultMap="BaseResultMap">
         select
@@ -106,17 +107,18 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlow">
+    <insert id="insert" useGeneratedKeys="true"  keyProperty="id"  parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlow">
         insert into "public"."collect_result_flow" (collect_task_id, mob_rep_id, station_rep_id, 
             data_hour, data_day, collect_in_count, 
             station_in_count, collect_out_count, station_out_count, 
-            uts)
+            uts, count_status)
         values (#{collectTaskId,jdbcType=BIGINT}, #{mobRepId,jdbcType=BIGINT}, #{stationRepId,jdbcType=BIGINT}, 
             #{dataHour,jdbcType=INTEGER}, #{dataDay,jdbcType=INTEGER}, #{collectInCount,jdbcType=INTEGER}, 
             #{stationInCount,jdbcType=INTEGER}, #{collectOutCount,jdbcType=INTEGER}, #{stationOutCount,jdbcType=INTEGER}, 
-            #{uts,jdbcType=TIMESTAMP})
+            #{uts,jdbcType=TIMESTAMP}, #{countStatus,jdbcType=SMALLINT})
     </insert>
-    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlow">
+    <insert id="insertSelective" useGeneratedKeys="true"  keyProperty="id" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlow">
+        
         insert into "public"."collect_result_flow"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="collectTaskId != null">
@@ -148,6 +150,9 @@
             </if>
             <if test="uts != null">
                 uts,
+            </if>
+            <if test="countStatus != null">
+                count_status,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -181,9 +186,12 @@
             <if test="uts != null">
                 #{uts,jdbcType=TIMESTAMP},
             </if>
+            <if test="countStatus != null">
+                #{countStatus,jdbcType=SMALLINT},
+            </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria" resultType="java.lang.Long">
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria" resultType="java.lang.Integer">
         select count(*) from "public"."collect_result_flow"
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
@@ -225,6 +233,9 @@
             <if test="record.uts != null">
                 uts = #{record.uts,jdbcType=TIMESTAMP},
             </if>
+            <if test="record.countStatus != null">
+                count_status = #{record.countStatus,jdbcType=SMALLINT},
+            </if>
         </set>
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause" />
@@ -242,7 +253,8 @@
             station_in_count = #{record.stationInCount,jdbcType=INTEGER},
             collect_out_count = #{record.collectOutCount,jdbcType=INTEGER},
             station_out_count = #{record.stationOutCount,jdbcType=INTEGER},
-            uts = #{record.uts,jdbcType=TIMESTAMP}
+            uts = #{record.uts,jdbcType=TIMESTAMP},
+            count_status = #{record.countStatus,jdbcType=SMALLINT}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause" />
         </if>
@@ -280,6 +292,9 @@
             <if test="uts != null">
                 uts = #{uts,jdbcType=TIMESTAMP},
             </if>
+            <if test="countStatus != null">
+                count_status = #{countStatus,jdbcType=SMALLINT},
+            </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
@@ -294,7 +309,8 @@
             station_in_count = #{stationInCount,jdbcType=INTEGER},
             collect_out_count = #{collectOutCount,jdbcType=INTEGER},
             station_out_count = #{stationOutCount,jdbcType=INTEGER},
-            uts = #{uts,jdbcType=TIMESTAMP}
+            uts = #{uts,jdbcType=TIMESTAMP},
+            count_status = #{countStatus,jdbcType=SMALLINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

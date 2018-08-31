@@ -3,6 +3,7 @@ package com.sensenets.sinopec.buiness.service;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.buiness.dto.CollectResultDto;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria;
@@ -34,4 +35,12 @@ public interface IMobileCollectTaskService {
     int insert(MobileCollectTask record);
 
     int insertSelective(MobileCollectTask record);
+
+    /**
+      * @Title: getCollectResult
+      * @Description: 查询分析结果
+      * @param id
+      * @return CollectResultDto
+      */
+    CollectResultDto getCollectResult(Long id);
 }

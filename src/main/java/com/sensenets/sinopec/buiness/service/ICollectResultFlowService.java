@@ -26,7 +26,7 @@ public interface ICollectResultFlowService {
 
     int updateByExample(CollectResultFlow record, CollectResultFlowCriteria example);
 
-    int insert(CollectResultFlow record);
+    long insert(CollectResultFlow record);
 
     int insertSelective(CollectResultFlow record);
 }

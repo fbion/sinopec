@@ -1,7 +1,7 @@
 /**
   * CollectResultFlowMapper.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-29
+  * @date 2018-08-31
   */
 package com.sensenets.sinopec.buiness.dao.two;
 

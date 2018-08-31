@@ -26,7 +26,7 @@ public interface ICollectResultTypeService {
 
     int updateByExample(CollectResultType record, CollectResultTypeCriteria example);
 
-    int insert(CollectResultType record);
+    long insert(CollectResultType record);
 
     int insertSelective(CollectResultType record);
 }

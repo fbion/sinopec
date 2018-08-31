@@ -26,15 +26,104 @@
         <result column="platform_type" jdbcType="SMALLINT" property="platformType" />
         <result column="group_type" jdbcType="SMALLINT" property="groupType" />
     </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        sensor_id, id, uts, repo_id, sensor_name, sensor_sn, user_id, longitude, latitude, 
+        type, ip, port, url, renderedurl, rtmpurl, live_active, data_active, comment, status, 
+        rois, lanes, platform_type, group_type
+    </sql>
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.one.SensorsCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."sensors"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."sensors"
+        where sensor_id = #{sensorId,jdbcType=VARCHAR}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from "sensors"
+        delete from "public"."sensors"
         where sensor_id = #{sensorId,jdbcType=VARCHAR}
     </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.one.SensorsCriteria">
+        delete from "public"."sensors"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
     <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.Sensors">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+        <selectKey keyProperty="sensorId" order="AFTER" resultType="java.lang.String">
             PostgreSQL
         </selectKey>
-        insert into "sensors" (sensor_id, uts, repo_id, 
+        insert into "public"."sensors" (id, uts, repo_id, 
             sensor_name, sensor_sn, user_id, 
             longitude, latitude, type, 
             ip, port, url, renderedurl, 
@@ -42,7 +131,7 @@
             comment, status, rois, 
             lanes, platform_type, group_type
             )
-        values (#{sensorId,jdbcType=VARCHAR}, #{uts,jdbcType=TIMESTAMP}, #{repoId,jdbcType=VARCHAR}, 
+        values (#{id,jdbcType=BIGINT}, #{uts,jdbcType=TIMESTAMP}, #{repoId,jdbcType=VARCHAR}, 
             #{sensorName,jdbcType=VARCHAR}, #{sensorSn,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
             #{longitude,jdbcType=BIGINT}, #{latitude,jdbcType=BIGINT}, #{type,jdbcType=SMALLINT}, 
             #{ip,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{renderedurl,jdbcType=VARCHAR}, 
@@ -51,8 +140,334 @@
             #{lanes,jdbcType=VARCHAR}, #{platformType,jdbcType=SMALLINT}, #{groupType,jdbcType=SMALLINT}
             )
     </insert>
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.one.Sensors">
+        <selectKey keyProperty="sensorId" order="AFTER" resultType="java.lang.String">
+            PostgreSQL
+        </selectKey>
+        insert into "public"."sensors"
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="uts != null">
+                uts,
+            </if>
+            <if test="repoId != null">
+                repo_id,
+            </if>
+            <if test="sensorName != null">
+                sensor_name,
+            </if>
+            <if test="sensorSn != null">
+                sensor_sn,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="longitude != null">
+                longitude,
+            </if>
+            <if test="latitude != null">
+                latitude,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="port != null">
+                port,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="renderedurl != null">
+                renderedurl,
+            </if>
+            <if test="rtmpurl != null">
+                rtmpurl,
+            </if>
+            <if test="liveActive != null">
+                live_active,
+            </if>
+            <if test="dataActive != null">
+                data_active,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="rois != null">
+                rois,
+            </if>
+            <if test="lanes != null">
+                lanes,
+            </if>
+            <if test="platformType != null">
+                platform_type,
+            </if>
+            <if test="groupType != null">
+                group_type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="uts != null">
+                #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repoId != null">
+                #{repoId,jdbcType=VARCHAR},
+            </if>
+            <if test="sensorName != null">
+                #{sensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="sensorSn != null">
+                #{sensorSn,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                #{longitude,jdbcType=BIGINT},
+            </if>
+            <if test="latitude != null">
+                #{latitude,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="ip != null">
+                #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="port != null">
+                #{port,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="renderedurl != null">
+                #{renderedurl,jdbcType=VARCHAR},
+            </if>
+            <if test="rtmpurl != null">
+                #{rtmpurl,jdbcType=VARCHAR},
+            </if>
+            <if test="liveActive != null">
+                #{liveActive,jdbcType=BIT},
+            </if>
+            <if test="dataActive != null">
+                #{dataActive,jdbcType=BIT},
+            </if>
+            <if test="comment != null">
+                #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="rois != null">
+                #{rois,jdbcType=VARCHAR},
+            </if>
+            <if test="lanes != null">
+                #{lanes,jdbcType=VARCHAR},
+            </if>
+            <if test="platformType != null">
+                #{platformType,jdbcType=SMALLINT},
+            </if>
+            <if test="groupType != null">
+                #{groupType,jdbcType=SMALLINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.one.SensorsCriteria" resultType="java.lang.Long">
+        select count(*) from "public"."sensors"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."sensors"
+        <set>
+            <if test="record.sensorId != null">
+                sensor_id = #{record.sensorId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.uts != null">
+                uts = #{record.uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.repoId != null">
+                repo_id = #{record.repoId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sensorName != null">
+                sensor_name = #{record.sensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sensorSn != null">
+                sensor_sn = #{record.sensorSn,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null">
+                user_id = #{record.userId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.longitude != null">
+                longitude = #{record.longitude,jdbcType=BIGINT},
+            </if>
+            <if test="record.latitude != null">
+                latitude = #{record.latitude,jdbcType=BIGINT},
+            </if>
+            <if test="record.type != null">
+                type = #{record.type,jdbcType=SMALLINT},
+            </if>
+            <if test="record.ip != null">
+                ip = #{record.ip,jdbcType=VARCHAR},
+            </if>
+            <if test="record.port != null">
+                port = #{record.port,jdbcType=VARCHAR},
+            </if>
+            <if test="record.url != null">
+                url = #{record.url,jdbcType=VARCHAR},
+            </if>
+            <if test="record.renderedurl != null">
+                renderedurl = #{record.renderedurl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rtmpurl != null">
+                rtmpurl = #{record.rtmpurl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.liveActive != null">
+                live_active = #{record.liveActive,jdbcType=BIT},
+            </if>
+            <if test="record.dataActive != null">
+                data_active = #{record.dataActive,jdbcType=BIT},
+            </if>
+            <if test="record.comment != null">
+                comment = #{record.comment,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=SMALLINT},
+            </if>
+            <if test="record.rois != null">
+                rois = #{record.rois,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lanes != null">
+                lanes = #{record.lanes,jdbcType=VARCHAR},
+            </if>
+            <if test="record.platformType != null">
+                platform_type = #{record.platformType,jdbcType=SMALLINT},
+            </if>
+            <if test="record.groupType != null">
+                group_type = #{record.groupType,jdbcType=SMALLINT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."sensors"
+        set sensor_id = #{record.sensorId,jdbcType=VARCHAR},
+            id = #{record.id,jdbcType=BIGINT},
+            uts = #{record.uts,jdbcType=TIMESTAMP},
+            repo_id = #{record.repoId,jdbcType=VARCHAR},
+            sensor_name = #{record.sensorName,jdbcType=VARCHAR},
+            sensor_sn = #{record.sensorSn,jdbcType=VARCHAR},
+            user_id = #{record.userId,jdbcType=VARCHAR},
+            longitude = #{record.longitude,jdbcType=BIGINT},
+            latitude = #{record.latitude,jdbcType=BIGINT},
+            type = #{record.type,jdbcType=SMALLINT},
+            ip = #{record.ip,jdbcType=VARCHAR},
+            port = #{record.port,jdbcType=VARCHAR},
+            url = #{record.url,jdbcType=VARCHAR},
+            renderedurl = #{record.renderedurl,jdbcType=VARCHAR},
+            rtmpurl = #{record.rtmpurl,jdbcType=VARCHAR},
+            live_active = #{record.liveActive,jdbcType=BIT},
+            data_active = #{record.dataActive,jdbcType=BIT},
+            comment = #{record.comment,jdbcType=VARCHAR},
+            status = #{record.status,jdbcType=SMALLINT},
+            rois = #{record.rois,jdbcType=VARCHAR},
+            lanes = #{record.lanes,jdbcType=VARCHAR},
+            platform_type = #{record.platformType,jdbcType=SMALLINT},
+            group_type = #{record.groupType,jdbcType=SMALLINT}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.one.Sensors">
+        update "public"."sensors"
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="uts != null">
+                uts = #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repoId != null">
+                repo_id = #{repoId,jdbcType=VARCHAR},
+            </if>
+            <if test="sensorName != null">
+                sensor_name = #{sensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="sensorSn != null">
+                sensor_sn = #{sensorSn,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                longitude = #{longitude,jdbcType=BIGINT},
+            </if>
+            <if test="latitude != null">
+                latitude = #{latitude,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=SMALLINT},
+            </if>
+            <if test="ip != null">
+                ip = #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="port != null">
+                port = #{port,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="renderedurl != null">
+                renderedurl = #{renderedurl,jdbcType=VARCHAR},
+            </if>
+            <if test="rtmpurl != null">
+                rtmpurl = #{rtmpurl,jdbcType=VARCHAR},
+            </if>
+            <if test="liveActive != null">
+                live_active = #{liveActive,jdbcType=BIT},
+            </if>
+            <if test="dataActive != null">
+                data_active = #{dataActive,jdbcType=BIT},
+            </if>
+            <if test="comment != null">
+                comment = #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="rois != null">
+                rois = #{rois,jdbcType=VARCHAR},
+            </if>
+            <if test="lanes != null">
+                lanes = #{lanes,jdbcType=VARCHAR},
+            </if>
+            <if test="platformType != null">
+                platform_type = #{platformType,jdbcType=SMALLINT},
+            </if>
+            <if test="groupType != null">
+                group_type = #{groupType,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where sensor_id = #{sensorId,jdbcType=VARCHAR}
+    </update>
     <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.Sensors">
-        update "sensors"
+        update "public"."sensors"
         set id = #{id,jdbcType=BIGINT},
             uts = #{uts,jdbcType=TIMESTAMP},
             repo_id = #{repoId,jdbcType=VARCHAR},
@@ -77,17 +492,4 @@
             group_type = #{groupType,jdbcType=SMALLINT}
         where sensor_id = #{sensorId,jdbcType=VARCHAR}
     </update>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select sensor_id, id, uts, repo_id, sensor_name, sensor_sn, user_id, longitude, latitude, 
-        type, ip, port, url, renderedurl, rtmpurl, live_active, data_active, comment, status, 
-        rois, lanes, platform_type, group_type
-        from "sensors"
-        where sensor_id = #{sensorId,jdbcType=VARCHAR}
-    </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-        select sensor_id, id, uts, repo_id, sensor_name, sensor_sn, user_id, longitude, latitude, 
-        type, ip, port, url, renderedurl, rtmpurl, live_active, data_active, comment, status, 
-        rois, lanes, platform_type, group_type
-        from "sensors"
-    </select>
 </mapper>

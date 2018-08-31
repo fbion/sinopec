@@ -188,6 +188,12 @@ public class MobileCollectTaskController extends BaseController {
         return this.warpObject(mobileCollectTaskService.updateBatchStatusByPrimaryKey(DeleteStatusEnum.DELETE.getCode(),list));
     }
     
+    @ApiOperation(value = "获取分析结果")
+    @RequestMapping(value="/getResult/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseInfo getResult(@PathVariable Long id){
+        return this.warpObject(mobileCollectTaskService.getCollectResult(id));
+    }
+    
     
 }
 

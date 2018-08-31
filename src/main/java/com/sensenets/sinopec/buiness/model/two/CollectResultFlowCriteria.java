@@ -1,7 +1,7 @@
 /**
   * CollectResultFlowCriteria.java
   * Copyright(C) 2017-2018 
-  * @date 2018-08-29
+  * @date 2018-08-31
   */
 package com.sensenets.sinopec.buiness.model.two;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-08-29 16:48:21
+ * @Date 2018-08-31 10:30:13
  */
 public class CollectResultFlowCriteria {
     protected String orderByClause;
@@ -140,7 +140,7 @@ public class CollectResultFlowCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-29 16:48:21
+     * @Date 2018-08-31 10:30:13
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -842,6 +842,66 @@ public class CollectResultFlowCriteria {
             addCriterion("uts not between", value1, value2, "uts");
             return (Criteria) this;
         }
+
+        public Criteria andCountStatusIsNull() {
+            addCriterion("count_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusIsNotNull() {
+            addCriterion("count_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusEqualTo(Short value) {
+            addCriterion("count_status =", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusNotEqualTo(Short value) {
+            addCriterion("count_status <>", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusGreaterThan(Short value) {
+            addCriterion("count_status >", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusGreaterThanOrEqualTo(Short value) {
+            addCriterion("count_status >=", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusLessThan(Short value) {
+            addCriterion("count_status <", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusLessThanOrEqualTo(Short value) {
+            addCriterion("count_status <=", value, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusIn(List<Short> values) {
+            addCriterion("count_status in", values, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusNotIn(List<Short> values) {
+            addCriterion("count_status not in", values, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusBetween(Short value1, Short value2) {
+            addCriterion("count_status between", value1, value2, "countStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCountStatusNotBetween(Short value1, Short value2) {
+            addCriterion("count_status not between", value1, value2, "countStatus");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -849,7 +909,7 @@ public class CollectResultFlowCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-29 16:48:21
+     * @Date 2018-08-31 10:30:13
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -863,7 +923,7 @@ public class CollectResultFlowCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-08-29 16:48:21
+     * @Date 2018-08-31 10:30:13
      */
     public static class Criterion {
         private String condition;

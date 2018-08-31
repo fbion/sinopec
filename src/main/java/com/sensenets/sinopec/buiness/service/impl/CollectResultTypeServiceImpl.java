@@ -1,15 +1,20 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.dao.two.CollectResultTypeMapper;
 import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria;
 import com.sensenets.sinopec.buiness.service.ICollectResultTypeService;
-import java.util.List;
+import com.sensenets.sinopec.common.enums.BizExceptionEnum;
+import com.sensenets.sinopec.common.exception.BusinessException;
+
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
@@ -62,8 +67,13 @@ public class CollectResultTypeServiceImpl implements ICollectResultTypeService {
         return this.collectResultTypeMapper.updateByExample(record, example);
     }
 
-    public int insert(CollectResultType record) {
-        return this.collectResultTypeMapper.insert(record);
+    public long insert(CollectResultType record) {
+        int i = this.collectResultTypeMapper.insert(record);
+        if(i>0){
+            return record.getId();
+        }else{
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_VEHCLE_INSERT_ERROR);
+        }
     }
 
     public int insertSelective(CollectResultType record) {
