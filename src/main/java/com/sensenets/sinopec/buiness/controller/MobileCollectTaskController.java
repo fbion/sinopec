@@ -2,8 +2,12 @@ package com.sensenets.sinopec.buiness.controller;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.math.NumberUtils;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageInfo;
@@ -194,6 +199,14 @@ public class MobileCollectTaskController extends BaseController {
         return this.warpObject(mobileCollectTaskService.getCollectResult(id));
     }
     
+    @ApiOperation(value = "导出分析结果")
+    @RequestMapping(value="/exportResult/{id}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public void exportResult(@PathVariable Long id,HttpServletRequest request,HttpServletResponse response){
+        mobileCollectTaskService.getCollectResultExcel(response,id);
+    }
+    
+  
     
 }
 

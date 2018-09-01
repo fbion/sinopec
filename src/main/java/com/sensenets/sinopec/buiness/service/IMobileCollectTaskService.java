@@ -2,6 +2,10 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.dto.CollectResultDto;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
@@ -43,4 +47,14 @@ public interface IMobileCollectTaskService {
       * @return CollectResultDto
       */
     CollectResultDto getCollectResult(Long id);
+
+  
+    /**
+      * @Title: getCollectResultExcel
+      * @Description: 导出到客户端
+      * @param response
+      * @param id
+      * @return
+      */
+    String getCollectResultExcel(HttpServletResponse response,Long id);
 }

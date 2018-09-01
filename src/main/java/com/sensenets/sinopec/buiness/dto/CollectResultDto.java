@@ -58,9 +58,9 @@ public class CollectResultDto implements Serializable{
     public static class ResultInFlow{
         
         @ApiModelProperty(value = "采集进站车流量数量")
-        private int collectInCount = 0 ;
+        private int collectCount = 0 ;
         @ApiModelProperty(value = "油站进站车流量数量")
-        private int stationInCount = 0 ;
+        private int stationCount = 0 ;
         @ApiModelProperty(value = "时间单位")
         private String dataTime =  "" ; 
     }
@@ -72,9 +72,9 @@ public class CollectResultDto implements Serializable{
     public static class ResultOutFlow{
         
         @ApiModelProperty(value = "采集站外车流量数量")
-        private int collectOutCount = 0 ;
+        private int collectCount = 0 ;
         @ApiModelProperty(value = "油站站外车流量数量")
-        private int stationOutCount = 0 ;
+        private int stationCount = 0 ;
         @ApiModelProperty(value = "时间单位")
         private String dataTime =  "" ; 
     }
@@ -85,9 +85,9 @@ public class CollectResultDto implements Serializable{
     @NoArgsConstructor
     public static class ResultInVehicleType{
         @ApiModelProperty(value = "采集进站车类型数量")
-        private int collectInCount = 0 ;
+        private int collectCount = 0 ;
         @ApiModelProperty(value = "油站进站车类型数量")
-        private int stationInCount = 0 ;
+        private int stationCount = 0 ;
         @ApiModelProperty(value = "车类型单位")
         private String vehicleType =  "" ; 
     }
@@ -98,9 +98,9 @@ public class CollectResultDto implements Serializable{
     @NoArgsConstructor
     public static class ResultOutVehicleType{
         @ApiModelProperty(value = "采集出站车类型数量")
-        private int collectOutCount = 0 ;
+        private int collectCount = 0 ;
         @ApiModelProperty(value = "油站出站车类型数量")
-        private int stationOutCount = 0 ;
+        private int stationCount = 0 ;
         @ApiModelProperty(value = "车类型单位")
         private String vehicleType =  "" ; 
     }

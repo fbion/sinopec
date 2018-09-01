@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +43,7 @@ import com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria;
 import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria;
 import com.sensenets.sinopec.buiness.schedule.CollectTaskQueue;
+import com.sensenets.sinopec.buiness.schedule.ExcelExportHelper;
 import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.enums.CollectTaskStatusEnum;
@@ -323,13 +327,13 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             for(CollectResultFlow flow: flowList){
                 String dateTime = DateHelper.convertDateStrToOtherFormat(String.valueOf(flow.getDataHour()), DateHelper.FORMAT_5, DateHelper.FORMAT_5_2);
                 CollectResultDto.ResultInFlow inFlow =  new CollectResultDto.ResultInFlow();
-                inFlow.setCollectInCount(flow.getCollectInCount());
-                inFlow.setStationInCount(flow.getStationInCount());
+                inFlow.setCollectCount(flow.getCollectInCount());
+                inFlow.setStationCount(flow.getStationInCount());
                 inFlow.setDataTime(dateTime);
                 inFlowList.add(inFlow);
                 CollectResultDto.ResultOutFlow outFlow =  new CollectResultDto.ResultOutFlow();
-                outFlow.setCollectOutCount(flow.getCollectOutCount());
-                outFlow.setStationOutCount(flow.getStationOutCount());
+                outFlow.setCollectCount(flow.getCollectOutCount());
+                outFlow.setStationCount(flow.getStationOutCount());
                 outFlow.setDataTime(dateTime);
                 outFlowList.add(outFlow);
             }
@@ -358,24 +362,24 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
                     continue;
                 }
                 CollectResultDto.ResultInVehicleType inType =  new CollectResultDto.ResultInVehicleType();
-                inType.setCollectInCount(type.getCollectInCount());
-                inType.setStationInCount(type.getStationInCount());
+                inType.setCollectCount(type.getCollectInCount());
+                inType.setStationCount(type.getStationInCount());
                 inType.setVehicleType(veType);
                 inTypeList.add(inType);
                 CollectResultDto.ResultOutVehicleType outType =  new CollectResultDto.ResultOutVehicleType();
-                outType.setCollectOutCount(type.getCollectOutCount());
-                outType.setStationOutCount(type.getStationOutCount());
+                outType.setCollectCount(type.getCollectOutCount());
+                outType.setStationCount(type.getStationOutCount());
                 outType.setVehicleType(veType);
                 outTypeList.add(outType);
             }
             CollectResultDto.ResultInVehicleType qitaInType =  new CollectResultDto.ResultInVehicleType();
-            qitaInType.setCollectInCount(collectInCount);
-            qitaInType.setStationInCount(stationInCount);
+            qitaInType.setCollectCount(collectInCount);
+            qitaInType.setStationCount(stationInCount);
             qitaInType.setVehicleType("其他");
             inTypeList.add(qitaInType);
             CollectResultDto.ResultOutVehicleType qitaOutType =  new CollectResultDto.ResultOutVehicleType();
-            qitaOutType.setCollectOutCount(collectOutCount);
-            qitaOutType.setStationOutCount(stationOutCount);
+            qitaOutType.setCollectCount(collectOutCount);
+            qitaOutType.setStationCount(stationOutCount);
             qitaOutType.setVehicleType("其他");
             outTypeList.add(qitaOutType);
         }
@@ -383,5 +387,130 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         dto.setInVehicleTypes(inTypeList);
         dto.setOutVehicleTypes(outTypeList);
         return dto;
+    }
+
+ 
+    @Override
+    public String getCollectResultExcel(HttpServletResponse response,Long id) {
+        CollectResultDto dto = new CollectResultDto();
+        VjMobileCollectTaskViewCriteria  viewExample = new VjMobileCollectTaskViewCriteria();
+        VjMobileCollectTaskViewCriteria.Criteria cri = viewExample.createCriteria();
+        cri.andIdEqualTo(id);
+        List<VjMobileCollectTaskView> list = this.vjMobileCollectTaskViewMapper.selectByExample(viewExample);
+        if(CollectionUtils.isEmpty(list)){
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_ID_PARAMS_ERROR);
+        }
+        VjMobileCollectTaskView view = list.get(0);
+        if(view.getTaskStatus()==CollectTaskStatusEnum.RUNNING.getCode()){
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_TASK_UNFINISH);
+        }
+        
+        CollectResultFlowCriteria flowExample = new CollectResultFlowCriteria();
+        CollectResultFlowCriteria.Criteria flowCri = flowExample.createCriteria();
+        flowCri.andCollectTaskIdEqualTo(id);
+        List<CollectResultFlow>  flowList = collectResultFlowMapper.selectByExample(flowExample);
+        List<CollectResultDto.ResultInFlow> inFlowList = new ArrayList<CollectResultDto.ResultInFlow>();
+        List<CollectResultDto.ResultOutFlow> outFlowList = new ArrayList<CollectResultDto.ResultOutFlow>();
+        if(CollectionUtils.isNotEmpty(flowList)){
+            for(CollectResultFlow flow: flowList){
+                String dateTime = DateHelper.convertDateStrToOtherFormat(String.valueOf(flow.getDataHour()), DateHelper.FORMAT_5, DateHelper.FORMAT_5_2);
+                CollectResultDto.ResultInFlow inFlow =  new CollectResultDto.ResultInFlow();
+                inFlow.setCollectCount(flow.getCollectInCount());
+                inFlow.setStationCount(flow.getStationInCount());
+                inFlow.setDataTime(dateTime);
+                inFlowList.add(inFlow);
+                CollectResultDto.ResultOutFlow outFlow =  new CollectResultDto.ResultOutFlow();
+                outFlow.setCollectCount(flow.getCollectOutCount());
+                outFlow.setStationCount(flow.getStationOutCount());
+                outFlow.setDataTime(dateTime);
+                outFlowList.add(outFlow);
+            }
+        }
+        dto.setInFlows(inFlowList);
+        dto.setOutFlows(outFlowList);
+        
+        CollectResultTypeCriteria typeExample = new CollectResultTypeCriteria();
+        CollectResultTypeCriteria.Criteria typeCri = typeExample.createCriteria();
+        typeCri.andCollectTaskIdEqualTo(id);
+        List<CollectResultType>  typeList = collectResultTypeMapper.selectByExample(typeExample);
+        List<CollectResultDto.ResultInVehicleType> inTypeList = new ArrayList<CollectResultDto.ResultInVehicleType>();
+        List<CollectResultDto.ResultOutVehicleType> outTypeList = new ArrayList<CollectResultDto.ResultOutVehicleType>();
+        if(CollectionUtils.isNotEmpty(typeList)){
+            int collectInCount = 0;
+            int stationInCount = 0;
+            int collectOutCount = 0;
+            int stationOutCount = 0;
+            for(CollectResultType type: typeList){
+                String veType = VehicleTypeEnum.getDescByCode(NumberUtils.toShort(type.getVerhicleType()));
+                if(veType.equals("其他")){
+                    collectInCount +=type.getCollectInCount();
+                    stationInCount +=type.getStationInCount();
+                    collectOutCount +=type.getCollectOutCount();
+                    stationOutCount +=type.getStationOutCount();
+                    continue;
+                }
+                CollectResultDto.ResultInVehicleType inType =  new CollectResultDto.ResultInVehicleType();
+                inType.setCollectCount(type.getCollectInCount());
+                inType.setStationCount(type.getStationInCount());
+                inType.setVehicleType(veType);
+                inTypeList.add(inType);
+                CollectResultDto.ResultOutVehicleType outType =  new CollectResultDto.ResultOutVehicleType();
+                outType.setCollectCount(type.getCollectOutCount());
+                outType.setStationCount(type.getStationOutCount());
+                outType.setVehicleType(veType);
+                outTypeList.add(outType);
+            }
+            CollectResultDto.ResultInVehicleType qitaInType =  new CollectResultDto.ResultInVehicleType();
+            qitaInType.setCollectCount(collectInCount);
+            qitaInType.setStationCount(stationInCount);
+            qitaInType.setVehicleType("其他");
+            inTypeList.add(qitaInType);
+            CollectResultDto.ResultOutVehicleType qitaOutType =  new CollectResultDto.ResultOutVehicleType();
+            qitaOutType.setCollectCount(collectOutCount);
+            qitaOutType.setStationCount(stationOutCount);
+            qitaOutType.setVehicleType("其他");
+            outTypeList.add(qitaOutType);
+        }
+        dto.setTaskId(id);
+        dto.setInVehicleTypes(inTypeList);
+        dto.setOutVehicleTypes(outTypeList);
+        MobileCollectTaskDto taskDto = getMoileCollectTaskDto(view);
+         String baseName = taskDto.getCollectionRepoName()+"与"+taskDto.getOilStationRepoName()+"比对，时间段"+DateHelper.date2String(taskDto.getCollectStartTime(),DateHelper.FORMAT_0)+"-"+
+                DateHelper.date2String(taskDto.getCollectEndTime(),DateHelper.FORMAT_0);
+        String fileName = "移动数据采集分析统计:"+baseName+".xls";
+        try {
+            new ExcelExportHelper().exportExcel(fileName,response,dto,taskDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_EXPORT_FAIL);
+        }
+        return fileName;
+    }
+    
+    private MobileCollectTaskDto getMoileCollectTaskDto(final VjMobileCollectTaskView view){
+        List<Long> pids = Lists.newArrayList();
+        if (ArrayUtils.isNotEmpty(view.getCollectRpath())) {
+            pids.addAll(Collections.arrayToList(view.getCollectRpath()));
+        }
+        if (ArrayUtils.isNotEmpty(view.getStationRpath())) {
+            pids.addAll(Collections.arrayToList(view.getStationRpath()));
+        }
+        Set<Long> repoid = Sets.newHashSet();
+        if (CollectionUtils.isNotEmpty(pids)) {
+            for (Long id : pids) {
+                repoid.add(id);
+            }
+        }
+        ReposCriteria parentEx = new ReposCriteria();
+        ReposCriteria.Criteria reposCri = parentEx.createCriteria();
+        reposCri.andIdIn(new ArrayList<Long>(repoid));
+        List<Repos> parentList = reposMapper.selectByExample(parentEx);
+        Map<Long, RepoIdDto> pMap = new HashMap<Long, RepoIdDto>();
+        if (CollectionUtils.isNotEmpty(parentList)) {
+            for (Repos p : parentList) {
+                pMap.put(p.getId(), new RepoIdDto(p.getId(),p.getRepoId(), p.getRepoName(),p.getRepoLevel()));
+            }
+        }
+        return getDto(pMap, view);
     }
 }
