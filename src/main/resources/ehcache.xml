@@ -29,6 +29,16 @@
            memoryStoreEvictionPolicy="LFU"
            transactionalMode="off">
     </cache>
+    
+    <cache
+   name = "collectResultExcelCache"
+   eternal = "false"
+   maxElementsInMemory = "100"
+   overflowToDisk = "false"
+   diskPersistent = "false"
+   timeToIdleSeconds = "120"
+   timeToLiveSeconds = "180"
+   memoryStoreEvictionPolicy = "LRU"/>
 
 </ehcache>
 

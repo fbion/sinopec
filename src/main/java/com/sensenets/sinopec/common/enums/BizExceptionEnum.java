@@ -24,10 +24,12 @@ public enum BizExceptionEnum {
     MOBILE_COLLECT_ERROR_ID_PARAMS_NULL(200007,"采集记录id不能为空"),
     MOBILE_COLLECT_ERROR_TASK_UNFINISH(200008,"采集分析还未完成"),
     MOBILE_COLLECT_ERROR_EXPORT_FAIL(200009,"采集分析导出报表异常"),
+    MOBILE_COLLECT_ERROR_REPOS_NOT_EXIST(200010,"采集分析提交的参数异常"),
+    MOBILE_COLLECT_ERROR_DOWNLOAD_PARAM(200011,"下载导出文件提交的参数异常"),
+    MOBILE_COLLECT_ERROR_NO_RIGHT_DOWNLOAD(200012,"您暂无下载该文件的权限"),
 	
     /*****设备管理模块*****/
     SENSOR_ERROR_NULL(300001,"暂无相关采集设备或油站摄相机,不能添加任务"),
-   
 	
     /*****移动数据采集统计车流量模块*****/
     MOBILE_COLLECT_FLOW_INSERT_ERROR(400001,"插入车流量统计记录失败"),
@@ -35,7 +37,6 @@ public enum BizExceptionEnum {
     /*****移动数据采集统计车辆类型模块*****/
     MOBILE_COLLECT_VEHCLE_INSERT_ERROR(500001,"插入车类型统计记录失败"),
    
-    
     
 	/**
 	 * 字典

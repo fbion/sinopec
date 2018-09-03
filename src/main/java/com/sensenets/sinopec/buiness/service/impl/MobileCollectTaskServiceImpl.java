@@ -1,18 +1,27 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -52,6 +61,8 @@ import com.sensenets.sinopec.common.enums.VehicleTypeEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
 import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.JsonHelper;
+import com.sensenets.sinopec.common.utils.UUIDHelper;
+import com.sensenets.sinopec.config.AppConfig;
 
 import io.jsonwebtoken.lang.Collections;
 import lombok.extern.slf4j.Slf4j;
@@ -77,6 +88,12 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
     
     @Autowired
     private CollectResultTypeMapper  collectResultTypeMapper ;
+    
+    @Autowired
+    private AppConfig appConfig;
+    
+    @Resource
+    private CacheManager cacheManager;
     
     public int countByExample(MobileCollectTaskCriteria example) {
         int count = this.mobileCollectTaskMapper.countByExample(example);
@@ -240,6 +257,9 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             dto.setOilStationRepoId(view.getOilStationRepoId());
             dto.setTaskStatus(view.getTaskStatus());
             dto.setType(view.getType());
+            if(ArrayUtils.isEmpty(view.getCollectRpath())||ArrayUtils.isEmpty(view.getStationRpath())){
+                throw  new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_REPOS_NOT_EXIST);
+            }
             dto.setCollectId(view.getCollectRpath()[view.getCollectRpath().length-1]);
             dto.setOilStationId(view.getStationRpath()[view.getStationRpath().length-1]);
             
@@ -389,9 +409,29 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         return dto;
     }
 
+    private String getExportKey(Long id,String filePath){
+        String responseInfo = UUIDHelper.genUUID(false);
+        try {
+            Cache cache = cacheManager.getCache("collectResultExcelCache");
+            cache.put(responseInfo,id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return responseInfo;
+    }
  
     @Override
-    public String getCollectResultExcel(HttpServletResponse response,Long id) {
+    public String getCollectResultExcel(Long id) {
+        // 查询缓存
+        Cache cache = cacheManager.getCache("collectResultExcelCache");
+        String filePathCache = cache.get(String.valueOf(id), String.class);
+        String fileNameCache = cache.get(String.valueOf("filename_"+id), String.class);
+        if(StringUtils.isNotBlank(filePathCache)&&StringUtils.isNotBlank(fileNameCache)){
+            File file = new File(filePathCache);
+            if(file.exists()){
+                return getExportKey(id,filePathCache);
+            }
+        }
         CollectResultDto dto = new CollectResultDto();
         VjMobileCollectTaskViewCriteria  viewExample = new VjMobileCollectTaskViewCriteria();
         VjMobileCollectTaskViewCriteria.Criteria cri = viewExample.createCriteria();
@@ -478,13 +518,61 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
          String baseName = taskDto.getCollectionRepoName()+"与"+taskDto.getOilStationRepoName()+"比对，时间段"+DateHelper.date2String(taskDto.getCollectStartTime(),DateHelper.FORMAT_0)+"-"+
                 DateHelper.date2String(taskDto.getCollectEndTime(),DateHelper.FORMAT_0);
         String fileName = "移动数据采集分析统计:"+baseName+".xls";
+        String fileIndex = UUIDHelper.genUUID(false);
+        String exportPath = appConfig.getExportDir();
+        String filePath = String.format("%s%s.xls",exportPath.endsWith("/")?exportPath:exportPath+"/",fileIndex);
         try {
-            new ExcelExportHelper().exportExcel(fileName,response,dto,taskDto);
+            new ExcelExportHelper().exportExcel(fileName,filePath,dto,taskDto);
+            cache.put(String.valueOf(id),filePath);
+            cache.put(String.valueOf("filename_"+id),fileName);
         } catch (Exception e) {
+            cache.evict(String.valueOf(id));
+            cache.evict(String.valueOf("filename_"+id));
+            cache.put(String.valueOf(id),filePath);
             e.printStackTrace();
             throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_EXPORT_FAIL);
         }
-        return fileName;
+        return getExportKey(id,filePath);
+    }
+    
+    
+    @Override
+    public String downloadCollectResultExcel(HttpServletResponse response,String key) {
+        if(StringUtils.isBlank(key)){
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_DOWNLOAD_PARAM);
+        }
+        // 查询缓存
+        Cache cache = cacheManager.getCache("collectResultExcelCache");
+        Long id = cache.get(key,Long.class);
+        if(id==null||id==0){
+            throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_DOWNLOAD_PARAM);
+        }
+        String filePathCache = cache.get(String.valueOf(id), String.class);
+        String fileNameCache = cache.get(String.valueOf("filename_"+id), String.class);
+        if(StringUtils.isNotBlank(filePathCache)&&StringUtils.isNotBlank(fileNameCache)){
+            OutputStream out  = null;
+            try {
+                File file = new File(filePathCache);
+                byte[] fileData = FileUtils.readFileToByteArray(file);
+                out  = response.getOutputStream();
+                response.setContentType("application/octet-stream;charset=ISO8859-1");
+                response.setHeader("Content-Disposition", "attachment;filename="+ new String(fileNameCache.getBytes(),"ISO8859-1"));
+                response.addHeader("Pargam", "no-cache");
+                response.addHeader("Cache-Control", "no-cache");
+                out.write(fileData);
+                out.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally{
+                try {
+                    if(out!=null)
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return String.valueOf(id);
     }
     
     private MobileCollectTaskDto getMoileCollectTaskDto(final VjMobileCollectTaskView view){

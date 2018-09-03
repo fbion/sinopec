@@ -202,11 +202,11 @@ public class MobileCollectTaskController extends BaseController {
     @ApiOperation(value = "导出分析结果")
     @RequestMapping(value="/exportResult/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public void exportResult(@PathVariable Long id,HttpServletRequest request,HttpServletResponse response){
-        mobileCollectTaskService.getCollectResultExcel(response,id);
+    public ResponseInfo exportResult(@PathVariable Long id,HttpServletRequest request,HttpServletResponse response){
+        return this.warpObject(mobileCollectTaskService.getCollectResultExcel(id));
     }
     
-  
+
     
 }
 

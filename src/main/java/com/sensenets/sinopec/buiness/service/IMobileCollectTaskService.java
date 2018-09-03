@@ -51,10 +51,18 @@ public interface IMobileCollectTaskService {
   
     /**
       * @Title: getCollectResultExcel
-      * @Description: 导出到客户端
-      * @param response
+      * @Description: 导出到服务器
       * @param id
       * @return
       */
-    String getCollectResultExcel(HttpServletResponse response,Long id);
+    String getCollectResultExcel(Long id);
+    
+    /**
+     * @Title: downloadCollectResultExcel
+     * @Description: 下载到客户端
+     * @param response
+     * @param key
+     * @return
+     */
+    String downloadCollectResultExcel(HttpServletResponse response,String key);
 }

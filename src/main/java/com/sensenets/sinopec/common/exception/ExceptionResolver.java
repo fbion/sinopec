@@ -31,26 +31,26 @@ public class ExceptionResolver {
     }
 
     @ExceptionHandler(value = BusinessException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseInfo serviceCommonExceptionHandler(BusinessException e) {
         return generateInfo(e);
     }
     
     @ExceptionHandler(value = SystemException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseInfo systemCommonExceptionHandler(SystemException e) {
         return generateInfo(e);
     }
     
     @ExceptionHandler(value = ToolInitException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     public  ResponseInfo toolInitCommonExceptionHandler(ToolInitException e) {
         return generateInfo(e);
     }
 
     
     @ExceptionHandler(value = Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody ResponseInfo commonExceptionHandler(Exception e) {
         ResponseInfo info = new ResponseInfo();
         info.setCode(500);

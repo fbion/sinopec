@@ -27,6 +27,7 @@
 		<os.maven.plugin.version>1.6.0</os.maven.plugin.version>
         <protobuf.maven.plugin.version>0.5.1</protobuf.maven.plugin.version>
         <com.google.protobuf.version>3.6.0</com.google.protobuf.version>
+        
 	</properties>
 
 	<dependencies>
@@ -277,9 +278,9 @@
 			<version>${beetl.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-		</dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+         </dependency>
 		<dependency>
 			<groupId>io.github.swagger2markup</groupId>
 			<artifactId>swagger2markup</artifactId>
@@ -319,7 +320,10 @@
 			    <artifactId>poi-ooxml-schemas</artifactId>
 			    <version>3.17</version>
 		   </dependency>
-
+          <dependency>
+	          <groupId>net.sf.ehcache</groupId>
+	          <artifactId>ehcache</artifactId>
+          </dependency>
 	</dependencies>
 
 	<pluginRepositories>

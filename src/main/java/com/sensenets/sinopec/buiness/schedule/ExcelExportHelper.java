@@ -10,13 +10,11 @@ package com.sensenets.sinopec.buiness.schedule;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.sensenets.sinopec.buiness.dto.CollectResultDto;
@@ -112,7 +110,7 @@ public class ExcelExportHelper {
     }
 
     
-    public  HSSFWorkbook exportExcel(String fileName,HttpServletResponse response,CollectResultDto result,MobileCollectTaskDto task) throws Exception {
+    public HSSFWorkbook exportExcel(String fileName,String filePath,CollectResultDto result,MobileCollectTaskDto task) throws Exception {
         String baseName = task.getCollectionRepoName()+"与"+task.getOilStationRepoName()+"比对，时间段"+DateHelper.date2String(task.getCollectStartTime(),DateHelper.FORMAT_0)+"-"+
                 DateHelper.date2String(task.getCollectEndTime(),DateHelper.FORMAT_0);
         String inFlowName = "进站车流量统计:"+baseName;
@@ -170,18 +168,19 @@ public class ExcelExportHelper {
         String[] typeHeaders = { "车辆类型",collectName,stationName };
         ExportExcelUtils eeu = new ExportExcelUtils();
         HSSFWorkbook workbook = new HSSFWorkbook();
-        OutputStream out = response.getOutputStream();
+        String fileDir  = StringUtils.substringBeforeLast(filePath, "/");
+        File file = new File(fileDir);
+        if(!file.exists()){
+            file.mkdirs();
+        }
+        FileOutputStream fileOut = new FileOutputStream(filePath);
         eeu.exportExcel(workbook, 0, "站外车流量统计", flowHeaders, outFlowList, 0,outFlowName);
         eeu.exportExcel(workbook, 1, "进站车流量统计", flowHeaders, inFlowList, 0,inFlowName);
         eeu.exportExcel(workbook, 2, "站外车辆类型统计", typeHeaders, outTypeList,0,outTypeName);
         eeu.exportExcel(workbook, 3, "进站车辆类型统计", typeHeaders, inTypeList,0,inTypeName);
-        response.setContentType("application/octet-stream;charset=ISO8859-1");
-        response.setHeader("Content-Disposition", "attachment;filename="+ new String(fileName.getBytes(),"ISO8859-1"));
-        response.addHeader("Pargam", "no-cache");
-        response.addHeader("Cache-Control", "no-cache");
-        workbook.write(out);
-        out.flush();
-        out.close();
+        workbook.write(fileOut);
+        fileOut.flush();
+        fileOut.close();
         return workbook;
     }
     
