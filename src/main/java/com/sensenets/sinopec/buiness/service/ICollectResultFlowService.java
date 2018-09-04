@@ -1,9 +1,10 @@
 package com.sensenets.sinopec.buiness.service;
 
+import java.util.List;
+
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.model.two.CollectResultFlow;
 import com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria;
-import java.util.List;
 
 public interface ICollectResultFlowService {
     int countByExample(CollectResultFlowCriteria example);
@@ -27,6 +28,8 @@ public interface ICollectResultFlowService {
     int updateByExample(CollectResultFlow record, CollectResultFlowCriteria example);
 
     long insert(CollectResultFlow record);
+    
+    List<CollectResultFlow> insertBatch(List<CollectResultFlow> records);
 
     int insertSelective(CollectResultFlow record);
 }

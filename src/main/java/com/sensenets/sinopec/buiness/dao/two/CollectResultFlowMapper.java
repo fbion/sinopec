@@ -38,6 +38,13 @@ public interface CollectResultFlowMapper {
      * @param record
      */
     int insert(CollectResultFlow record);
+    
+    /**
+     *  新写入数据库记录:public.collect_result_flow
+     *
+     * @param record
+     */
+    int insertBatch(@Param("list")List<CollectResultFlow> list);
 
     /**
      *  动态字段,写入数据库记录:public.collect_result_flow

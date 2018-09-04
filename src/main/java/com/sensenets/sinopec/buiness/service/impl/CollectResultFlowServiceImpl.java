@@ -77,4 +77,10 @@ public class CollectResultFlowServiceImpl implements ICollectResultFlowService {
     public int insertSelective(CollectResultFlow record) {
         return this.collectResultFlowMapper.insertSelective(record);
     }
+
+    @Override
+    public List<CollectResultFlow> insertBatch(List<CollectResultFlow> records) {
+        this.collectResultFlowMapper.insertBatch(records);
+        return records;
+    }
 }

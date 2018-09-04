@@ -79,4 +79,13 @@ public class CollectResultTypeServiceImpl implements ICollectResultTypeService {
     public int insertSelective(CollectResultType record) {
         return this.collectResultTypeMapper.insertSelective(record);
     }
+    
+    
+    @Override
+    public List<CollectResultType> insertBatch(List<CollectResultType> records) {
+        this.collectResultTypeMapper.insertBatch(records);
+        return records;
+    }
+    
 }
+

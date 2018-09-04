@@ -1,6 +1,7 @@
 package com.sensenets.sinopec.buiness.service;
 
 import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.buiness.model.two.CollectResultFlow;
 import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria;
 import java.util.List;
@@ -27,6 +28,8 @@ public interface ICollectResultTypeService {
     int updateByExample(CollectResultType record, CollectResultTypeCriteria example);
 
     long insert(CollectResultType record);
+    
+    List<CollectResultType>  insertBatch(List<CollectResultType> records);
 
     int insertSelective(CollectResultType record);
 }

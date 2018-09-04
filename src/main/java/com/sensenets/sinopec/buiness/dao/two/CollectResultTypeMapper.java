@@ -5,10 +5,12 @@
   */
 package com.sensenets.sinopec.buiness.dao.two;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface CollectResultTypeMapper {
     /**
@@ -38,6 +40,13 @@ public interface CollectResultTypeMapper {
      * @param record
      */
     int insert(CollectResultType record);
+    
+    /**
+     *  新写入数据库记录:public.collect_result_type
+     *
+     * @param record
+     */
+    int insertBatch(@Param("list")List<CollectResultType> list);
 
     /**
      *  动态字段,写入数据库记录:public.collect_result_type

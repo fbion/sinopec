@@ -169,11 +169,13 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
         CollectResultFlowCriteria flowExample = new CollectResultFlowCriteria();
         CollectResultFlowCriteria.Criteria flowCri = flowExample.createCriteria();
         flowCri.andCountStatusEqualTo(CountStatusEnum.UNFINISH.getCode());
+        flowCri.andCollectTaskIdEqualTo(task.getId());
         int flowUnCount = collectResultFlowService.countByExample(flowExample);
         // 查询当前任务的 车类型统计表状态
         CollectResultTypeCriteria typeExample = new CollectResultTypeCriteria();
         CollectResultTypeCriteria.Criteria typeCri = typeExample.createCriteria();
         typeCri.andCountStatusEqualTo(CountStatusEnum.UNFINISH.getCode());
+        typeCri.andCollectTaskIdEqualTo(task.getId());
         int typeUnCount = collectResultTypeService.countByExample(typeExample);
         
         if(flowUnCount==0&&typeUnCount==0){
@@ -400,23 +402,23 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            collectResultFlowService.updateByPrimaryKeySelective(flowRecord);
                        }
                    }else if(task.getResultType()==ResultTypeEnum.VEHICLE_TYPE){
-                       boolean flag = false;
                        CollectResultType typeRecord = new CollectResultType();
+                       boolean flag = false;
                        if(inCollectVehicleTypeCount>0){
-                           flag = true;
                            typeRecord.setCollectInCount(inCollectVehicleTypeCount);
+                           flag = true;
                        }
                        if(outCollectVehicleTypeCount>0){
-                           flag = true;
                            typeRecord.setCollectOutCount(outCollectVehicleTypeCount);
+                           flag = true;
                        }
                        if(intStationVehicleTypeCount>0){
-                           flag = true;
                            typeRecord.setStationInCount(intStationVehicleTypeCount);
+                           flag = true;
                        }
                        if(outStationVehicleTypeCount>0){
-                           flag = true;
                            typeRecord.setStationOutCount(outStationVehicleTypeCount);
+                           flag = true;
                        }
                        typeRecord.setId(task.getResultId());
                        if(flag){

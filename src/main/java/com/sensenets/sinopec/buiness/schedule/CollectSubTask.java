@@ -104,11 +104,11 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
                      case 1:
                          // 车流量分析
                          List<CollectResultFlow> list = convert2CollectResultFlowList(task);
-                         for(CollectResultFlow flow :list){
-                            long flowid = collectResultFlowService.insert(flow);
+                         List<CollectResultFlow> afterList = collectResultFlowService.insertBatch(list);
+                         for(CollectResultFlow flow :afterList){
                             CollectTaskDto flowTask = new CollectTaskDto();
                             BeanUtils.copyProperties(flowTask, task);
-                            flowTask.setResultId(flowid);
+                            flowTask.setResultId(flow.getId());
                             flowTask.setResultType(ResultTypeEnum.VEHICLE_FLOW);
                             flowTask.setCollectResultFlow(flow);
                             ExecuteTaskQueue.add(flowTask);
@@ -117,11 +117,11 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
                      case 2:
                          // 车辆类型分析
                          List<CollectResultType> typelist = convert2CollectResultTypeList(task);
-                         for(CollectResultType type :typelist){
-                             long typeid = collectResultTypeService.insert(type);
+                         List<CollectResultType> afterTypeList = collectResultTypeService.insertBatch(typelist);
+                         for(CollectResultType type :afterTypeList){
                              CollectTaskDto typeTask = new CollectTaskDto();
                              BeanUtils.copyProperties(typeTask, task);
-                             typeTask.setResultId(typeid);
+                             typeTask.setResultId(type.getId());
                              typeTask.setResultType(ResultTypeEnum.VEHICLE_TYPE);
                              typeTask.setCollectResultType(type);
                              ExecuteTaskQueue.add(typeTask);
