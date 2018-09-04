@@ -23,7 +23,6 @@ import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.VehiclesCriteria;
 import com.sensenets.sinopec.buiness.service.ICollectResultFlowService;
 import com.sensenets.sinopec.buiness.service.ICollectResultTypeService;
-import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
 import com.sensenets.sinopec.buiness.service.IVehiclesService;
 import com.sensenets.sinopec.common.enums.CollectTaskTypeEnum;
 import com.sensenets.sinopec.common.enums.CountStatusEnum;
@@ -46,8 +45,6 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
 
     private CollectTaskDto collectTaskDto;
 
-    private IMobileCollectTaskService mobileCollectTaskService;
-    
     private ICollectResultFlowService collectResultFlowService;
     
     private ICollectResultTypeService collectResultTypeService;
@@ -61,7 +58,6 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
 
     public CollectSubTask(CollectTaskDto collectTaskDto) {
         this.collectTaskDto = collectTaskDto;
-        this.mobileCollectTaskService = BeanHelper.getBean(IMobileCollectTaskService.class);
         this.collectResultFlowService = BeanHelper.getBean(ICollectResultFlowService.class);
         this.collectResultTypeService = BeanHelper.getBean(ICollectResultTypeService.class);
         this.vehiclesService = BeanHelper.getBean(IVehiclesService.class);
@@ -104,27 +100,31 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
                      case 1:
                          // 车流量分析
                          List<CollectResultFlow> list = convert2CollectResultFlowList(task);
-                         List<CollectResultFlow> afterList = collectResultFlowService.insertBatch(list);
-                         for(CollectResultFlow flow :afterList){
-                            CollectTaskDto flowTask = new CollectTaskDto();
-                            BeanUtils.copyProperties(flowTask, task);
-                            flowTask.setResultId(flow.getId());
-                            flowTask.setResultType(ResultTypeEnum.VEHICLE_FLOW);
-                            flowTask.setCollectResultFlow(flow);
-                            ExecuteTaskQueue.add(flowTask);
+                         if(CollectionUtils.isNotEmpty(list)){
+                             List<CollectResultFlow> afterList = collectResultFlowService.insertBatch(list);
+                             for(CollectResultFlow flow :afterList){
+                                CollectTaskDto flowTask = new CollectTaskDto();
+                                BeanUtils.copyProperties(flowTask, task);
+                                flowTask.setResultId(flow.getId());
+                                flowTask.setResultType(ResultTypeEnum.VEHICLE_FLOW);
+                                flowTask.setCollectResultFlow(flow);
+                                ExecuteTaskQueue.add(flowTask);
+                             }
                          }
                          break;
                      case 2:
                          // 车辆类型分析
                          List<CollectResultType> typelist = convert2CollectResultTypeList(task);
-                         List<CollectResultType> afterTypeList = collectResultTypeService.insertBatch(typelist);
-                         for(CollectResultType type :afterTypeList){
-                             CollectTaskDto typeTask = new CollectTaskDto();
-                             BeanUtils.copyProperties(typeTask, task);
-                             typeTask.setResultId(type.getId());
-                             typeTask.setResultType(ResultTypeEnum.VEHICLE_TYPE);
-                             typeTask.setCollectResultType(type);
-                             ExecuteTaskQueue.add(typeTask);
+                         if(CollectionUtils.isNotEmpty(typelist)){
+                             List<CollectResultType> afterTypeList = collectResultTypeService.insertBatch(typelist);
+                             for(CollectResultType type :afterTypeList){
+                                 CollectTaskDto typeTask = new CollectTaskDto();
+                                 BeanUtils.copyProperties(typeTask, task);
+                                 typeTask.setResultId(type.getId());
+                                 typeTask.setResultType(ResultTypeEnum.VEHICLE_TYPE);
+                                 typeTask.setCollectResultType(type);
+                                 ExecuteTaskQueue.add(typeTask);
+                             }
                          }
                          break;
                      default :
