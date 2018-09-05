@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.two.VjVehicleQueueViewMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.two.VjVehicleQueueView">
+        <result column="id" jdbcType="BIGINT" property="id" />
+        <result column="biz_id" jdbcType="VARCHAR" property="bizId" />
+        <result column="vehicle_in_id" jdbcType="VARCHAR" property="vehicleInId" />
+        <result column="vehicle_out_id" jdbcType="VARCHAR" property="vehicleOutId" />
+        <result column="queue_time" jdbcType="BIGINT" property="queueTime" />
+        <result column="va_uts" jdbcType="TIMESTAMP" property="vaUts" />
+        <result column="va_ts" jdbcType="BIGINT" property="vaTs" />
+        <result column="va_vehicle_id" jdbcType="VARCHAR" property="vaVehicleId" />
+        <result column="va_image_id" jdbcType="VARCHAR" property="vaImageId" />
+        <result column="va_repo_id" jdbcType="VARCHAR" property="vaRepoId" />
+        <result column="va_color_id" jdbcType="SMALLINT" property="vaColorId" />
+        <result column="va_sensor_id" jdbcType="VARCHAR" property="vaSensorId" />
+        <result column="va_confidence" jdbcType="REAL" property="vaConfidence" />
+        <result column="va_brand_id" jdbcType="SMALLINT" property="vaBrandId" />
+        <result column="va_sub_brand_id" jdbcType="SMALLINT" property="vaSubBrandId" />
+        <result column="va_model_year_id" jdbcType="SMALLINT" property="vaModelYearId" />
+        <result column="va_type_id" jdbcType="SMALLINT" property="vaTypeId" />
+        <result column="va_plate_text" jdbcType="VARCHAR" property="vaPlateText" />
+        <result column="va_plate_type_id" jdbcType="SMALLINT" property="vaPlateTypeId" />
+        <result column="va_plate_color_id" jdbcType="SMALLINT" property="vaPlateColorId" />
+        <result column="va_side" jdbcType="SMALLINT" property="vaSide" />
+        <result column="va_size" jdbcType="SMALLINT" property="vaSize" />
+        <result column="va_speed" jdbcType="SMALLINT" property="vaSpeed" />
+        <result column="va_direction" jdbcType="SMALLINT" property="vaDirection" />
+        <result column="va_lane" jdbcType="VARCHAR" property="vaLane" />
+        <result column="va_face_id" jdbcType="VARCHAR" property="vaFaceId" />
+        <result column="va_oil_type" jdbcType="VARCHAR" property="vaOilType" />
+        <result column="va_oil_amount" jdbcType="REAL" property="vaOilAmount" />
+        <result column="vb_uts" jdbcType="TIMESTAMP" property="vbUts" />
+        <result column="vb_ts" jdbcType="BIGINT" property="vbTs" />
+        <result column="vb_vehicle_id" jdbcType="VARCHAR" property="vbVehicleId" />
+        <result column="vb_image_id" jdbcType="VARCHAR" property="vbImageId" />
+        <result column="vb_repo_id" jdbcType="VARCHAR" property="vbRepoId" />
+        <result column="vb_color_id" jdbcType="SMALLINT" property="vbColorId" />
+        <result column="vb_sensor_id" jdbcType="VARCHAR" property="vbSensorId" />
+        <result column="vb_confidence" jdbcType="REAL" property="vbConfidence" />
+        <result column="vb_brand_id" jdbcType="SMALLINT" property="vbBrandId" />
+        <result column="vb_sub_brand_id" jdbcType="SMALLINT" property="vbSubBrandId" />
+        <result column="vb_model_year_id" jdbcType="SMALLINT" property="vbModelYearId" />
+        <result column="vb_type_id" jdbcType="SMALLINT" property="vbTypeId" />
+        <result column="vb_plate_text" jdbcType="VARCHAR" property="vbPlateText" />
+        <result column="vb_plate_type_id" jdbcType="SMALLINT" property="vbPlateTypeId" />
+        <result column="vb_plate_color_id" jdbcType="SMALLINT" property="vbPlateColorId" />
+        <result column="vb_side" jdbcType="SMALLINT" property="vbSide" />
+        <result column="vb_size" jdbcType="SMALLINT" property="vbSize" />
+        <result column="vb_speed" jdbcType="SMALLINT" property="vbSpeed" />
+        <result column="vb_direction" jdbcType="SMALLINT" property="vbDirection" />
+        <result column="vb_lane" jdbcType="VARCHAR" property="vbLane" />
+        <result column="vb_face_id" jdbcType="VARCHAR" property="vbFaceId" />
+        <result column="vb_oil_type" jdbcType="VARCHAR" property="vbOilType" />
+        <result column="vb_oil_amount" jdbcType="REAL" property="vbOilAmount" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+   
+    <sql id="Base_Column_List">
+        id, biz_id, vehicle_in_id, vehicle_out_id, queue_time, va_uts, va_ts, va_vehicle_id, 
+        va_image_id, va_repo_id, va_color_id, va_sensor_id, va_confidence, va_brand_id, va_sub_brand_id, 
+        va_model_year_id, va_type_id, va_plate_text, va_plate_type_id, va_plate_color_id, 
+        va_side, va_size, va_speed, va_direction, va_lane, va_face_id, va_oil_type, va_oil_amount, 
+        vb_uts, vb_ts, vb_vehicle_id, vb_image_id, vb_repo_id, vb_color_id, vb_sensor_id, 
+        vb_confidence, vb_brand_id, vb_sub_brand_id, vb_model_year_id, vb_type_id, vb_plate_text, 
+        vb_plate_type_id, vb_plate_color_id, vb_side, vb_size, vb_speed, vb_direction, vb_lane, 
+        vb_face_id, vb_oil_type, vb_oil_amount
+    </sql>
+    
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VjVehicleQueueViewCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."vj_vehicle_queue_view"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VjVehicleQueueViewCriteria" resultType="java.lang.Long">
+        select count(*) from "public"."vj_vehicle_queue_view"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    
+    
+	 <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+	    select 
+	    <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+	    from "public"."vj_vehicle_queue_view"
+	    where id = #{id,jdbcType=BIGINT}
+	 </select>
+
+</mapper>

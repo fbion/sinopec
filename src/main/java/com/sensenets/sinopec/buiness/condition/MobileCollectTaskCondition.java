@@ -59,13 +59,5 @@ public class MobileCollectTaskCondition extends CommonCondition{
     @ApiModelProperty(value = "分析类型（1.进/出站流量2.站外流量）")
     private Short type;
 
-    public static void main(String[] args) {
-        double wuye = 1.5*114*12 ;
-        System.out.println("每年物业费用："+wuye);
-        double qingyun = 3*114 ;
-        System.out.println("垃圾清运费用："+qingyun);
-        System.out.println("交房总费用："+(2000+qingyun+wuye));
-        System.out.println(System.currentTimeMillis());
-    }
 
 }

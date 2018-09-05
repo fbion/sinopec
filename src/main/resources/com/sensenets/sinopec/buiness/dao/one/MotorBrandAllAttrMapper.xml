@@ -11,23 +11,235 @@
         <result column="year_name" jdbcType="VARCHAR" property="yearName" />
         <result column="engine_fuel" jdbcType="SMALLINT" property="engineFuel" />
     </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, brand_id, brand_name, sub_brand_id, sub_brand_name, year_id, year_name, engine_fuel
+    </sql>
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttrCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."motor_brand_all_attr"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."motor_brand_all_attr"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-        delete from "motor_brand_all_attr"
+        delete from "public"."motor_brand_all_attr"
         where id = #{id,jdbcType=BIGINT}
     </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttrCriteria">
+        delete from "public"."motor_brand_all_attr"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
     <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttr">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-            PostgreSQL
-        </selectKey>
-        insert into "motor_brand_all_attr" (brand_id, brand_name, sub_brand_id, 
+        insert into "public"."motor_brand_all_attr" (brand_id, brand_name, sub_brand_id, 
             sub_brand_name, year_id, year_name, 
             engine_fuel)
         values (#{brandId,jdbcType=INTEGER}, #{brandName,jdbcType=VARCHAR}, #{subBrandId,jdbcType=INTEGER}, 
             #{subBrandName,jdbcType=VARCHAR}, #{yearId,jdbcType=INTEGER}, #{yearName,jdbcType=VARCHAR}, 
             #{engineFuel,jdbcType=SMALLINT})
     </insert>
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttr">
+        insert into "public"."motor_brand_all_attr"
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="brandId != null">
+                brand_id,
+            </if>
+            <if test="brandName != null">
+                brand_name,
+            </if>
+            <if test="subBrandId != null">
+                sub_brand_id,
+            </if>
+            <if test="subBrandName != null">
+                sub_brand_name,
+            </if>
+            <if test="yearId != null">
+                year_id,
+            </if>
+            <if test="yearName != null">
+                year_name,
+            </if>
+            <if test="engineFuel != null">
+                engine_fuel,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="brandId != null">
+                #{brandId,jdbcType=INTEGER},
+            </if>
+            <if test="brandName != null">
+                #{brandName,jdbcType=VARCHAR},
+            </if>
+            <if test="subBrandId != null">
+                #{subBrandId,jdbcType=INTEGER},
+            </if>
+            <if test="subBrandName != null">
+                #{subBrandName,jdbcType=VARCHAR},
+            </if>
+            <if test="yearId != null">
+                #{yearId,jdbcType=INTEGER},
+            </if>
+            <if test="yearName != null">
+                #{yearName,jdbcType=VARCHAR},
+            </if>
+            <if test="engineFuel != null">
+                #{engineFuel,jdbcType=SMALLINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttrCriteria" resultType="java.lang.Integer">
+        select count(*) from "public"."motor_brand_all_attr"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."motor_brand_all_attr"
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.brandId != null">
+                brand_id = #{record.brandId,jdbcType=INTEGER},
+            </if>
+            <if test="record.brandName != null">
+                brand_name = #{record.brandName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.subBrandId != null">
+                sub_brand_id = #{record.subBrandId,jdbcType=INTEGER},
+            </if>
+            <if test="record.subBrandName != null">
+                sub_brand_name = #{record.subBrandName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.yearId != null">
+                year_id = #{record.yearId,jdbcType=INTEGER},
+            </if>
+            <if test="record.yearName != null">
+                year_name = #{record.yearName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.engineFuel != null">
+                engine_fuel = #{record.engineFuel,jdbcType=SMALLINT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."motor_brand_all_attr"
+        set id = #{record.id,jdbcType=BIGINT},
+            brand_id = #{record.brandId,jdbcType=INTEGER},
+            brand_name = #{record.brandName,jdbcType=VARCHAR},
+            sub_brand_id = #{record.subBrandId,jdbcType=INTEGER},
+            sub_brand_name = #{record.subBrandName,jdbcType=VARCHAR},
+            year_id = #{record.yearId,jdbcType=INTEGER},
+            year_name = #{record.yearName,jdbcType=VARCHAR},
+            engine_fuel = #{record.engineFuel,jdbcType=SMALLINT}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttr">
+        update "public"."motor_brand_all_attr"
+        <set>
+            <if test="brandId != null">
+                brand_id = #{brandId,jdbcType=INTEGER},
+            </if>
+            <if test="brandName != null">
+                brand_name = #{brandName,jdbcType=VARCHAR},
+            </if>
+            <if test="subBrandId != null">
+                sub_brand_id = #{subBrandId,jdbcType=INTEGER},
+            </if>
+            <if test="subBrandName != null">
+                sub_brand_name = #{subBrandName,jdbcType=VARCHAR},
+            </if>
+            <if test="yearId != null">
+                year_id = #{yearId,jdbcType=INTEGER},
+            </if>
+            <if test="yearName != null">
+                year_name = #{yearName,jdbcType=VARCHAR},
+            </if>
+            <if test="engineFuel != null">
+                engine_fuel = #{engineFuel,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
     <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.one.MotorBrandAllAttr">
-        update "motor_brand_all_attr"
+        update "public"."motor_brand_all_attr"
         set brand_id = #{brandId,jdbcType=INTEGER},
             brand_name = #{brandName,jdbcType=VARCHAR},
             sub_brand_id = #{subBrandId,jdbcType=INTEGER},
@@ -37,15 +249,4 @@
             engine_fuel = #{engineFuel,jdbcType=SMALLINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select id, brand_id, brand_name, sub_brand_id, sub_brand_name, year_id, year_name, 
-        engine_fuel
-        from "motor_brand_all_attr"
-        where id = #{id,jdbcType=BIGINT}
-    </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-        select id, brand_id, brand_name, sub_brand_id, sub_brand_name, year_id, year_name, 
-        engine_fuel
-        from "motor_brand_all_attr"
-    </select>
 </mapper>

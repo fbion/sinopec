@@ -115,7 +115,7 @@
         <logger name="org.thymeleaf" level="warn"/>
 		<logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR" />
 		<!--记录druid-sql的记录-->
-        <logger name="druid.sql.Statement" level="ERROR" additivity="false">
+        <logger name="druid.sql.Statement" level="debug" additivity="false">
             <appender-ref ref="RollingFileDruidSqlError"/>
         </logger> 
         
