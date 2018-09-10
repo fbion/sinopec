@@ -78,7 +78,7 @@ public final class PimpOilEvent {
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
-        throw new IllegalArgumentException(
+        throw new java.lang.IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -87,7 +87,7 @@ public final class PimpOilEvent {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @Deprecated
+    @java.lang.Deprecated
     public static OilGunEventType valueOf(int value) {
       return forNumber(value);
     }
@@ -123,7 +123,7 @@ public final class PimpOilEvent {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return PimpOilEvent.getDescriptor().getEnumTypes().get(0);
+      return dg.model.PimpOilEvent.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final OilGunEventType[] VALUES = values();
@@ -131,7 +131,7 @@ public final class PimpOilEvent {
     public static OilGunEventType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new IllegalArgumentException(
+        throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -160,7 +160,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -178,7 +178,7 @@ public final class PimpOilEvent {
      *
      * <code>string EventId = 2;</code>
      */
-    String getEventId();
+    java.lang.String getEventId();
     /**
      * <pre>
      *加油事件ID
@@ -196,7 +196,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilTankId = 3;</code>
      */
-    String getOilTankId();
+    java.lang.String getOilTankId();
     /**
      * <pre>
      *加油机号
@@ -214,7 +214,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilGunId = 4;</code>
      */
-    String getOilGunId();
+    java.lang.String getOilGunId();
     /**
      * <pre>
      *加油枪号
@@ -232,7 +232,7 @@ public final class PimpOilEvent {
      *
      * <code>string Timestamp = 5;</code>
      */
-    String getTimestamp();
+    java.lang.String getTimestamp();
     /**
      * <pre>
      *事件时间
@@ -250,7 +250,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilType = 6;</code>
      */
-    String getOilType();
+    java.lang.String getOilType();
     /**
      * <pre>
      *油品类型
@@ -285,7 +285,7 @@ public final class PimpOilEvent {
      *
      * <code>.dg.model.OilGunEventType EventType = 8;</code>
      */
-    PimpOilEvent.OilGunEventType getEventType();
+    dg.model.PimpOilEvent.OilGunEventType getEventType();
 
     /**
      * <pre>
@@ -294,7 +294,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilCardId = 9;</code>
      */
-    String getOilCardId();
+    java.lang.String getOilCardId();
     /**
      * <pre>
      *加油卡卡号
@@ -312,7 +312,7 @@ public final class PimpOilEvent {
      *
      * <code>string TCCNo = 10;</code>
      */
-    String getTCCNo();
+    java.lang.String getTCCNo();
     /**
      * <pre>
      *流水号
@@ -330,7 +330,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilTypeNum = 11;</code>
      */
-    String getOilTypeNum();
+    java.lang.String getOilTypeNum();
     /**
      * <pre>
      *油品代码
@@ -356,12 +356,13 @@ public final class PimpOilEvent {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
@@ -370,7 +371,7 @@ public final class PimpOilEvent {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
@@ -380,7 +381,9 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
@@ -389,7 +392,8 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -421,7 +425,7 @@ public final class PimpOilEvent {
       oilTypeNum_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -432,7 +436,7 @@ public final class PimpOilEvent {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -446,37 +450,37 @@ public final class PimpOilEvent {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               eventId_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilTankId_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilGunId_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               timestamp_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilType_ = s;
               break;
@@ -493,19 +497,19 @@ public final class PimpOilEvent {
               break;
             }
             case 74: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilCardId_ = s;
               break;
             }
             case 82: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               tCCNo_ = s;
               break;
             }
             case 90: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilTypeNum_ = s;
               break;
@@ -516,7 +520,7 @@ public final class PimpOilEvent {
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000800;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -544,11 +548,11 @@ public final class PimpOilEvent {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
+      return dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -559,17 +563,17 @@ public final class PimpOilEvent {
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpOilEvent.internal_static_dg_model_OilEvent_fieldAccessorTable
+      return dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpOilEvent.OilEvent.class, PimpOilEvent.OilEvent.Builder.class);
+              dg.model.PimpOilEvent.OilEvent.class, dg.model.PimpOilEvent.OilEvent.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -577,14 +581,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -598,11 +602,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -611,7 +615,7 @@ public final class PimpOilEvent {
     }
 
     public static final int EVENTID_FIELD_NUMBER = 2;
-    private volatile Object eventId_;
+    private volatile java.lang.Object eventId_;
     /**
      * <pre>
      *加油事件ID
@@ -619,14 +623,14 @@ public final class PimpOilEvent {
      *
      * <code>string EventId = 2;</code>
      */
-    public String getEventId() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         eventId_ = s;
         return s;
       }
@@ -640,11 +644,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getEventIdBytes() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         eventId_ = b;
         return b;
       } else {
@@ -653,7 +657,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILTANKID_FIELD_NUMBER = 3;
-    private volatile Object oilTankId_;
+    private volatile java.lang.Object oilTankId_;
     /**
      * <pre>
      *加油机号
@@ -661,14 +665,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilTankId = 3;</code>
      */
-    public String getOilTankId() {
-      Object ref = oilTankId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilTankId() {
+      java.lang.Object ref = oilTankId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilTankId_ = s;
         return s;
       }
@@ -682,11 +686,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilTankIdBytes() {
-      Object ref = oilTankId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilTankId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilTankId_ = b;
         return b;
       } else {
@@ -695,7 +699,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILGUNID_FIELD_NUMBER = 4;
-    private volatile Object oilGunId_;
+    private volatile java.lang.Object oilGunId_;
     /**
      * <pre>
      *加油枪号
@@ -703,14 +707,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilGunId = 4;</code>
      */
-    public String getOilGunId() {
-      Object ref = oilGunId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilGunId() {
+      java.lang.Object ref = oilGunId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilGunId_ = s;
         return s;
       }
@@ -724,11 +728,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilGunIdBytes() {
-      Object ref = oilGunId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilGunId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilGunId_ = b;
         return b;
       } else {
@@ -737,7 +741,7 @@ public final class PimpOilEvent {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 5;
-    private volatile Object timestamp_;
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      *事件时间
@@ -745,14 +749,14 @@ public final class PimpOilEvent {
      *
      * <code>string Timestamp = 5;</code>
      */
-    public String getTimestamp() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         timestamp_ = s;
         return s;
       }
@@ -766,11 +770,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         timestamp_ = b;
         return b;
       } else {
@@ -779,7 +783,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILTYPE_FIELD_NUMBER = 6;
-    private volatile Object oilType_;
+    private volatile java.lang.Object oilType_;
     /**
      * <pre>
      *油品类型
@@ -787,14 +791,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilType = 6;</code>
      */
-    public String getOilType() {
-      Object ref = oilType_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilType() {
+      java.lang.Object ref = oilType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilType_ = s;
         return s;
       }
@@ -808,11 +812,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilTypeBytes() {
-      Object ref = oilType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilType_ = b;
         return b;
       } else {
@@ -852,14 +856,14 @@ public final class PimpOilEvent {
      *
      * <code>.dg.model.OilGunEventType EventType = 8;</code>
      */
-    public PimpOilEvent.OilGunEventType getEventType() {
+    public dg.model.PimpOilEvent.OilGunEventType getEventType() {
       @SuppressWarnings("deprecation")
-      PimpOilEvent.OilGunEventType result = PimpOilEvent.OilGunEventType.valueOf(eventType_);
-      return result == null ? PimpOilEvent.OilGunEventType.UNRECOGNIZED : result;
+      dg.model.PimpOilEvent.OilGunEventType result = dg.model.PimpOilEvent.OilGunEventType.valueOf(eventType_);
+      return result == null ? dg.model.PimpOilEvent.OilGunEventType.UNRECOGNIZED : result;
     }
 
     public static final int OILCARDID_FIELD_NUMBER = 9;
-    private volatile Object oilCardId_;
+    private volatile java.lang.Object oilCardId_;
     /**
      * <pre>
      *加油卡卡号
@@ -867,14 +871,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilCardId = 9;</code>
      */
-    public String getOilCardId() {
-      Object ref = oilCardId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilCardId() {
+      java.lang.Object ref = oilCardId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilCardId_ = s;
         return s;
       }
@@ -888,11 +892,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilCardIdBytes() {
-      Object ref = oilCardId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilCardId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilCardId_ = b;
         return b;
       } else {
@@ -901,7 +905,7 @@ public final class PimpOilEvent {
     }
 
     public static final int TCCNO_FIELD_NUMBER = 10;
-    private volatile Object tCCNo_;
+    private volatile java.lang.Object tCCNo_;
     /**
      * <pre>
      *流水号
@@ -909,14 +913,14 @@ public final class PimpOilEvent {
      *
      * <code>string TCCNo = 10;</code>
      */
-    public String getTCCNo() {
-      Object ref = tCCNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTCCNo() {
+      java.lang.Object ref = tCCNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         tCCNo_ = s;
         return s;
       }
@@ -930,11 +934,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getTCCNoBytes() {
-      Object ref = tCCNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = tCCNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         tCCNo_ = b;
         return b;
       } else {
@@ -943,7 +947,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILTYPENUM_FIELD_NUMBER = 11;
-    private volatile Object oilTypeNum_;
+    private volatile java.lang.Object oilTypeNum_;
     /**
      * <pre>
      *油品代码
@@ -951,14 +955,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilTypeNum = 11;</code>
      */
-    public String getOilTypeNum() {
-      Object ref = oilTypeNum_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilTypeNum() {
+      java.lang.Object ref = oilTypeNum_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilTypeNum_ = s;
         return s;
       }
@@ -972,11 +976,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilTypeNumBytes() {
-      Object ref = oilTypeNum_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilTypeNum_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilTypeNum_ = b;
         return b;
       } else {
@@ -987,18 +991,18 @@ public final class PimpOilEvent {
     public static final int ADDITIONALINFOS_FIELD_NUMBER = 12;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpOilEvent.internal_static_dg_model_OilEvent_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -1019,15 +1023,15 @@ public final class PimpOilEvent {
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -1038,7 +1042,7 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -1049,11 +1053,11 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -1065,19 +1069,19 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1087,7 +1091,7 @@ public final class PimpOilEvent {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -1111,7 +1115,7 @@ public final class PimpOilEvent {
       if (amount_ != 0F) {
         output.writeFloat(7, amount_);
       }
-      if (eventType_ != PimpOilEvent.OilGunEventType.Oil_Gun_Event_Type_Unknown.getNumber()) {
+      if (eventType_ != dg.model.PimpOilEvent.OilGunEventType.Oil_Gun_Event_Type_Unknown.getNumber()) {
         output.writeEnum(8, eventType_);
       }
       if (!getOilCardIdBytes().isEmpty()) {
@@ -1132,7 +1136,7 @@ public final class PimpOilEvent {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1160,7 +1164,7 @@ public final class PimpOilEvent {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(7, amount_);
       }
-      if (eventType_ != PimpOilEvent.OilGunEventType.Oil_Gun_Event_Type_Unknown.getNumber()) {
+      if (eventType_ != dg.model.PimpOilEvent.OilGunEventType.Oil_Gun_Event_Type_Unknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(8, eventType_);
       }
@@ -1173,9 +1177,9 @@ public final class PimpOilEvent {
       if (!getOilTypeNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, oilTypeNum_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -1188,15 +1192,15 @@ public final class PimpOilEvent {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpOilEvent.OilEvent)) {
+      if (!(obj instanceof dg.model.PimpOilEvent.OilEvent)) {
         return super.equals(obj);
       }
-      PimpOilEvent.OilEvent other = (PimpOilEvent.OilEvent) obj;
+      dg.model.PimpOilEvent.OilEvent other = (dg.model.PimpOilEvent.OilEvent) obj;
 
       boolean result = true;
       result = result && getOilStationId()
@@ -1212,8 +1216,8 @@ public final class PimpOilEvent {
       result = result && getOilType()
           .equals(other.getOilType());
       result = result && (
-          Float.floatToIntBits(getAmount())
-          == Float.floatToIntBits(
+          java.lang.Float.floatToIntBits(getAmount())
+          == java.lang.Float.floatToIntBits(
               other.getAmount()));
       result = result && eventType_ == other.eventType_;
       result = result && getOilCardId()
@@ -1228,7 +1232,7 @@ public final class PimpOilEvent {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1248,7 +1252,7 @@ public final class PimpOilEvent {
       hash = (37 * hash) + OILTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getOilType().hashCode();
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-      hash = (53 * hash) + Float.floatToIntBits(
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getAmount());
       hash = (37 * hash) + EVENTTYPE_FIELD_NUMBER;
       hash = (53 * hash) + eventType_;
@@ -1267,69 +1271,69 @@ public final class PimpOilEvent {
       return hash;
     }
 
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEvent parseFrom(byte[] data)
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEvent parseFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.OilEvent parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.OilEvent parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEvent parseDelimitedFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEvent parseFrom(
+    public static dg.model.PimpOilEvent.OilEvent parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1337,23 +1341,23 @@ public final class PimpOilEvent {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpOilEvent.OilEvent prototype) {
+    public static Builder newBuilder(dg.model.PimpOilEvent.OilEvent prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1367,10 +1371,10 @@ public final class PimpOilEvent {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.OilEvent)
-        PimpOilEvent.OilEventOrBuilder {
+        dg.model.PimpOilEvent.OilEventOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -1395,12 +1399,12 @@ public final class PimpOilEvent {
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpOilEvent.internal_static_dg_model_OilEvent_fieldAccessorTable
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpOilEvent.OilEvent.class, PimpOilEvent.OilEvent.Builder.class);
+                dg.model.PimpOilEvent.OilEvent.class, dg.model.PimpOilEvent.OilEvent.Builder.class);
       }
 
       // Construct using dg.model.PimpOilEvent.OilEvent.newBuilder()
@@ -1409,7 +1413,7 @@ public final class PimpOilEvent {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1418,7 +1422,7 @@ public final class PimpOilEvent {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
@@ -1447,29 +1451,29 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEvent_descriptor;
       }
 
-      @Override
-      public PimpOilEvent.OilEvent getDefaultInstanceForType() {
-        return PimpOilEvent.OilEvent.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEvent getDefaultInstanceForType() {
+        return dg.model.PimpOilEvent.OilEvent.getDefaultInstance();
       }
 
-      @Override
-      public PimpOilEvent.OilEvent build() {
-        PimpOilEvent.OilEvent result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEvent build() {
+        dg.model.PimpOilEvent.OilEvent result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpOilEvent.OilEvent buildPartial() {
-        PimpOilEvent.OilEvent result = new PimpOilEvent.OilEvent(this);
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEvent buildPartial() {
+        dg.model.PimpOilEvent.OilEvent result = new dg.model.PimpOilEvent.OilEvent(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
@@ -1490,50 +1494,50 @@ public final class PimpOilEvent {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpOilEvent.OilEvent) {
-          return mergeFrom((PimpOilEvent.OilEvent)other);
+        if (other instanceof dg.model.PimpOilEvent.OilEvent) {
+          return mergeFrom((dg.model.PimpOilEvent.OilEvent)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpOilEvent.OilEvent other) {
-        if (other == PimpOilEvent.OilEvent.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpOilEvent.OilEvent other) {
+        if (other == dg.model.PimpOilEvent.OilEvent.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
@@ -1583,21 +1587,21 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpOilEvent.OilEvent parsedMessage = null;
+        dg.model.PimpOilEvent.OilEvent parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpOilEvent.OilEvent) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpOilEvent.OilEvent) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1608,7 +1612,7 @@ public final class PimpOilEvent {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -1616,16 +1620,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1637,11 +1641,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -1656,11 +1660,11 @@ public final class PimpOilEvent {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -1673,7 +1677,7 @@ public final class PimpOilEvent {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -1691,13 +1695,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object eventId_ = "";
+      private java.lang.Object eventId_ = "";
       /**
        * <pre>
        *加油事件ID
@@ -1705,16 +1709,16 @@ public final class PimpOilEvent {
        *
        * <code>string EventId = 2;</code>
        */
-      public String getEventId() {
-        Object ref = eventId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           eventId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1726,11 +1730,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getEventIdBytes() {
-        Object ref = eventId_;
+        java.lang.Object ref = eventId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           eventId_ = b;
           return b;
         } else {
@@ -1745,11 +1749,11 @@ public final class PimpOilEvent {
        * <code>string EventId = 2;</code>
        */
       public Builder setEventId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         eventId_ = value;
         onChanged();
         return this;
@@ -1762,7 +1766,7 @@ public final class PimpOilEvent {
        * <code>string EventId = 2;</code>
        */
       public Builder clearEventId() {
-
+        
         eventId_ = getDefaultInstance().getEventId();
         onChanged();
         return this;
@@ -1780,13 +1784,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         eventId_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilTankId_ = "";
+      private java.lang.Object oilTankId_ = "";
       /**
        * <pre>
        *加油机号
@@ -1794,16 +1798,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilTankId = 3;</code>
        */
-      public String getOilTankId() {
-        Object ref = oilTankId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilTankId() {
+        java.lang.Object ref = oilTankId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilTankId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1815,11 +1819,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilTankIdBytes() {
-        Object ref = oilTankId_;
+        java.lang.Object ref = oilTankId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilTankId_ = b;
           return b;
         } else {
@@ -1834,11 +1838,11 @@ public final class PimpOilEvent {
        * <code>string OilTankId = 3;</code>
        */
       public Builder setOilTankId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilTankId_ = value;
         onChanged();
         return this;
@@ -1851,7 +1855,7 @@ public final class PimpOilEvent {
        * <code>string OilTankId = 3;</code>
        */
       public Builder clearOilTankId() {
-
+        
         oilTankId_ = getDefaultInstance().getOilTankId();
         onChanged();
         return this;
@@ -1869,13 +1873,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilTankId_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilGunId_ = "";
+      private java.lang.Object oilGunId_ = "";
       /**
        * <pre>
        *加油枪号
@@ -1883,16 +1887,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilGunId = 4;</code>
        */
-      public String getOilGunId() {
-        Object ref = oilGunId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilGunId() {
+        java.lang.Object ref = oilGunId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilGunId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1904,11 +1908,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilGunIdBytes() {
-        Object ref = oilGunId_;
+        java.lang.Object ref = oilGunId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilGunId_ = b;
           return b;
         } else {
@@ -1923,11 +1927,11 @@ public final class PimpOilEvent {
        * <code>string OilGunId = 4;</code>
        */
       public Builder setOilGunId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilGunId_ = value;
         onChanged();
         return this;
@@ -1940,7 +1944,7 @@ public final class PimpOilEvent {
        * <code>string OilGunId = 4;</code>
        */
       public Builder clearOilGunId() {
-
+        
         oilGunId_ = getDefaultInstance().getOilGunId();
         onChanged();
         return this;
@@ -1958,13 +1962,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilGunId_ = value;
         onChanged();
         return this;
       }
 
-      private Object timestamp_ = "";
+      private java.lang.Object timestamp_ = "";
       /**
        * <pre>
        *事件时间
@@ -1972,16 +1976,16 @@ public final class PimpOilEvent {
        *
        * <code>string Timestamp = 5;</code>
        */
-      public String getTimestamp() {
-        Object ref = timestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           timestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1993,11 +1997,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
-        Object ref = timestamp_;
+        java.lang.Object ref = timestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           timestamp_ = b;
           return b;
         } else {
@@ -2012,11 +2016,11 @@ public final class PimpOilEvent {
        * <code>string Timestamp = 5;</code>
        */
       public Builder setTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         timestamp_ = value;
         onChanged();
         return this;
@@ -2029,7 +2033,7 @@ public final class PimpOilEvent {
        * <code>string Timestamp = 5;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = getDefaultInstance().getTimestamp();
         onChanged();
         return this;
@@ -2047,13 +2051,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         timestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilType_ = "";
+      private java.lang.Object oilType_ = "";
       /**
        * <pre>
        *油品类型
@@ -2061,16 +2065,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilType = 6;</code>
        */
-      public String getOilType() {
-        Object ref = oilType_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilType() {
+        java.lang.Object ref = oilType_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilType_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2082,11 +2086,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilTypeBytes() {
-        Object ref = oilType_;
+        java.lang.Object ref = oilType_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilType_ = b;
           return b;
         } else {
@@ -2101,11 +2105,11 @@ public final class PimpOilEvent {
        * <code>string OilType = 6;</code>
        */
       public Builder setOilType(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilType_ = value;
         onChanged();
         return this;
@@ -2118,7 +2122,7 @@ public final class PimpOilEvent {
        * <code>string OilType = 6;</code>
        */
       public Builder clearOilType() {
-
+        
         oilType_ = getDefaultInstance().getOilType();
         onChanged();
         return this;
@@ -2136,7 +2140,7 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilType_ = value;
         onChanged();
         return this;
@@ -2161,7 +2165,7 @@ public final class PimpOilEvent {
        * <code>float Amount = 7;</code>
        */
       public Builder setAmount(float value) {
-
+        
         amount_ = value;
         onChanged();
         return this;
@@ -2174,7 +2178,7 @@ public final class PimpOilEvent {
        * <code>float Amount = 7;</code>
        */
       public Builder clearAmount() {
-
+        
         amount_ = 0F;
         onChanged();
         return this;
@@ -2210,10 +2214,10 @@ public final class PimpOilEvent {
        *
        * <code>.dg.model.OilGunEventType EventType = 8;</code>
        */
-      public PimpOilEvent.OilGunEventType getEventType() {
+      public dg.model.PimpOilEvent.OilGunEventType getEventType() {
         @SuppressWarnings("deprecation")
-        PimpOilEvent.OilGunEventType result = PimpOilEvent.OilGunEventType.valueOf(eventType_);
-        return result == null ? PimpOilEvent.OilGunEventType.UNRECOGNIZED : result;
+        dg.model.PimpOilEvent.OilGunEventType result = dg.model.PimpOilEvent.OilGunEventType.valueOf(eventType_);
+        return result == null ? dg.model.PimpOilEvent.OilGunEventType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
@@ -2222,11 +2226,11 @@ public final class PimpOilEvent {
        *
        * <code>.dg.model.OilGunEventType EventType = 8;</code>
        */
-      public Builder setEventType(PimpOilEvent.OilGunEventType value) {
+      public Builder setEventType(dg.model.PimpOilEvent.OilGunEventType value) {
         if (value == null) {
           throw new NullPointerException();
         }
-
+        
         eventType_ = value.getNumber();
         onChanged();
         return this;
@@ -2239,13 +2243,13 @@ public final class PimpOilEvent {
        * <code>.dg.model.OilGunEventType EventType = 8;</code>
        */
       public Builder clearEventType() {
-
+        
         eventType_ = 0;
         onChanged();
         return this;
       }
 
-      private Object oilCardId_ = "";
+      private java.lang.Object oilCardId_ = "";
       /**
        * <pre>
        *加油卡卡号
@@ -2253,16 +2257,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilCardId = 9;</code>
        */
-      public String getOilCardId() {
-        Object ref = oilCardId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilCardId() {
+        java.lang.Object ref = oilCardId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilCardId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2274,11 +2278,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilCardIdBytes() {
-        Object ref = oilCardId_;
+        java.lang.Object ref = oilCardId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilCardId_ = b;
           return b;
         } else {
@@ -2293,11 +2297,11 @@ public final class PimpOilEvent {
        * <code>string OilCardId = 9;</code>
        */
       public Builder setOilCardId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilCardId_ = value;
         onChanged();
         return this;
@@ -2310,7 +2314,7 @@ public final class PimpOilEvent {
        * <code>string OilCardId = 9;</code>
        */
       public Builder clearOilCardId() {
-
+        
         oilCardId_ = getDefaultInstance().getOilCardId();
         onChanged();
         return this;
@@ -2328,13 +2332,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilCardId_ = value;
         onChanged();
         return this;
       }
 
-      private Object tCCNo_ = "";
+      private java.lang.Object tCCNo_ = "";
       /**
        * <pre>
        *流水号
@@ -2342,16 +2346,16 @@ public final class PimpOilEvent {
        *
        * <code>string TCCNo = 10;</code>
        */
-      public String getTCCNo() {
-        Object ref = tCCNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTCCNo() {
+        java.lang.Object ref = tCCNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           tCCNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2363,11 +2367,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getTCCNoBytes() {
-        Object ref = tCCNo_;
+        java.lang.Object ref = tCCNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           tCCNo_ = b;
           return b;
         } else {
@@ -2382,11 +2386,11 @@ public final class PimpOilEvent {
        * <code>string TCCNo = 10;</code>
        */
       public Builder setTCCNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         tCCNo_ = value;
         onChanged();
         return this;
@@ -2399,7 +2403,7 @@ public final class PimpOilEvent {
        * <code>string TCCNo = 10;</code>
        */
       public Builder clearTCCNo() {
-
+        
         tCCNo_ = getDefaultInstance().getTCCNo();
         onChanged();
         return this;
@@ -2417,13 +2421,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         tCCNo_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilTypeNum_ = "";
+      private java.lang.Object oilTypeNum_ = "";
       /**
        * <pre>
        *油品代码
@@ -2431,16 +2435,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilTypeNum = 11;</code>
        */
-      public String getOilTypeNum() {
-        Object ref = oilTypeNum_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilTypeNum() {
+        java.lang.Object ref = oilTypeNum_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilTypeNum_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2452,11 +2456,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilTypeNumBytes() {
-        Object ref = oilTypeNum_;
+        java.lang.Object ref = oilTypeNum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilTypeNum_ = b;
           return b;
         } else {
@@ -2471,11 +2475,11 @@ public final class PimpOilEvent {
        * <code>string OilTypeNum = 11;</code>
        */
       public Builder setOilTypeNum(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilTypeNum_ = value;
         onChanged();
         return this;
@@ -2488,7 +2492,7 @@ public final class PimpOilEvent {
        * <code>string OilTypeNum = 11;</code>
        */
       public Builder clearOilTypeNum() {
-
+        
         oilTypeNum_ = getDefaultInstance().getOilTypeNum();
         onChanged();
         return this;
@@ -2506,15 +2510,15 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilTypeNum_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -2522,7 +2526,7 @@ public final class PimpOilEvent {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -2547,15 +2551,15 @@ public final class PimpOilEvent {
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -2566,7 +2570,7 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -2577,11 +2581,11 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -2593,13 +2597,13 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -2618,8 +2622,8 @@ public final class PimpOilEvent {
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -2627,8 +2631,8 @@ public final class PimpOilEvent {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -2640,10 +2644,10 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 12;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -2657,18 +2661,18 @@ public final class PimpOilEvent {
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2679,18 +2683,18 @@ public final class PimpOilEvent {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.OilEvent)
-    private static final PimpOilEvent.OilEvent DEFAULT_INSTANCE;
+    private static final dg.model.PimpOilEvent.OilEvent DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpOilEvent.OilEvent();
+      DEFAULT_INSTANCE = new dg.model.PimpOilEvent.OilEvent();
     }
 
-    public static PimpOilEvent.OilEvent getDefaultInstance() {
+    public static dg.model.PimpOilEvent.OilEvent getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<OilEvent>
         PARSER = new com.google.protobuf.AbstractParser<OilEvent>() {
-      @Override
+      @java.lang.Override
       public OilEvent parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2703,13 +2707,13 @@ public final class PimpOilEvent {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<OilEvent> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpOilEvent.OilEvent getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpOilEvent.OilEvent getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2726,7 +2730,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -2744,7 +2748,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilGunId = 2;</code>
      */
-    String getOilGunId();
+    java.lang.String getOilGunId();
     /**
      * <pre>
      *加油枪号
@@ -2762,7 +2766,7 @@ public final class PimpOilEvent {
      *
      * <code>string LiftTimestamp = 3;</code>
      */
-    String getLiftTimestamp();
+    java.lang.String getLiftTimestamp();
     /**
      * <pre>
      *提枪时间
@@ -2780,7 +2784,7 @@ public final class PimpOilEvent {
      *
      * <code>string HangTimestamp = 4;</code>
      */
-    String getHangTimestamp();
+    java.lang.String getHangTimestamp();
     /**
      * <pre>
      *挂枪时间
@@ -2798,7 +2802,7 @@ public final class PimpOilEvent {
      *
      * <code>string TCCNo = 5;</code>
      */
-    String getTCCNo();
+    java.lang.String getTCCNo();
     /**
      * <pre>
      *流水号
@@ -2816,7 +2820,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilTypeNum = 6;</code>
      */
-    String getOilTypeNum();
+    java.lang.String getOilTypeNum();
     /**
      * <pre>
      *油品代码
@@ -2834,7 +2838,7 @@ public final class PimpOilEvent {
      *
      * <code>string OilCardId = 7;</code>
      */
-    String getOilCardId();
+    java.lang.String getOilCardId();
     /**
      * <pre>
      *加油卡卡号
@@ -2852,7 +2856,7 @@ public final class PimpOilEvent {
      *
      * <code>string LimitVehiclePlate = 8;</code>
      */
-    String getLimitVehiclePlate();
+    java.lang.String getLimitVehiclePlate();
     /**
      * <pre>
      *限制车牌号
@@ -2870,7 +2874,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlate = 9;</code>
      */
-    String getVehiclePlate();
+    java.lang.String getVehiclePlate();
     /**
      * <pre>
      *车牌号
@@ -2888,7 +2892,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleBrand = 10;</code>
      */
-    String getVehicleBrand();
+    java.lang.String getVehicleBrand();
     /**
      * <pre>
      *车辆品牌
@@ -2906,7 +2910,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleSubBrand = 11;</code>
      */
-    String getVehicleSubBrand();
+    java.lang.String getVehicleSubBrand();
     /**
      * <pre>
      *车辆子品牌
@@ -2924,7 +2928,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleStyle = 12;</code>
      */
-    String getVehicleStyle();
+    java.lang.String getVehicleStyle();
     /**
      * <pre>
      *车款
@@ -2942,7 +2946,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleType = 13;</code>
      */
-    String getVehicleType();
+    java.lang.String getVehicleType();
     /**
      * <pre>
      *车辆类型
@@ -2960,7 +2964,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleColor = 14;</code>
      */
-    String getVehicleColor();
+    java.lang.String getVehicleColor();
     /**
      * <pre>
      *车辆颜色
@@ -2978,7 +2982,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateTyle = 15;</code>
      */
-    String getVehiclePlateTyle();
+    java.lang.String getVehiclePlateTyle();
     /**
      * <pre>
      *车牌类型
@@ -2996,7 +3000,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateColor = 16;</code>
      */
-    String getVehiclePlateColor();
+    java.lang.String getVehiclePlateColor();
     /**
      * <pre>
      *车牌颜色
@@ -3014,7 +3018,7 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateImageUrl = 17;</code>
      */
-    String getVehiclePlateImageUrl();
+    java.lang.String getVehiclePlateImageUrl();
     /**
      * <pre>
      *图片链接
@@ -3040,12 +3044,13 @@ public final class PimpOilEvent {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
@@ -3054,7 +3059,7 @@ public final class PimpOilEvent {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
@@ -3064,7 +3069,9 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
@@ -3073,7 +3080,8 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -3111,7 +3119,7 @@ public final class PimpOilEvent {
       vehiclePlateImageUrl_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3122,7 +3130,7 @@ public final class PimpOilEvent {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3136,103 +3144,103 @@ public final class PimpOilEvent {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilGunId_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               liftTimestamp_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               hangTimestamp_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               tCCNo_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilTypeNum_ = s;
               break;
             }
             case 58: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilCardId_ = s;
               break;
             }
             case 66: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               limitVehiclePlate_ = s;
               break;
             }
             case 74: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehiclePlate_ = s;
               break;
             }
             case 82: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehicleBrand_ = s;
               break;
             }
             case 90: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehicleSubBrand_ = s;
               break;
             }
             case 98: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehicleStyle_ = s;
               break;
             }
             case 106: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehicleType_ = s;
               break;
             }
             case 114: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehicleColor_ = s;
               break;
             }
             case 122: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehiclePlateTyle_ = s;
               break;
             }
             case 130: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehiclePlateColor_ = s;
               break;
             }
             case 138: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               vehiclePlateImageUrl_ = s;
               break;
@@ -3243,7 +3251,7 @@ public final class PimpOilEvent {
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00020000;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -3271,11 +3279,11 @@ public final class PimpOilEvent {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
+      return dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -3286,17 +3294,17 @@ public final class PimpOilEvent {
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpOilEvent.internal_static_dg_model_OilEventWithPlate_fieldAccessorTable
+      return dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpOilEvent.OilEventWithPlate.class, PimpOilEvent.OilEventWithPlate.Builder.class);
+              dg.model.PimpOilEvent.OilEventWithPlate.class, dg.model.PimpOilEvent.OilEventWithPlate.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -3304,14 +3312,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -3325,11 +3333,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -3338,7 +3346,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILGUNID_FIELD_NUMBER = 2;
-    private volatile Object oilGunId_;
+    private volatile java.lang.Object oilGunId_;
     /**
      * <pre>
      *加油枪号
@@ -3346,14 +3354,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilGunId = 2;</code>
      */
-    public String getOilGunId() {
-      Object ref = oilGunId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilGunId() {
+      java.lang.Object ref = oilGunId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilGunId_ = s;
         return s;
       }
@@ -3367,11 +3375,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilGunIdBytes() {
-      Object ref = oilGunId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilGunId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilGunId_ = b;
         return b;
       } else {
@@ -3380,7 +3388,7 @@ public final class PimpOilEvent {
     }
 
     public static final int LIFTTIMESTAMP_FIELD_NUMBER = 3;
-    private volatile Object liftTimestamp_;
+    private volatile java.lang.Object liftTimestamp_;
     /**
      * <pre>
      *提枪时间
@@ -3388,14 +3396,14 @@ public final class PimpOilEvent {
      *
      * <code>string LiftTimestamp = 3;</code>
      */
-    public String getLiftTimestamp() {
-      Object ref = liftTimestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getLiftTimestamp() {
+      java.lang.Object ref = liftTimestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         liftTimestamp_ = s;
         return s;
       }
@@ -3409,11 +3417,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getLiftTimestampBytes() {
-      Object ref = liftTimestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = liftTimestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         liftTimestamp_ = b;
         return b;
       } else {
@@ -3422,7 +3430,7 @@ public final class PimpOilEvent {
     }
 
     public static final int HANGTIMESTAMP_FIELD_NUMBER = 4;
-    private volatile Object hangTimestamp_;
+    private volatile java.lang.Object hangTimestamp_;
     /**
      * <pre>
      *挂枪时间
@@ -3430,14 +3438,14 @@ public final class PimpOilEvent {
      *
      * <code>string HangTimestamp = 4;</code>
      */
-    public String getHangTimestamp() {
-      Object ref = hangTimestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getHangTimestamp() {
+      java.lang.Object ref = hangTimestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         hangTimestamp_ = s;
         return s;
       }
@@ -3451,11 +3459,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getHangTimestampBytes() {
-      Object ref = hangTimestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = hangTimestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         hangTimestamp_ = b;
         return b;
       } else {
@@ -3464,7 +3472,7 @@ public final class PimpOilEvent {
     }
 
     public static final int TCCNO_FIELD_NUMBER = 5;
-    private volatile Object tCCNo_;
+    private volatile java.lang.Object tCCNo_;
     /**
      * <pre>
      *流水号
@@ -3472,14 +3480,14 @@ public final class PimpOilEvent {
      *
      * <code>string TCCNo = 5;</code>
      */
-    public String getTCCNo() {
-      Object ref = tCCNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTCCNo() {
+      java.lang.Object ref = tCCNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         tCCNo_ = s;
         return s;
       }
@@ -3493,11 +3501,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getTCCNoBytes() {
-      Object ref = tCCNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = tCCNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         tCCNo_ = b;
         return b;
       } else {
@@ -3506,7 +3514,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILTYPENUM_FIELD_NUMBER = 6;
-    private volatile Object oilTypeNum_;
+    private volatile java.lang.Object oilTypeNum_;
     /**
      * <pre>
      *油品代码
@@ -3514,14 +3522,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilTypeNum = 6;</code>
      */
-    public String getOilTypeNum() {
-      Object ref = oilTypeNum_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilTypeNum() {
+      java.lang.Object ref = oilTypeNum_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilTypeNum_ = s;
         return s;
       }
@@ -3535,11 +3543,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilTypeNumBytes() {
-      Object ref = oilTypeNum_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilTypeNum_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilTypeNum_ = b;
         return b;
       } else {
@@ -3548,7 +3556,7 @@ public final class PimpOilEvent {
     }
 
     public static final int OILCARDID_FIELD_NUMBER = 7;
-    private volatile Object oilCardId_;
+    private volatile java.lang.Object oilCardId_;
     /**
      * <pre>
      *加油卡卡号
@@ -3556,14 +3564,14 @@ public final class PimpOilEvent {
      *
      * <code>string OilCardId = 7;</code>
      */
-    public String getOilCardId() {
-      Object ref = oilCardId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilCardId() {
+      java.lang.Object ref = oilCardId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilCardId_ = s;
         return s;
       }
@@ -3577,11 +3585,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getOilCardIdBytes() {
-      Object ref = oilCardId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilCardId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilCardId_ = b;
         return b;
       } else {
@@ -3590,7 +3598,7 @@ public final class PimpOilEvent {
     }
 
     public static final int LIMITVEHICLEPLATE_FIELD_NUMBER = 8;
-    private volatile Object limitVehiclePlate_;
+    private volatile java.lang.Object limitVehiclePlate_;
     /**
      * <pre>
      *限制车牌号
@@ -3598,14 +3606,14 @@ public final class PimpOilEvent {
      *
      * <code>string LimitVehiclePlate = 8;</code>
      */
-    public String getLimitVehiclePlate() {
-      Object ref = limitVehiclePlate_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getLimitVehiclePlate() {
+      java.lang.Object ref = limitVehiclePlate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         limitVehiclePlate_ = s;
         return s;
       }
@@ -3619,11 +3627,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getLimitVehiclePlateBytes() {
-      Object ref = limitVehiclePlate_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = limitVehiclePlate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         limitVehiclePlate_ = b;
         return b;
       } else {
@@ -3632,7 +3640,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLEPLATE_FIELD_NUMBER = 9;
-    private volatile Object vehiclePlate_;
+    private volatile java.lang.Object vehiclePlate_;
     /**
      * <pre>
      *车牌号
@@ -3640,14 +3648,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlate = 9;</code>
      */
-    public String getVehiclePlate() {
-      Object ref = vehiclePlate_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehiclePlate() {
+      java.lang.Object ref = vehiclePlate_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehiclePlate_ = s;
         return s;
       }
@@ -3661,11 +3669,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehiclePlateBytes() {
-      Object ref = vehiclePlate_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehiclePlate_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehiclePlate_ = b;
         return b;
       } else {
@@ -3674,7 +3682,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLEBRAND_FIELD_NUMBER = 10;
-    private volatile Object vehicleBrand_;
+    private volatile java.lang.Object vehicleBrand_;
     /**
      * <pre>
      *车辆品牌
@@ -3682,14 +3690,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleBrand = 10;</code>
      */
-    public String getVehicleBrand() {
-      Object ref = vehicleBrand_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehicleBrand() {
+      java.lang.Object ref = vehicleBrand_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehicleBrand_ = s;
         return s;
       }
@@ -3703,11 +3711,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehicleBrandBytes() {
-      Object ref = vehicleBrand_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehicleBrand_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehicleBrand_ = b;
         return b;
       } else {
@@ -3716,7 +3724,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLESUBBRAND_FIELD_NUMBER = 11;
-    private volatile Object vehicleSubBrand_;
+    private volatile java.lang.Object vehicleSubBrand_;
     /**
      * <pre>
      *车辆子品牌
@@ -3724,14 +3732,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleSubBrand = 11;</code>
      */
-    public String getVehicleSubBrand() {
-      Object ref = vehicleSubBrand_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehicleSubBrand() {
+      java.lang.Object ref = vehicleSubBrand_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehicleSubBrand_ = s;
         return s;
       }
@@ -3745,11 +3753,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehicleSubBrandBytes() {
-      Object ref = vehicleSubBrand_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehicleSubBrand_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehicleSubBrand_ = b;
         return b;
       } else {
@@ -3758,7 +3766,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLESTYLE_FIELD_NUMBER = 12;
-    private volatile Object vehicleStyle_;
+    private volatile java.lang.Object vehicleStyle_;
     /**
      * <pre>
      *车款
@@ -3766,14 +3774,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleStyle = 12;</code>
      */
-    public String getVehicleStyle() {
-      Object ref = vehicleStyle_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehicleStyle() {
+      java.lang.Object ref = vehicleStyle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehicleStyle_ = s;
         return s;
       }
@@ -3787,11 +3795,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehicleStyleBytes() {
-      Object ref = vehicleStyle_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehicleStyle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehicleStyle_ = b;
         return b;
       } else {
@@ -3800,7 +3808,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLETYPE_FIELD_NUMBER = 13;
-    private volatile Object vehicleType_;
+    private volatile java.lang.Object vehicleType_;
     /**
      * <pre>
      *车辆类型
@@ -3808,14 +3816,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleType = 13;</code>
      */
-    public String getVehicleType() {
-      Object ref = vehicleType_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehicleType() {
+      java.lang.Object ref = vehicleType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehicleType_ = s;
         return s;
       }
@@ -3829,11 +3837,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehicleTypeBytes() {
-      Object ref = vehicleType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehicleType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehicleType_ = b;
         return b;
       } else {
@@ -3842,7 +3850,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLECOLOR_FIELD_NUMBER = 14;
-    private volatile Object vehicleColor_;
+    private volatile java.lang.Object vehicleColor_;
     /**
      * <pre>
      *车辆颜色
@@ -3850,14 +3858,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehicleColor = 14;</code>
      */
-    public String getVehicleColor() {
-      Object ref = vehicleColor_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehicleColor() {
+      java.lang.Object ref = vehicleColor_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehicleColor_ = s;
         return s;
       }
@@ -3871,11 +3879,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehicleColorBytes() {
-      Object ref = vehicleColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehicleColor_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehicleColor_ = b;
         return b;
       } else {
@@ -3884,7 +3892,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLEPLATETYLE_FIELD_NUMBER = 15;
-    private volatile Object vehiclePlateTyle_;
+    private volatile java.lang.Object vehiclePlateTyle_;
     /**
      * <pre>
      *车牌类型
@@ -3892,14 +3900,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateTyle = 15;</code>
      */
-    public String getVehiclePlateTyle() {
-      Object ref = vehiclePlateTyle_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehiclePlateTyle() {
+      java.lang.Object ref = vehiclePlateTyle_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehiclePlateTyle_ = s;
         return s;
       }
@@ -3913,11 +3921,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehiclePlateTyleBytes() {
-      Object ref = vehiclePlateTyle_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehiclePlateTyle_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehiclePlateTyle_ = b;
         return b;
       } else {
@@ -3926,7 +3934,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLEPLATECOLOR_FIELD_NUMBER = 16;
-    private volatile Object vehiclePlateColor_;
+    private volatile java.lang.Object vehiclePlateColor_;
     /**
      * <pre>
      *车牌颜色
@@ -3934,14 +3942,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateColor = 16;</code>
      */
-    public String getVehiclePlateColor() {
-      Object ref = vehiclePlateColor_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehiclePlateColor() {
+      java.lang.Object ref = vehiclePlateColor_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehiclePlateColor_ = s;
         return s;
       }
@@ -3955,11 +3963,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehiclePlateColorBytes() {
-      Object ref = vehiclePlateColor_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehiclePlateColor_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehiclePlateColor_ = b;
         return b;
       } else {
@@ -3968,7 +3976,7 @@ public final class PimpOilEvent {
     }
 
     public static final int VEHICLEPLATEIMAGEURL_FIELD_NUMBER = 17;
-    private volatile Object vehiclePlateImageUrl_;
+    private volatile java.lang.Object vehiclePlateImageUrl_;
     /**
      * <pre>
      *图片链接
@@ -3976,14 +3984,14 @@ public final class PimpOilEvent {
      *
      * <code>string VehiclePlateImageUrl = 17;</code>
      */
-    public String getVehiclePlateImageUrl() {
-      Object ref = vehiclePlateImageUrl_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getVehiclePlateImageUrl() {
+      java.lang.Object ref = vehiclePlateImageUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         vehiclePlateImageUrl_ = s;
         return s;
       }
@@ -3997,11 +4005,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getVehiclePlateImageUrlBytes() {
-      Object ref = vehiclePlateImageUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = vehiclePlateImageUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         vehiclePlateImageUrl_ = b;
         return b;
       } else {
@@ -4012,18 +4020,18 @@ public final class PimpOilEvent {
     public static final int ADDITIONALINFOS_FIELD_NUMBER = 18;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpOilEvent.internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -4044,15 +4052,15 @@ public final class PimpOilEvent {
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -4063,7 +4071,7 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -4074,11 +4082,11 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -4090,19 +4098,19 @@ public final class PimpOilEvent {
      * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4112,7 +4120,7 @@ public final class PimpOilEvent {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -4175,7 +4183,7 @@ public final class PimpOilEvent {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4232,9 +4240,9 @@ public final class PimpOilEvent {
       if (!getVehiclePlateImageUrlBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, vehiclePlateImageUrl_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -4247,15 +4255,15 @@ public final class PimpOilEvent {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpOilEvent.OilEventWithPlate)) {
+      if (!(obj instanceof dg.model.PimpOilEvent.OilEventWithPlate)) {
         return super.equals(obj);
       }
-      PimpOilEvent.OilEventWithPlate other = (PimpOilEvent.OilEventWithPlate) obj;
+      dg.model.PimpOilEvent.OilEventWithPlate other = (dg.model.PimpOilEvent.OilEventWithPlate) obj;
 
       boolean result = true;
       result = result && getOilStationId()
@@ -4298,7 +4306,7 @@ public final class PimpOilEvent {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4348,69 +4356,69 @@ public final class PimpOilEvent {
       return hash;
     }
 
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(byte[] data)
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.OilEventWithPlate parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEventWithPlate parseDelimitedFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.OilEventWithPlate parseFrom(
+    public static dg.model.PimpOilEvent.OilEventWithPlate parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4418,23 +4426,23 @@ public final class PimpOilEvent {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpOilEvent.OilEventWithPlate prototype) {
+    public static Builder newBuilder(dg.model.PimpOilEvent.OilEventWithPlate prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4448,10 +4456,10 @@ public final class PimpOilEvent {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.OilEventWithPlate)
-        PimpOilEvent.OilEventWithPlateOrBuilder {
+        dg.model.PimpOilEvent.OilEventWithPlateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -4476,12 +4484,12 @@ public final class PimpOilEvent {
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpOilEvent.internal_static_dg_model_OilEventWithPlate_fieldAccessorTable
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpOilEvent.OilEventWithPlate.class, PimpOilEvent.OilEventWithPlate.Builder.class);
+                dg.model.PimpOilEvent.OilEventWithPlate.class, dg.model.PimpOilEvent.OilEventWithPlate.Builder.class);
       }
 
       // Construct using dg.model.PimpOilEvent.OilEventWithPlate.newBuilder()
@@ -4490,7 +4498,7 @@ public final class PimpOilEvent {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4499,7 +4507,7 @@ public final class PimpOilEvent {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
@@ -4540,29 +4548,29 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_OilEventWithPlate_descriptor;
       }
 
-      @Override
-      public PimpOilEvent.OilEventWithPlate getDefaultInstanceForType() {
-        return PimpOilEvent.OilEventWithPlate.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEventWithPlate getDefaultInstanceForType() {
+        return dg.model.PimpOilEvent.OilEventWithPlate.getDefaultInstance();
       }
 
-      @Override
-      public PimpOilEvent.OilEventWithPlate build() {
-        PimpOilEvent.OilEventWithPlate result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEventWithPlate build() {
+        dg.model.PimpOilEvent.OilEventWithPlate result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpOilEvent.OilEventWithPlate buildPartial() {
-        PimpOilEvent.OilEventWithPlate result = new PimpOilEvent.OilEventWithPlate(this);
+      @java.lang.Override
+      public dg.model.PimpOilEvent.OilEventWithPlate buildPartial() {
+        dg.model.PimpOilEvent.OilEventWithPlate result = new dg.model.PimpOilEvent.OilEventWithPlate(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
@@ -4589,50 +4597,50 @@ public final class PimpOilEvent {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpOilEvent.OilEventWithPlate) {
-          return mergeFrom((PimpOilEvent.OilEventWithPlate)other);
+        if (other instanceof dg.model.PimpOilEvent.OilEventWithPlate) {
+          return mergeFrom((dg.model.PimpOilEvent.OilEventWithPlate)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpOilEvent.OilEventWithPlate other) {
-        if (other == PimpOilEvent.OilEventWithPlate.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpOilEvent.OilEventWithPlate other) {
+        if (other == dg.model.PimpOilEvent.OilEventWithPlate.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
@@ -4708,21 +4716,21 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpOilEvent.OilEventWithPlate parsedMessage = null;
+        dg.model.PimpOilEvent.OilEventWithPlate parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpOilEvent.OilEventWithPlate) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpOilEvent.OilEventWithPlate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4733,7 +4741,7 @@ public final class PimpOilEvent {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -4741,16 +4749,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4762,11 +4770,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -4781,11 +4789,11 @@ public final class PimpOilEvent {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -4798,7 +4806,7 @@ public final class PimpOilEvent {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -4816,13 +4824,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilGunId_ = "";
+      private java.lang.Object oilGunId_ = "";
       /**
        * <pre>
        *加油枪号
@@ -4830,16 +4838,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilGunId = 2;</code>
        */
-      public String getOilGunId() {
-        Object ref = oilGunId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilGunId() {
+        java.lang.Object ref = oilGunId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilGunId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4851,11 +4859,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilGunIdBytes() {
-        Object ref = oilGunId_;
+        java.lang.Object ref = oilGunId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilGunId_ = b;
           return b;
         } else {
@@ -4870,11 +4878,11 @@ public final class PimpOilEvent {
        * <code>string OilGunId = 2;</code>
        */
       public Builder setOilGunId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilGunId_ = value;
         onChanged();
         return this;
@@ -4887,7 +4895,7 @@ public final class PimpOilEvent {
        * <code>string OilGunId = 2;</code>
        */
       public Builder clearOilGunId() {
-
+        
         oilGunId_ = getDefaultInstance().getOilGunId();
         onChanged();
         return this;
@@ -4905,13 +4913,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilGunId_ = value;
         onChanged();
         return this;
       }
 
-      private Object liftTimestamp_ = "";
+      private java.lang.Object liftTimestamp_ = "";
       /**
        * <pre>
        *提枪时间
@@ -4919,16 +4927,16 @@ public final class PimpOilEvent {
        *
        * <code>string LiftTimestamp = 3;</code>
        */
-      public String getLiftTimestamp() {
-        Object ref = liftTimestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getLiftTimestamp() {
+        java.lang.Object ref = liftTimestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           liftTimestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4940,11 +4948,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getLiftTimestampBytes() {
-        Object ref = liftTimestamp_;
+        java.lang.Object ref = liftTimestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           liftTimestamp_ = b;
           return b;
         } else {
@@ -4959,11 +4967,11 @@ public final class PimpOilEvent {
        * <code>string LiftTimestamp = 3;</code>
        */
       public Builder setLiftTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         liftTimestamp_ = value;
         onChanged();
         return this;
@@ -4976,7 +4984,7 @@ public final class PimpOilEvent {
        * <code>string LiftTimestamp = 3;</code>
        */
       public Builder clearLiftTimestamp() {
-
+        
         liftTimestamp_ = getDefaultInstance().getLiftTimestamp();
         onChanged();
         return this;
@@ -4994,13 +5002,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         liftTimestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object hangTimestamp_ = "";
+      private java.lang.Object hangTimestamp_ = "";
       /**
        * <pre>
        *挂枪时间
@@ -5008,16 +5016,16 @@ public final class PimpOilEvent {
        *
        * <code>string HangTimestamp = 4;</code>
        */
-      public String getHangTimestamp() {
-        Object ref = hangTimestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getHangTimestamp() {
+        java.lang.Object ref = hangTimestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           hangTimestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5029,11 +5037,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getHangTimestampBytes() {
-        Object ref = hangTimestamp_;
+        java.lang.Object ref = hangTimestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           hangTimestamp_ = b;
           return b;
         } else {
@@ -5048,11 +5056,11 @@ public final class PimpOilEvent {
        * <code>string HangTimestamp = 4;</code>
        */
       public Builder setHangTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         hangTimestamp_ = value;
         onChanged();
         return this;
@@ -5065,7 +5073,7 @@ public final class PimpOilEvent {
        * <code>string HangTimestamp = 4;</code>
        */
       public Builder clearHangTimestamp() {
-
+        
         hangTimestamp_ = getDefaultInstance().getHangTimestamp();
         onChanged();
         return this;
@@ -5083,13 +5091,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         hangTimestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object tCCNo_ = "";
+      private java.lang.Object tCCNo_ = "";
       /**
        * <pre>
        *流水号
@@ -5097,16 +5105,16 @@ public final class PimpOilEvent {
        *
        * <code>string TCCNo = 5;</code>
        */
-      public String getTCCNo() {
-        Object ref = tCCNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTCCNo() {
+        java.lang.Object ref = tCCNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           tCCNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5118,11 +5126,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getTCCNoBytes() {
-        Object ref = tCCNo_;
+        java.lang.Object ref = tCCNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           tCCNo_ = b;
           return b;
         } else {
@@ -5137,11 +5145,11 @@ public final class PimpOilEvent {
        * <code>string TCCNo = 5;</code>
        */
       public Builder setTCCNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         tCCNo_ = value;
         onChanged();
         return this;
@@ -5154,7 +5162,7 @@ public final class PimpOilEvent {
        * <code>string TCCNo = 5;</code>
        */
       public Builder clearTCCNo() {
-
+        
         tCCNo_ = getDefaultInstance().getTCCNo();
         onChanged();
         return this;
@@ -5172,13 +5180,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         tCCNo_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilTypeNum_ = "";
+      private java.lang.Object oilTypeNum_ = "";
       /**
        * <pre>
        *油品代码
@@ -5186,16 +5194,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilTypeNum = 6;</code>
        */
-      public String getOilTypeNum() {
-        Object ref = oilTypeNum_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilTypeNum() {
+        java.lang.Object ref = oilTypeNum_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilTypeNum_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5207,11 +5215,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilTypeNumBytes() {
-        Object ref = oilTypeNum_;
+        java.lang.Object ref = oilTypeNum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilTypeNum_ = b;
           return b;
         } else {
@@ -5226,11 +5234,11 @@ public final class PimpOilEvent {
        * <code>string OilTypeNum = 6;</code>
        */
       public Builder setOilTypeNum(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilTypeNum_ = value;
         onChanged();
         return this;
@@ -5243,7 +5251,7 @@ public final class PimpOilEvent {
        * <code>string OilTypeNum = 6;</code>
        */
       public Builder clearOilTypeNum() {
-
+        
         oilTypeNum_ = getDefaultInstance().getOilTypeNum();
         onChanged();
         return this;
@@ -5261,13 +5269,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilTypeNum_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilCardId_ = "";
+      private java.lang.Object oilCardId_ = "";
       /**
        * <pre>
        *加油卡卡号
@@ -5275,16 +5283,16 @@ public final class PimpOilEvent {
        *
        * <code>string OilCardId = 7;</code>
        */
-      public String getOilCardId() {
-        Object ref = oilCardId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilCardId() {
+        java.lang.Object ref = oilCardId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilCardId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5296,11 +5304,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getOilCardIdBytes() {
-        Object ref = oilCardId_;
+        java.lang.Object ref = oilCardId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilCardId_ = b;
           return b;
         } else {
@@ -5315,11 +5323,11 @@ public final class PimpOilEvent {
        * <code>string OilCardId = 7;</code>
        */
       public Builder setOilCardId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilCardId_ = value;
         onChanged();
         return this;
@@ -5332,7 +5340,7 @@ public final class PimpOilEvent {
        * <code>string OilCardId = 7;</code>
        */
       public Builder clearOilCardId() {
-
+        
         oilCardId_ = getDefaultInstance().getOilCardId();
         onChanged();
         return this;
@@ -5350,13 +5358,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilCardId_ = value;
         onChanged();
         return this;
       }
 
-      private Object limitVehiclePlate_ = "";
+      private java.lang.Object limitVehiclePlate_ = "";
       /**
        * <pre>
        *限制车牌号
@@ -5364,16 +5372,16 @@ public final class PimpOilEvent {
        *
        * <code>string LimitVehiclePlate = 8;</code>
        */
-      public String getLimitVehiclePlate() {
-        Object ref = limitVehiclePlate_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getLimitVehiclePlate() {
+        java.lang.Object ref = limitVehiclePlate_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           limitVehiclePlate_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5385,11 +5393,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getLimitVehiclePlateBytes() {
-        Object ref = limitVehiclePlate_;
+        java.lang.Object ref = limitVehiclePlate_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           limitVehiclePlate_ = b;
           return b;
         } else {
@@ -5404,11 +5412,11 @@ public final class PimpOilEvent {
        * <code>string LimitVehiclePlate = 8;</code>
        */
       public Builder setLimitVehiclePlate(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         limitVehiclePlate_ = value;
         onChanged();
         return this;
@@ -5421,7 +5429,7 @@ public final class PimpOilEvent {
        * <code>string LimitVehiclePlate = 8;</code>
        */
       public Builder clearLimitVehiclePlate() {
-
+        
         limitVehiclePlate_ = getDefaultInstance().getLimitVehiclePlate();
         onChanged();
         return this;
@@ -5439,13 +5447,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         limitVehiclePlate_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehiclePlate_ = "";
+      private java.lang.Object vehiclePlate_ = "";
       /**
        * <pre>
        *车牌号
@@ -5453,16 +5461,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehiclePlate = 9;</code>
        */
-      public String getVehiclePlate() {
-        Object ref = vehiclePlate_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehiclePlate() {
+        java.lang.Object ref = vehiclePlate_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehiclePlate_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5474,11 +5482,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehiclePlateBytes() {
-        Object ref = vehiclePlate_;
+        java.lang.Object ref = vehiclePlate_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehiclePlate_ = b;
           return b;
         } else {
@@ -5493,11 +5501,11 @@ public final class PimpOilEvent {
        * <code>string VehiclePlate = 9;</code>
        */
       public Builder setVehiclePlate(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehiclePlate_ = value;
         onChanged();
         return this;
@@ -5510,7 +5518,7 @@ public final class PimpOilEvent {
        * <code>string VehiclePlate = 9;</code>
        */
       public Builder clearVehiclePlate() {
-
+        
         vehiclePlate_ = getDefaultInstance().getVehiclePlate();
         onChanged();
         return this;
@@ -5528,13 +5536,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehiclePlate_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehicleBrand_ = "";
+      private java.lang.Object vehicleBrand_ = "";
       /**
        * <pre>
        *车辆品牌
@@ -5542,16 +5550,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehicleBrand = 10;</code>
        */
-      public String getVehicleBrand() {
-        Object ref = vehicleBrand_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehicleBrand() {
+        java.lang.Object ref = vehicleBrand_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehicleBrand_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5563,11 +5571,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehicleBrandBytes() {
-        Object ref = vehicleBrand_;
+        java.lang.Object ref = vehicleBrand_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehicleBrand_ = b;
           return b;
         } else {
@@ -5582,11 +5590,11 @@ public final class PimpOilEvent {
        * <code>string VehicleBrand = 10;</code>
        */
       public Builder setVehicleBrand(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehicleBrand_ = value;
         onChanged();
         return this;
@@ -5599,7 +5607,7 @@ public final class PimpOilEvent {
        * <code>string VehicleBrand = 10;</code>
        */
       public Builder clearVehicleBrand() {
-
+        
         vehicleBrand_ = getDefaultInstance().getVehicleBrand();
         onChanged();
         return this;
@@ -5617,13 +5625,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehicleBrand_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehicleSubBrand_ = "";
+      private java.lang.Object vehicleSubBrand_ = "";
       /**
        * <pre>
        *车辆子品牌
@@ -5631,16 +5639,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehicleSubBrand = 11;</code>
        */
-      public String getVehicleSubBrand() {
-        Object ref = vehicleSubBrand_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehicleSubBrand() {
+        java.lang.Object ref = vehicleSubBrand_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehicleSubBrand_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5652,11 +5660,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehicleSubBrandBytes() {
-        Object ref = vehicleSubBrand_;
+        java.lang.Object ref = vehicleSubBrand_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehicleSubBrand_ = b;
           return b;
         } else {
@@ -5671,11 +5679,11 @@ public final class PimpOilEvent {
        * <code>string VehicleSubBrand = 11;</code>
        */
       public Builder setVehicleSubBrand(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehicleSubBrand_ = value;
         onChanged();
         return this;
@@ -5688,7 +5696,7 @@ public final class PimpOilEvent {
        * <code>string VehicleSubBrand = 11;</code>
        */
       public Builder clearVehicleSubBrand() {
-
+        
         vehicleSubBrand_ = getDefaultInstance().getVehicleSubBrand();
         onChanged();
         return this;
@@ -5706,13 +5714,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehicleSubBrand_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehicleStyle_ = "";
+      private java.lang.Object vehicleStyle_ = "";
       /**
        * <pre>
        *车款
@@ -5720,16 +5728,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehicleStyle = 12;</code>
        */
-      public String getVehicleStyle() {
-        Object ref = vehicleStyle_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehicleStyle() {
+        java.lang.Object ref = vehicleStyle_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehicleStyle_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5741,11 +5749,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehicleStyleBytes() {
-        Object ref = vehicleStyle_;
+        java.lang.Object ref = vehicleStyle_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehicleStyle_ = b;
           return b;
         } else {
@@ -5760,11 +5768,11 @@ public final class PimpOilEvent {
        * <code>string VehicleStyle = 12;</code>
        */
       public Builder setVehicleStyle(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehicleStyle_ = value;
         onChanged();
         return this;
@@ -5777,7 +5785,7 @@ public final class PimpOilEvent {
        * <code>string VehicleStyle = 12;</code>
        */
       public Builder clearVehicleStyle() {
-
+        
         vehicleStyle_ = getDefaultInstance().getVehicleStyle();
         onChanged();
         return this;
@@ -5795,13 +5803,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehicleStyle_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehicleType_ = "";
+      private java.lang.Object vehicleType_ = "";
       /**
        * <pre>
        *车辆类型
@@ -5809,16 +5817,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehicleType = 13;</code>
        */
-      public String getVehicleType() {
-        Object ref = vehicleType_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehicleType() {
+        java.lang.Object ref = vehicleType_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehicleType_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5830,11 +5838,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehicleTypeBytes() {
-        Object ref = vehicleType_;
+        java.lang.Object ref = vehicleType_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehicleType_ = b;
           return b;
         } else {
@@ -5849,11 +5857,11 @@ public final class PimpOilEvent {
        * <code>string VehicleType = 13;</code>
        */
       public Builder setVehicleType(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehicleType_ = value;
         onChanged();
         return this;
@@ -5866,7 +5874,7 @@ public final class PimpOilEvent {
        * <code>string VehicleType = 13;</code>
        */
       public Builder clearVehicleType() {
-
+        
         vehicleType_ = getDefaultInstance().getVehicleType();
         onChanged();
         return this;
@@ -5884,13 +5892,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehicleType_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehicleColor_ = "";
+      private java.lang.Object vehicleColor_ = "";
       /**
        * <pre>
        *车辆颜色
@@ -5898,16 +5906,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehicleColor = 14;</code>
        */
-      public String getVehicleColor() {
-        Object ref = vehicleColor_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehicleColor() {
+        java.lang.Object ref = vehicleColor_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehicleColor_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5919,11 +5927,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehicleColorBytes() {
-        Object ref = vehicleColor_;
+        java.lang.Object ref = vehicleColor_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehicleColor_ = b;
           return b;
         } else {
@@ -5938,11 +5946,11 @@ public final class PimpOilEvent {
        * <code>string VehicleColor = 14;</code>
        */
       public Builder setVehicleColor(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehicleColor_ = value;
         onChanged();
         return this;
@@ -5955,7 +5963,7 @@ public final class PimpOilEvent {
        * <code>string VehicleColor = 14;</code>
        */
       public Builder clearVehicleColor() {
-
+        
         vehicleColor_ = getDefaultInstance().getVehicleColor();
         onChanged();
         return this;
@@ -5973,13 +5981,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehicleColor_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehiclePlateTyle_ = "";
+      private java.lang.Object vehiclePlateTyle_ = "";
       /**
        * <pre>
        *车牌类型
@@ -5987,16 +5995,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehiclePlateTyle = 15;</code>
        */
-      public String getVehiclePlateTyle() {
-        Object ref = vehiclePlateTyle_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehiclePlateTyle() {
+        java.lang.Object ref = vehiclePlateTyle_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehiclePlateTyle_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -6008,11 +6016,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehiclePlateTyleBytes() {
-        Object ref = vehiclePlateTyle_;
+        java.lang.Object ref = vehiclePlateTyle_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehiclePlateTyle_ = b;
           return b;
         } else {
@@ -6027,11 +6035,11 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateTyle = 15;</code>
        */
       public Builder setVehiclePlateTyle(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehiclePlateTyle_ = value;
         onChanged();
         return this;
@@ -6044,7 +6052,7 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateTyle = 15;</code>
        */
       public Builder clearVehiclePlateTyle() {
-
+        
         vehiclePlateTyle_ = getDefaultInstance().getVehiclePlateTyle();
         onChanged();
         return this;
@@ -6062,13 +6070,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehiclePlateTyle_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehiclePlateColor_ = "";
+      private java.lang.Object vehiclePlateColor_ = "";
       /**
        * <pre>
        *车牌颜色
@@ -6076,16 +6084,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehiclePlateColor = 16;</code>
        */
-      public String getVehiclePlateColor() {
-        Object ref = vehiclePlateColor_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehiclePlateColor() {
+        java.lang.Object ref = vehiclePlateColor_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehiclePlateColor_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -6097,11 +6105,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehiclePlateColorBytes() {
-        Object ref = vehiclePlateColor_;
+        java.lang.Object ref = vehiclePlateColor_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehiclePlateColor_ = b;
           return b;
         } else {
@@ -6116,11 +6124,11 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateColor = 16;</code>
        */
       public Builder setVehiclePlateColor(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehiclePlateColor_ = value;
         onChanged();
         return this;
@@ -6133,7 +6141,7 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateColor = 16;</code>
        */
       public Builder clearVehiclePlateColor() {
-
+        
         vehiclePlateColor_ = getDefaultInstance().getVehiclePlateColor();
         onChanged();
         return this;
@@ -6151,13 +6159,13 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehiclePlateColor_ = value;
         onChanged();
         return this;
       }
 
-      private Object vehiclePlateImageUrl_ = "";
+      private java.lang.Object vehiclePlateImageUrl_ = "";
       /**
        * <pre>
        *图片链接
@@ -6165,16 +6173,16 @@ public final class PimpOilEvent {
        *
        * <code>string VehiclePlateImageUrl = 17;</code>
        */
-      public String getVehiclePlateImageUrl() {
-        Object ref = vehiclePlateImageUrl_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getVehiclePlateImageUrl() {
+        java.lang.Object ref = vehiclePlateImageUrl_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           vehiclePlateImageUrl_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -6186,11 +6194,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getVehiclePlateImageUrlBytes() {
-        Object ref = vehiclePlateImageUrl_;
+        java.lang.Object ref = vehiclePlateImageUrl_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           vehiclePlateImageUrl_ = b;
           return b;
         } else {
@@ -6205,11 +6213,11 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateImageUrl = 17;</code>
        */
       public Builder setVehiclePlateImageUrl(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         vehiclePlateImageUrl_ = value;
         onChanged();
         return this;
@@ -6222,7 +6230,7 @@ public final class PimpOilEvent {
        * <code>string VehiclePlateImageUrl = 17;</code>
        */
       public Builder clearVehiclePlateImageUrl() {
-
+        
         vehiclePlateImageUrl_ = getDefaultInstance().getVehiclePlateImageUrl();
         onChanged();
         return this;
@@ -6240,15 +6248,15 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         vehiclePlateImageUrl_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -6256,7 +6264,7 @@ public final class PimpOilEvent {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -6281,15 +6289,15 @@ public final class PimpOilEvent {
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -6300,7 +6308,7 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -6311,11 +6319,11 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -6327,13 +6335,13 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -6352,8 +6360,8 @@ public final class PimpOilEvent {
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -6361,8 +6369,8 @@ public final class PimpOilEvent {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -6374,10 +6382,10 @@ public final class PimpOilEvent {
        * <code>map&lt;string, string&gt; AdditionalInfos = 18;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -6391,18 +6399,18 @@ public final class PimpOilEvent {
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6413,18 +6421,18 @@ public final class PimpOilEvent {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.OilEventWithPlate)
-    private static final PimpOilEvent.OilEventWithPlate DEFAULT_INSTANCE;
+    private static final dg.model.PimpOilEvent.OilEventWithPlate DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpOilEvent.OilEventWithPlate();
+      DEFAULT_INSTANCE = new dg.model.PimpOilEvent.OilEventWithPlate();
     }
 
-    public static PimpOilEvent.OilEventWithPlate getDefaultInstance() {
+    public static dg.model.PimpOilEvent.OilEventWithPlate getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<OilEventWithPlate>
         PARSER = new com.google.protobuf.AbstractParser<OilEventWithPlate>() {
-      @Override
+      @java.lang.Override
       public OilEventWithPlate parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6437,13 +6445,13 @@ public final class PimpOilEvent {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<OilEventWithPlate> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpOilEvent.OilEventWithPlate getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpOilEvent.OilEventWithPlate getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6456,7 +6464,7 @@ public final class PimpOilEvent {
     /**
      * <code>string ArrivalTime = 1;</code>
      */
-    String getArrivalTime();
+    java.lang.String getArrivalTime();
     /**
      * <code>string ArrivalTime = 1;</code>
      */
@@ -6466,7 +6474,7 @@ public final class PimpOilEvent {
     /**
      * <code>string DepartureTime = 2;</code>
      */
-    String getDepartureTime();
+    java.lang.String getDepartureTime();
     /**
      * <code>string DepartureTime = 2;</code>
      */
@@ -6490,7 +6498,7 @@ public final class PimpOilEvent {
       departureTime_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6501,7 +6509,7 @@ public final class PimpOilEvent {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -6515,13 +6523,13 @@ public final class PimpOilEvent {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               arrivalTime_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               departureTime_ = s;
               break;
@@ -6547,30 +6555,30 @@ public final class PimpOilEvent {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
+      return dg.model.PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpOilEvent.internal_static_dg_model_PedestrianBehavior_fieldAccessorTable
+      return dg.model.PimpOilEvent.internal_static_dg_model_PedestrianBehavior_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpOilEvent.PedestrianBehavior.class, PimpOilEvent.PedestrianBehavior.Builder.class);
+              dg.model.PimpOilEvent.PedestrianBehavior.class, dg.model.PimpOilEvent.PedestrianBehavior.Builder.class);
     }
 
     public static final int ARRIVALTIME_FIELD_NUMBER = 1;
-    private volatile Object arrivalTime_;
+    private volatile java.lang.Object arrivalTime_;
     /**
      * <code>string ArrivalTime = 1;</code>
      */
-    public String getArrivalTime() {
-      Object ref = arrivalTime_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getArrivalTime() {
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         arrivalTime_ = s;
         return s;
       }
@@ -6580,11 +6588,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getArrivalTimeBytes() {
-      Object ref = arrivalTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         arrivalTime_ = b;
         return b;
       } else {
@@ -6593,18 +6601,18 @@ public final class PimpOilEvent {
     }
 
     public static final int DEPARTURETIME_FIELD_NUMBER = 2;
-    private volatile Object departureTime_;
+    private volatile java.lang.Object departureTime_;
     /**
      * <code>string DepartureTime = 2;</code>
      */
-    public String getDepartureTime() {
-      Object ref = departureTime_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getDepartureTime() {
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         departureTime_ = s;
         return s;
       }
@@ -6614,11 +6622,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getDepartureTimeBytes() {
-      Object ref = departureTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         departureTime_ = b;
         return b;
       } else {
@@ -6627,7 +6635,7 @@ public final class PimpOilEvent {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6637,7 +6645,7 @@ public final class PimpOilEvent {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getArrivalTimeBytes().isEmpty()) {
@@ -6649,7 +6657,7 @@ public final class PimpOilEvent {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6666,15 +6674,15 @@ public final class PimpOilEvent {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpOilEvent.PedestrianBehavior)) {
+      if (!(obj instanceof dg.model.PimpOilEvent.PedestrianBehavior)) {
         return super.equals(obj);
       }
-      PimpOilEvent.PedestrianBehavior other = (PimpOilEvent.PedestrianBehavior) obj;
+      dg.model.PimpOilEvent.PedestrianBehavior other = (dg.model.PimpOilEvent.PedestrianBehavior) obj;
 
       boolean result = true;
       result = result && getArrivalTime()
@@ -6685,7 +6693,7 @@ public final class PimpOilEvent {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6701,69 +6709,69 @@ public final class PimpOilEvent {
       return hash;
     }
 
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(byte[] data)
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.PedestrianBehavior parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.PedestrianBehavior parseDelimitedFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.PedestrianBehavior parseFrom(
+    public static dg.model.PimpOilEvent.PedestrianBehavior parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6771,23 +6779,23 @@ public final class PimpOilEvent {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpOilEvent.PedestrianBehavior prototype) {
+    public static Builder newBuilder(dg.model.PimpOilEvent.PedestrianBehavior prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6797,18 +6805,18 @@ public final class PimpOilEvent {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.PedestrianBehavior)
-        PimpOilEvent.PedestrianBehaviorOrBuilder {
+        dg.model.PimpOilEvent.PedestrianBehaviorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpOilEvent.internal_static_dg_model_PedestrianBehavior_fieldAccessorTable
+        return dg.model.PimpOilEvent.internal_static_dg_model_PedestrianBehavior_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpOilEvent.PedestrianBehavior.class, PimpOilEvent.PedestrianBehavior.Builder.class);
+                dg.model.PimpOilEvent.PedestrianBehavior.class, dg.model.PimpOilEvent.PedestrianBehavior.Builder.class);
       }
 
       // Construct using dg.model.PimpOilEvent.PedestrianBehavior.newBuilder()
@@ -6817,7 +6825,7 @@ public final class PimpOilEvent {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -6826,7 +6834,7 @@ public final class PimpOilEvent {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         arrivalTime_ = "";
@@ -6836,79 +6844,79 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_PedestrianBehavior_descriptor;
       }
 
-      @Override
-      public PimpOilEvent.PedestrianBehavior getDefaultInstanceForType() {
-        return PimpOilEvent.PedestrianBehavior.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.PedestrianBehavior getDefaultInstanceForType() {
+        return dg.model.PimpOilEvent.PedestrianBehavior.getDefaultInstance();
       }
 
-      @Override
-      public PimpOilEvent.PedestrianBehavior build() {
-        PimpOilEvent.PedestrianBehavior result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.PedestrianBehavior build() {
+        dg.model.PimpOilEvent.PedestrianBehavior result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpOilEvent.PedestrianBehavior buildPartial() {
-        PimpOilEvent.PedestrianBehavior result = new PimpOilEvent.PedestrianBehavior(this);
+      @java.lang.Override
+      public dg.model.PimpOilEvent.PedestrianBehavior buildPartial() {
+        dg.model.PimpOilEvent.PedestrianBehavior result = new dg.model.PimpOilEvent.PedestrianBehavior(this);
         result.arrivalTime_ = arrivalTime_;
         result.departureTime_ = departureTime_;
         onBuilt();
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpOilEvent.PedestrianBehavior) {
-          return mergeFrom((PimpOilEvent.PedestrianBehavior)other);
+        if (other instanceof dg.model.PimpOilEvent.PedestrianBehavior) {
+          return mergeFrom((dg.model.PimpOilEvent.PedestrianBehavior)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpOilEvent.PedestrianBehavior other) {
-        if (other == PimpOilEvent.PedestrianBehavior.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpOilEvent.PedestrianBehavior other) {
+        if (other == dg.model.PimpOilEvent.PedestrianBehavior.getDefaultInstance()) return this;
         if (!other.getArrivalTime().isEmpty()) {
           arrivalTime_ = other.arrivalTime_;
           onChanged();
@@ -6922,21 +6930,21 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpOilEvent.PedestrianBehavior parsedMessage = null;
+        dg.model.PimpOilEvent.PedestrianBehavior parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpOilEvent.PedestrianBehavior) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpOilEvent.PedestrianBehavior) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6946,20 +6954,20 @@ public final class PimpOilEvent {
         return this;
       }
 
-      private Object arrivalTime_ = "";
+      private java.lang.Object arrivalTime_ = "";
       /**
        * <code>string ArrivalTime = 1;</code>
        */
-      public String getArrivalTime() {
-        Object ref = arrivalTime_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getArrivalTime() {
+        java.lang.Object ref = arrivalTime_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           arrivalTime_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -6967,11 +6975,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getArrivalTimeBytes() {
-        Object ref = arrivalTime_;
+        java.lang.Object ref = arrivalTime_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           arrivalTime_ = b;
           return b;
         } else {
@@ -6982,11 +6990,11 @@ public final class PimpOilEvent {
        * <code>string ArrivalTime = 1;</code>
        */
       public Builder setArrivalTime(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         arrivalTime_ = value;
         onChanged();
         return this;
@@ -6995,7 +7003,7 @@ public final class PimpOilEvent {
        * <code>string ArrivalTime = 1;</code>
        */
       public Builder clearArrivalTime() {
-
+        
         arrivalTime_ = getDefaultInstance().getArrivalTime();
         onChanged();
         return this;
@@ -7009,26 +7017,26 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         arrivalTime_ = value;
         onChanged();
         return this;
       }
 
-      private Object departureTime_ = "";
+      private java.lang.Object departureTime_ = "";
       /**
        * <code>string DepartureTime = 2;</code>
        */
-      public String getDepartureTime() {
-        Object ref = departureTime_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getDepartureTime() {
+        java.lang.Object ref = departureTime_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           departureTime_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -7036,11 +7044,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getDepartureTimeBytes() {
-        Object ref = departureTime_;
+        java.lang.Object ref = departureTime_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           departureTime_ = b;
           return b;
         } else {
@@ -7051,11 +7059,11 @@ public final class PimpOilEvent {
        * <code>string DepartureTime = 2;</code>
        */
       public Builder setDepartureTime(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         departureTime_ = value;
         onChanged();
         return this;
@@ -7064,7 +7072,7 @@ public final class PimpOilEvent {
        * <code>string DepartureTime = 2;</code>
        */
       public Builder clearDepartureTime() {
-
+        
         departureTime_ = getDefaultInstance().getDepartureTime();
         onChanged();
         return this;
@@ -7078,18 +7086,18 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         departureTime_ = value;
         onChanged();
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7100,18 +7108,18 @@ public final class PimpOilEvent {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.PedestrianBehavior)
-    private static final PimpOilEvent.PedestrianBehavior DEFAULT_INSTANCE;
+    private static final dg.model.PimpOilEvent.PedestrianBehavior DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpOilEvent.PedestrianBehavior();
+      DEFAULT_INSTANCE = new dg.model.PimpOilEvent.PedestrianBehavior();
     }
 
-    public static PimpOilEvent.PedestrianBehavior getDefaultInstance() {
+    public static dg.model.PimpOilEvent.PedestrianBehavior getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<PedestrianBehavior>
         PARSER = new com.google.protobuf.AbstractParser<PedestrianBehavior>() {
-      @Override
+      @java.lang.Override
       public PedestrianBehavior parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7124,13 +7132,13 @@ public final class PimpOilEvent {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<PedestrianBehavior> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpOilEvent.PedestrianBehavior getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpOilEvent.PedestrianBehavior getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7143,7 +7151,7 @@ public final class PimpOilEvent {
     /**
      * <code>string ArrivalTime = 1;</code>
      */
-    String getArrivalTime();
+    java.lang.String getArrivalTime();
     /**
      * <code>string ArrivalTime = 1;</code>
      */
@@ -7153,7 +7161,7 @@ public final class PimpOilEvent {
     /**
      * <code>string DepartureTime = 2;</code>
      */
-    String getDepartureTime();
+    java.lang.String getDepartureTime();
     /**
      * <code>string DepartureTime = 2;</code>
      */
@@ -7177,7 +7185,7 @@ public final class PimpOilEvent {
       departureTime_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7188,7 +7196,7 @@ public final class PimpOilEvent {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7202,13 +7210,13 @@ public final class PimpOilEvent {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               arrivalTime_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               departureTime_ = s;
               break;
@@ -7234,30 +7242,30 @@ public final class PimpOilEvent {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
+      return dg.model.PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpOilEvent.internal_static_dg_model_FaceBehavior_fieldAccessorTable
+      return dg.model.PimpOilEvent.internal_static_dg_model_FaceBehavior_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpOilEvent.FaceBehavior.class, PimpOilEvent.FaceBehavior.Builder.class);
+              dg.model.PimpOilEvent.FaceBehavior.class, dg.model.PimpOilEvent.FaceBehavior.Builder.class);
     }
 
     public static final int ARRIVALTIME_FIELD_NUMBER = 1;
-    private volatile Object arrivalTime_;
+    private volatile java.lang.Object arrivalTime_;
     /**
      * <code>string ArrivalTime = 1;</code>
      */
-    public String getArrivalTime() {
-      Object ref = arrivalTime_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getArrivalTime() {
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         arrivalTime_ = s;
         return s;
       }
@@ -7267,11 +7275,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getArrivalTimeBytes() {
-      Object ref = arrivalTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = arrivalTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         arrivalTime_ = b;
         return b;
       } else {
@@ -7280,18 +7288,18 @@ public final class PimpOilEvent {
     }
 
     public static final int DEPARTURETIME_FIELD_NUMBER = 2;
-    private volatile Object departureTime_;
+    private volatile java.lang.Object departureTime_;
     /**
      * <code>string DepartureTime = 2;</code>
      */
-    public String getDepartureTime() {
-      Object ref = departureTime_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getDepartureTime() {
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         departureTime_ = s;
         return s;
       }
@@ -7301,11 +7309,11 @@ public final class PimpOilEvent {
      */
     public com.google.protobuf.ByteString
         getDepartureTimeBytes() {
-      Object ref = departureTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = departureTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         departureTime_ = b;
         return b;
       } else {
@@ -7314,7 +7322,7 @@ public final class PimpOilEvent {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7324,7 +7332,7 @@ public final class PimpOilEvent {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getArrivalTimeBytes().isEmpty()) {
@@ -7336,7 +7344,7 @@ public final class PimpOilEvent {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7353,15 +7361,15 @@ public final class PimpOilEvent {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpOilEvent.FaceBehavior)) {
+      if (!(obj instanceof dg.model.PimpOilEvent.FaceBehavior)) {
         return super.equals(obj);
       }
-      PimpOilEvent.FaceBehavior other = (PimpOilEvent.FaceBehavior) obj;
+      dg.model.PimpOilEvent.FaceBehavior other = (dg.model.PimpOilEvent.FaceBehavior) obj;
 
       boolean result = true;
       result = result && getArrivalTime()
@@ -7372,7 +7380,7 @@ public final class PimpOilEvent {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7388,69 +7396,69 @@ public final class PimpOilEvent {
       return hash;
     }
 
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(byte[] data)
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.FaceBehavior parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpOilEvent.FaceBehavior parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.FaceBehavior parseDelimitedFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpOilEvent.FaceBehavior parseFrom(
+    public static dg.model.PimpOilEvent.FaceBehavior parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7458,23 +7466,23 @@ public final class PimpOilEvent {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpOilEvent.FaceBehavior prototype) {
+    public static Builder newBuilder(dg.model.PimpOilEvent.FaceBehavior prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7484,18 +7492,18 @@ public final class PimpOilEvent {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.FaceBehavior)
-        PimpOilEvent.FaceBehaviorOrBuilder {
+        dg.model.PimpOilEvent.FaceBehaviorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpOilEvent.internal_static_dg_model_FaceBehavior_fieldAccessorTable
+        return dg.model.PimpOilEvent.internal_static_dg_model_FaceBehavior_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpOilEvent.FaceBehavior.class, PimpOilEvent.FaceBehavior.Builder.class);
+                dg.model.PimpOilEvent.FaceBehavior.class, dg.model.PimpOilEvent.FaceBehavior.Builder.class);
       }
 
       // Construct using dg.model.PimpOilEvent.FaceBehavior.newBuilder()
@@ -7504,7 +7512,7 @@ public final class PimpOilEvent {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -7513,7 +7521,7 @@ public final class PimpOilEvent {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         arrivalTime_ = "";
@@ -7523,79 +7531,79 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
+        return dg.model.PimpOilEvent.internal_static_dg_model_FaceBehavior_descriptor;
       }
 
-      @Override
-      public PimpOilEvent.FaceBehavior getDefaultInstanceForType() {
-        return PimpOilEvent.FaceBehavior.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.FaceBehavior getDefaultInstanceForType() {
+        return dg.model.PimpOilEvent.FaceBehavior.getDefaultInstance();
       }
 
-      @Override
-      public PimpOilEvent.FaceBehavior build() {
-        PimpOilEvent.FaceBehavior result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpOilEvent.FaceBehavior build() {
+        dg.model.PimpOilEvent.FaceBehavior result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpOilEvent.FaceBehavior buildPartial() {
-        PimpOilEvent.FaceBehavior result = new PimpOilEvent.FaceBehavior(this);
+      @java.lang.Override
+      public dg.model.PimpOilEvent.FaceBehavior buildPartial() {
+        dg.model.PimpOilEvent.FaceBehavior result = new dg.model.PimpOilEvent.FaceBehavior(this);
         result.arrivalTime_ = arrivalTime_;
         result.departureTime_ = departureTime_;
         onBuilt();
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpOilEvent.FaceBehavior) {
-          return mergeFrom((PimpOilEvent.FaceBehavior)other);
+        if (other instanceof dg.model.PimpOilEvent.FaceBehavior) {
+          return mergeFrom((dg.model.PimpOilEvent.FaceBehavior)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpOilEvent.FaceBehavior other) {
-        if (other == PimpOilEvent.FaceBehavior.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpOilEvent.FaceBehavior other) {
+        if (other == dg.model.PimpOilEvent.FaceBehavior.getDefaultInstance()) return this;
         if (!other.getArrivalTime().isEmpty()) {
           arrivalTime_ = other.arrivalTime_;
           onChanged();
@@ -7609,21 +7617,21 @@ public final class PimpOilEvent {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpOilEvent.FaceBehavior parsedMessage = null;
+        dg.model.PimpOilEvent.FaceBehavior parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpOilEvent.FaceBehavior) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpOilEvent.FaceBehavior) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7633,20 +7641,20 @@ public final class PimpOilEvent {
         return this;
       }
 
-      private Object arrivalTime_ = "";
+      private java.lang.Object arrivalTime_ = "";
       /**
        * <code>string ArrivalTime = 1;</code>
        */
-      public String getArrivalTime() {
-        Object ref = arrivalTime_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getArrivalTime() {
+        java.lang.Object ref = arrivalTime_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           arrivalTime_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -7654,11 +7662,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getArrivalTimeBytes() {
-        Object ref = arrivalTime_;
+        java.lang.Object ref = arrivalTime_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           arrivalTime_ = b;
           return b;
         } else {
@@ -7669,11 +7677,11 @@ public final class PimpOilEvent {
        * <code>string ArrivalTime = 1;</code>
        */
       public Builder setArrivalTime(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         arrivalTime_ = value;
         onChanged();
         return this;
@@ -7682,7 +7690,7 @@ public final class PimpOilEvent {
        * <code>string ArrivalTime = 1;</code>
        */
       public Builder clearArrivalTime() {
-
+        
         arrivalTime_ = getDefaultInstance().getArrivalTime();
         onChanged();
         return this;
@@ -7696,26 +7704,26 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         arrivalTime_ = value;
         onChanged();
         return this;
       }
 
-      private Object departureTime_ = "";
+      private java.lang.Object departureTime_ = "";
       /**
        * <code>string DepartureTime = 2;</code>
        */
-      public String getDepartureTime() {
-        Object ref = departureTime_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getDepartureTime() {
+        java.lang.Object ref = departureTime_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           departureTime_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -7723,11 +7731,11 @@ public final class PimpOilEvent {
        */
       public com.google.protobuf.ByteString
           getDepartureTimeBytes() {
-        Object ref = departureTime_;
+        java.lang.Object ref = departureTime_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           departureTime_ = b;
           return b;
         } else {
@@ -7738,11 +7746,11 @@ public final class PimpOilEvent {
        * <code>string DepartureTime = 2;</code>
        */
       public Builder setDepartureTime(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         departureTime_ = value;
         onChanged();
         return this;
@@ -7751,7 +7759,7 @@ public final class PimpOilEvent {
        * <code>string DepartureTime = 2;</code>
        */
       public Builder clearDepartureTime() {
-
+        
         departureTime_ = getDefaultInstance().getDepartureTime();
         onChanged();
         return this;
@@ -7765,18 +7773,18 @@ public final class PimpOilEvent {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         departureTime_ = value;
         onChanged();
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7787,18 +7795,18 @@ public final class PimpOilEvent {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.FaceBehavior)
-    private static final PimpOilEvent.FaceBehavior DEFAULT_INSTANCE;
+    private static final dg.model.PimpOilEvent.FaceBehavior DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpOilEvent.FaceBehavior();
+      DEFAULT_INSTANCE = new dg.model.PimpOilEvent.FaceBehavior();
     }
 
-    public static PimpOilEvent.FaceBehavior getDefaultInstance() {
+    public static dg.model.PimpOilEvent.FaceBehavior getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<FaceBehavior>
         PARSER = new com.google.protobuf.AbstractParser<FaceBehavior>() {
-      @Override
+      @java.lang.Override
       public FaceBehavior parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7811,13 +7819,13 @@ public final class PimpOilEvent {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<FaceBehavior> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpOilEvent.FaceBehavior getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpOilEvent.FaceBehavior getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7825,32 +7833,32 @@ public final class PimpOilEvent {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_OilEvent_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_OilEvent_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_OilEvent_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_OilEvent_AdditionalInfosEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_OilEventWithPlate_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_OilEventWithPlate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_PedestrianBehavior_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_PedestrianBehavior_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_FaceBehavior_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_FaceBehavior_fieldAccessorTable;
 
@@ -7861,7 +7869,7 @@ public final class PimpOilEvent {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\022pimpOilEvent.proto\022\010dg.model\"\350\002\n\010OilEv" +
       "ent\022\024\n\014OilStationId\030\001 \001(\t\022\017\n\007EventId\030\002 \001" +
       "(\t\022\021\n\tOilTankId\030\003 \001(\t\022\020\n\010OilGunId\030\004 \001(\t\022" +
@@ -7910,37 +7918,37 @@ public final class PimpOilEvent {
     internal_static_dg_model_OilEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_OilEvent_descriptor,
-        new String[] { "OilStationId", "EventId", "OilTankId", "OilGunId", "Timestamp", "OilType", "Amount", "EventType", "OilCardId", "TCCNo", "OilTypeNum", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "EventId", "OilTankId", "OilGunId", "Timestamp", "OilType", "Amount", "EventType", "OilCardId", "TCCNo", "OilTypeNum", "AdditionalInfos", });
     internal_static_dg_model_OilEvent_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_OilEvent_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_OilEvent_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_OilEvent_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_dg_model_OilEventWithPlate_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_dg_model_OilEventWithPlate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_OilEventWithPlate_descriptor,
-        new String[] { "OilStationId", "OilGunId", "LiftTimestamp", "HangTimestamp", "TCCNo", "OilTypeNum", "OilCardId", "LimitVehiclePlate", "VehiclePlate", "VehicleBrand", "VehicleSubBrand", "VehicleStyle", "VehicleType", "VehicleColor", "VehiclePlateTyle", "VehiclePlateColor", "VehiclePlateImageUrl", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "OilGunId", "LiftTimestamp", "HangTimestamp", "TCCNo", "OilTypeNum", "OilCardId", "LimitVehiclePlate", "VehiclePlate", "VehicleBrand", "VehicleSubBrand", "VehicleStyle", "VehicleType", "VehicleColor", "VehiclePlateTyle", "VehiclePlateColor", "VehiclePlateImageUrl", "AdditionalInfos", });
     internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_OilEventWithPlate_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_OilEventWithPlate_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_dg_model_PedestrianBehavior_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_dg_model_PedestrianBehavior_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_PedestrianBehavior_descriptor,
-        new String[] { "ArrivalTime", "DepartureTime", });
+        new java.lang.String[] { "ArrivalTime", "DepartureTime", });
     internal_static_dg_model_FaceBehavior_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_dg_model_FaceBehavior_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_FaceBehavior_descriptor,
-        new String[] { "ArrivalTime", "DepartureTime", });
+        new java.lang.String[] { "ArrivalTime", "DepartureTime", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -36,6 +36,10 @@ public enum BizExceptionEnum {
     
     /*****移动数据采集统计车辆类型模块*****/
     MOBILE_COLLECT_VEHCLE_INSERT_ERROR(500001,"插入车类型统计记录失败"),
+    
+    
+    /*****车辆排队模块*****/
+    VEHICLE_QUEUE_REPOS_ID_PARAM_ERROR(600001,"车辆排队采集名称错误"),
    
     
 	/**

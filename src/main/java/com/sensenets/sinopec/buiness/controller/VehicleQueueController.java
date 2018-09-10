@@ -3,7 +3,6 @@ package com.sensenets.sinopec.buiness.controller;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +12,6 @@ import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.VehicleQueueCondition;
 import com.sensenets.sinopec.buiness.dto.VehicleQueueDto;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueService;
-import com.sensenets.sinopec.buiness.service.IVjVehicleQueueViewService;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
 
@@ -37,23 +35,12 @@ public class VehicleQueueController extends BaseController {
     @Autowired
     IVehicleQueueService vehicleQueueService;
     
-    @Autowired
-    IVjVehicleQueueViewService vjVehicleQueueViewService ;
-    
-
      @ApiOperation(value = "分页列表")
      @RequestMapping(value = "/listPage", method= RequestMethod.POST, produces = "application/json")
      public ResponseInfo listPage(@RequestBody VehicleQueueCondition condition){
-         PageInfo<VehicleQueueDto> page = vjVehicleQueueViewService.selectPageByExample(condition);
+         PageInfo<VehicleQueueDto> page = vehicleQueueService.selectPageByExample(condition);
          return this.warpPageObject(page);
      }
-
-    @ApiOperation(value = "根据id查询")
-    @RequestMapping(value = "/query/{id}", method= RequestMethod.GET, produces = "application/json")
-    public ResponseInfo find(@PathVariable Long id){
-        return this.warpObject(vjVehicleQueueViewService.selectByPrimaryKey(id));
-    }
-
     
 }
 

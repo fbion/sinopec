@@ -14,269 +14,6 @@ public final class PimpTicketOpen {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  /**
-   * <pre>
-   *开票事件操作类型
-   * </pre>
-   *
-   * Protobuf enum {@code dg.model.TicketOpenEventType}
-   */
-  public enum TicketOpenEventType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     *未知
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_Unknown = 0;</code>
-     */
-    Ticket_Open_Event_Type_Unknown(0),
-    /**
-     * <pre>
-     *加油卡开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_1 = 1;</code>
-     */
-    Ticket_Open_Event_Type_1(1),
-    /**
-     * <pre>
-     *现金油品开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_2 = 2;</code>
-     */
-    Ticket_Open_Event_Type_2(2),
-    /**
-     * <code>Ticket_Open_Event_Type_3 = 3;</code>
-     */
-    Ticket_Open_Event_Type_3(3),
-    /**
-     * <pre>
-     *ERP开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_4 = 4;</code>
-     */
-    Ticket_Open_Event_Type_4(4),
-    /**
-     * <pre>
-     *非油品POS零售开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_5 = 5;</code>
-     */
-    Ticket_Open_Event_Type_5(5),
-    /**
-     * <pre>
-     *非油品WebPos零售开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_6 = 6;</code>
-     */
-    Ticket_Open_Event_Type_6(6),
-    /**
-     * <pre>
-     *非油品团购开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_7 = 7;</code>
-     */
-    Ticket_Open_Event_Type_7(7),
-    /**
-     * <pre>
-     *电子商务开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_8 = 8;</code>
-     */
-    Ticket_Open_Event_Type_8(8),
-    /**
-     * <pre>
-     *充值卡开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_9 = 9;</code>
-     */
-    Ticket_Open_Event_Type_9(9),
-    /**
-     * <pre>
-     *增值税开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_10 = 10;</code>
-     */
-    Ticket_Open_Event_Type_10(10),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     *未知
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_Unknown = 0;</code>
-     */
-    public static final int Ticket_Open_Event_Type_Unknown_VALUE = 0;
-    /**
-     * <pre>
-     *加油卡开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_1 = 1;</code>
-     */
-    public static final int Ticket_Open_Event_Type_1_VALUE = 1;
-    /**
-     * <pre>
-     *现金油品开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_2 = 2;</code>
-     */
-    public static final int Ticket_Open_Event_Type_2_VALUE = 2;
-    /**
-     * <code>Ticket_Open_Event_Type_3 = 3;</code>
-     */
-    public static final int Ticket_Open_Event_Type_3_VALUE = 3;
-    /**
-     * <pre>
-     *ERP开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_4 = 4;</code>
-     */
-    public static final int Ticket_Open_Event_Type_4_VALUE = 4;
-    /**
-     * <pre>
-     *非油品POS零售开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_5 = 5;</code>
-     */
-    public static final int Ticket_Open_Event_Type_5_VALUE = 5;
-    /**
-     * <pre>
-     *非油品WebPos零售开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_6 = 6;</code>
-     */
-    public static final int Ticket_Open_Event_Type_6_VALUE = 6;
-    /**
-     * <pre>
-     *非油品团购开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_7 = 7;</code>
-     */
-    public static final int Ticket_Open_Event_Type_7_VALUE = 7;
-    /**
-     * <pre>
-     *电子商务开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_8 = 8;</code>
-     */
-    public static final int Ticket_Open_Event_Type_8_VALUE = 8;
-    /**
-     * <pre>
-     *充值卡开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_9 = 9;</code>
-     */
-    public static final int Ticket_Open_Event_Type_9_VALUE = 9;
-    /**
-     * <pre>
-     *增值税开票
-     * </pre>
-     *
-     * <code>Ticket_Open_Event_Type_10 = 10;</code>
-     */
-    public static final int Ticket_Open_Event_Type_10_VALUE = 10;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @Deprecated
-    public static TicketOpenEventType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static TicketOpenEventType forNumber(int value) {
-      switch (value) {
-        case 0: return Ticket_Open_Event_Type_Unknown;
-        case 1: return Ticket_Open_Event_Type_1;
-        case 2: return Ticket_Open_Event_Type_2;
-        case 3: return Ticket_Open_Event_Type_3;
-        case 4: return Ticket_Open_Event_Type_4;
-        case 5: return Ticket_Open_Event_Type_5;
-        case 6: return Ticket_Open_Event_Type_6;
-        case 7: return Ticket_Open_Event_Type_7;
-        case 8: return Ticket_Open_Event_Type_8;
-        case 9: return Ticket_Open_Event_Type_9;
-        case 10: return Ticket_Open_Event_Type_10;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<TicketOpenEventType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        TicketOpenEventType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<TicketOpenEventType>() {
-            public TicketOpenEventType findValueByNumber(int number) {
-              return TicketOpenEventType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return PimpTicketOpen.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final TicketOpenEventType[] VALUES = values();
-
-    public static TicketOpenEventType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private TicketOpenEventType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:dg.model.TicketOpenEventType)
-  }
-
   public interface TicketOpenOrBuilder extends
       // @@protoc_insertion_point(interface_extends:dg.model.TicketOpen)
       com.google.protobuf.MessageOrBuilder {
@@ -288,7 +25,7 @@ public final class PimpTicketOpen {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -306,7 +43,7 @@ public final class PimpTicketOpen {
      *
      * <code>string EventId = 2;</code>
      */
-    String getEventId();
+    java.lang.String getEventId();
     /**
      * <pre>
      *开票事件ID
@@ -319,18 +56,36 @@ public final class PimpTicketOpen {
 
     /**
      * <pre>
-     *开票时间
+     *隶属
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Scope = 3;</code>
      */
-    String getTimestamp();
+    java.lang.String getScope();
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getScopeBytes();
+
     /**
      * <pre>
      *开票时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <pre>
+     *开票时间
+     * </pre>
+     *
+     * <code>string Timestamp = 4;</code>
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
@@ -340,32 +95,24 @@ public final class PimpTicketOpen {
      *开票事件操作类型
      * </pre>
      *
-     * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
+     * <code>int32 EventType = 5;</code>
      */
-    int getEventTypeValue();
-    /**
-     * <pre>
-     *开票事件操作类型
-     * </pre>
-     *
-     * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
-     */
-    PimpTicketOpen.TicketOpenEventType getEventType();
+    int getEventType();
 
     /**
      * <pre>
      *流水号
      * </pre>
      *
-     * <code>string OilFlowNumber = 5;</code>
+     * <code>string OilFlowNumber = 6;</code>
      */
-    String getOilFlowNumber();
+    java.lang.String getOilFlowNumber();
     /**
      * <pre>
      *流水号
      * </pre>
      *
-     * <code>string OilFlowNumber = 5;</code>
+     * <code>string OilFlowNumber = 6;</code>
      */
     com.google.protobuf.ByteString
         getOilFlowNumberBytes();
@@ -375,7 +122,7 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
     int getAdditionalInfosCount();
     /**
@@ -383,42 +130,46 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -439,12 +190,13 @@ public final class PimpTicketOpen {
     private TicketOpen() {
       oilStationId_ = "";
       eventId_ = "";
+      scope_ = "";
       timestamp_ = "";
       eventType_ = 0;
       oilFlowNumber_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -455,7 +207,7 @@ public final class PimpTicketOpen {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -469,42 +221,47 @@ public final class PimpTicketOpen {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               eventId_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
+
+              scope_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               timestamp_ = s;
               break;
             }
-            case 32: {
-              int rawValue = input.readEnum();
+            case 40: {
 
-              eventType_ = rawValue;
+              eventType_ = input.readInt32();
               break;
             }
-            case 42: {
-              String s = input.readStringRequireUtf8();
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilFlowNumber_ = s;
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 additionalInfos_ = com.google.protobuf.MapField.newMapField(
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000040;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -532,32 +289,32 @@ public final class PimpTicketOpen {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
+      return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 6:
+        case 7:
           return internalGetAdditionalInfos();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpTicketOpen.internal_static_dg_model_TicketOpen_fieldAccessorTable
+      return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpTicketOpen.TicketOpen.class, PimpTicketOpen.TicketOpen.Builder.class);
+              dg.model.PimpTicketOpen.TicketOpen.class, dg.model.PimpTicketOpen.TicketOpen.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -565,14 +322,14 @@ public final class PimpTicketOpen {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -586,11 +343,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -599,7 +356,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int EVENTID_FIELD_NUMBER = 2;
-    private volatile Object eventId_;
+    private volatile java.lang.Object eventId_;
     /**
      * <pre>
      *开票事件ID
@@ -607,14 +364,14 @@ public final class PimpTicketOpen {
      *
      * <code>string EventId = 2;</code>
      */
-    public String getEventId() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         eventId_ = s;
         return s;
       }
@@ -628,11 +385,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getEventIdBytes() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         eventId_ = b;
         return b;
       } else {
@@ -640,23 +397,65 @@ public final class PimpTicketOpen {
       }
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private volatile Object timestamp_;
+    public static final int SCOPE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object scope_;
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    public java.lang.String getScope() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        scope_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getScopeBytes() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        scope_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      *开票时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
      */
-    public String getTimestamp() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         timestamp_ = s;
         return s;
       }
@@ -666,15 +465,15 @@ public final class PimpTicketOpen {
      *开票时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         timestamp_ = b;
         return b;
       } else {
@@ -682,48 +481,36 @@ public final class PimpTicketOpen {
       }
     }
 
-    public static final int EVENTTYPE_FIELD_NUMBER = 4;
+    public static final int EVENTTYPE_FIELD_NUMBER = 5;
     private int eventType_;
     /**
      * <pre>
      *开票事件操作类型
      * </pre>
      *
-     * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
+     * <code>int32 EventType = 5;</code>
      */
-    public int getEventTypeValue() {
+    public int getEventType() {
       return eventType_;
     }
-    /**
-     * <pre>
-     *开票事件操作类型
-     * </pre>
-     *
-     * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
-     */
-    public PimpTicketOpen.TicketOpenEventType getEventType() {
-      @SuppressWarnings("deprecation")
-      PimpTicketOpen.TicketOpenEventType result = PimpTicketOpen.TicketOpenEventType.valueOf(eventType_);
-      return result == null ? PimpTicketOpen.TicketOpenEventType.UNRECOGNIZED : result;
-    }
 
-    public static final int OILFLOWNUMBER_FIELD_NUMBER = 5;
-    private volatile Object oilFlowNumber_;
+    public static final int OILFLOWNUMBER_FIELD_NUMBER = 6;
+    private volatile java.lang.Object oilFlowNumber_;
     /**
      * <pre>
      *流水号
      * </pre>
      *
-     * <code>string OilFlowNumber = 5;</code>
+     * <code>string OilFlowNumber = 6;</code>
      */
-    public String getOilFlowNumber() {
-      Object ref = oilFlowNumber_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilFlowNumber() {
+      java.lang.Object ref = oilFlowNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilFlowNumber_ = s;
         return s;
       }
@@ -733,15 +520,15 @@ public final class PimpTicketOpen {
      *流水号
      * </pre>
      *
-     * <code>string OilFlowNumber = 5;</code>
+     * <code>string OilFlowNumber = 6;</code>
      */
     public com.google.protobuf.ByteString
         getOilFlowNumberBytes() {
-      Object ref = oilFlowNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilFlowNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilFlowNumber_ = b;
         return b;
       } else {
@@ -749,21 +536,21 @@ public final class PimpTicketOpen {
       }
     }
 
-    public static final int ADDITIONALINFOS_FIELD_NUMBER = 6;
+    public static final int ADDITIONALINFOS_FIELD_NUMBER = 7;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpTicketOpen.internal_static_dg_model_TicketOpen_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -780,19 +567,19 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -800,10 +587,10 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -811,14 +598,14 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -827,22 +614,22 @@ public final class PimpTicketOpen {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -852,7 +639,7 @@ public final class PimpTicketOpen {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -861,25 +648,28 @@ public final class PimpTicketOpen {
       if (!getEventIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, eventId_);
       }
-      if (!getTimestampBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timestamp_);
+      if (!getScopeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, scope_);
       }
-      if (eventType_ != PimpTicketOpen.TicketOpenEventType.Ticket_Open_Event_Type_Unknown.getNumber()) {
-        output.writeEnum(4, eventType_);
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timestamp_);
+      }
+      if (eventType_ != 0) {
+        output.writeInt32(5, eventType_);
       }
       if (!getOilFlowNumberBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, oilFlowNumber_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, oilFlowNumber_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetAdditionalInfos(),
           AdditionalInfosDefaultEntryHolder.defaultEntry,
-          6);
+          7);
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -891,49 +681,55 @@ public final class PimpTicketOpen {
       if (!getEventIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, eventId_);
       }
-      if (!getTimestampBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timestamp_);
+      if (!getScopeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, scope_);
       }
-      if (eventType_ != PimpTicketOpen.TicketOpenEventType.Ticket_Open_Event_Type_Unknown.getNumber()) {
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timestamp_);
+      }
+      if (eventType_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, eventType_);
+          .computeInt32Size(5, eventType_);
       }
       if (!getOilFlowNumberBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, oilFlowNumber_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, oilFlowNumber_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, additionalInfos__);
+            .computeMessageSize(7, additionalInfos__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpTicketOpen.TicketOpen)) {
+      if (!(obj instanceof dg.model.PimpTicketOpen.TicketOpen)) {
         return super.equals(obj);
       }
-      PimpTicketOpen.TicketOpen other = (PimpTicketOpen.TicketOpen) obj;
+      dg.model.PimpTicketOpen.TicketOpen other = (dg.model.PimpTicketOpen.TicketOpen) obj;
 
       boolean result = true;
       result = result && getOilStationId()
           .equals(other.getOilStationId());
       result = result && getEventId()
           .equals(other.getEventId());
+      result = result && getScope()
+          .equals(other.getScope());
       result = result && getTimestamp()
           .equals(other.getTimestamp());
-      result = result && eventType_ == other.eventType_;
+      result = result && (getEventType()
+          == other.getEventType());
       result = result && getOilFlowNumber()
           .equals(other.getOilFlowNumber());
       result = result && internalGetAdditionalInfos().equals(
@@ -942,7 +738,7 @@ public final class PimpTicketOpen {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -953,10 +749,12 @@ public final class PimpTicketOpen {
       hash = (53 * hash) + getOilStationId().hashCode();
       hash = (37 * hash) + EVENTID_FIELD_NUMBER;
       hash = (53 * hash) + getEventId().hashCode();
+      hash = (37 * hash) + SCOPE_FIELD_NUMBER;
+      hash = (53 * hash) + getScope().hashCode();
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
       hash = (37 * hash) + EVENTTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + eventType_;
+      hash = (53 * hash) + getEventType();
       hash = (37 * hash) + OILFLOWNUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getOilFlowNumber().hashCode();
       if (!internalGetAdditionalInfos().getMap().isEmpty()) {
@@ -968,69 +766,69 @@ public final class PimpTicketOpen {
       return hash;
     }
 
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(byte[] data)
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(java.io.InputStream input)
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpen parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpTicketOpen.TicketOpen parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpen parseDelimitedFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpen parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpen parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1038,23 +836,23 @@ public final class PimpTicketOpen {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpTicketOpen.TicketOpen prototype) {
+    public static Builder newBuilder(dg.model.PimpTicketOpen.TicketOpen prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1068,17 +866,17 @@ public final class PimpTicketOpen {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.TicketOpen)
-        PimpTicketOpen.TicketOpenOrBuilder {
+        dg.model.PimpTicketOpen.TicketOpenOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 6:
+          case 7:
             return internalGetAdditionalInfos();
           default:
             throw new RuntimeException(
@@ -1089,19 +887,19 @@ public final class PimpTicketOpen {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 6:
+          case 7:
             return internalGetMutableAdditionalInfos();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpen_fieldAccessorTable
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpTicketOpen.TicketOpen.class, PimpTicketOpen.TicketOpen.Builder.class);
+                dg.model.PimpTicketOpen.TicketOpen.class, dg.model.PimpTicketOpen.TicketOpen.Builder.class);
       }
 
       // Construct using dg.model.PimpTicketOpen.TicketOpen.newBuilder()
@@ -1110,7 +908,7 @@ public final class PimpTicketOpen {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1119,12 +917,14 @@ public final class PimpTicketOpen {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
 
         eventId_ = "";
+
+        scope_ = "";
 
         timestamp_ = "";
 
@@ -1136,33 +936,34 @@ public final class PimpTicketOpen {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpen_descriptor;
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpen getDefaultInstanceForType() {
-        return PimpTicketOpen.TicketOpen.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpen getDefaultInstanceForType() {
+        return dg.model.PimpTicketOpen.TicketOpen.getDefaultInstance();
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpen build() {
-        PimpTicketOpen.TicketOpen result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpen build() {
+        dg.model.PimpTicketOpen.TicketOpen result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpen buildPartial() {
-        PimpTicketOpen.TicketOpen result = new PimpTicketOpen.TicketOpen(this);
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpen buildPartial() {
+        dg.model.PimpTicketOpen.TicketOpen result = new dg.model.PimpTicketOpen.TicketOpen(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
         result.eventId_ = eventId_;
+        result.scope_ = scope_;
         result.timestamp_ = timestamp_;
         result.eventType_ = eventType_;
         result.oilFlowNumber_ = oilFlowNumber_;
@@ -1173,50 +974,50 @@ public final class PimpTicketOpen {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpTicketOpen.TicketOpen) {
-          return mergeFrom((PimpTicketOpen.TicketOpen)other);
+        if (other instanceof dg.model.PimpTicketOpen.TicketOpen) {
+          return mergeFrom((dg.model.PimpTicketOpen.TicketOpen)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpTicketOpen.TicketOpen other) {
-        if (other == PimpTicketOpen.TicketOpen.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpTicketOpen.TicketOpen other) {
+        if (other == dg.model.PimpTicketOpen.TicketOpen.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
@@ -1225,12 +1026,16 @@ public final class PimpTicketOpen {
           eventId_ = other.eventId_;
           onChanged();
         }
+        if (!other.getScope().isEmpty()) {
+          scope_ = other.scope_;
+          onChanged();
+        }
         if (!other.getTimestamp().isEmpty()) {
           timestamp_ = other.timestamp_;
           onChanged();
         }
-        if (other.eventType_ != 0) {
-          setEventTypeValue(other.getEventTypeValue());
+        if (other.getEventType() != 0) {
+          setEventType(other.getEventType());
         }
         if (!other.getOilFlowNumber().isEmpty()) {
           oilFlowNumber_ = other.oilFlowNumber_;
@@ -1243,21 +1048,21 @@ public final class PimpTicketOpen {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpTicketOpen.TicketOpen parsedMessage = null;
+        dg.model.PimpTicketOpen.TicketOpen parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpTicketOpen.TicketOpen) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpTicketOpen.TicketOpen) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1268,7 +1073,7 @@ public final class PimpTicketOpen {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -1276,16 +1081,16 @@ public final class PimpTicketOpen {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1297,11 +1102,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -1316,11 +1121,11 @@ public final class PimpTicketOpen {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -1333,7 +1138,7 @@ public final class PimpTicketOpen {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -1351,13 +1156,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object eventId_ = "";
+      private java.lang.Object eventId_ = "";
       /**
        * <pre>
        *开票事件ID
@@ -1365,16 +1170,16 @@ public final class PimpTicketOpen {
        *
        * <code>string EventId = 2;</code>
        */
-      public String getEventId() {
-        Object ref = eventId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           eventId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1386,11 +1191,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getEventIdBytes() {
-        Object ref = eventId_;
+        java.lang.Object ref = eventId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           eventId_ = b;
           return b;
         } else {
@@ -1405,11 +1210,11 @@ public final class PimpTicketOpen {
        * <code>string EventId = 2;</code>
        */
       public Builder setEventId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         eventId_ = value;
         onChanged();
         return this;
@@ -1422,7 +1227,7 @@ public final class PimpTicketOpen {
        * <code>string EventId = 2;</code>
        */
       public Builder clearEventId() {
-
+        
         eventId_ = getDefaultInstance().getEventId();
         onChanged();
         return this;
@@ -1440,30 +1245,119 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         eventId_ = value;
         onChanged();
         return this;
       }
 
-      private Object timestamp_ = "";
+      private java.lang.Object scope_ = "";
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public java.lang.String getScope() {
+        java.lang.Object ref = scope_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          scope_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getScopeBytes() {
+        java.lang.Object ref = scope_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          scope_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder setScope(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder clearScope() {
+        
+        scope_ = getDefaultInstance().getScope();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder setScopeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
       /**
        * <pre>
        *开票时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
-      public String getTimestamp() {
-        Object ref = timestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           timestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1471,15 +1365,15 @@ public final class PimpTicketOpen {
        *开票时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
-        Object ref = timestamp_;
+        java.lang.Object ref = timestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           timestamp_ = b;
           return b;
         } else {
@@ -1491,14 +1385,14 @@ public final class PimpTicketOpen {
        *开票时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder setTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         timestamp_ = value;
         onChanged();
         return this;
@@ -1508,10 +1402,10 @@ public final class PimpTicketOpen {
        *开票时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = getDefaultInstance().getTimestamp();
         onChanged();
         return this;
@@ -1521,7 +1415,7 @@ public final class PimpTicketOpen {
        *开票时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
@@ -1529,21 +1423,21 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         timestamp_ = value;
         onChanged();
         return this;
       }
 
-      private int eventType_ = 0;
+      private int eventType_ ;
       /**
        * <pre>
        *开票事件操作类型
        * </pre>
        *
-       * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
+       * <code>int32 EventType = 5;</code>
        */
-      public int getEventTypeValue() {
+      public int getEventType() {
         return eventType_;
       }
       /**
@@ -1551,9 +1445,10 @@ public final class PimpTicketOpen {
        *开票事件操作类型
        * </pre>
        *
-       * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
+       * <code>int32 EventType = 5;</code>
        */
-      public Builder setEventTypeValue(int value) {
+      public Builder setEventType(int value) {
+        
         eventType_ = value;
         onChanged();
         return this;
@@ -1563,61 +1458,33 @@ public final class PimpTicketOpen {
        *开票事件操作类型
        * </pre>
        *
-       * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
-       */
-      public PimpTicketOpen.TicketOpenEventType getEventType() {
-        @SuppressWarnings("deprecation")
-        PimpTicketOpen.TicketOpenEventType result = PimpTicketOpen.TicketOpenEventType.valueOf(eventType_);
-        return result == null ? PimpTicketOpen.TicketOpenEventType.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       *开票事件操作类型
-       * </pre>
-       *
-       * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
-       */
-      public Builder setEventType(PimpTicketOpen.TicketOpenEventType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-
-        eventType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *开票事件操作类型
-       * </pre>
-       *
-       * <code>.dg.model.TicketOpenEventType EventType = 4;</code>
+       * <code>int32 EventType = 5;</code>
        */
       public Builder clearEventType() {
-
+        
         eventType_ = 0;
         onChanged();
         return this;
       }
 
-      private Object oilFlowNumber_ = "";
+      private java.lang.Object oilFlowNumber_ = "";
       /**
        * <pre>
        *流水号
        * </pre>
        *
-       * <code>string OilFlowNumber = 5;</code>
+       * <code>string OilFlowNumber = 6;</code>
        */
-      public String getOilFlowNumber() {
-        Object ref = oilFlowNumber_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilFlowNumber() {
+        java.lang.Object ref = oilFlowNumber_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilFlowNumber_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1625,15 +1492,15 @@ public final class PimpTicketOpen {
        *流水号
        * </pre>
        *
-       * <code>string OilFlowNumber = 5;</code>
+       * <code>string OilFlowNumber = 6;</code>
        */
       public com.google.protobuf.ByteString
           getOilFlowNumberBytes() {
-        Object ref = oilFlowNumber_;
+        java.lang.Object ref = oilFlowNumber_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilFlowNumber_ = b;
           return b;
         } else {
@@ -1645,14 +1512,14 @@ public final class PimpTicketOpen {
        *流水号
        * </pre>
        *
-       * <code>string OilFlowNumber = 5;</code>
+       * <code>string OilFlowNumber = 6;</code>
        */
       public Builder setOilFlowNumber(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilFlowNumber_ = value;
         onChanged();
         return this;
@@ -1662,10 +1529,10 @@ public final class PimpTicketOpen {
        *流水号
        * </pre>
        *
-       * <code>string OilFlowNumber = 5;</code>
+       * <code>string OilFlowNumber = 6;</code>
        */
       public Builder clearOilFlowNumber() {
-
+        
         oilFlowNumber_ = getDefaultInstance().getOilFlowNumber();
         onChanged();
         return this;
@@ -1675,7 +1542,7 @@ public final class PimpTicketOpen {
        *流水号
        * </pre>
        *
-       * <code>string OilFlowNumber = 5;</code>
+       * <code>string OilFlowNumber = 6;</code>
        */
       public Builder setOilFlowNumberBytes(
           com.google.protobuf.ByteString value) {
@@ -1683,15 +1550,15 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilFlowNumber_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -1699,7 +1566,7 @@ public final class PimpTicketOpen {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -1720,19 +1587,19 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -1740,10 +1607,10 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -1751,14 +1618,14 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -1767,16 +1634,16 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -1791,12 +1658,12 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -1804,8 +1671,8 @@ public final class PimpTicketOpen {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -1814,13 +1681,13 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -1830,22 +1697,22 @@ public final class PimpTicketOpen {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 6;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1856,18 +1723,18 @@ public final class PimpTicketOpen {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.TicketOpen)
-    private static final PimpTicketOpen.TicketOpen DEFAULT_INSTANCE;
+    private static final dg.model.PimpTicketOpen.TicketOpen DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpTicketOpen.TicketOpen();
+      DEFAULT_INSTANCE = new dg.model.PimpTicketOpen.TicketOpen();
     }
 
-    public static PimpTicketOpen.TicketOpen getDefaultInstance() {
+    public static dg.model.PimpTicketOpen.TicketOpen getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<TicketOpen>
         PARSER = new com.google.protobuf.AbstractParser<TicketOpen>() {
-      @Override
+      @java.lang.Override
       public TicketOpen parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1880,13 +1747,13 @@ public final class PimpTicketOpen {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TicketOpen> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpTicketOpen.TicketOpen getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpTicketOpen.TicketOpen getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1903,7 +1770,7 @@ public final class PimpTicketOpen {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -1921,7 +1788,7 @@ public final class PimpTicketOpen {
      *
      * <code>string OilFlowNumber = 2;</code>
      */
-    String getOilFlowNumber();
+    java.lang.String getOilFlowNumber();
     /**
      * <pre>
      *开票事件流水号
@@ -1939,7 +1806,7 @@ public final class PimpTicketOpen {
      *
      * <code>string Timestamp = 3;</code>
      */
-    String getTimestamp();
+    java.lang.String getTimestamp();
     /**
      * <pre>
      *事件时间
@@ -1957,7 +1824,7 @@ public final class PimpTicketOpen {
      *
      * <code>string EventType = 4;</code>
      */
-    String getEventType();
+    java.lang.String getEventType();
     /**
      * <pre>
      *开票事件类型
@@ -1975,7 +1842,7 @@ public final class PimpTicketOpen {
      *
      * <code>string TakeFaceOrNot = 5;</code>
      */
-    String getTakeFaceOrNot();
+    java.lang.String getTakeFaceOrNot();
     /**
      * <pre>
      *是否有拍摄到人脸
@@ -1993,7 +1860,7 @@ public final class PimpTicketOpen {
      *
      * <code>string EmployeeOrNot = 6;</code>
      */
-    String getEmployeeOrNot();
+    java.lang.String getEmployeeOrNot();
     /**
      * <pre>
      *是否是员工
@@ -2011,7 +1878,7 @@ public final class PimpTicketOpen {
      *
      * <code>string CashierHasPerson = 7;</code>
      */
-    String getCashierHasPerson();
+    java.lang.String getCashierHasPerson();
     /**
      * <pre>
      *收银区是否有人
@@ -2029,7 +1896,7 @@ public final class PimpTicketOpen {
      *
      * <code>string FaceImageUrl1 = 8;</code>
      */
-    String getFaceImageUrl1();
+    java.lang.String getFaceImageUrl1();
     /**
      * <pre>
      *图片链接1
@@ -2047,7 +1914,7 @@ public final class PimpTicketOpen {
      *
      * <code>string FaceImageUrl2 = 9;</code>
      */
-    String getFaceImageUrl2();
+    java.lang.String getFaceImageUrl2();
     /**
      * <pre>
      *图片链接2
@@ -2073,12 +1940,13 @@ public final class PimpTicketOpen {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
@@ -2087,7 +1955,7 @@ public final class PimpTicketOpen {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
@@ -2097,7 +1965,9 @@ public final class PimpTicketOpen {
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
@@ -2106,7 +1976,8 @@ public final class PimpTicketOpen {
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -2136,7 +2007,7 @@ public final class PimpTicketOpen {
       faceImageUrl2_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2147,7 +2018,7 @@ public final class PimpTicketOpen {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2161,55 +2032,55 @@ public final class PimpTicketOpen {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilFlowNumber_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               timestamp_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               eventType_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               takeFaceOrNot_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               employeeOrNot_ = s;
               break;
             }
             case 58: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               cashierHasPerson_ = s;
               break;
             }
             case 66: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               faceImageUrl1_ = s;
               break;
             }
             case 74: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               faceImageUrl2_ = s;
               break;
@@ -2220,7 +2091,7 @@ public final class PimpTicketOpen {
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000200;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -2248,11 +2119,11 @@ public final class PimpTicketOpen {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
+      return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -2263,17 +2134,17 @@ public final class PimpTicketOpen {
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_fieldAccessorTable
+      return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpTicketOpen.TicketOpenPublish.class, PimpTicketOpen.TicketOpenPublish.Builder.class);
+              dg.model.PimpTicketOpen.TicketOpenPublish.class, dg.model.PimpTicketOpen.TicketOpenPublish.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -2281,14 +2152,14 @@ public final class PimpTicketOpen {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -2302,11 +2173,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -2315,7 +2186,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int OILFLOWNUMBER_FIELD_NUMBER = 2;
-    private volatile Object oilFlowNumber_;
+    private volatile java.lang.Object oilFlowNumber_;
     /**
      * <pre>
      *开票事件流水号
@@ -2323,14 +2194,14 @@ public final class PimpTicketOpen {
      *
      * <code>string OilFlowNumber = 2;</code>
      */
-    public String getOilFlowNumber() {
-      Object ref = oilFlowNumber_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilFlowNumber() {
+      java.lang.Object ref = oilFlowNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilFlowNumber_ = s;
         return s;
       }
@@ -2344,11 +2215,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getOilFlowNumberBytes() {
-      Object ref = oilFlowNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilFlowNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilFlowNumber_ = b;
         return b;
       } else {
@@ -2357,7 +2228,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private volatile Object timestamp_;
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      *事件时间
@@ -2365,14 +2236,14 @@ public final class PimpTicketOpen {
      *
      * <code>string Timestamp = 3;</code>
      */
-    public String getTimestamp() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         timestamp_ = s;
         return s;
       }
@@ -2386,11 +2257,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         timestamp_ = b;
         return b;
       } else {
@@ -2399,7 +2270,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int EVENTTYPE_FIELD_NUMBER = 4;
-    private volatile Object eventType_;
+    private volatile java.lang.Object eventType_;
     /**
      * <pre>
      *开票事件类型
@@ -2407,14 +2278,14 @@ public final class PimpTicketOpen {
      *
      * <code>string EventType = 4;</code>
      */
-    public String getEventType() {
-      Object ref = eventType_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEventType() {
+      java.lang.Object ref = eventType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         eventType_ = s;
         return s;
       }
@@ -2428,11 +2299,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getEventTypeBytes() {
-      Object ref = eventType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = eventType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         eventType_ = b;
         return b;
       } else {
@@ -2441,7 +2312,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int TAKEFACEORNOT_FIELD_NUMBER = 5;
-    private volatile Object takeFaceOrNot_;
+    private volatile java.lang.Object takeFaceOrNot_;
     /**
      * <pre>
      *是否有拍摄到人脸
@@ -2449,14 +2320,14 @@ public final class PimpTicketOpen {
      *
      * <code>string TakeFaceOrNot = 5;</code>
      */
-    public String getTakeFaceOrNot() {
-      Object ref = takeFaceOrNot_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTakeFaceOrNot() {
+      java.lang.Object ref = takeFaceOrNot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         takeFaceOrNot_ = s;
         return s;
       }
@@ -2470,11 +2341,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getTakeFaceOrNotBytes() {
-      Object ref = takeFaceOrNot_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = takeFaceOrNot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         takeFaceOrNot_ = b;
         return b;
       } else {
@@ -2483,7 +2354,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int EMPLOYEEORNOT_FIELD_NUMBER = 6;
-    private volatile Object employeeOrNot_;
+    private volatile java.lang.Object employeeOrNot_;
     /**
      * <pre>
      *是否是员工
@@ -2491,14 +2362,14 @@ public final class PimpTicketOpen {
      *
      * <code>string EmployeeOrNot = 6;</code>
      */
-    public String getEmployeeOrNot() {
-      Object ref = employeeOrNot_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEmployeeOrNot() {
+      java.lang.Object ref = employeeOrNot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         employeeOrNot_ = s;
         return s;
       }
@@ -2512,11 +2383,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getEmployeeOrNotBytes() {
-      Object ref = employeeOrNot_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = employeeOrNot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         employeeOrNot_ = b;
         return b;
       } else {
@@ -2525,7 +2396,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int CASHIERHASPERSON_FIELD_NUMBER = 7;
-    private volatile Object cashierHasPerson_;
+    private volatile java.lang.Object cashierHasPerson_;
     /**
      * <pre>
      *收银区是否有人
@@ -2533,14 +2404,14 @@ public final class PimpTicketOpen {
      *
      * <code>string CashierHasPerson = 7;</code>
      */
-    public String getCashierHasPerson() {
-      Object ref = cashierHasPerson_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getCashierHasPerson() {
+      java.lang.Object ref = cashierHasPerson_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         cashierHasPerson_ = s;
         return s;
       }
@@ -2554,11 +2425,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getCashierHasPersonBytes() {
-      Object ref = cashierHasPerson_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = cashierHasPerson_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         cashierHasPerson_ = b;
         return b;
       } else {
@@ -2567,7 +2438,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int FACEIMAGEURL1_FIELD_NUMBER = 8;
-    private volatile Object faceImageUrl1_;
+    private volatile java.lang.Object faceImageUrl1_;
     /**
      * <pre>
      *图片链接1
@@ -2575,14 +2446,14 @@ public final class PimpTicketOpen {
      *
      * <code>string FaceImageUrl1 = 8;</code>
      */
-    public String getFaceImageUrl1() {
-      Object ref = faceImageUrl1_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getFaceImageUrl1() {
+      java.lang.Object ref = faceImageUrl1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         faceImageUrl1_ = s;
         return s;
       }
@@ -2596,11 +2467,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getFaceImageUrl1Bytes() {
-      Object ref = faceImageUrl1_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = faceImageUrl1_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         faceImageUrl1_ = b;
         return b;
       } else {
@@ -2609,7 +2480,7 @@ public final class PimpTicketOpen {
     }
 
     public static final int FACEIMAGEURL2_FIELD_NUMBER = 9;
-    private volatile Object faceImageUrl2_;
+    private volatile java.lang.Object faceImageUrl2_;
     /**
      * <pre>
      *图片链接2
@@ -2617,14 +2488,14 @@ public final class PimpTicketOpen {
      *
      * <code>string FaceImageUrl2 = 9;</code>
      */
-    public String getFaceImageUrl2() {
-      Object ref = faceImageUrl2_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getFaceImageUrl2() {
+      java.lang.Object ref = faceImageUrl2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         faceImageUrl2_ = s;
         return s;
       }
@@ -2638,11 +2509,11 @@ public final class PimpTicketOpen {
      */
     public com.google.protobuf.ByteString
         getFaceImageUrl2Bytes() {
-      Object ref = faceImageUrl2_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = faceImageUrl2_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         faceImageUrl2_ = b;
         return b;
       } else {
@@ -2653,18 +2524,18 @@ public final class PimpTicketOpen {
     public static final int ADDITIONALINFOS_FIELD_NUMBER = 10;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -2685,15 +2556,15 @@ public final class PimpTicketOpen {
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -2704,7 +2575,7 @@ public final class PimpTicketOpen {
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -2715,11 +2586,11 @@ public final class PimpTicketOpen {
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -2731,19 +2602,19 @@ public final class PimpTicketOpen {
      * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2753,7 +2624,7 @@ public final class PimpTicketOpen {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -2792,7 +2663,7 @@ public final class PimpTicketOpen {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2825,9 +2696,9 @@ public final class PimpTicketOpen {
       if (!getFaceImageUrl2Bytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, faceImageUrl2_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -2840,15 +2711,15 @@ public final class PimpTicketOpen {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpTicketOpen.TicketOpenPublish)) {
+      if (!(obj instanceof dg.model.PimpTicketOpen.TicketOpenPublish)) {
         return super.equals(obj);
       }
-      PimpTicketOpen.TicketOpenPublish other = (PimpTicketOpen.TicketOpenPublish) obj;
+      dg.model.PimpTicketOpen.TicketOpenPublish other = (dg.model.PimpTicketOpen.TicketOpenPublish) obj;
 
       boolean result = true;
       result = result && getOilStationId()
@@ -2875,7 +2746,7 @@ public final class PimpTicketOpen {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2909,69 +2780,69 @@ public final class PimpTicketOpen {
       return hash;
     }
 
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(byte[] data)
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(java.io.InputStream input)
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseDelimitedFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpTicketOpen.TicketOpenPublish parseFrom(
+    public static dg.model.PimpTicketOpen.TicketOpenPublish parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2979,23 +2850,23 @@ public final class PimpTicketOpen {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpTicketOpen.TicketOpenPublish prototype) {
+    public static Builder newBuilder(dg.model.PimpTicketOpen.TicketOpenPublish prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3009,10 +2880,10 @@ public final class PimpTicketOpen {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.TicketOpenPublish)
-        PimpTicketOpen.TicketOpenPublishOrBuilder {
+        dg.model.PimpTicketOpen.TicketOpenPublishOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -3037,12 +2908,12 @@ public final class PimpTicketOpen {
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_fieldAccessorTable
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpTicketOpen.TicketOpenPublish.class, PimpTicketOpen.TicketOpenPublish.Builder.class);
+                dg.model.PimpTicketOpen.TicketOpenPublish.class, dg.model.PimpTicketOpen.TicketOpenPublish.Builder.class);
       }
 
       // Construct using dg.model.PimpTicketOpen.TicketOpenPublish.newBuilder()
@@ -3051,7 +2922,7 @@ public final class PimpTicketOpen {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3060,7 +2931,7 @@ public final class PimpTicketOpen {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
@@ -3085,29 +2956,29 @@ public final class PimpTicketOpen {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
+        return dg.model.PimpTicketOpen.internal_static_dg_model_TicketOpenPublish_descriptor;
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpenPublish getDefaultInstanceForType() {
-        return PimpTicketOpen.TicketOpenPublish.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpenPublish getDefaultInstanceForType() {
+        return dg.model.PimpTicketOpen.TicketOpenPublish.getDefaultInstance();
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpenPublish build() {
-        PimpTicketOpen.TicketOpenPublish result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpenPublish build() {
+        dg.model.PimpTicketOpen.TicketOpenPublish result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpTicketOpen.TicketOpenPublish buildPartial() {
-        PimpTicketOpen.TicketOpenPublish result = new PimpTicketOpen.TicketOpenPublish(this);
+      @java.lang.Override
+      public dg.model.PimpTicketOpen.TicketOpenPublish buildPartial() {
+        dg.model.PimpTicketOpen.TicketOpenPublish result = new dg.model.PimpTicketOpen.TicketOpenPublish(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
@@ -3126,50 +2997,50 @@ public final class PimpTicketOpen {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpTicketOpen.TicketOpenPublish) {
-          return mergeFrom((PimpTicketOpen.TicketOpenPublish)other);
+        if (other instanceof dg.model.PimpTicketOpen.TicketOpenPublish) {
+          return mergeFrom((dg.model.PimpTicketOpen.TicketOpenPublish)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpTicketOpen.TicketOpenPublish other) {
-        if (other == PimpTicketOpen.TicketOpenPublish.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpTicketOpen.TicketOpenPublish other) {
+        if (other == dg.model.PimpTicketOpen.TicketOpenPublish.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
@@ -3213,21 +3084,21 @@ public final class PimpTicketOpen {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpTicketOpen.TicketOpenPublish parsedMessage = null;
+        dg.model.PimpTicketOpen.TicketOpenPublish parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpTicketOpen.TicketOpenPublish) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpTicketOpen.TicketOpenPublish) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3238,7 +3109,7 @@ public final class PimpTicketOpen {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -3246,16 +3117,16 @@ public final class PimpTicketOpen {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3267,11 +3138,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -3286,11 +3157,11 @@ public final class PimpTicketOpen {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -3303,7 +3174,7 @@ public final class PimpTicketOpen {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -3321,13 +3192,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object oilFlowNumber_ = "";
+      private java.lang.Object oilFlowNumber_ = "";
       /**
        * <pre>
        *开票事件流水号
@@ -3335,16 +3206,16 @@ public final class PimpTicketOpen {
        *
        * <code>string OilFlowNumber = 2;</code>
        */
-      public String getOilFlowNumber() {
-        Object ref = oilFlowNumber_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilFlowNumber() {
+        java.lang.Object ref = oilFlowNumber_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilFlowNumber_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3356,11 +3227,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getOilFlowNumberBytes() {
-        Object ref = oilFlowNumber_;
+        java.lang.Object ref = oilFlowNumber_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilFlowNumber_ = b;
           return b;
         } else {
@@ -3375,11 +3246,11 @@ public final class PimpTicketOpen {
        * <code>string OilFlowNumber = 2;</code>
        */
       public Builder setOilFlowNumber(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilFlowNumber_ = value;
         onChanged();
         return this;
@@ -3392,7 +3263,7 @@ public final class PimpTicketOpen {
        * <code>string OilFlowNumber = 2;</code>
        */
       public Builder clearOilFlowNumber() {
-
+        
         oilFlowNumber_ = getDefaultInstance().getOilFlowNumber();
         onChanged();
         return this;
@@ -3410,13 +3281,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilFlowNumber_ = value;
         onChanged();
         return this;
       }
 
-      private Object timestamp_ = "";
+      private java.lang.Object timestamp_ = "";
       /**
        * <pre>
        *事件时间
@@ -3424,16 +3295,16 @@ public final class PimpTicketOpen {
        *
        * <code>string Timestamp = 3;</code>
        */
-      public String getTimestamp() {
-        Object ref = timestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           timestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3445,11 +3316,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
-        Object ref = timestamp_;
+        java.lang.Object ref = timestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           timestamp_ = b;
           return b;
         } else {
@@ -3464,11 +3335,11 @@ public final class PimpTicketOpen {
        * <code>string Timestamp = 3;</code>
        */
       public Builder setTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         timestamp_ = value;
         onChanged();
         return this;
@@ -3481,7 +3352,7 @@ public final class PimpTicketOpen {
        * <code>string Timestamp = 3;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = getDefaultInstance().getTimestamp();
         onChanged();
         return this;
@@ -3499,13 +3370,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         timestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object eventType_ = "";
+      private java.lang.Object eventType_ = "";
       /**
        * <pre>
        *开票事件类型
@@ -3513,16 +3384,16 @@ public final class PimpTicketOpen {
        *
        * <code>string EventType = 4;</code>
        */
-      public String getEventType() {
-        Object ref = eventType_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEventType() {
+        java.lang.Object ref = eventType_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           eventType_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3534,11 +3405,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getEventTypeBytes() {
-        Object ref = eventType_;
+        java.lang.Object ref = eventType_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           eventType_ = b;
           return b;
         } else {
@@ -3553,11 +3424,11 @@ public final class PimpTicketOpen {
        * <code>string EventType = 4;</code>
        */
       public Builder setEventType(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         eventType_ = value;
         onChanged();
         return this;
@@ -3570,7 +3441,7 @@ public final class PimpTicketOpen {
        * <code>string EventType = 4;</code>
        */
       public Builder clearEventType() {
-
+        
         eventType_ = getDefaultInstance().getEventType();
         onChanged();
         return this;
@@ -3588,13 +3459,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         eventType_ = value;
         onChanged();
         return this;
       }
 
-      private Object takeFaceOrNot_ = "";
+      private java.lang.Object takeFaceOrNot_ = "";
       /**
        * <pre>
        *是否有拍摄到人脸
@@ -3602,16 +3473,16 @@ public final class PimpTicketOpen {
        *
        * <code>string TakeFaceOrNot = 5;</code>
        */
-      public String getTakeFaceOrNot() {
-        Object ref = takeFaceOrNot_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTakeFaceOrNot() {
+        java.lang.Object ref = takeFaceOrNot_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           takeFaceOrNot_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3623,11 +3494,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getTakeFaceOrNotBytes() {
-        Object ref = takeFaceOrNot_;
+        java.lang.Object ref = takeFaceOrNot_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           takeFaceOrNot_ = b;
           return b;
         } else {
@@ -3642,11 +3513,11 @@ public final class PimpTicketOpen {
        * <code>string TakeFaceOrNot = 5;</code>
        */
       public Builder setTakeFaceOrNot(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         takeFaceOrNot_ = value;
         onChanged();
         return this;
@@ -3659,7 +3530,7 @@ public final class PimpTicketOpen {
        * <code>string TakeFaceOrNot = 5;</code>
        */
       public Builder clearTakeFaceOrNot() {
-
+        
         takeFaceOrNot_ = getDefaultInstance().getTakeFaceOrNot();
         onChanged();
         return this;
@@ -3677,13 +3548,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         takeFaceOrNot_ = value;
         onChanged();
         return this;
       }
 
-      private Object employeeOrNot_ = "";
+      private java.lang.Object employeeOrNot_ = "";
       /**
        * <pre>
        *是否是员工
@@ -3691,16 +3562,16 @@ public final class PimpTicketOpen {
        *
        * <code>string EmployeeOrNot = 6;</code>
        */
-      public String getEmployeeOrNot() {
-        Object ref = employeeOrNot_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEmployeeOrNot() {
+        java.lang.Object ref = employeeOrNot_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           employeeOrNot_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3712,11 +3583,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getEmployeeOrNotBytes() {
-        Object ref = employeeOrNot_;
+        java.lang.Object ref = employeeOrNot_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           employeeOrNot_ = b;
           return b;
         } else {
@@ -3731,11 +3602,11 @@ public final class PimpTicketOpen {
        * <code>string EmployeeOrNot = 6;</code>
        */
       public Builder setEmployeeOrNot(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         employeeOrNot_ = value;
         onChanged();
         return this;
@@ -3748,7 +3619,7 @@ public final class PimpTicketOpen {
        * <code>string EmployeeOrNot = 6;</code>
        */
       public Builder clearEmployeeOrNot() {
-
+        
         employeeOrNot_ = getDefaultInstance().getEmployeeOrNot();
         onChanged();
         return this;
@@ -3766,13 +3637,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         employeeOrNot_ = value;
         onChanged();
         return this;
       }
 
-      private Object cashierHasPerson_ = "";
+      private java.lang.Object cashierHasPerson_ = "";
       /**
        * <pre>
        *收银区是否有人
@@ -3780,16 +3651,16 @@ public final class PimpTicketOpen {
        *
        * <code>string CashierHasPerson = 7;</code>
        */
-      public String getCashierHasPerson() {
-        Object ref = cashierHasPerson_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getCashierHasPerson() {
+        java.lang.Object ref = cashierHasPerson_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           cashierHasPerson_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3801,11 +3672,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getCashierHasPersonBytes() {
-        Object ref = cashierHasPerson_;
+        java.lang.Object ref = cashierHasPerson_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           cashierHasPerson_ = b;
           return b;
         } else {
@@ -3820,11 +3691,11 @@ public final class PimpTicketOpen {
        * <code>string CashierHasPerson = 7;</code>
        */
       public Builder setCashierHasPerson(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         cashierHasPerson_ = value;
         onChanged();
         return this;
@@ -3837,7 +3708,7 @@ public final class PimpTicketOpen {
        * <code>string CashierHasPerson = 7;</code>
        */
       public Builder clearCashierHasPerson() {
-
+        
         cashierHasPerson_ = getDefaultInstance().getCashierHasPerson();
         onChanged();
         return this;
@@ -3855,13 +3726,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         cashierHasPerson_ = value;
         onChanged();
         return this;
       }
 
-      private Object faceImageUrl1_ = "";
+      private java.lang.Object faceImageUrl1_ = "";
       /**
        * <pre>
        *图片链接1
@@ -3869,16 +3740,16 @@ public final class PimpTicketOpen {
        *
        * <code>string FaceImageUrl1 = 8;</code>
        */
-      public String getFaceImageUrl1() {
-        Object ref = faceImageUrl1_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFaceImageUrl1() {
+        java.lang.Object ref = faceImageUrl1_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           faceImageUrl1_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3890,11 +3761,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getFaceImageUrl1Bytes() {
-        Object ref = faceImageUrl1_;
+        java.lang.Object ref = faceImageUrl1_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           faceImageUrl1_ = b;
           return b;
         } else {
@@ -3909,11 +3780,11 @@ public final class PimpTicketOpen {
        * <code>string FaceImageUrl1 = 8;</code>
        */
       public Builder setFaceImageUrl1(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         faceImageUrl1_ = value;
         onChanged();
         return this;
@@ -3926,7 +3797,7 @@ public final class PimpTicketOpen {
        * <code>string FaceImageUrl1 = 8;</code>
        */
       public Builder clearFaceImageUrl1() {
-
+        
         faceImageUrl1_ = getDefaultInstance().getFaceImageUrl1();
         onChanged();
         return this;
@@ -3944,13 +3815,13 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         faceImageUrl1_ = value;
         onChanged();
         return this;
       }
 
-      private Object faceImageUrl2_ = "";
+      private java.lang.Object faceImageUrl2_ = "";
       /**
        * <pre>
        *图片链接2
@@ -3958,16 +3829,16 @@ public final class PimpTicketOpen {
        *
        * <code>string FaceImageUrl2 = 9;</code>
        */
-      public String getFaceImageUrl2() {
-        Object ref = faceImageUrl2_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFaceImageUrl2() {
+        java.lang.Object ref = faceImageUrl2_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           faceImageUrl2_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3979,11 +3850,11 @@ public final class PimpTicketOpen {
        */
       public com.google.protobuf.ByteString
           getFaceImageUrl2Bytes() {
-        Object ref = faceImageUrl2_;
+        java.lang.Object ref = faceImageUrl2_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           faceImageUrl2_ = b;
           return b;
         } else {
@@ -3998,11 +3869,11 @@ public final class PimpTicketOpen {
        * <code>string FaceImageUrl2 = 9;</code>
        */
       public Builder setFaceImageUrl2(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         faceImageUrl2_ = value;
         onChanged();
         return this;
@@ -4015,7 +3886,7 @@ public final class PimpTicketOpen {
        * <code>string FaceImageUrl2 = 9;</code>
        */
       public Builder clearFaceImageUrl2() {
-
+        
         faceImageUrl2_ = getDefaultInstance().getFaceImageUrl2();
         onChanged();
         return this;
@@ -4033,15 +3904,15 @@ public final class PimpTicketOpen {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         faceImageUrl2_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -4049,7 +3920,7 @@ public final class PimpTicketOpen {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -4074,15 +3945,15 @@ public final class PimpTicketOpen {
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -4093,7 +3964,7 @@ public final class PimpTicketOpen {
        * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -4104,11 +3975,11 @@ public final class PimpTicketOpen {
        * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -4120,13 +3991,13 @@ public final class PimpTicketOpen {
        * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -4145,8 +4016,8 @@ public final class PimpTicketOpen {
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -4154,8 +4025,8 @@ public final class PimpTicketOpen {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -4167,10 +4038,10 @@ public final class PimpTicketOpen {
        * <code>map&lt;string, string&gt; AdditionalInfos = 10;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -4184,18 +4055,18 @@ public final class PimpTicketOpen {
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4206,18 +4077,18 @@ public final class PimpTicketOpen {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.TicketOpenPublish)
-    private static final PimpTicketOpen.TicketOpenPublish DEFAULT_INSTANCE;
+    private static final dg.model.PimpTicketOpen.TicketOpenPublish DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpTicketOpen.TicketOpenPublish();
+      DEFAULT_INSTANCE = new dg.model.PimpTicketOpen.TicketOpenPublish();
     }
 
-    public static PimpTicketOpen.TicketOpenPublish getDefaultInstance() {
+    public static dg.model.PimpTicketOpen.TicketOpenPublish getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<TicketOpenPublish>
         PARSER = new com.google.protobuf.AbstractParser<TicketOpenPublish>() {
-      @Override
+      @java.lang.Override
       public TicketOpenPublish parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4230,13 +4101,13 @@ public final class PimpTicketOpen {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TicketOpenPublish> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpTicketOpen.TicketOpenPublish getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpTicketOpen.TicketOpenPublish getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4244,22 +4115,22 @@ public final class PimpTicketOpen {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_TicketOpen_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_TicketOpen_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_TicketOpen_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_TicketOpen_AdditionalInfosEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_TicketOpenPublish_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_TicketOpenPublish_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_fieldAccessorTable;
 
@@ -4270,33 +4141,24 @@ public final class PimpTicketOpen {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\024pimpTicketOpen.proto\022\010dg.model\"\213\002\n\nTic" +
+    java.lang.String[] descriptorData = {
+      "\n\024pimpTicketOpen.proto\022\010dg.model\"\373\001\n\nTic" +
       "ketOpen\022\024\n\014OilStationId\030\001 \001(\t\022\017\n\007EventId" +
-      "\030\002 \001(\t\022\021\n\tTimestamp\030\003 \001(\t\0220\n\tEventType\030\004" +
-      " \001(\0162\035.dg.model.TicketOpenEventType\022\025\n\rO" +
-      "ilFlowNumber\030\005 \001(\t\022B\n\017AdditionalInfos\030\006 " +
-      "\003(\0132).dg.model.TicketOpen.AdditionalInfo" +
-      "sEntry\0326\n\024AdditionalInfosEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\337\002\n\021TicketOpenPub" +
-      "lish\022\024\n\014OilStationId\030\001 \001(\t\022\025\n\rOilFlowNum" +
-      "ber\030\002 \001(\t\022\021\n\tTimestamp\030\003 \001(\t\022\021\n\tEventTyp" +
-      "e\030\004 \001(\t\022\025\n\rTakeFaceOrNot\030\005 \001(\t\022\025\n\rEmploy" +
-      "eeOrNot\030\006 \001(\t\022\030\n\020CashierHasPerson\030\007 \001(\t\022" +
-      "\025\n\rFaceImageUrl1\030\010 \001(\t\022\025\n\rFaceImageUrl2\030" +
-      "\t \001(\t\022I\n\017AdditionalInfos\030\n \003(\01320.dg.mode" +
-      "l.TicketOpenPublish.AdditionalInfosEntry" +
-      "\0326\n\024AdditionalInfosEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001*\346\002\n\023TicketOpenEventType" +
-      "\022\"\n\036Ticket_Open_Event_Type_Unknown\020\000\022\034\n\030" +
-      "Ticket_Open_Event_Type_1\020\001\022\034\n\030Ticket_Ope" +
-      "n_Event_Type_2\020\002\022\034\n\030Ticket_Open_Event_Ty" +
-      "pe_3\020\003\022\034\n\030Ticket_Open_Event_Type_4\020\004\022\034\n\030" +
-      "Ticket_Open_Event_Type_5\020\005\022\034\n\030Ticket_Ope" +
-      "n_Event_Type_6\020\006\022\034\n\030Ticket_Open_Event_Ty" +
-      "pe_7\020\007\022\034\n\030Ticket_Open_Event_Type_8\020\010\022\034\n\030" +
-      "Ticket_Open_Event_Type_9\020\t\022\035\n\031Ticket_Ope" +
-      "n_Event_Type_10\020\nb\006proto3"
+      "\030\002 \001(\t\022\r\n\005Scope\030\003 \001(\t\022\021\n\tTimestamp\030\004 \001(\t" +
+      "\022\021\n\tEventType\030\005 \001(\005\022\025\n\rOilFlowNumber\030\006 \001" +
+      "(\t\022B\n\017AdditionalInfos\030\007 \003(\0132).dg.model.T" +
+      "icketOpen.AdditionalInfosEntry\0326\n\024Additi" +
+      "onalInfosEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\"\337\002\n\021TicketOpenPublish\022\024\n\014OilStati" +
+      "onId\030\001 \001(\t\022\025\n\rOilFlowNumber\030\002 \001(\t\022\021\n\tTim" +
+      "estamp\030\003 \001(\t\022\021\n\tEventType\030\004 \001(\t\022\025\n\rTakeF" +
+      "aceOrNot\030\005 \001(\t\022\025\n\rEmployeeOrNot\030\006 \001(\t\022\030\n" +
+      "\020CashierHasPerson\030\007 \001(\t\022\025\n\rFaceImageUrl1" +
+      "\030\010 \001(\t\022\025\n\rFaceImageUrl2\030\t \001(\t\022I\n\017Additio" +
+      "nalInfos\030\n \003(\01320.dg.model.TicketOpenPubl" +
+      "ish.AdditionalInfosEntry\0326\n\024AdditionalIn" +
+      "fosEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4315,25 +4177,25 @@ public final class PimpTicketOpen {
     internal_static_dg_model_TicketOpen_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_TicketOpen_descriptor,
-        new String[] { "OilStationId", "EventId", "Timestamp", "EventType", "OilFlowNumber", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "EventId", "Scope", "Timestamp", "EventType", "OilFlowNumber", "AdditionalInfos", });
     internal_static_dg_model_TicketOpen_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_TicketOpen_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_TicketOpen_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_TicketOpen_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_dg_model_TicketOpenPublish_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_dg_model_TicketOpenPublish_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_TicketOpenPublish_descriptor,
-        new String[] { "OilStationId", "OilFlowNumber", "Timestamp", "EventType", "TakeFaceOrNot", "EmployeeOrNot", "CashierHasPerson", "FaceImageUrl1", "FaceImageUrl2", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "OilFlowNumber", "Timestamp", "EventType", "TakeFaceOrNot", "EmployeeOrNot", "CashierHasPerson", "FaceImageUrl1", "FaceImageUrl2", "AdditionalInfos", });
     internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_TicketOpenPublish_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_TicketOpenPublish_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,7 +1,7 @@
 /**
   * VehicleQueueMapper.java
   * Copyright(C) 2017-2018 
-  * @date 2018-09-03
+  * @date 2018-09-10
   */
 package com.sensenets.sinopec.buiness.dao.two;
 
@@ -26,6 +26,13 @@ public interface VehicleQueueMapper {
     int deleteByExample(VehicleQueueCriteria example);
 
     /**
+     *  根据主键删除数据库的记录:public.vehicle_queue
+     *
+     * @param id
+     */
+    int deleteByPrimaryKey(Long id);
+
+    /**
      *  新写入数据库记录:public.vehicle_queue
      *
      * @param record
@@ -47,6 +54,13 @@ public interface VehicleQueueMapper {
     List<VehicleQueue> selectByExample(VehicleQueueCriteria example);
 
     /**
+     *  根据指定主键获取一条数据库记录:public.vehicle_queue
+     *
+     * @param id
+     */
+    VehicleQueue selectByPrimaryKey(Long id);
+
+    /**
      *  动态根据指定的条件来更新符合条件的数据库记录:public.vehicle_queue
      *
      * @param record
@@ -63,10 +77,16 @@ public interface VehicleQueueMapper {
     int updateByExample(@Param("record") VehicleQueue record, @Param("example") VehicleQueueCriteria example);
 
     /**
-      * @Title: selectByPrimaryKey
-      * @Description: 根据业务id查询记录
-      * @param bizId 业务id
-      * @return 记录
-      */
-    VehicleQueue selectByPrimaryKey(@Param("bizId") String bizId);
+     *  动态字段,根据主键来更新符合条件的数据库记录:public.vehicle_queue
+     *
+     * @param record
+     */
+    int updateByPrimaryKeySelective(VehicleQueue record);
+
+    /**
+     *  根据主键来更新符合条件的数据库记录:public.vehicle_queue
+     *
+     * @param record
+     */
+    int updateByPrimaryKey(VehicleQueue record);
 }

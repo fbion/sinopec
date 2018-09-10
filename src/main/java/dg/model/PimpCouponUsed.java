@@ -78,7 +78,7 @@ public final class PimpCouponUsed {
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
-        throw new IllegalArgumentException(
+        throw new java.lang.IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -87,7 +87,7 @@ public final class PimpCouponUsed {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @Deprecated
+    @java.lang.Deprecated
     public static CouponUsedEventType valueOf(int value) {
       return forNumber(value);
     }
@@ -123,7 +123,7 @@ public final class PimpCouponUsed {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return PimpCouponUsed.getDescriptor().getEnumTypes().get(0);
+      return dg.model.PimpCouponUsed.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final CouponUsedEventType[] VALUES = values();
@@ -131,7 +131,7 @@ public final class PimpCouponUsed {
     public static CouponUsedEventType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new IllegalArgumentException(
+        throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -160,7 +160,7 @@ public final class PimpCouponUsed {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -178,7 +178,7 @@ public final class PimpCouponUsed {
      *
      * <code>string EventId = 2;</code>
      */
-    String getEventId();
+    java.lang.String getEventId();
     /**
      * <pre>
      *扫劵事件ID
@@ -191,18 +191,36 @@ public final class PimpCouponUsed {
 
     /**
      * <pre>
-     *扫卷时间
+     *隶属
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Scope = 3;</code>
      */
-    String getTimestamp();
+    java.lang.String getScope();
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getScopeBytes();
+
     /**
      * <pre>
      *扫卷时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <pre>
+     *扫卷时间
+     * </pre>
+     *
+     * <code>string Timestamp = 4;</code>
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
@@ -212,15 +230,15 @@ public final class PimpCouponUsed {
      *优惠券编码
      * </pre>
      *
-     * <code>string CouponNo = 4;</code>
+     * <code>string CouponNo = 5;</code>
      */
-    String getCouponNo();
+    java.lang.String getCouponNo();
     /**
      * <pre>
      *优惠券编码
      * </pre>
      *
-     * <code>string CouponNo = 4;</code>
+     * <code>string CouponNo = 5;</code>
      */
     com.google.protobuf.ByteString
         getCouponNoBytes();
@@ -230,7 +248,7 @@ public final class PimpCouponUsed {
      *事件操作类型
      * </pre>
      *
-     * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+     * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
      */
     int getEventTypeValue();
     /**
@@ -238,24 +256,24 @@ public final class PimpCouponUsed {
      *事件操作类型
      * </pre>
      *
-     * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+     * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
      */
-    PimpCouponUsed.CouponUsedEventType getEventType();
+    dg.model.PimpCouponUsed.CouponUsedEventType getEventType();
 
     /**
      * <pre>
      *订单流水
      * </pre>
      *
-     * <code>string OrderNo = 6;</code>
+     * <code>string OrderNo = 7;</code>
      */
-    String getOrderNo();
+    java.lang.String getOrderNo();
     /**
      * <pre>
      *订单流水
      * </pre>
      *
-     * <code>string OrderNo = 6;</code>
+     * <code>string OrderNo = 7;</code>
      */
     com.google.protobuf.ByteString
         getOrderNoBytes();
@@ -265,7 +283,7 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
     int getAdditionalInfosCount();
     /**
@@ -273,42 +291,46 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -329,13 +351,14 @@ public final class PimpCouponUsed {
     private CouponUsed() {
       oilStationId_ = "";
       eventId_ = "";
+      scope_ = "";
       timestamp_ = "";
       couponNo_ = "";
       eventType_ = 0;
       orderNo_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -346,7 +369,7 @@ public final class PimpCouponUsed {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -360,48 +383,54 @@ public final class PimpCouponUsed {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               eventId_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
+
+              scope_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               timestamp_ = s;
               break;
             }
-            case 34: {
-              String s = input.readStringRequireUtf8();
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               couponNo_ = s;
               break;
             }
-            case 40: {
+            case 48: {
               int rawValue = input.readEnum();
 
               eventType_ = rawValue;
               break;
             }
-            case 50: {
-              String s = input.readStringRequireUtf8();
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               orderNo_ = s;
               break;
             }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 additionalInfos_ = com.google.protobuf.MapField.newMapField(
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000080;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -429,32 +458,32 @@ public final class PimpCouponUsed {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
+      return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 7:
+        case 8:
           return internalGetAdditionalInfos();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpCouponUsed.internal_static_dg_model_CouponUsed_fieldAccessorTable
+      return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpCouponUsed.CouponUsed.class, PimpCouponUsed.CouponUsed.Builder.class);
+              dg.model.PimpCouponUsed.CouponUsed.class, dg.model.PimpCouponUsed.CouponUsed.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -462,14 +491,14 @@ public final class PimpCouponUsed {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -483,11 +512,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -496,7 +525,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int EVENTID_FIELD_NUMBER = 2;
-    private volatile Object eventId_;
+    private volatile java.lang.Object eventId_;
     /**
      * <pre>
      *扫劵事件ID
@@ -504,14 +533,14 @@ public final class PimpCouponUsed {
      *
      * <code>string EventId = 2;</code>
      */
-    public String getEventId() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         eventId_ = s;
         return s;
       }
@@ -525,11 +554,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getEventIdBytes() {
-      Object ref = eventId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         eventId_ = b;
         return b;
       } else {
@@ -537,23 +566,65 @@ public final class PimpCouponUsed {
       }
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private volatile Object timestamp_;
+    public static final int SCOPE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object scope_;
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    public java.lang.String getScope() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        scope_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *隶属
+     * </pre>
+     *
+     * <code>string Scope = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getScopeBytes() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        scope_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      *扫卷时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
      */
-    public String getTimestamp() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         timestamp_ = s;
         return s;
       }
@@ -563,15 +634,15 @@ public final class PimpCouponUsed {
      *扫卷时间
      * </pre>
      *
-     * <code>string Timestamp = 3;</code>
+     * <code>string Timestamp = 4;</code>
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         timestamp_ = b;
         return b;
       } else {
@@ -579,23 +650,23 @@ public final class PimpCouponUsed {
       }
     }
 
-    public static final int COUPONNO_FIELD_NUMBER = 4;
-    private volatile Object couponNo_;
+    public static final int COUPONNO_FIELD_NUMBER = 5;
+    private volatile java.lang.Object couponNo_;
     /**
      * <pre>
      *优惠券编码
      * </pre>
      *
-     * <code>string CouponNo = 4;</code>
+     * <code>string CouponNo = 5;</code>
      */
-    public String getCouponNo() {
-      Object ref = couponNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getCouponNo() {
+      java.lang.Object ref = couponNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         couponNo_ = s;
         return s;
       }
@@ -605,15 +676,15 @@ public final class PimpCouponUsed {
      *优惠券编码
      * </pre>
      *
-     * <code>string CouponNo = 4;</code>
+     * <code>string CouponNo = 5;</code>
      */
     public com.google.protobuf.ByteString
         getCouponNoBytes() {
-      Object ref = couponNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = couponNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         couponNo_ = b;
         return b;
       } else {
@@ -621,14 +692,14 @@ public final class PimpCouponUsed {
       }
     }
 
-    public static final int EVENTTYPE_FIELD_NUMBER = 5;
+    public static final int EVENTTYPE_FIELD_NUMBER = 6;
     private int eventType_;
     /**
      * <pre>
      *事件操作类型
      * </pre>
      *
-     * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+     * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
      */
     public int getEventTypeValue() {
       return eventType_;
@@ -638,31 +709,31 @@ public final class PimpCouponUsed {
      *事件操作类型
      * </pre>
      *
-     * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+     * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
      */
-    public PimpCouponUsed.CouponUsedEventType getEventType() {
+    public dg.model.PimpCouponUsed.CouponUsedEventType getEventType() {
       @SuppressWarnings("deprecation")
-      PimpCouponUsed.CouponUsedEventType result = PimpCouponUsed.CouponUsedEventType.valueOf(eventType_);
-      return result == null ? PimpCouponUsed.CouponUsedEventType.UNRECOGNIZED : result;
+      dg.model.PimpCouponUsed.CouponUsedEventType result = dg.model.PimpCouponUsed.CouponUsedEventType.valueOf(eventType_);
+      return result == null ? dg.model.PimpCouponUsed.CouponUsedEventType.UNRECOGNIZED : result;
     }
 
-    public static final int ORDERNO_FIELD_NUMBER = 6;
-    private volatile Object orderNo_;
+    public static final int ORDERNO_FIELD_NUMBER = 7;
+    private volatile java.lang.Object orderNo_;
     /**
      * <pre>
      *订单流水
      * </pre>
      *
-     * <code>string OrderNo = 6;</code>
+     * <code>string OrderNo = 7;</code>
      */
-    public String getOrderNo() {
-      Object ref = orderNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOrderNo() {
+      java.lang.Object ref = orderNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         orderNo_ = s;
         return s;
       }
@@ -672,15 +743,15 @@ public final class PimpCouponUsed {
      *订单流水
      * </pre>
      *
-     * <code>string OrderNo = 6;</code>
+     * <code>string OrderNo = 7;</code>
      */
     public com.google.protobuf.ByteString
         getOrderNoBytes() {
-      Object ref = orderNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = orderNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         orderNo_ = b;
         return b;
       } else {
@@ -688,21 +759,21 @@ public final class PimpCouponUsed {
       }
     }
 
-    public static final int ADDITIONALINFOS_FIELD_NUMBER = 7;
+    public static final int ADDITIONALINFOS_FIELD_NUMBER = 8;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpCouponUsed.internal_static_dg_model_CouponUsed_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -719,19 +790,19 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -739,10 +810,10 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -750,14 +821,14 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -766,22 +837,22 @@ public final class PimpCouponUsed {
      *附加信息
      * </pre>
      *
-     * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+     * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -791,7 +862,7 @@ public final class PimpCouponUsed {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -800,28 +871,31 @@ public final class PimpCouponUsed {
       if (!getEventIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, eventId_);
       }
+      if (!getScopeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, scope_);
+      }
       if (!getTimestampBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timestamp_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timestamp_);
       }
       if (!getCouponNoBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, couponNo_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, couponNo_);
       }
-      if (eventType_ != PimpCouponUsed.CouponUsedEventType.Coupon_Used_Event_Type_Unknown.getNumber()) {
-        output.writeEnum(5, eventType_);
+      if (eventType_ != dg.model.PimpCouponUsed.CouponUsedEventType.Coupon_Used_Event_Type_Unknown.getNumber()) {
+        output.writeEnum(6, eventType_);
       }
       if (!getOrderNoBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, orderNo_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, orderNo_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetAdditionalInfos(),
           AdditionalInfosDefaultEntryHolder.defaultEntry,
-          7);
+          8);
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -833,49 +907,54 @@ public final class PimpCouponUsed {
       if (!getEventIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, eventId_);
       }
+      if (!getScopeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, scope_);
+      }
       if (!getTimestampBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timestamp_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timestamp_);
       }
       if (!getCouponNoBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, couponNo_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, couponNo_);
       }
-      if (eventType_ != PimpCouponUsed.CouponUsedEventType.Coupon_Used_Event_Type_Unknown.getNumber()) {
+      if (eventType_ != dg.model.PimpCouponUsed.CouponUsedEventType.Coupon_Used_Event_Type_Unknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(5, eventType_);
+          .computeEnumSize(6, eventType_);
       }
       if (!getOrderNoBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, orderNo_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, orderNo_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, additionalInfos__);
+            .computeMessageSize(8, additionalInfos__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpCouponUsed.CouponUsed)) {
+      if (!(obj instanceof dg.model.PimpCouponUsed.CouponUsed)) {
         return super.equals(obj);
       }
-      PimpCouponUsed.CouponUsed other = (PimpCouponUsed.CouponUsed) obj;
+      dg.model.PimpCouponUsed.CouponUsed other = (dg.model.PimpCouponUsed.CouponUsed) obj;
 
       boolean result = true;
       result = result && getOilStationId()
           .equals(other.getOilStationId());
       result = result && getEventId()
           .equals(other.getEventId());
+      result = result && getScope()
+          .equals(other.getScope());
       result = result && getTimestamp()
           .equals(other.getTimestamp());
       result = result && getCouponNo()
@@ -889,7 +968,7 @@ public final class PimpCouponUsed {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -900,6 +979,8 @@ public final class PimpCouponUsed {
       hash = (53 * hash) + getOilStationId().hashCode();
       hash = (37 * hash) + EVENTID_FIELD_NUMBER;
       hash = (53 * hash) + getEventId().hashCode();
+      hash = (37 * hash) + SCOPE_FIELD_NUMBER;
+      hash = (53 * hash) + getScope().hashCode();
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
       hash = (37 * hash) + COUPONNO_FIELD_NUMBER;
@@ -917,69 +998,69 @@ public final class PimpCouponUsed {
       return hash;
     }
 
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(byte[] data)
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(java.io.InputStream input)
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsed parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpCouponUsed.CouponUsed parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsed parseDelimitedFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsed parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsed parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -987,23 +1068,23 @@ public final class PimpCouponUsed {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpCouponUsed.CouponUsed prototype) {
+    public static Builder newBuilder(dg.model.PimpCouponUsed.CouponUsed prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1017,17 +1098,17 @@ public final class PimpCouponUsed {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.CouponUsed)
-        PimpCouponUsed.CouponUsedOrBuilder {
+        dg.model.PimpCouponUsed.CouponUsedOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 8:
             return internalGetAdditionalInfos();
           default:
             throw new RuntimeException(
@@ -1038,19 +1119,19 @@ public final class PimpCouponUsed {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 8:
             return internalGetMutableAdditionalInfos();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsed_fieldAccessorTable
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpCouponUsed.CouponUsed.class, PimpCouponUsed.CouponUsed.Builder.class);
+                dg.model.PimpCouponUsed.CouponUsed.class, dg.model.PimpCouponUsed.CouponUsed.Builder.class);
       }
 
       // Construct using dg.model.PimpCouponUsed.CouponUsed.newBuilder()
@@ -1059,7 +1140,7 @@ public final class PimpCouponUsed {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1068,12 +1149,14 @@ public final class PimpCouponUsed {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
 
         eventId_ = "";
+
+        scope_ = "";
 
         timestamp_ = "";
 
@@ -1087,33 +1170,34 @@ public final class PimpCouponUsed {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsed_descriptor;
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsed getDefaultInstanceForType() {
-        return PimpCouponUsed.CouponUsed.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsed getDefaultInstanceForType() {
+        return dg.model.PimpCouponUsed.CouponUsed.getDefaultInstance();
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsed build() {
-        PimpCouponUsed.CouponUsed result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsed build() {
+        dg.model.PimpCouponUsed.CouponUsed result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsed buildPartial() {
-        PimpCouponUsed.CouponUsed result = new PimpCouponUsed.CouponUsed(this);
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsed buildPartial() {
+        dg.model.PimpCouponUsed.CouponUsed result = new dg.model.PimpCouponUsed.CouponUsed(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
         result.eventId_ = eventId_;
+        result.scope_ = scope_;
         result.timestamp_ = timestamp_;
         result.couponNo_ = couponNo_;
         result.eventType_ = eventType_;
@@ -1125,56 +1209,60 @@ public final class PimpCouponUsed {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpCouponUsed.CouponUsed) {
-          return mergeFrom((PimpCouponUsed.CouponUsed)other);
+        if (other instanceof dg.model.PimpCouponUsed.CouponUsed) {
+          return mergeFrom((dg.model.PimpCouponUsed.CouponUsed)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpCouponUsed.CouponUsed other) {
-        if (other == PimpCouponUsed.CouponUsed.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpCouponUsed.CouponUsed other) {
+        if (other == dg.model.PimpCouponUsed.CouponUsed.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
         }
         if (!other.getEventId().isEmpty()) {
           eventId_ = other.eventId_;
+          onChanged();
+        }
+        if (!other.getScope().isEmpty()) {
+          scope_ = other.scope_;
           onChanged();
         }
         if (!other.getTimestamp().isEmpty()) {
@@ -1199,21 +1287,21 @@ public final class PimpCouponUsed {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpCouponUsed.CouponUsed parsedMessage = null;
+        dg.model.PimpCouponUsed.CouponUsed parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpCouponUsed.CouponUsed) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpCouponUsed.CouponUsed) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1224,7 +1312,7 @@ public final class PimpCouponUsed {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -1232,16 +1320,16 @@ public final class PimpCouponUsed {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1253,11 +1341,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -1272,11 +1360,11 @@ public final class PimpCouponUsed {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -1289,7 +1377,7 @@ public final class PimpCouponUsed {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -1307,13 +1395,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object eventId_ = "";
+      private java.lang.Object eventId_ = "";
       /**
        * <pre>
        *扫劵事件ID
@@ -1321,16 +1409,16 @@ public final class PimpCouponUsed {
        *
        * <code>string EventId = 2;</code>
        */
-      public String getEventId() {
-        Object ref = eventId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           eventId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1342,11 +1430,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getEventIdBytes() {
-        Object ref = eventId_;
+        java.lang.Object ref = eventId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           eventId_ = b;
           return b;
         } else {
@@ -1361,11 +1449,11 @@ public final class PimpCouponUsed {
        * <code>string EventId = 2;</code>
        */
       public Builder setEventId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         eventId_ = value;
         onChanged();
         return this;
@@ -1378,7 +1466,7 @@ public final class PimpCouponUsed {
        * <code>string EventId = 2;</code>
        */
       public Builder clearEventId() {
-
+        
         eventId_ = getDefaultInstance().getEventId();
         onChanged();
         return this;
@@ -1396,30 +1484,119 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         eventId_ = value;
         onChanged();
         return this;
       }
 
-      private Object timestamp_ = "";
+      private java.lang.Object scope_ = "";
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public java.lang.String getScope() {
+        java.lang.Object ref = scope_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          scope_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getScopeBytes() {
+        java.lang.Object ref = scope_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          scope_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder setScope(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder clearScope() {
+        
+        scope_ = getDefaultInstance().getScope();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *隶属
+       * </pre>
+       *
+       * <code>string Scope = 3;</code>
+       */
+      public Builder setScopeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
       /**
        * <pre>
        *扫卷时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
-      public String getTimestamp() {
-        Object ref = timestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           timestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1427,15 +1604,15 @@ public final class PimpCouponUsed {
        *扫卷时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
-        Object ref = timestamp_;
+        java.lang.Object ref = timestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           timestamp_ = b;
           return b;
         } else {
@@ -1447,14 +1624,14 @@ public final class PimpCouponUsed {
        *扫卷时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder setTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         timestamp_ = value;
         onChanged();
         return this;
@@ -1464,10 +1641,10 @@ public final class PimpCouponUsed {
        *扫卷时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = getDefaultInstance().getTimestamp();
         onChanged();
         return this;
@@ -1477,7 +1654,7 @@ public final class PimpCouponUsed {
        *扫卷时间
        * </pre>
        *
-       * <code>string Timestamp = 3;</code>
+       * <code>string Timestamp = 4;</code>
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
@@ -1485,30 +1662,30 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         timestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object couponNo_ = "";
+      private java.lang.Object couponNo_ = "";
       /**
        * <pre>
        *优惠券编码
        * </pre>
        *
-       * <code>string CouponNo = 4;</code>
+       * <code>string CouponNo = 5;</code>
        */
-      public String getCouponNo() {
-        Object ref = couponNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getCouponNo() {
+        java.lang.Object ref = couponNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           couponNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1516,15 +1693,15 @@ public final class PimpCouponUsed {
        *优惠券编码
        * </pre>
        *
-       * <code>string CouponNo = 4;</code>
+       * <code>string CouponNo = 5;</code>
        */
       public com.google.protobuf.ByteString
           getCouponNoBytes() {
-        Object ref = couponNo_;
+        java.lang.Object ref = couponNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           couponNo_ = b;
           return b;
         } else {
@@ -1536,14 +1713,14 @@ public final class PimpCouponUsed {
        *优惠券编码
        * </pre>
        *
-       * <code>string CouponNo = 4;</code>
+       * <code>string CouponNo = 5;</code>
        */
       public Builder setCouponNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         couponNo_ = value;
         onChanged();
         return this;
@@ -1553,10 +1730,10 @@ public final class PimpCouponUsed {
        *优惠券编码
        * </pre>
        *
-       * <code>string CouponNo = 4;</code>
+       * <code>string CouponNo = 5;</code>
        */
       public Builder clearCouponNo() {
-
+        
         couponNo_ = getDefaultInstance().getCouponNo();
         onChanged();
         return this;
@@ -1566,7 +1743,7 @@ public final class PimpCouponUsed {
        *优惠券编码
        * </pre>
        *
-       * <code>string CouponNo = 4;</code>
+       * <code>string CouponNo = 5;</code>
        */
       public Builder setCouponNoBytes(
           com.google.protobuf.ByteString value) {
@@ -1574,7 +1751,7 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         couponNo_ = value;
         onChanged();
         return this;
@@ -1586,7 +1763,7 @@ public final class PimpCouponUsed {
        *事件操作类型
        * </pre>
        *
-       * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+       * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
        */
       public int getEventTypeValue() {
         return eventType_;
@@ -1596,7 +1773,7 @@ public final class PimpCouponUsed {
        *事件操作类型
        * </pre>
        *
-       * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+       * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
        */
       public Builder setEventTypeValue(int value) {
         eventType_ = value;
@@ -1608,25 +1785,25 @@ public final class PimpCouponUsed {
        *事件操作类型
        * </pre>
        *
-       * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+       * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
        */
-      public PimpCouponUsed.CouponUsedEventType getEventType() {
+      public dg.model.PimpCouponUsed.CouponUsedEventType getEventType() {
         @SuppressWarnings("deprecation")
-        PimpCouponUsed.CouponUsedEventType result = PimpCouponUsed.CouponUsedEventType.valueOf(eventType_);
-        return result == null ? PimpCouponUsed.CouponUsedEventType.UNRECOGNIZED : result;
+        dg.model.PimpCouponUsed.CouponUsedEventType result = dg.model.PimpCouponUsed.CouponUsedEventType.valueOf(eventType_);
+        return result == null ? dg.model.PimpCouponUsed.CouponUsedEventType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
        *事件操作类型
        * </pre>
        *
-       * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+       * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
        */
-      public Builder setEventType(PimpCouponUsed.CouponUsedEventType value) {
+      public Builder setEventType(dg.model.PimpCouponUsed.CouponUsedEventType value) {
         if (value == null) {
           throw new NullPointerException();
         }
-
+        
         eventType_ = value.getNumber();
         onChanged();
         return this;
@@ -1636,33 +1813,33 @@ public final class PimpCouponUsed {
        *事件操作类型
        * </pre>
        *
-       * <code>.dg.model.CouponUsedEventType EventType = 5;</code>
+       * <code>.dg.model.CouponUsedEventType EventType = 6;</code>
        */
       public Builder clearEventType() {
-
+        
         eventType_ = 0;
         onChanged();
         return this;
       }
 
-      private Object orderNo_ = "";
+      private java.lang.Object orderNo_ = "";
       /**
        * <pre>
        *订单流水
        * </pre>
        *
-       * <code>string OrderNo = 6;</code>
+       * <code>string OrderNo = 7;</code>
        */
-      public String getOrderNo() {
-        Object ref = orderNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOrderNo() {
+        java.lang.Object ref = orderNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           orderNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1670,15 +1847,15 @@ public final class PimpCouponUsed {
        *订单流水
        * </pre>
        *
-       * <code>string OrderNo = 6;</code>
+       * <code>string OrderNo = 7;</code>
        */
       public com.google.protobuf.ByteString
           getOrderNoBytes() {
-        Object ref = orderNo_;
+        java.lang.Object ref = orderNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           orderNo_ = b;
           return b;
         } else {
@@ -1690,14 +1867,14 @@ public final class PimpCouponUsed {
        *订单流水
        * </pre>
        *
-       * <code>string OrderNo = 6;</code>
+       * <code>string OrderNo = 7;</code>
        */
       public Builder setOrderNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         orderNo_ = value;
         onChanged();
         return this;
@@ -1707,10 +1884,10 @@ public final class PimpCouponUsed {
        *订单流水
        * </pre>
        *
-       * <code>string OrderNo = 6;</code>
+       * <code>string OrderNo = 7;</code>
        */
       public Builder clearOrderNo() {
-
+        
         orderNo_ = getDefaultInstance().getOrderNo();
         onChanged();
         return this;
@@ -1720,7 +1897,7 @@ public final class PimpCouponUsed {
        *订单流水
        * </pre>
        *
-       * <code>string OrderNo = 6;</code>
+       * <code>string OrderNo = 7;</code>
        */
       public Builder setOrderNoBytes(
           com.google.protobuf.ByteString value) {
@@ -1728,15 +1905,15 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         orderNo_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -1744,7 +1921,7 @@ public final class PimpCouponUsed {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -1765,19 +1942,19 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -1785,10 +1962,10 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -1796,14 +1973,14 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -1812,16 +1989,16 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -1836,12 +2013,12 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -1849,8 +2026,8 @@ public final class PimpCouponUsed {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -1859,13 +2036,13 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -1875,22 +2052,22 @@ public final class PimpCouponUsed {
        *附加信息
        * </pre>
        *
-       * <code>map&lt;string, string&gt; AdditionalInfos = 7;</code>
+       * <code>map&lt;string, string&gt; AdditionalInfos = 8;</code>
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1901,18 +2078,18 @@ public final class PimpCouponUsed {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.CouponUsed)
-    private static final PimpCouponUsed.CouponUsed DEFAULT_INSTANCE;
+    private static final dg.model.PimpCouponUsed.CouponUsed DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpCouponUsed.CouponUsed();
+      DEFAULT_INSTANCE = new dg.model.PimpCouponUsed.CouponUsed();
     }
 
-    public static PimpCouponUsed.CouponUsed getDefaultInstance() {
+    public static dg.model.PimpCouponUsed.CouponUsed getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<CouponUsed>
         PARSER = new com.google.protobuf.AbstractParser<CouponUsed>() {
-      @Override
+      @java.lang.Override
       public CouponUsed parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1925,13 +2102,13 @@ public final class PimpCouponUsed {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<CouponUsed> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpCouponUsed.CouponUsed getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpCouponUsed.CouponUsed getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1948,7 +2125,7 @@ public final class PimpCouponUsed {
      *
      * <code>string OilStationId = 1;</code>
      */
-    String getOilStationId();
+    java.lang.String getOilStationId();
     /**
      * <pre>
      *加油站ID
@@ -1966,7 +2143,7 @@ public final class PimpCouponUsed {
      *
      * <code>string OrderNo = 2;</code>
      */
-    String getOrderNo();
+    java.lang.String getOrderNo();
     /**
      * <pre>
      *订单流水号
@@ -1984,7 +2161,7 @@ public final class PimpCouponUsed {
      *
      * <code>string Timestamp = 3;</code>
      */
-    String getTimestamp();
+    java.lang.String getTimestamp();
     /**
      * <pre>
      *事件时间
@@ -2002,7 +2179,7 @@ public final class PimpCouponUsed {
      *
      * <code>string CouponNo = 4;</code>
      */
-    String getCouponNo();
+    java.lang.String getCouponNo();
     /**
      * <pre>
      *券号
@@ -2020,7 +2197,7 @@ public final class PimpCouponUsed {
      *
      * <code>string EventType = 5;</code>
      */
-    String getEventType();
+    java.lang.String getEventType();
     /**
      * <pre>
      *事件操作类型
@@ -2038,7 +2215,7 @@ public final class PimpCouponUsed {
      *
      * <code>string TakeFaceOrNot = 6;</code>
      */
-    String getTakeFaceOrNot();
+    java.lang.String getTakeFaceOrNot();
     /**
      * <pre>
      *是否有拍摄到人脸
@@ -2056,7 +2233,7 @@ public final class PimpCouponUsed {
      *
      * <code>string EmployeeOrNot = 7;</code>
      */
-    String getEmployeeOrNot();
+    java.lang.String getEmployeeOrNot();
     /**
      * <pre>
      *是否是员工
@@ -2074,7 +2251,7 @@ public final class PimpCouponUsed {
      *
      * <code>string CashierHasPerson = 8;</code>
      */
-    String getCashierHasPerson();
+    java.lang.String getCashierHasPerson();
     /**
      * <pre>
      *收银台是否有人
@@ -2092,7 +2269,7 @@ public final class PimpCouponUsed {
      *
      * <code>string FaceImageUrl1 = 9;</code>
      */
-    String getFaceImageUrl1();
+    java.lang.String getFaceImageUrl1();
     /**
      * <pre>
      *图片链接1
@@ -2110,7 +2287,7 @@ public final class PimpCouponUsed {
      *
      * <code>string FaceImageUrl2 = 10;</code>
      */
-    String getFaceImageUrl2();
+    java.lang.String getFaceImageUrl2();
     /**
      * <pre>
      *图片链接2
@@ -2136,12 +2313,13 @@ public final class PimpCouponUsed {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
-    boolean containsAdditionalInfos(String key);
+    boolean containsAdditionalInfos(
+        java.lang.String key);
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, String>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfos();
     /**
      * <pre>
@@ -2150,7 +2328,7 @@ public final class PimpCouponUsed {
      *
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
-    java.util.Map<String, String>
+    java.util.Map<java.lang.String, java.lang.String>
     getAdditionalInfosMap();
     /**
      * <pre>
@@ -2160,7 +2338,9 @@ public final class PimpCouponUsed {
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
 
-    String getAdditionalInfosOrDefault(String key, String defaultValue);
+    java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
     /**
      * <pre>
      *附加信息
@@ -2169,7 +2349,8 @@ public final class PimpCouponUsed {
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
 
-    String getAdditionalInfosOrThrow(String key);
+    java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -2200,7 +2381,7 @@ public final class PimpCouponUsed {
       faceImageUrl2_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2211,7 +2392,7 @@ public final class PimpCouponUsed {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2225,61 +2406,61 @@ public final class PimpCouponUsed {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oilStationId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               orderNo_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               timestamp_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               couponNo_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               eventType_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               takeFaceOrNot_ = s;
               break;
             }
             case 58: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               employeeOrNot_ = s;
               break;
             }
             case 66: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               cashierHasPerson_ = s;
               break;
             }
             case 74: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               faceImageUrl1_ = s;
               break;
             }
             case 82: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               faceImageUrl2_ = s;
               break;
@@ -2290,7 +2471,7 @@ public final class PimpCouponUsed {
                     AdditionalInfosDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000400;
               }
-              com.google.protobuf.MapEntry<String, String>
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               additionalInfos__ = input.readMessage(
                   AdditionalInfosDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               additionalInfos_.getMutableMap().put(
@@ -2318,11 +2499,11 @@ public final class PimpCouponUsed {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
+      return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
-    @Override
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -2333,17 +2514,17 @@ public final class PimpCouponUsed {
               "Invalid map field number: " + number);
       }
     }
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_fieldAccessorTable
+      return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PimpCouponUsed.CouponUsedPublish.class, PimpCouponUsed.CouponUsedPublish.Builder.class);
+              dg.model.PimpCouponUsed.CouponUsedPublish.class, dg.model.PimpCouponUsed.CouponUsedPublish.Builder.class);
     }
 
     private int bitField0_;
     public static final int OILSTATIONID_FIELD_NUMBER = 1;
-    private volatile Object oilStationId_;
+    private volatile java.lang.Object oilStationId_;
     /**
      * <pre>
      *加油站ID
@@ -2351,14 +2532,14 @@ public final class PimpCouponUsed {
      *
      * <code>string OilStationId = 1;</code>
      */
-    public String getOilStationId() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOilStationId() {
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oilStationId_ = s;
         return s;
       }
@@ -2372,11 +2553,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getOilStationIdBytes() {
-      Object ref = oilStationId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = oilStationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oilStationId_ = b;
         return b;
       } else {
@@ -2385,7 +2566,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int ORDERNO_FIELD_NUMBER = 2;
-    private volatile Object orderNo_;
+    private volatile java.lang.Object orderNo_;
     /**
      * <pre>
      *订单流水号
@@ -2393,14 +2574,14 @@ public final class PimpCouponUsed {
      *
      * <code>string OrderNo = 2;</code>
      */
-    public String getOrderNo() {
-      Object ref = orderNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getOrderNo() {
+      java.lang.Object ref = orderNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         orderNo_ = s;
         return s;
       }
@@ -2414,11 +2595,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getOrderNoBytes() {
-      Object ref = orderNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = orderNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         orderNo_ = b;
         return b;
       } else {
@@ -2427,7 +2608,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private volatile Object timestamp_;
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      *事件时间
@@ -2435,14 +2616,14 @@ public final class PimpCouponUsed {
      *
      * <code>string Timestamp = 3;</code>
      */
-    public String getTimestamp() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         timestamp_ = s;
         return s;
       }
@@ -2456,11 +2637,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
-      Object ref = timestamp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         timestamp_ = b;
         return b;
       } else {
@@ -2469,7 +2650,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int COUPONNO_FIELD_NUMBER = 4;
-    private volatile Object couponNo_;
+    private volatile java.lang.Object couponNo_;
     /**
      * <pre>
      *券号
@@ -2477,14 +2658,14 @@ public final class PimpCouponUsed {
      *
      * <code>string CouponNo = 4;</code>
      */
-    public String getCouponNo() {
-      Object ref = couponNo_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getCouponNo() {
+      java.lang.Object ref = couponNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         couponNo_ = s;
         return s;
       }
@@ -2498,11 +2679,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getCouponNoBytes() {
-      Object ref = couponNo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = couponNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         couponNo_ = b;
         return b;
       } else {
@@ -2511,7 +2692,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int EVENTTYPE_FIELD_NUMBER = 5;
-    private volatile Object eventType_;
+    private volatile java.lang.Object eventType_;
     /**
      * <pre>
      *事件操作类型
@@ -2519,14 +2700,14 @@ public final class PimpCouponUsed {
      *
      * <code>string EventType = 5;</code>
      */
-    public String getEventType() {
-      Object ref = eventType_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEventType() {
+      java.lang.Object ref = eventType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         eventType_ = s;
         return s;
       }
@@ -2540,11 +2721,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getEventTypeBytes() {
-      Object ref = eventType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = eventType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         eventType_ = b;
         return b;
       } else {
@@ -2553,7 +2734,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int TAKEFACEORNOT_FIELD_NUMBER = 6;
-    private volatile Object takeFaceOrNot_;
+    private volatile java.lang.Object takeFaceOrNot_;
     /**
      * <pre>
      *是否有拍摄到人脸
@@ -2561,14 +2742,14 @@ public final class PimpCouponUsed {
      *
      * <code>string TakeFaceOrNot = 6;</code>
      */
-    public String getTakeFaceOrNot() {
-      Object ref = takeFaceOrNot_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getTakeFaceOrNot() {
+      java.lang.Object ref = takeFaceOrNot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         takeFaceOrNot_ = s;
         return s;
       }
@@ -2582,11 +2763,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getTakeFaceOrNotBytes() {
-      Object ref = takeFaceOrNot_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = takeFaceOrNot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         takeFaceOrNot_ = b;
         return b;
       } else {
@@ -2595,7 +2776,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int EMPLOYEEORNOT_FIELD_NUMBER = 7;
-    private volatile Object employeeOrNot_;
+    private volatile java.lang.Object employeeOrNot_;
     /**
      * <pre>
      *是否是员工
@@ -2603,14 +2784,14 @@ public final class PimpCouponUsed {
      *
      * <code>string EmployeeOrNot = 7;</code>
      */
-    public String getEmployeeOrNot() {
-      Object ref = employeeOrNot_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getEmployeeOrNot() {
+      java.lang.Object ref = employeeOrNot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         employeeOrNot_ = s;
         return s;
       }
@@ -2624,11 +2805,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getEmployeeOrNotBytes() {
-      Object ref = employeeOrNot_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = employeeOrNot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         employeeOrNot_ = b;
         return b;
       } else {
@@ -2637,7 +2818,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int CASHIERHASPERSON_FIELD_NUMBER = 8;
-    private volatile Object cashierHasPerson_;
+    private volatile java.lang.Object cashierHasPerson_;
     /**
      * <pre>
      *收银台是否有人
@@ -2645,14 +2826,14 @@ public final class PimpCouponUsed {
      *
      * <code>string CashierHasPerson = 8;</code>
      */
-    public String getCashierHasPerson() {
-      Object ref = cashierHasPerson_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getCashierHasPerson() {
+      java.lang.Object ref = cashierHasPerson_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         cashierHasPerson_ = s;
         return s;
       }
@@ -2666,11 +2847,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getCashierHasPersonBytes() {
-      Object ref = cashierHasPerson_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = cashierHasPerson_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         cashierHasPerson_ = b;
         return b;
       } else {
@@ -2679,7 +2860,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int FACEIMAGEURL1_FIELD_NUMBER = 9;
-    private volatile Object faceImageUrl1_;
+    private volatile java.lang.Object faceImageUrl1_;
     /**
      * <pre>
      *图片链接1
@@ -2687,14 +2868,14 @@ public final class PimpCouponUsed {
      *
      * <code>string FaceImageUrl1 = 9;</code>
      */
-    public String getFaceImageUrl1() {
-      Object ref = faceImageUrl1_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getFaceImageUrl1() {
+      java.lang.Object ref = faceImageUrl1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         faceImageUrl1_ = s;
         return s;
       }
@@ -2708,11 +2889,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getFaceImageUrl1Bytes() {
-      Object ref = faceImageUrl1_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = faceImageUrl1_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         faceImageUrl1_ = b;
         return b;
       } else {
@@ -2721,7 +2902,7 @@ public final class PimpCouponUsed {
     }
 
     public static final int FACEIMAGEURL2_FIELD_NUMBER = 10;
-    private volatile Object faceImageUrl2_;
+    private volatile java.lang.Object faceImageUrl2_;
     /**
      * <pre>
      *图片链接2
@@ -2729,14 +2910,14 @@ public final class PimpCouponUsed {
      *
      * <code>string FaceImageUrl2 = 10;</code>
      */
-    public String getFaceImageUrl2() {
-      Object ref = faceImageUrl2_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getFaceImageUrl2() {
+      java.lang.Object ref = faceImageUrl2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         faceImageUrl2_ = s;
         return s;
       }
@@ -2750,11 +2931,11 @@ public final class PimpCouponUsed {
      */
     public com.google.protobuf.ByteString
         getFaceImageUrl2Bytes() {
-      Object ref = faceImageUrl2_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = faceImageUrl2_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         faceImageUrl2_ = b;
         return b;
       } else {
@@ -2765,18 +2946,18 @@ public final class PimpCouponUsed {
     public static final int ADDITIONALINFOS_FIELD_NUMBER = 11;
     private static final class AdditionalInfosDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, String> defaultEntry =
+          java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, String>newDefaultInstance(
-                  PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_descriptor,
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        String, String> additionalInfos_;
-    private com.google.protobuf.MapField<String, String>
+        java.lang.String, java.lang.String> additionalInfos_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetAdditionalInfos() {
       if (additionalInfos_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -2797,15 +2978,15 @@ public final class PimpCouponUsed {
      */
 
     public boolean containsAdditionalInfos(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAdditionalInfos().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAdditionalInfosMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, String> getAdditionalInfos() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
       return getAdditionalInfosMap();
     }
     /**
@@ -2816,7 +2997,7 @@ public final class PimpCouponUsed {
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
 
-    public java.util.Map<String, String> getAdditionalInfosMap() {
+    public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
       return internalGetAdditionalInfos().getMap();
     }
     /**
@@ -2827,11 +3008,11 @@ public final class PimpCouponUsed {
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
 
-    public String getAdditionalInfosOrDefault(
-        String key,
-        String defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -2843,19 +3024,19 @@ public final class PimpCouponUsed {
      * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
      */
 
-    public String getAdditionalInfosOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, String> map =
+    public java.lang.String getAdditionalInfosOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalInfos().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2865,7 +3046,7 @@ public final class PimpCouponUsed {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOilStationIdBytes().isEmpty()) {
@@ -2907,7 +3088,7 @@ public final class PimpCouponUsed {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2943,9 +3124,9 @@ public final class PimpCouponUsed {
       if (!getFaceImageUrl2Bytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, faceImageUrl2_);
       }
-      for (java.util.Map.Entry<String, String> entry
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAdditionalInfos().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, String>
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
         additionalInfos__ = AdditionalInfosDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -2958,15 +3139,15 @@ public final class PimpCouponUsed {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PimpCouponUsed.CouponUsedPublish)) {
+      if (!(obj instanceof dg.model.PimpCouponUsed.CouponUsedPublish)) {
         return super.equals(obj);
       }
-      PimpCouponUsed.CouponUsedPublish other = (PimpCouponUsed.CouponUsedPublish) obj;
+      dg.model.PimpCouponUsed.CouponUsedPublish other = (dg.model.PimpCouponUsed.CouponUsedPublish) obj;
 
       boolean result = true;
       result = result && getOilStationId()
@@ -2995,7 +3176,7 @@ public final class PimpCouponUsed {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3031,69 +3212,69 @@ public final class PimpCouponUsed {
       return hash;
     }
 
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(byte[] data)
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(java.io.InputStream input)
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseDelimitedFrom(java.io.InputStream input)
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseDelimitedFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PimpCouponUsed.CouponUsedPublish parseFrom(
+    public static dg.model.PimpCouponUsed.CouponUsedPublish parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3101,23 +3282,23 @@ public final class PimpCouponUsed {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PimpCouponUsed.CouponUsedPublish prototype) {
+    public static Builder newBuilder(dg.model.PimpCouponUsed.CouponUsedPublish prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3131,10 +3312,10 @@ public final class PimpCouponUsed {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:dg.model.CouponUsedPublish)
-        PimpCouponUsed.CouponUsedPublishOrBuilder {
+        dg.model.PimpCouponUsed.CouponUsedPublishOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -3159,12 +3340,12 @@ public final class PimpCouponUsed {
                 "Invalid map field number: " + number);
         }
       }
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_fieldAccessorTable
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PimpCouponUsed.CouponUsedPublish.class, PimpCouponUsed.CouponUsedPublish.Builder.class);
+                dg.model.PimpCouponUsed.CouponUsedPublish.class, dg.model.PimpCouponUsed.CouponUsedPublish.Builder.class);
       }
 
       // Construct using dg.model.PimpCouponUsed.CouponUsedPublish.newBuilder()
@@ -3173,7 +3354,7 @@ public final class PimpCouponUsed {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3182,7 +3363,7 @@ public final class PimpCouponUsed {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oilStationId_ = "";
@@ -3209,29 +3390,29 @@ public final class PimpCouponUsed {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
+        return dg.model.PimpCouponUsed.internal_static_dg_model_CouponUsedPublish_descriptor;
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsedPublish getDefaultInstanceForType() {
-        return PimpCouponUsed.CouponUsedPublish.getDefaultInstance();
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsedPublish getDefaultInstanceForType() {
+        return dg.model.PimpCouponUsed.CouponUsedPublish.getDefaultInstance();
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsedPublish build() {
-        PimpCouponUsed.CouponUsedPublish result = buildPartial();
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsedPublish build() {
+        dg.model.PimpCouponUsed.CouponUsedPublish result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public PimpCouponUsed.CouponUsedPublish buildPartial() {
-        PimpCouponUsed.CouponUsedPublish result = new PimpCouponUsed.CouponUsedPublish(this);
+      @java.lang.Override
+      public dg.model.PimpCouponUsed.CouponUsedPublish buildPartial() {
+        dg.model.PimpCouponUsed.CouponUsedPublish result = new dg.model.PimpCouponUsed.CouponUsedPublish(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.oilStationId_ = oilStationId_;
@@ -3251,50 +3432,50 @@ public final class PimpCouponUsed {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PimpCouponUsed.CouponUsedPublish) {
-          return mergeFrom((PimpCouponUsed.CouponUsedPublish)other);
+        if (other instanceof dg.model.PimpCouponUsed.CouponUsedPublish) {
+          return mergeFrom((dg.model.PimpCouponUsed.CouponUsedPublish)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PimpCouponUsed.CouponUsedPublish other) {
-        if (other == PimpCouponUsed.CouponUsedPublish.getDefaultInstance()) return this;
+      public Builder mergeFrom(dg.model.PimpCouponUsed.CouponUsedPublish other) {
+        if (other == dg.model.PimpCouponUsed.CouponUsedPublish.getDefaultInstance()) return this;
         if (!other.getOilStationId().isEmpty()) {
           oilStationId_ = other.oilStationId_;
           onChanged();
@@ -3342,21 +3523,21 @@ public final class PimpCouponUsed {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PimpCouponUsed.CouponUsedPublish parsedMessage = null;
+        dg.model.PimpCouponUsed.CouponUsedPublish parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PimpCouponUsed.CouponUsedPublish) e.getUnfinishedMessage();
+          parsedMessage = (dg.model.PimpCouponUsed.CouponUsedPublish) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3367,7 +3548,7 @@ public final class PimpCouponUsed {
       }
       private int bitField0_;
 
-      private Object oilStationId_ = "";
+      private java.lang.Object oilStationId_ = "";
       /**
        * <pre>
        *加油站ID
@@ -3375,16 +3556,16 @@ public final class PimpCouponUsed {
        *
        * <code>string OilStationId = 1;</code>
        */
-      public String getOilStationId() {
-        Object ref = oilStationId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOilStationId() {
+        java.lang.Object ref = oilStationId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oilStationId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3396,11 +3577,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getOilStationIdBytes() {
-        Object ref = oilStationId_;
+        java.lang.Object ref = oilStationId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oilStationId_ = b;
           return b;
         } else {
@@ -3415,11 +3596,11 @@ public final class PimpCouponUsed {
        * <code>string OilStationId = 1;</code>
        */
       public Builder setOilStationId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         oilStationId_ = value;
         onChanged();
         return this;
@@ -3432,7 +3613,7 @@ public final class PimpCouponUsed {
        * <code>string OilStationId = 1;</code>
        */
       public Builder clearOilStationId() {
-
+        
         oilStationId_ = getDefaultInstance().getOilStationId();
         onChanged();
         return this;
@@ -3450,13 +3631,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         oilStationId_ = value;
         onChanged();
         return this;
       }
 
-      private Object orderNo_ = "";
+      private java.lang.Object orderNo_ = "";
       /**
        * <pre>
        *订单流水号
@@ -3464,16 +3645,16 @@ public final class PimpCouponUsed {
        *
        * <code>string OrderNo = 2;</code>
        */
-      public String getOrderNo() {
-        Object ref = orderNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOrderNo() {
+        java.lang.Object ref = orderNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           orderNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3485,11 +3666,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getOrderNoBytes() {
-        Object ref = orderNo_;
+        java.lang.Object ref = orderNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           orderNo_ = b;
           return b;
         } else {
@@ -3504,11 +3685,11 @@ public final class PimpCouponUsed {
        * <code>string OrderNo = 2;</code>
        */
       public Builder setOrderNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         orderNo_ = value;
         onChanged();
         return this;
@@ -3521,7 +3702,7 @@ public final class PimpCouponUsed {
        * <code>string OrderNo = 2;</code>
        */
       public Builder clearOrderNo() {
-
+        
         orderNo_ = getDefaultInstance().getOrderNo();
         onChanged();
         return this;
@@ -3539,13 +3720,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         orderNo_ = value;
         onChanged();
         return this;
       }
 
-      private Object timestamp_ = "";
+      private java.lang.Object timestamp_ = "";
       /**
        * <pre>
        *事件时间
@@ -3553,16 +3734,16 @@ public final class PimpCouponUsed {
        *
        * <code>string Timestamp = 3;</code>
        */
-      public String getTimestamp() {
-        Object ref = timestamp_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           timestamp_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3574,11 +3755,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
-        Object ref = timestamp_;
+        java.lang.Object ref = timestamp_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           timestamp_ = b;
           return b;
         } else {
@@ -3593,11 +3774,11 @@ public final class PimpCouponUsed {
        * <code>string Timestamp = 3;</code>
        */
       public Builder setTimestamp(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         timestamp_ = value;
         onChanged();
         return this;
@@ -3610,7 +3791,7 @@ public final class PimpCouponUsed {
        * <code>string Timestamp = 3;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = getDefaultInstance().getTimestamp();
         onChanged();
         return this;
@@ -3628,13 +3809,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         timestamp_ = value;
         onChanged();
         return this;
       }
 
-      private Object couponNo_ = "";
+      private java.lang.Object couponNo_ = "";
       /**
        * <pre>
        *券号
@@ -3642,16 +3823,16 @@ public final class PimpCouponUsed {
        *
        * <code>string CouponNo = 4;</code>
        */
-      public String getCouponNo() {
-        Object ref = couponNo_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getCouponNo() {
+        java.lang.Object ref = couponNo_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           couponNo_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3663,11 +3844,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getCouponNoBytes() {
-        Object ref = couponNo_;
+        java.lang.Object ref = couponNo_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           couponNo_ = b;
           return b;
         } else {
@@ -3682,11 +3863,11 @@ public final class PimpCouponUsed {
        * <code>string CouponNo = 4;</code>
        */
       public Builder setCouponNo(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         couponNo_ = value;
         onChanged();
         return this;
@@ -3699,7 +3880,7 @@ public final class PimpCouponUsed {
        * <code>string CouponNo = 4;</code>
        */
       public Builder clearCouponNo() {
-
+        
         couponNo_ = getDefaultInstance().getCouponNo();
         onChanged();
         return this;
@@ -3717,13 +3898,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         couponNo_ = value;
         onChanged();
         return this;
       }
 
-      private Object eventType_ = "";
+      private java.lang.Object eventType_ = "";
       /**
        * <pre>
        *事件操作类型
@@ -3731,16 +3912,16 @@ public final class PimpCouponUsed {
        *
        * <code>string EventType = 5;</code>
        */
-      public String getEventType() {
-        Object ref = eventType_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEventType() {
+        java.lang.Object ref = eventType_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           eventType_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3752,11 +3933,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getEventTypeBytes() {
-        Object ref = eventType_;
+        java.lang.Object ref = eventType_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           eventType_ = b;
           return b;
         } else {
@@ -3771,11 +3952,11 @@ public final class PimpCouponUsed {
        * <code>string EventType = 5;</code>
        */
       public Builder setEventType(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         eventType_ = value;
         onChanged();
         return this;
@@ -3788,7 +3969,7 @@ public final class PimpCouponUsed {
        * <code>string EventType = 5;</code>
        */
       public Builder clearEventType() {
-
+        
         eventType_ = getDefaultInstance().getEventType();
         onChanged();
         return this;
@@ -3806,13 +3987,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         eventType_ = value;
         onChanged();
         return this;
       }
 
-      private Object takeFaceOrNot_ = "";
+      private java.lang.Object takeFaceOrNot_ = "";
       /**
        * <pre>
        *是否有拍摄到人脸
@@ -3820,16 +4001,16 @@ public final class PimpCouponUsed {
        *
        * <code>string TakeFaceOrNot = 6;</code>
        */
-      public String getTakeFaceOrNot() {
-        Object ref = takeFaceOrNot_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getTakeFaceOrNot() {
+        java.lang.Object ref = takeFaceOrNot_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           takeFaceOrNot_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3841,11 +4022,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getTakeFaceOrNotBytes() {
-        Object ref = takeFaceOrNot_;
+        java.lang.Object ref = takeFaceOrNot_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           takeFaceOrNot_ = b;
           return b;
         } else {
@@ -3860,11 +4041,11 @@ public final class PimpCouponUsed {
        * <code>string TakeFaceOrNot = 6;</code>
        */
       public Builder setTakeFaceOrNot(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         takeFaceOrNot_ = value;
         onChanged();
         return this;
@@ -3877,7 +4058,7 @@ public final class PimpCouponUsed {
        * <code>string TakeFaceOrNot = 6;</code>
        */
       public Builder clearTakeFaceOrNot() {
-
+        
         takeFaceOrNot_ = getDefaultInstance().getTakeFaceOrNot();
         onChanged();
         return this;
@@ -3895,13 +4076,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         takeFaceOrNot_ = value;
         onChanged();
         return this;
       }
 
-      private Object employeeOrNot_ = "";
+      private java.lang.Object employeeOrNot_ = "";
       /**
        * <pre>
        *是否是员工
@@ -3909,16 +4090,16 @@ public final class PimpCouponUsed {
        *
        * <code>string EmployeeOrNot = 7;</code>
        */
-      public String getEmployeeOrNot() {
-        Object ref = employeeOrNot_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEmployeeOrNot() {
+        java.lang.Object ref = employeeOrNot_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           employeeOrNot_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3930,11 +4111,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getEmployeeOrNotBytes() {
-        Object ref = employeeOrNot_;
+        java.lang.Object ref = employeeOrNot_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           employeeOrNot_ = b;
           return b;
         } else {
@@ -3949,11 +4130,11 @@ public final class PimpCouponUsed {
        * <code>string EmployeeOrNot = 7;</code>
        */
       public Builder setEmployeeOrNot(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         employeeOrNot_ = value;
         onChanged();
         return this;
@@ -3966,7 +4147,7 @@ public final class PimpCouponUsed {
        * <code>string EmployeeOrNot = 7;</code>
        */
       public Builder clearEmployeeOrNot() {
-
+        
         employeeOrNot_ = getDefaultInstance().getEmployeeOrNot();
         onChanged();
         return this;
@@ -3984,13 +4165,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         employeeOrNot_ = value;
         onChanged();
         return this;
       }
 
-      private Object cashierHasPerson_ = "";
+      private java.lang.Object cashierHasPerson_ = "";
       /**
        * <pre>
        *收银台是否有人
@@ -3998,16 +4179,16 @@ public final class PimpCouponUsed {
        *
        * <code>string CashierHasPerson = 8;</code>
        */
-      public String getCashierHasPerson() {
-        Object ref = cashierHasPerson_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getCashierHasPerson() {
+        java.lang.Object ref = cashierHasPerson_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           cashierHasPerson_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4019,11 +4200,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getCashierHasPersonBytes() {
-        Object ref = cashierHasPerson_;
+        java.lang.Object ref = cashierHasPerson_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           cashierHasPerson_ = b;
           return b;
         } else {
@@ -4038,11 +4219,11 @@ public final class PimpCouponUsed {
        * <code>string CashierHasPerson = 8;</code>
        */
       public Builder setCashierHasPerson(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         cashierHasPerson_ = value;
         onChanged();
         return this;
@@ -4055,7 +4236,7 @@ public final class PimpCouponUsed {
        * <code>string CashierHasPerson = 8;</code>
        */
       public Builder clearCashierHasPerson() {
-
+        
         cashierHasPerson_ = getDefaultInstance().getCashierHasPerson();
         onChanged();
         return this;
@@ -4073,13 +4254,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         cashierHasPerson_ = value;
         onChanged();
         return this;
       }
 
-      private Object faceImageUrl1_ = "";
+      private java.lang.Object faceImageUrl1_ = "";
       /**
        * <pre>
        *图片链接1
@@ -4087,16 +4268,16 @@ public final class PimpCouponUsed {
        *
        * <code>string FaceImageUrl1 = 9;</code>
        */
-      public String getFaceImageUrl1() {
-        Object ref = faceImageUrl1_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFaceImageUrl1() {
+        java.lang.Object ref = faceImageUrl1_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           faceImageUrl1_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4108,11 +4289,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getFaceImageUrl1Bytes() {
-        Object ref = faceImageUrl1_;
+        java.lang.Object ref = faceImageUrl1_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           faceImageUrl1_ = b;
           return b;
         } else {
@@ -4127,11 +4308,11 @@ public final class PimpCouponUsed {
        * <code>string FaceImageUrl1 = 9;</code>
        */
       public Builder setFaceImageUrl1(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         faceImageUrl1_ = value;
         onChanged();
         return this;
@@ -4144,7 +4325,7 @@ public final class PimpCouponUsed {
        * <code>string FaceImageUrl1 = 9;</code>
        */
       public Builder clearFaceImageUrl1() {
-
+        
         faceImageUrl1_ = getDefaultInstance().getFaceImageUrl1();
         onChanged();
         return this;
@@ -4162,13 +4343,13 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         faceImageUrl1_ = value;
         onChanged();
         return this;
       }
 
-      private Object faceImageUrl2_ = "";
+      private java.lang.Object faceImageUrl2_ = "";
       /**
        * <pre>
        *图片链接2
@@ -4176,16 +4357,16 @@ public final class PimpCouponUsed {
        *
        * <code>string FaceImageUrl2 = 10;</code>
        */
-      public String getFaceImageUrl2() {
-        Object ref = faceImageUrl2_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFaceImageUrl2() {
+        java.lang.Object ref = faceImageUrl2_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           faceImageUrl2_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -4197,11 +4378,11 @@ public final class PimpCouponUsed {
        */
       public com.google.protobuf.ByteString
           getFaceImageUrl2Bytes() {
-        Object ref = faceImageUrl2_;
+        java.lang.Object ref = faceImageUrl2_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           faceImageUrl2_ = b;
           return b;
         } else {
@@ -4216,11 +4397,11 @@ public final class PimpCouponUsed {
        * <code>string FaceImageUrl2 = 10;</code>
        */
       public Builder setFaceImageUrl2(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         faceImageUrl2_ = value;
         onChanged();
         return this;
@@ -4233,7 +4414,7 @@ public final class PimpCouponUsed {
        * <code>string FaceImageUrl2 = 10;</code>
        */
       public Builder clearFaceImageUrl2() {
-
+        
         faceImageUrl2_ = getDefaultInstance().getFaceImageUrl2();
         onChanged();
         return this;
@@ -4251,15 +4432,15 @@ public final class PimpCouponUsed {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         faceImageUrl2_ = value;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, String> additionalInfos_;
-      private com.google.protobuf.MapField<String, String>
+          java.lang.String, java.lang.String> additionalInfos_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetAdditionalInfos() {
         if (additionalInfos_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -4267,7 +4448,7 @@ public final class PimpCouponUsed {
         }
         return additionalInfos_;
       }
-      private com.google.protobuf.MapField<String, String>
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
       internalGetMutableAdditionalInfos() {
         onChanged();;
         if (additionalInfos_ == null) {
@@ -4292,15 +4473,15 @@ public final class PimpCouponUsed {
        */
 
       public boolean containsAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAdditionalInfos().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAdditionalInfosMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, String> getAdditionalInfos() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfos() {
         return getAdditionalInfosMap();
       }
       /**
@@ -4311,7 +4492,7 @@ public final class PimpCouponUsed {
        * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
        */
 
-      public java.util.Map<String, String> getAdditionalInfosMap() {
+      public java.util.Map<java.lang.String, java.lang.String> getAdditionalInfosMap() {
         return internalGetAdditionalInfos().getMap();
       }
       /**
@@ -4322,11 +4503,11 @@ public final class PimpCouponUsed {
        * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
        */
 
-      public String getAdditionalInfosOrDefault(
-          String key,
-          String defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -4338,13 +4519,13 @@ public final class PimpCouponUsed {
        * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
        */
 
-      public String getAdditionalInfosOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, String> map =
+      public java.lang.String getAdditionalInfosOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalInfos().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -4363,8 +4544,8 @@ public final class PimpCouponUsed {
        */
 
       public Builder removeAdditionalInfos(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .remove(key);
         return this;
@@ -4372,8 +4553,8 @@ public final class PimpCouponUsed {
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, String>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
       getMutableAdditionalInfos() {
         return internalGetMutableAdditionalInfos().getMutableMap();
       }
@@ -4385,10 +4566,10 @@ public final class PimpCouponUsed {
        * <code>map&lt;string, string&gt; AdditionalInfos = 11;</code>
        */
       public Builder putAdditionalInfos(
-          String key,
-          String value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAdditionalInfos().getMutableMap()
             .put(key, value);
         return this;
@@ -4402,18 +4583,18 @@ public final class PimpCouponUsed {
        */
 
       public Builder putAllAdditionalInfos(
-          java.util.Map<String, String> values) {
+          java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalInfos().getMutableMap()
             .putAll(values);
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4424,18 +4605,18 @@ public final class PimpCouponUsed {
     }
 
     // @@protoc_insertion_point(class_scope:dg.model.CouponUsedPublish)
-    private static final PimpCouponUsed.CouponUsedPublish DEFAULT_INSTANCE;
+    private static final dg.model.PimpCouponUsed.CouponUsedPublish DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PimpCouponUsed.CouponUsedPublish();
+      DEFAULT_INSTANCE = new dg.model.PimpCouponUsed.CouponUsedPublish();
     }
 
-    public static PimpCouponUsed.CouponUsedPublish getDefaultInstance() {
+    public static dg.model.PimpCouponUsed.CouponUsedPublish getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<CouponUsedPublish>
         PARSER = new com.google.protobuf.AbstractParser<CouponUsedPublish>() {
-      @Override
+      @java.lang.Override
       public CouponUsedPublish parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4448,13 +4629,13 @@ public final class PimpCouponUsed {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<CouponUsedPublish> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public PimpCouponUsed.CouponUsedPublish getDefaultInstanceForType() {
+    @java.lang.Override
+    public dg.model.PimpCouponUsed.CouponUsedPublish getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4462,22 +4643,22 @@ public final class PimpCouponUsed {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_CouponUsed_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_CouponUsed_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_CouponUsed_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_CouponUsed_AdditionalInfosEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_CouponUsedPublish_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_CouponUsedPublish_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_fieldAccessorTable;
 
@@ -4488,28 +4669,28 @@ public final class PimpCouponUsed {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\024pimpCouponUsed.proto\022\010dg.model\"\227\002\n\nCou" +
+    java.lang.String[] descriptorData = {
+      "\n\024pimpCouponUsed.proto\022\010dg.model\"\246\002\n\nCou" +
       "ponUsed\022\024\n\014OilStationId\030\001 \001(\t\022\017\n\007EventId" +
-      "\030\002 \001(\t\022\021\n\tTimestamp\030\003 \001(\t\022\020\n\010CouponNo\030\004 " +
-      "\001(\t\0220\n\tEventType\030\005 \001(\0162\035.dg.model.Coupon" +
-      "UsedEventType\022\017\n\007OrderNo\030\006 \001(\t\022B\n\017Additi" +
-      "onalInfos\030\007 \003(\0132).dg.model.CouponUsed.Ad" +
-      "ditionalInfosEntry\0326\n\024AdditionalInfosEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\353\002\n\021C" +
-      "ouponUsedPublish\022\024\n\014OilStationId\030\001 \001(\t\022\017" +
-      "\n\007OrderNo\030\002 \001(\t\022\021\n\tTimestamp\030\003 \001(\t\022\020\n\010Co" +
-      "uponNo\030\004 \001(\t\022\021\n\tEventType\030\005 \001(\t\022\025\n\rTakeF" +
-      "aceOrNot\030\006 \001(\t\022\025\n\rEmployeeOrNot\030\007 \001(\t\022\030\n" +
-      "\020CashierHasPerson\030\010 \001(\t\022\025\n\rFaceImageUrl1" +
-      "\030\t \001(\t\022\025\n\rFaceImageUrl2\030\n \001(\t\022I\n\017Additio" +
-      "nalInfos\030\013 \003(\01320.dg.model.CouponUsedPubl" +
-      "ish.AdditionalInfosEntry\0326\n\024AdditionalIn" +
-      "fosEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "*}\n\023CouponUsedEventType\022\"\n\036Coupon_Used_E" +
-      "vent_Type_Unknown\020\000\022\036\n\032Coupon_Used_Event" +
-      "_Type_Oil\020\001\022\"\n\036Coupon_Used_Event_Type_No" +
-      "n_Oil\020\002b\006proto3"
+      "\030\002 \001(\t\022\r\n\005Scope\030\003 \001(\t\022\021\n\tTimestamp\030\004 \001(\t" +
+      "\022\020\n\010CouponNo\030\005 \001(\t\0220\n\tEventType\030\006 \001(\0162\035." +
+      "dg.model.CouponUsedEventType\022\017\n\007OrderNo\030" +
+      "\007 \001(\t\022B\n\017AdditionalInfos\030\010 \003(\0132).dg.mode" +
+      "l.CouponUsed.AdditionalInfosEntry\0326\n\024Add" +
+      "itionalInfosEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"\353\002\n\021CouponUsedPublish\022\024\n\014OilSt" +
+      "ationId\030\001 \001(\t\022\017\n\007OrderNo\030\002 \001(\t\022\021\n\tTimest" +
+      "amp\030\003 \001(\t\022\020\n\010CouponNo\030\004 \001(\t\022\021\n\tEventType" +
+      "\030\005 \001(\t\022\025\n\rTakeFaceOrNot\030\006 \001(\t\022\025\n\rEmploye" +
+      "eOrNot\030\007 \001(\t\022\030\n\020CashierHasPerson\030\010 \001(\t\022\025" +
+      "\n\rFaceImageUrl1\030\t \001(\t\022\025\n\rFaceImageUrl2\030\n" +
+      " \001(\t\022I\n\017AdditionalInfos\030\013 \003(\01320.dg.model" +
+      ".CouponUsedPublish.AdditionalInfosEntry\032" +
+      "6\n\024AdditionalInfosEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001*}\n\023CouponUsedEventType\022\"" +
+      "\n\036Coupon_Used_Event_Type_Unknown\020\000\022\036\n\032Co" +
+      "upon_Used_Event_Type_Oil\020\001\022\"\n\036Coupon_Use" +
+      "d_Event_Type_Non_Oil\020\002b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4528,25 +4709,25 @@ public final class PimpCouponUsed {
     internal_static_dg_model_CouponUsed_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_CouponUsed_descriptor,
-        new String[] { "OilStationId", "EventId", "Timestamp", "CouponNo", "EventType", "OrderNo", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "EventId", "Scope", "Timestamp", "CouponNo", "EventType", "OrderNo", "AdditionalInfos", });
     internal_static_dg_model_CouponUsed_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_CouponUsed_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_CouponUsed_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_CouponUsed_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_dg_model_CouponUsedPublish_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_dg_model_CouponUsedPublish_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_CouponUsedPublish_descriptor,
-        new String[] { "OilStationId", "OrderNo", "Timestamp", "CouponNo", "EventType", "TakeFaceOrNot", "EmployeeOrNot", "CashierHasPerson", "FaceImageUrl1", "FaceImageUrl2", "AdditionalInfos", });
+        new java.lang.String[] { "OilStationId", "OrderNo", "Timestamp", "CouponNo", "EventType", "TakeFaceOrNot", "EmployeeOrNot", "CashierHasPerson", "FaceImageUrl1", "FaceImageUrl2", "AdditionalInfos", });
     internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_descriptor =
       internal_static_dg_model_CouponUsedPublish_descriptor.getNestedTypes().get(0);
     internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dg_model_CouponUsedPublish_AdditionalInfosEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

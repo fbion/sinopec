@@ -2,11 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sensenets.sinopec.buiness.dao.two.VehicleQueueMapper">
     <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
-        <result column="id" jdbcType="BIGINT" property="id" />
+        <id column="id" jdbcType="BIGINT" property="id" />
         <result column="biz_id" jdbcType="VARCHAR" property="bizId" />
-        <result column="vehicle_in_id" jdbcType="VARCHAR" property="vehicleInId" />
-        <result column="vehicle_out_id" jdbcType="VARCHAR" property="vehicleOutId" />
         <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="queue_time" jdbcType="BIGINT" property="queueTime" />
+        <result column="in_sensor_id" jdbcType="BIGINT" property="inSensorId" />
+        <result column="in_sensor_name" jdbcType="VARCHAR" property="inSensorName" />
+        <result column="in_image_id" jdbcType="VARCHAR" property="inImageId" />
+        <result column="in_source_image" jdbcType="VARCHAR" property="inSourceImage" />
+        <result column="in_feature_image" jdbcType="VARCHAR" property="inFeatureImage" />
+        <result column="in_time" jdbcType="TIMESTAMP" property="inTime" />
+        <result column="out_sensor_id" jdbcType="BIGINT" property="outSensorId" />
+        <result column="out_sensor_name" jdbcType="VARCHAR" property="outSensorName" />
+        <result column="out_image_id" jdbcType="VARCHAR" property="outImageId" />
+        <result column="out_source_image" jdbcType="VARCHAR" property="outSourceImage" />
+        <result column="out_feature_image" jdbcType="VARCHAR" property="outFeatureImage" />
+        <result column="out_time" jdbcType="TIMESTAMP" property="outTime" />
+        <result column="in_brand_id" jdbcType="SMALLINT" property="inBrandId" />
+        <result column="in_plate_color_id" jdbcType="SMALLINT" property="inPlateColorId" />
+        <result column="in_plate_type_id" jdbcType="SMALLINT" property="inPlateTypeId" />
+        <result column="in_angle_id" jdbcType="SMALLINT" property="inAngleId" />
+        <result column="in_color_id" jdbcType="SMALLINT" property="inColorId" />
+        <result column="in_type_id" jdbcType="SMALLINT" property="inTypeId" />
+        <result column="repos_id" jdbcType="BIGINT" property="reposId" />
+        <result column="repos_name" jdbcType="VARCHAR" property="reposName" />
+        <result column="out_brand_id" jdbcType="SMALLINT" property="outBrandId" />
+        <result column="out_plate_color_id" jdbcType="SMALLINT" property="outPlateColorId" />
+        <result column="out_plate_type_id" jdbcType="SMALLINT" property="outPlateTypeId" />
+        <result column="out_angle_id" jdbcType="SMALLINT" property="outAngleId" />
+        <result column="out_color_id" jdbcType="SMALLINT" property="outColorId" />
+        <result column="out_type_id" jdbcType="SMALLINT" property="outTypeId" />
+        <result column="oil_type" jdbcType="VARCHAR" property="oilType" />
+        <result column="in_sub_brand_id" jdbcType="SMALLINT" property="inSubBrandId" />
+        <result column="in_mode_year_id" jdbcType="SMALLINT" property="inModeYearId" />
+        <result column="out_sub_brand_id" jdbcType="SMALLINT" property="outSubBrandId" />
+        <result column="out_mode_year_id" jdbcType="SMALLINT" property="outModeYearId" />
+        <result column="in_plate_text" jdbcType="VARCHAR" property="inPlateText" />
+        <result column="out_plate_text" jdbcType="VARCHAR" property="outPlateText" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -37,9 +69,42 @@
             </foreach>
         </where>
     </sql>
-   
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
     <sql id="Base_Column_List">
-        id, biz_id, vehicle_in_id, vehicle_out_id, uts
+        id, biz_id, uts, queue_time, in_sensor_id, in_sensor_name, in_image_id, in_source_image, 
+        in_feature_image, in_time, out_sensor_id, out_sensor_name, out_image_id, out_source_image, 
+        out_feature_image, out_time, in_brand_id, in_plate_color_id, in_plate_type_id, in_angle_id, 
+        in_color_id, in_type_id, repos_id, repos_name, out_brand_id, out_plate_color_id, 
+        out_plate_type_id, out_angle_id, out_color_id, out_type_id, oil_type, in_sub_brand_id, 
+        in_mode_year_id, out_sub_brand_id, out_mode_year_id, in_plate_text, out_plate_text
     </sql>
     <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria" resultMap="BaseResultMap">
         select
@@ -55,41 +120,276 @@
             order by ${orderByClause}
         </if>
     </select>
-  
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id"  parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
-        insert into "public"."vehicle_queue" (biz_id, vehicle_in_id, vehicle_out_id, 
-            uts)
-        values (#{bizId,jdbcType=VARCHAR}, #{vehicleInId,jdbcType=VARCHAR}, #{vehicleOutId,jdbcType=VARCHAR}, 
-            #{uts,jdbcType=TIMESTAMP})
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."vehicle_queue"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from "public"."vehicle_queue"
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria">
+        delete from "public"."vehicle_queue"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "public"."vehicle_queue" (biz_id, uts, queue_time, 
+            in_sensor_id, in_sensor_name, in_image_id, 
+            in_source_image, in_feature_image, in_time, 
+            out_sensor_id, out_sensor_name, out_image_id, 
+            out_source_image, out_feature_image, out_time, 
+            in_brand_id, in_plate_color_id, in_plate_type_id, 
+            in_angle_id, in_color_id, in_type_id, 
+            repos_id, repos_name, out_brand_id, 
+            out_plate_color_id, out_plate_type_id, out_angle_id, 
+            out_color_id, out_type_id, oil_type, 
+            in_sub_brand_id, in_mode_year_id, out_sub_brand_id, 
+            out_mode_year_id, in_plate_text, out_plate_text
+            )
+        values (#{bizId,jdbcType=VARCHAR}, #{uts,jdbcType=TIMESTAMP}, #{queueTime,jdbcType=BIGINT}, 
+            #{inSensorId,jdbcType=BIGINT}, #{inSensorName,jdbcType=VARCHAR}, #{inImageId,jdbcType=VARCHAR}, 
+            #{inSourceImage,jdbcType=VARCHAR}, #{inFeatureImage,jdbcType=VARCHAR}, #{inTime,jdbcType=TIMESTAMP}, 
+            #{outSensorId,jdbcType=BIGINT}, #{outSensorName,jdbcType=VARCHAR}, #{outImageId,jdbcType=VARCHAR}, 
+            #{outSourceImage,jdbcType=VARCHAR}, #{outFeatureImage,jdbcType=VARCHAR}, #{outTime,jdbcType=TIMESTAMP}, 
+            #{inBrandId,jdbcType=SMALLINT}, #{inPlateColorId,jdbcType=SMALLINT}, #{inPlateTypeId,jdbcType=SMALLINT}, 
+            #{inAngleId,jdbcType=SMALLINT}, #{inColorId,jdbcType=SMALLINT}, #{inTypeId,jdbcType=SMALLINT}, 
+            #{reposId,jdbcType=BIGINT}, #{reposName,jdbcType=VARCHAR}, #{outBrandId,jdbcType=SMALLINT}, 
+            #{outPlateColorId,jdbcType=SMALLINT}, #{outPlateTypeId,jdbcType=SMALLINT}, #{outAngleId,jdbcType=SMALLINT}, 
+            #{outColorId,jdbcType=SMALLINT}, #{outTypeId,jdbcType=SMALLINT}, #{oilType,jdbcType=VARCHAR}, 
+            #{inSubBrandId,jdbcType=SMALLINT}, #{inModeYearId,jdbcType=SMALLINT}, #{outSubBrandId,jdbcType=SMALLINT}, 
+            #{outModeYearId,jdbcType=SMALLINT}, #{inPlateText,jdbcType=VARCHAR}, #{outPlateText,jdbcType=VARCHAR}
+            )
     </insert>
-    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
         insert into "public"."vehicle_queue"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="bizId != null">
                 biz_id,
             </if>
-            <if test="vehicleInId != null">
-                vehicle_in_id,
-            </if>
-            <if test="vehicleOutId != null">
-                vehicle_out_id,
-            </if>
             <if test="uts != null">
                 uts,
+            </if>
+            <if test="queueTime != null">
+                queue_time,
+            </if>
+            <if test="inSensorId != null">
+                in_sensor_id,
+            </if>
+            <if test="inSensorName != null">
+                in_sensor_name,
+            </if>
+            <if test="inImageId != null">
+                in_image_id,
+            </if>
+            <if test="inSourceImage != null">
+                in_source_image,
+            </if>
+            <if test="inFeatureImage != null">
+                in_feature_image,
+            </if>
+            <if test="inTime != null">
+                in_time,
+            </if>
+            <if test="outSensorId != null">
+                out_sensor_id,
+            </if>
+            <if test="outSensorName != null">
+                out_sensor_name,
+            </if>
+            <if test="outImageId != null">
+                out_image_id,
+            </if>
+            <if test="outSourceImage != null">
+                out_source_image,
+            </if>
+            <if test="outFeatureImage != null">
+                out_feature_image,
+            </if>
+            <if test="outTime != null">
+                out_time,
+            </if>
+            <if test="inBrandId != null">
+                in_brand_id,
+            </if>
+            <if test="inPlateColorId != null">
+                in_plate_color_id,
+            </if>
+            <if test="inPlateTypeId != null">
+                in_plate_type_id,
+            </if>
+            <if test="inAngleId != null">
+                in_angle_id,
+            </if>
+            <if test="inColorId != null">
+                in_color_id,
+            </if>
+            <if test="inTypeId != null">
+                in_type_id,
+            </if>
+            <if test="reposId != null">
+                repos_id,
+            </if>
+            <if test="reposName != null">
+                repos_name,
+            </if>
+            <if test="outBrandId != null">
+                out_brand_id,
+            </if>
+            <if test="outPlateColorId != null">
+                out_plate_color_id,
+            </if>
+            <if test="outPlateTypeId != null">
+                out_plate_type_id,
+            </if>
+            <if test="outAngleId != null">
+                out_angle_id,
+            </if>
+            <if test="outColorId != null">
+                out_color_id,
+            </if>
+            <if test="outTypeId != null">
+                out_type_id,
+            </if>
+            <if test="oilType != null">
+                oil_type,
+            </if>
+            <if test="inSubBrandId != null">
+                in_sub_brand_id,
+            </if>
+            <if test="inModeYearId != null">
+                in_mode_year_id,
+            </if>
+            <if test="outSubBrandId != null">
+                out_sub_brand_id,
+            </if>
+            <if test="outModeYearId != null">
+                out_mode_year_id,
+            </if>
+            <if test="inPlateText != null">
+                in_plate_text,
+            </if>
+            <if test="outPlateText != null">
+                out_plate_text,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="bizId != null">
                 #{bizId,jdbcType=VARCHAR},
             </if>
-            <if test="vehicleInId != null">
-                #{vehicleInId,jdbcType=VARCHAR},
-            </if>
-            <if test="vehicleOutId != null">
-                #{vehicleOutId,jdbcType=VARCHAR},
-            </if>
             <if test="uts != null">
                 #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="queueTime != null">
+                #{queueTime,jdbcType=BIGINT},
+            </if>
+            <if test="inSensorId != null">
+                #{inSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="inSensorName != null">
+                #{inSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="inImageId != null">
+                #{inImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="inSourceImage != null">
+                #{inSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="inFeatureImage != null">
+                #{inFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="inTime != null">
+                #{inTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="outSensorId != null">
+                #{outSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="outSensorName != null">
+                #{outSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="outImageId != null">
+                #{outImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="outSourceImage != null">
+                #{outSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="outFeatureImage != null">
+                #{outFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="outTime != null">
+                #{outTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="inBrandId != null">
+                #{inBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateColorId != null">
+                #{inPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateTypeId != null">
+                #{inPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="inAngleId != null">
+                #{inAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="inColorId != null">
+                #{inColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="inTypeId != null">
+                #{inTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="reposId != null">
+                #{reposId,jdbcType=BIGINT},
+            </if>
+            <if test="reposName != null">
+                #{reposName,jdbcType=VARCHAR},
+            </if>
+            <if test="outBrandId != null">
+                #{outBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="outPlateColorId != null">
+                #{outPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="outPlateTypeId != null">
+                #{outPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="outAngleId != null">
+                #{outAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="outColorId != null">
+                #{outColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="outTypeId != null">
+                #{outTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="oilType != null">
+                #{oilType,jdbcType=VARCHAR},
+            </if>
+            <if test="inSubBrandId != null">
+                #{inSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="inModeYearId != null">
+                #{inModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="outSubBrandId != null">
+                #{outSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="outModeYearId != null">
+                #{outModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateText != null">
+                #{inPlateText,jdbcType=VARCHAR},
+            </if>
+            <if test="outPlateText != null">
+                #{outPlateText,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -99,11 +399,320 @@
             <include refid="Example_Where_Clause" />
         </if>
     </select>
-    
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select id, biz_id, vehicle_in_id, vehicle_out_id, uts
-    from "public"."vehicle_queue"
-    where biz_id = #{bizId,jdbcType=BIGINT}
-  </select>
-    
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."vehicle_queue"
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.bizId != null">
+                biz_id = #{record.bizId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uts != null">
+                uts = #{record.uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.queueTime != null">
+                queue_time = #{record.queueTime,jdbcType=BIGINT},
+            </if>
+            <if test="record.inSensorId != null">
+                in_sensor_id = #{record.inSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="record.inSensorName != null">
+                in_sensor_name = #{record.inSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.inImageId != null">
+                in_image_id = #{record.inImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.inSourceImage != null">
+                in_source_image = #{record.inSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="record.inFeatureImage != null">
+                in_feature_image = #{record.inFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="record.inTime != null">
+                in_time = #{record.inTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.outSensorId != null">
+                out_sensor_id = #{record.outSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="record.outSensorName != null">
+                out_sensor_name = #{record.outSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outImageId != null">
+                out_image_id = #{record.outImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outSourceImage != null">
+                out_source_image = #{record.outSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outFeatureImage != null">
+                out_feature_image = #{record.outFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outTime != null">
+                out_time = #{record.outTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.inBrandId != null">
+                in_brand_id = #{record.inBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inPlateColorId != null">
+                in_plate_color_id = #{record.inPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inPlateTypeId != null">
+                in_plate_type_id = #{record.inPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inAngleId != null">
+                in_angle_id = #{record.inAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inColorId != null">
+                in_color_id = #{record.inColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inTypeId != null">
+                in_type_id = #{record.inTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.reposId != null">
+                repos_id = #{record.reposId,jdbcType=BIGINT},
+            </if>
+            <if test="record.reposName != null">
+                repos_name = #{record.reposName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outBrandId != null">
+                out_brand_id = #{record.outBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outPlateColorId != null">
+                out_plate_color_id = #{record.outPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outPlateTypeId != null">
+                out_plate_type_id = #{record.outPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outAngleId != null">
+                out_angle_id = #{record.outAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outColorId != null">
+                out_color_id = #{record.outColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outTypeId != null">
+                out_type_id = #{record.outTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.oilType != null">
+                oil_type = #{record.oilType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.inSubBrandId != null">
+                in_sub_brand_id = #{record.inSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inModeYearId != null">
+                in_mode_year_id = #{record.inModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outSubBrandId != null">
+                out_sub_brand_id = #{record.outSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.outModeYearId != null">
+                out_mode_year_id = #{record.outModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="record.inPlateText != null">
+                in_plate_text = #{record.inPlateText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.outPlateText != null">
+                out_plate_text = #{record.outPlateText,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."vehicle_queue"
+        set id = #{record.id,jdbcType=BIGINT},
+            biz_id = #{record.bizId,jdbcType=VARCHAR},
+            uts = #{record.uts,jdbcType=TIMESTAMP},
+            queue_time = #{record.queueTime,jdbcType=BIGINT},
+            in_sensor_id = #{record.inSensorId,jdbcType=BIGINT},
+            in_sensor_name = #{record.inSensorName,jdbcType=VARCHAR},
+            in_image_id = #{record.inImageId,jdbcType=VARCHAR},
+            in_source_image = #{record.inSourceImage,jdbcType=VARCHAR},
+            in_feature_image = #{record.inFeatureImage,jdbcType=VARCHAR},
+            in_time = #{record.inTime,jdbcType=TIMESTAMP},
+            out_sensor_id = #{record.outSensorId,jdbcType=BIGINT},
+            out_sensor_name = #{record.outSensorName,jdbcType=VARCHAR},
+            out_image_id = #{record.outImageId,jdbcType=VARCHAR},
+            out_source_image = #{record.outSourceImage,jdbcType=VARCHAR},
+            out_feature_image = #{record.outFeatureImage,jdbcType=VARCHAR},
+            out_time = #{record.outTime,jdbcType=TIMESTAMP},
+            in_brand_id = #{record.inBrandId,jdbcType=SMALLINT},
+            in_plate_color_id = #{record.inPlateColorId,jdbcType=SMALLINT},
+            in_plate_type_id = #{record.inPlateTypeId,jdbcType=SMALLINT},
+            in_angle_id = #{record.inAngleId,jdbcType=SMALLINT},
+            in_color_id = #{record.inColorId,jdbcType=SMALLINT},
+            in_type_id = #{record.inTypeId,jdbcType=SMALLINT},
+            repos_id = #{record.reposId,jdbcType=BIGINT},
+            repos_name = #{record.reposName,jdbcType=VARCHAR},
+            out_brand_id = #{record.outBrandId,jdbcType=SMALLINT},
+            out_plate_color_id = #{record.outPlateColorId,jdbcType=SMALLINT},
+            out_plate_type_id = #{record.outPlateTypeId,jdbcType=SMALLINT},
+            out_angle_id = #{record.outAngleId,jdbcType=SMALLINT},
+            out_color_id = #{record.outColorId,jdbcType=SMALLINT},
+            out_type_id = #{record.outTypeId,jdbcType=SMALLINT},
+            oil_type = #{record.oilType,jdbcType=VARCHAR},
+            in_sub_brand_id = #{record.inSubBrandId,jdbcType=SMALLINT},
+            in_mode_year_id = #{record.inModeYearId,jdbcType=SMALLINT},
+            out_sub_brand_id = #{record.outSubBrandId,jdbcType=SMALLINT},
+            out_mode_year_id = #{record.outModeYearId,jdbcType=SMALLINT},
+            in_plate_text = #{record.inPlateText,jdbcType=VARCHAR},
+            out_plate_text = #{record.outPlateText,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
+        update "public"."vehicle_queue"
+        <set>
+            <if test="bizId != null">
+                biz_id = #{bizId,jdbcType=VARCHAR},
+            </if>
+            <if test="uts != null">
+                uts = #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="queueTime != null">
+                queue_time = #{queueTime,jdbcType=BIGINT},
+            </if>
+            <if test="inSensorId != null">
+                in_sensor_id = #{inSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="inSensorName != null">
+                in_sensor_name = #{inSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="inImageId != null">
+                in_image_id = #{inImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="inSourceImage != null">
+                in_source_image = #{inSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="inFeatureImage != null">
+                in_feature_image = #{inFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="inTime != null">
+                in_time = #{inTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="outSensorId != null">
+                out_sensor_id = #{outSensorId,jdbcType=BIGINT},
+            </if>
+            <if test="outSensorName != null">
+                out_sensor_name = #{outSensorName,jdbcType=VARCHAR},
+            </if>
+            <if test="outImageId != null">
+                out_image_id = #{outImageId,jdbcType=VARCHAR},
+            </if>
+            <if test="outSourceImage != null">
+                out_source_image = #{outSourceImage,jdbcType=VARCHAR},
+            </if>
+            <if test="outFeatureImage != null">
+                out_feature_image = #{outFeatureImage,jdbcType=VARCHAR},
+            </if>
+            <if test="outTime != null">
+                out_time = #{outTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="inBrandId != null">
+                in_brand_id = #{inBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateColorId != null">
+                in_plate_color_id = #{inPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateTypeId != null">
+                in_plate_type_id = #{inPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="inAngleId != null">
+                in_angle_id = #{inAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="inColorId != null">
+                in_color_id = #{inColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="inTypeId != null">
+                in_type_id = #{inTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="reposId != null">
+                repos_id = #{reposId,jdbcType=BIGINT},
+            </if>
+            <if test="reposName != null">
+                repos_name = #{reposName,jdbcType=VARCHAR},
+            </if>
+            <if test="outBrandId != null">
+                out_brand_id = #{outBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="outPlateColorId != null">
+                out_plate_color_id = #{outPlateColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="outPlateTypeId != null">
+                out_plate_type_id = #{outPlateTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="outAngleId != null">
+                out_angle_id = #{outAngleId,jdbcType=SMALLINT},
+            </if>
+            <if test="outColorId != null">
+                out_color_id = #{outColorId,jdbcType=SMALLINT},
+            </if>
+            <if test="outTypeId != null">
+                out_type_id = #{outTypeId,jdbcType=SMALLINT},
+            </if>
+            <if test="oilType != null">
+                oil_type = #{oilType,jdbcType=VARCHAR},
+            </if>
+            <if test="inSubBrandId != null">
+                in_sub_brand_id = #{inSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="inModeYearId != null">
+                in_mode_year_id = #{inModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="outSubBrandId != null">
+                out_sub_brand_id = #{outSubBrandId,jdbcType=SMALLINT},
+            </if>
+            <if test="outModeYearId != null">
+                out_mode_year_id = #{outModeYearId,jdbcType=SMALLINT},
+            </if>
+            <if test="inPlateText != null">
+                in_plate_text = #{inPlateText,jdbcType=VARCHAR},
+            </if>
+            <if test="outPlateText != null">
+                out_plate_text = #{outPlateText,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
+        update "public"."vehicle_queue"
+        set biz_id = #{bizId,jdbcType=VARCHAR},
+            uts = #{uts,jdbcType=TIMESTAMP},
+            queue_time = #{queueTime,jdbcType=BIGINT},
+            in_sensor_id = #{inSensorId,jdbcType=BIGINT},
+            in_sensor_name = #{inSensorName,jdbcType=VARCHAR},
+            in_image_id = #{inImageId,jdbcType=VARCHAR},
+            in_source_image = #{inSourceImage,jdbcType=VARCHAR},
+            in_feature_image = #{inFeatureImage,jdbcType=VARCHAR},
+            in_time = #{inTime,jdbcType=TIMESTAMP},
+            out_sensor_id = #{outSensorId,jdbcType=BIGINT},
+            out_sensor_name = #{outSensorName,jdbcType=VARCHAR},
+            out_image_id = #{outImageId,jdbcType=VARCHAR},
+            out_source_image = #{outSourceImage,jdbcType=VARCHAR},
+            out_feature_image = #{outFeatureImage,jdbcType=VARCHAR},
+            out_time = #{outTime,jdbcType=TIMESTAMP},
+            in_brand_id = #{inBrandId,jdbcType=SMALLINT},
+            in_plate_color_id = #{inPlateColorId,jdbcType=SMALLINT},
+            in_plate_type_id = #{inPlateTypeId,jdbcType=SMALLINT},
+            in_angle_id = #{inAngleId,jdbcType=SMALLINT},
+            in_color_id = #{inColorId,jdbcType=SMALLINT},
+            in_type_id = #{inTypeId,jdbcType=SMALLINT},
+            repos_id = #{reposId,jdbcType=BIGINT},
+            repos_name = #{reposName,jdbcType=VARCHAR},
+            out_brand_id = #{outBrandId,jdbcType=SMALLINT},
+            out_plate_color_id = #{outPlateColorId,jdbcType=SMALLINT},
+            out_plate_type_id = #{outPlateTypeId,jdbcType=SMALLINT},
+            out_angle_id = #{outAngleId,jdbcType=SMALLINT},
+            out_color_id = #{outColorId,jdbcType=SMALLINT},
+            out_type_id = #{outTypeId,jdbcType=SMALLINT},
+            oil_type = #{oilType,jdbcType=VARCHAR},
+            in_sub_brand_id = #{inSubBrandId,jdbcType=SMALLINT},
+            in_mode_year_id = #{inModeYearId,jdbcType=SMALLINT},
+            out_sub_brand_id = #{outSubBrandId,jdbcType=SMALLINT},
+            out_mode_year_id = #{outModeYearId,jdbcType=SMALLINT},
+            in_plate_text = #{inPlateText,jdbcType=VARCHAR},
+            out_plate_text = #{outPlateText,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
 </mapper>

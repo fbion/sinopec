@@ -8,8 +8,6 @@
  */
 package com.sensenets.sinopec.buiness.condition;
 
-import java.util.List;
-
 import com.sensenets.sinopec.buiness.dto.BrandObj;
 
 import io.swagger.annotations.ApiModel;
@@ -37,8 +35,11 @@ public class VehicleQueueCondition extends CommonCondition{
     @ApiModelProperty(value = "进站结束时间")
     private String inEndTime;
     
-    @ApiModelProperty(value = "排队时间(单位分钟,最大60)")
-    private Integer queueTime;
+    @ApiModelProperty(value = "排队开始时间(单位分钟,最大60)")
+    private Integer startQueueTime;
+    
+    @ApiModelProperty(value = "排队结束时间(单位分钟,最大60)")
+    private Integer endQueueTime;
   
     @ApiModelProperty(value = "加油类型(汽油,柴油)")
     private String oilType;
