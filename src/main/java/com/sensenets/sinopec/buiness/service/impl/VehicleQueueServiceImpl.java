@@ -34,6 +34,7 @@ import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.OilTypeEnum;
 import com.sensenets.sinopec.common.enums.VehicleAngleTypeEnum;
 import com.sensenets.sinopec.common.enums.VehicleColorTypeEnum;
 import com.sensenets.sinopec.common.enums.VehiclePlateColorTypeEnum;
@@ -203,7 +204,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         dto.setOutTime(DateHelper.date2String(view.getOutTime(), DateHelper.FORMAT_0));
         dto.setOilStationRepoId(String.valueOf(view.getReposId()));
         dto.setOilStationRepoName(map.get(reposKey));
-        dto.setOilType(map.get(inBrandKey));
+        dto.setOilType(OilTypeEnum.getDescByCode(view.getOilType()));
         dto.setPlateNumber(view.getInPlateText());
         dto.setQueueTime(view.getQueueTime()/1000);
         List<VehicleRecord> records = Lists.newArrayList();
