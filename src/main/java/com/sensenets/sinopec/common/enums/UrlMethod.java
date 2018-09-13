@@ -8,6 +8,8 @@
  */
 package com.sensenets.sinopec.common.enums;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
   * @ClassName: UrlMethod
   * @Description: url方法类型枚举
@@ -21,7 +23,7 @@ public enum UrlMethod {
     
     public static UrlMethod getEnumType(String enumStr){
         for (UrlMethod c : UrlMethod.values()) {
-            if (c.toString().equals(enumStr)) {
+            if (StringUtils.isNotBlank(enumStr)&&c.toString().equals(enumStr)) {
                 return c;
             }
         }

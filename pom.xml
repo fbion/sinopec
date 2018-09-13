@@ -278,10 +278,6 @@
 			<version>${beetl.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-         </dependency>
-		<dependency>
 			<groupId>io.github.swagger2markup</groupId>
 			<artifactId>swagger2markup</artifactId>
 			<version>${swagger2markup.version}</version>
@@ -324,6 +320,11 @@
 	          <groupId>net.sf.ehcache</groupId>
 	          <artifactId>ehcache</artifactId>
           </dependency>
+          <dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.3.4</version>
+		</dependency>
 	</dependencies>
 
 	<pluginRepositories>

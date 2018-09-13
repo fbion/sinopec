@@ -40,8 +40,10 @@ public enum BizExceptionEnum {
     
     /*****车辆排队模块*****/
     VEHICLE_QUEUE_REPOS_ID_PARAM_ERROR(600001,"车辆排队采集名称错误"),
-   
-    
+    VEHICLE_QUEUE_EXPORT_RESULT_IS_NULL(600002,"暂无导出的数据"),
+    VEHICLE_QUEUE_ERROR_EXPORT_FAIL(600003,"车辆排队导出报表异常"),
+    VEHICLE_QUEUE_ERROR_DOWNLOAD_PARAM(600004,"下载导出文件提交的参数异常"),
+    VEHICLE_QUEUE_ERROR_EXPORT_GREATER_LIMIT_NUM(600005,"车辆排队导出记录数超过限额"),
 	/**
 	 * 字典
 	 */

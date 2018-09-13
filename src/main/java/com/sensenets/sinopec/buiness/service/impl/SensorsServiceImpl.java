@@ -3,6 +3,7 @@ package com.sensenets.sinopec.buiness.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.dao.one.SensorsMapper;
+import com.sensenets.sinopec.buiness.model.one.Repos;
 import com.sensenets.sinopec.buiness.model.one.Sensors;
 import com.sensenets.sinopec.buiness.model.one.SensorsCriteria;
 import com.sensenets.sinopec.buiness.service.ISensorsService;
@@ -27,6 +28,10 @@ public class SensorsServiceImpl implements ISensorsService {
         return this.sensorsMapper.selectByPrimaryKey(sensorId);
     }
 
+    public Sensors selectById(Long sensorsId) {
+        return this.sensorsMapper.selectById(sensorsId);
+    }
+    
     public List<Sensors> selectByExample(SensorsCriteria example) {
         return this.sensorsMapper.selectByExample(example);
     }

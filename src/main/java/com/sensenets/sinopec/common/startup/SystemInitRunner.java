@@ -35,6 +35,7 @@ public class SystemInitRunner implements CommandLineRunner{
         log.info("启动移动数据采集--初始化代理--完成");
         ExecuteTaskProxy.startTask();
         log.info("启动移动数据采集--统计代理--完成");
+        
     }
 
 

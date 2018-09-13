@@ -2,8 +2,11 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.condition.VehicleQueueCondition;
+import com.sensenets.sinopec.buiness.condition.VehicleQueueExportCondition;
 import com.sensenets.sinopec.buiness.dto.VehicleQueueDto;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria;
@@ -28,4 +31,21 @@ public interface IVehicleQueueService {
     int insert(VehicleQueue record);
 
     int insertSelective(VehicleQueue record);
+
+    /**
+      * @Title: getExportResultExcel
+      * @Description: 导出到服务器
+      * @param condition
+      * @return
+      */
+    String getExportResultExcel(VehicleQueueExportCondition condition);
+   
+   /**
+    * @Title: downloadVehicleQueueResultExcel
+    * @Description: 下载到客户端
+    * @param response
+    * @param key
+    * @return
+    */
+   String downloadVehicleQueueResultExcel(HttpServletResponse response,String key);
 }

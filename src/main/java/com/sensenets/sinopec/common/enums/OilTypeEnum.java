@@ -8,6 +8,8 @@
  */
 package com.sensenets.sinopec.common.enums;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
   * @ClassName: OilTypeEnum
   * @Description: 油品类型枚举
@@ -44,7 +46,7 @@ public enum OilTypeEnum {
 
     public static String  getDescByCode(String code){
         for(OilTypeEnum type : OilTypeEnum.values()){
-            if(type.getCode().endsWith(code)){
+            if(StringUtils.isNotBlank(code)&&type.getCode().endsWith(code)){
                 return type.getDesc();
             }
         }
@@ -68,6 +70,8 @@ public enum OilTypeEnum {
         this.desc = desc;
     }
     
-    
+    public static void main(String[] args) {
+        System.out.println(getDescByCode(null));
+    }
 
 }

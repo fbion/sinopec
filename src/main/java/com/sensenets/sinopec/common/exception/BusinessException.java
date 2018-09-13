@@ -2,8 +2,6 @@ package com.sensenets.sinopec.common.exception;
 
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 
-import lombok.Data;
-
 /**
  * @ClassName: BussinessException
  * @Description: 业务异常的封装
@@ -11,9 +9,13 @@ import lombok.Data;
  * @date 2018年8月9日 上午9:55:05
  *
  */
-@Data
 public class BusinessException extends BaseException {
 
+
+    /**
+      * @Fields serialVersionUID 
+      */
+    private static final long serialVersionUID = -4439754093801804598L;
 
     public BusinessException(BizExceptionEnum bizExceptionEnum) {
         super();

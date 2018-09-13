@@ -27,5 +27,15 @@ import lombok.Data;
 public class AppConfig {
 
    private String exportDir;
+   
+   private int receiveGasStationThreadMinNum;
+   
+   private int receiveGasStationThreadMaxNum;
+   
+   private int matchVehicleQueue;
+   
+   private int vehicleQueueExportNum;
+   
+   private int vehicleQueueExportTotalNum;
 
 }

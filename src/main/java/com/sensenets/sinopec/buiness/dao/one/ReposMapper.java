@@ -89,4 +89,12 @@ public interface ReposMapper {
      * @param record
      */
     int updateByPrimaryKey(Repos record);
+
+    /**
+      * @Title: selectById
+      * @Description:根据自增id查询
+      * @param repoId 自增id
+      * @return
+      */
+    Repos selectById(Long repoId);
 }

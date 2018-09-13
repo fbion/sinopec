@@ -37,9 +37,9 @@ public enum VehicleAngleTypeEnum {
         this.desc = desc;
     }
 
-    public static String  getDescByCode(short code){
+    public static String  getDescByCode(Short code){
         for(VehicleAngleTypeEnum type : VehicleAngleTypeEnum.values()){
-            if(type.getCode()==code){
+            if(code!=null&&type.getCode()==code){
                 return type.getDesc();
             }
         }
@@ -63,6 +63,8 @@ public enum VehicleAngleTypeEnum {
         this.desc = desc;
     }
     
-    
+    public static void main(String[] args) {
+        System.out.println(getDescByCode((short)1));
+    }
 
 }

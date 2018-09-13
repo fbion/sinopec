@@ -5,10 +5,12 @@
   */
 package com.sensenets.sinopec.buiness.dao.one;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.sensenets.sinopec.buiness.model.one.Sensors;
 import com.sensenets.sinopec.buiness.model.one.SensorsCriteria;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface SensorsMapper {
     /**
@@ -89,4 +91,12 @@ public interface SensorsMapper {
      * @param record
      */
     int updateByPrimaryKey(Sensors record);
+
+    /**
+      * @Title: selectById
+      * @Description: 通过自增id查询
+      * @param sensorsId 自增id
+      * @return Sensors
+      */
+    Sensors selectById(Long sensorsId);
 }

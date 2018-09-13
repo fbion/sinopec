@@ -88,7 +88,7 @@ public enum VehicleTypeEnum {
         this.desc = desc;
     }
 
-    public static String  getDescByCode(short code){
+    public static String  getDescByCode(Short code){
         for(VehicleTypeEnum type : VehicleTypeEnum.values()){
             if(type.getCode()==code){
                 return type.getDesc();

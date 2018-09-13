@@ -14,6 +14,8 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 
+import com.sensenets.sinopec.buiness.condition.VehicleQueueExportCondition;
+
 /**
  * 
  * @author summer
@@ -120,5 +122,26 @@ public class MD5Helper {
         char c1 = HEX_DIGITS[bt & 0xf];
         stringbuffer.append(c0);
         stringbuffer.append(c1);
+    }
+    
+    public static void main(String[] args) {
+        VehicleQueueExportCondition condition = new VehicleQueueExportCondition();
+        condition.setInEndTime("324");
+        Long[] ids2= new Long[2];
+        ids2[0] = 1L;
+        ids2[1] = 2L;
+        condition.setIds(ids2);
+        System.out.println(MD5Helper.toMD5(condition.toString()));
+        
+        VehicleQueueExportCondition condition1 = new VehicleQueueExportCondition();
+        condition1.setInEndTime("324");
+        Long[] ids1 = new Long[2];
+        ids1[1] = 1L;
+        ids1[0] = 2L;
+        
+        condition1.setIds(ids1);
+        System.out.println(MD5Helper.toMD5(condition1.toString()));
+        
+        System.out.println(Math.round(-3.2));
     }
 }

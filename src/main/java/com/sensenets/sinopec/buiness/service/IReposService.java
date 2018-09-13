@@ -29,4 +29,12 @@ public interface IReposService {
     int insert(Repos record);
 
     int insertSelective(Repos record);
+
+    /**
+      * @Title: selectById
+      * @Description: 油站id
+      * @param repoId 自增id
+      * @return  Repos
+      */
+    Repos selectById(Long repoId);
 }

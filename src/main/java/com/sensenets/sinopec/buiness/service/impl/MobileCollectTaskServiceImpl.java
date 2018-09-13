@@ -39,6 +39,7 @@ import com.sensenets.sinopec.buiness.dto.CollectResultDto;
 import com.sensenets.sinopec.buiness.dto.CollectTaskDto;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
 import com.sensenets.sinopec.buiness.dto.RepoIdDto;
+import com.sensenets.sinopec.buiness.export.CollectResultExcelExport;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria;
 import com.sensenets.sinopec.buiness.model.one.Repos;
@@ -52,7 +53,6 @@ import com.sensenets.sinopec.buiness.model.two.CollectResultFlowCriteria;
 import com.sensenets.sinopec.buiness.model.two.CollectResultType;
 import com.sensenets.sinopec.buiness.model.two.CollectResultTypeCriteria;
 import com.sensenets.sinopec.buiness.schedule.CollectTaskQueue;
-import com.sensenets.sinopec.buiness.schedule.ExcelExportHelper;
 import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.enums.CollectTaskStatusEnum;
@@ -522,7 +522,7 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         String exportPath = appConfig.getExportDir();
         String filePath = String.format("%s%s.xls",exportPath.endsWith("/")?exportPath:exportPath+"/",fileIndex);
         try {
-            new ExcelExportHelper().exportExcel(fileName,filePath,dto,taskDto);
+            new CollectResultExcelExport().exportExcel(fileName,filePath,dto,taskDto);
             cache.put(String.valueOf(id),filePath);
             cache.put(String.valueOf("filename_"+id),fileName);
         } catch (Exception e) {

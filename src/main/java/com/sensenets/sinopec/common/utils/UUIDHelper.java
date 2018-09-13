@@ -1,6 +1,10 @@
 package com.sensenets.sinopec.common.utils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
 
 
 /**
@@ -35,9 +39,13 @@ public class UUIDHelper {
        return isUpper?uuid.toUpperCase():uuid.toLowerCase();
    }
    
-   public static void main(String[] args) {
+   public static void main(String[] args) throws IOException {
       System.out.println(genUUID(false));
       System.out.println(genSourceUUID(false));
+      String image = "D:\\tmp\\12.jpg";
+//      System.out.println(Base64AllHelper.encodeBytes(FileUtils.readFileToByteArray(new File(image))));
+      System.out.println(System.currentTimeMillis());
+      System.out.println(System.currentTimeMillis());
    }
     
 }

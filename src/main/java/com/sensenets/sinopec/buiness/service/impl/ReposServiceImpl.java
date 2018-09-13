@@ -68,4 +68,8 @@ public class ReposServiceImpl implements IReposService {
     public int insertSelective(Repos record) {
         return this.reposMapper.insertSelective(record);
     }
+
+    public Repos selectById(Long repoId) {
+        return this.reposMapper.selectById(repoId);
+    }
 }

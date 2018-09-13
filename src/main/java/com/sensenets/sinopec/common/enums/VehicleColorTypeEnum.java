@@ -55,9 +55,9 @@ public enum VehicleColorTypeEnum {
         this.desc = desc;
     }
 
-    public static String  getDescByCode(short code){
+    public static String  getDescByCode(Short code){
         for(VehicleColorTypeEnum type : VehicleColorTypeEnum.values()){
-            if(type.getCode()==code){
+            if(code!=null&&type.getCode()==code){
                 return type.getDesc();
             }
         }

@@ -137,9 +137,6 @@
         </if>
     </delete>
     <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-            PostgreSQL
-        </selectKey>
         insert into "public"."vehicle_queue" (biz_id, uts, queue_time, 
             in_sensor_id, in_sensor_name, in_image_id, 
             in_source_image, in_feature_image, in_time, 
@@ -168,9 +165,6 @@
             )
     </insert>
     <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-            PostgreSQL
-        </selectKey>
         insert into "public"."vehicle_queue"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="bizId != null">

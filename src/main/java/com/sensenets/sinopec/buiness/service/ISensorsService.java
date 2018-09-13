@@ -9,6 +9,8 @@ public interface ISensorsService {
     int countByExample(SensorsCriteria example);
 
     Sensors selectByPrimaryKey(String sensorId);
+    
+    Sensors selectById(Long sensorsId);
 
     List<Sensors> selectByExample(SensorsCriteria example);
 
