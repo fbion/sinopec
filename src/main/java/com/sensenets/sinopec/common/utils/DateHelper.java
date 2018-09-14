@@ -754,6 +754,21 @@ public class DateHelper {
 	public static String dateAddDay(Date date, String pattern, int dayNum) {
 		return date2String(DateUtils.addDays(date, dayNum), pattern);
 	}
+	
+	   /**
+     * @Title: dateAddDay
+     * @Description: 添加天
+     * @param date
+     *            原始日期
+     * @param pattern
+     *            格式
+     * @param dayNum
+     *            增加的天数
+     * @return 日期字符串
+     */
+    public static Date dateAddDay(Date date,int dayNum) {
+        return DateUtils.addDays(date, dayNum);
+    }
 
 	/**
 	 * @Title: dateAddHour

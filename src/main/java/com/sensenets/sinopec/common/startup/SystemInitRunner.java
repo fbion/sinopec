@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.sensenets.sinopec.buiness.schedule.CollectTaskProxy;
 import com.sensenets.sinopec.buiness.schedule.ExecuteTaskProxy;
+import com.sensenets.sinopec.kafka.buffer.vehana.VehicleQueueAnalysisConsumer;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,7 +36,6 @@ public class SystemInitRunner implements CommandLineRunner{
         log.info("启动移动数据采集--初始化代理--完成");
         ExecuteTaskProxy.startTask();
         log.info("启动移动数据采集--统计代理--完成");
-        
     }
 
 

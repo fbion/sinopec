@@ -22,6 +22,7 @@ import com.sensenets.sinopec.common.utils.BeanHelper;
 import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
 import com.sensenets.sinopec.config.AppConfig;
+import com.sensenets.sinopec.kafka.buffer.vehana.VehicleQueueAnalysisConsumer;
 import com.sensenets.sinopec.kafka.common.Common2KafkaTemplate;
 import com.sensenets.sinopec.kafka.common.ConvertHelper;
 
@@ -41,7 +42,7 @@ public class VehicleQueue2Db extends Common2KafkaTemplate implements Runnable {
     private IImagesService imagesService;
 
     private AppConfig config;
-
+    
     public VehicleQueue2Db(VehicleQueueDataDto motor) {
         this.motor = motor;
         config = BeanHelper.getBean(AppConfig.class);
@@ -83,8 +84,11 @@ public class VehicleQueue2Db extends Common2KafkaTemplate implements Runnable {
                     Collections.sort(sortList);
                     VehicleSortObj obj = sortList.get(0);
                     // 关联后插入新记录到车辆排队表
-                    vehicleQueueService.insert(generateObjValue(sourceData, obj));
+                    VehicleQueue queue = generateObjValue(sourceData, obj);
+                    vehicleQueueService.insert(queue);
                     log.info("新增排队数据成功");
+                    // 新增排队数据成功后，将记录id返回进行排队统计分析
+                    VehicleQueueAnalysisConsumer.add(queue);
                 }
 
             }

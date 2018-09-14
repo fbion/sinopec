@@ -23,24 +23,27 @@ public enum OilTypeEnum {
 //    Oil_Type    000603040060206060  95号车用汽油(Ⅴ)  1
 //    Oil_Type    000603040060209058  98号车用汽油(Ⅴ)  1
     
-    oil_0_v("000607020060205886","0号车用柴油(Ⅴ)"),
+    oil_0_v("000607020060205886","0号车用柴油(Ⅴ)",(short)2),
     
-    oil_0_vi("000607020060514943","0号车用柴油(Ⅵ)"),
+    oil_0_vi("000607020060514943","0号车用柴油(Ⅵ)",(short)2),
     
-    oil_92("000603040060206059","92号车用汽油(Ⅴ)"),
+    oil_92("000603040060206059","92号车用汽油(Ⅴ)",(short)1),
     
-    oil_95("000603040060206060","95号车用汽油(Ⅴ)"),
+    oil_95("000603040060206060","95号车用汽油(Ⅴ)",(short)1),
     
-    oil_98("000603040060209058","98号车用汽油(Ⅴ)");
+    oil_98("000603040060209058","98号车用汽油(Ⅴ)",(short)1);
     
     
     private String code;
     
     private String desc;
     
-    private OilTypeEnum(String code,String desc){
+    private Short type;
+    
+    private OilTypeEnum(String code,String desc,Short type){
         this.code = code;
         this.desc = desc;
+        this.type = type;
     }
     
 
@@ -52,6 +55,16 @@ public enum OilTypeEnum {
         }
         return "未知";
     }
+    
+    public static Short  getTypeByCode(String code){
+        for(OilTypeEnum type : OilTypeEnum.values()){
+            if(StringUtils.isNotBlank(code)&&type.getCode().endsWith(code)){
+                return type.getType();
+            }
+        }
+        return null;
+    }
+    
     
 
     public String getCode() {
@@ -70,6 +83,18 @@ public enum OilTypeEnum {
         this.desc = desc;
     }
     
+    
+    
+    public Short getType() {
+        return type;
+    }
+
+
+    public void setType(Short type) {
+        this.type = type;
+    }
+
+
     public static void main(String[] args) {
         System.out.println(getDescByCode(null));
     }

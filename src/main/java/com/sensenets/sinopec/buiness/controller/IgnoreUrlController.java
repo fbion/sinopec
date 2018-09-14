@@ -31,6 +31,7 @@ import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria;
 import com.sensenets.sinopec.buiness.model.one.VjMobileCollectTaskViewCriteria;
 import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
+import com.sensenets.sinopec.buiness.service.IVehicleQueueAnalysisService;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueService;
 import com.sensenets.sinopec.common.controller.BaseController;
 import com.sensenets.sinopec.common.domain.ResponseInfo;
@@ -63,6 +64,9 @@ public class IgnoreUrlController extends BaseController {
     @Autowired
     IVehicleQueueService vehicleQueueService;
     
+    @Autowired
+    IVehicleQueueAnalysisService vehicleQueueAnalysisService;
+    
     @ApiOperation(value = "获取移动采集分析导出结果")
     @RequestMapping(value="/getExportResult/{key}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -76,6 +80,13 @@ public class IgnoreUrlController extends BaseController {
     @ResponseBody
     public void getVehcileQueueExportResult(@PathVariable String key,HttpServletRequest request,HttpServletResponse response){
         vehicleQueueService.downloadVehicleQueueResultExcel(response,key);
+    }
+    
+    @ApiOperation(value = "获取车辆排队分析导出结果")
+    @RequestMapping(value="/getVehicleQueueAnalysisResult/{key}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public void getVehicleQueueAnalysisResult(@PathVariable String key,HttpServletRequest request,HttpServletResponse response){
+        vehicleQueueAnalysisService.downloadVehicleQueueAnalysisExcel(response, key);
     }
     
 }

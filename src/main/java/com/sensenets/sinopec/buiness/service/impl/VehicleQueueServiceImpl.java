@@ -574,13 +574,15 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         String inBrandKey = String.format("brand_%d_%d_%d", view.getInBrandId(),view.getInSubBrandId(),view.getInModeYearId());
         String outBrandKey = String.format("brand_%d_%d_%d", view.getOutBrandId(),view.getOutSubBrandId(),view.getOutModeYearId());
         dto.setId(view.getId());
-        dto.setInFeatureImage(view.getInFeatureImage());
         dto.setInSensorName(view.getInSensorName());
         dto.setOutSensorName(view.getOutSensorName());
-        dto.setInSourceImage(view.getInSourceImage());
+        
         dto.setInFeatureImage(view.getInFeatureImage());
+        dto.setInSourceImage(view.getInSourceImage());
+        
         dto.setOutSourceImage(view.getOutSourceImage());
         dto.setOutFeatureImage(view.getOutFeatureImage());
+        
         dto.setInTime(DateHelper.date2String(view.getInTime(), DateHelper.FORMAT_0));
         dto.setOutTime(DateHelper.date2String(view.getOutTime(), DateHelper.FORMAT_0));
         dto.setOilStationRepoName(map.get(reposKey));

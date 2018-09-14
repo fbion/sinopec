@@ -39,8 +39,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
  /**
-  * @ClassName: MobileCollectTaskController
-  * @Description: 移动数据采集控制层
+  * @ClassName: VehicleQueueController
+  * @Description: 车辆排队控制层
   * @author think
   * @date 2018年08月24日 17:56:41
   */
@@ -101,8 +101,9 @@ public class VehicleQueueController extends BaseController {
                  .setWidth(319)
                  .setURI("http://192.168.12.13:8501/api/file/14,329530e4eac0c5")
                  .build();
+         // 1536321655853L  20180907  1536144728736 20180905  1536561741000 20180910
          SrcMetadata metaData = SrcMetadata.newBuilder()
-                 .setTimestamp(1536321655853L)
+                 .setTimestamp(1536144728736L)
                  .setDuration(0)
                  .setSensorId(1)
                  .setRepoId(6)

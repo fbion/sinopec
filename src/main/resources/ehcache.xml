@@ -30,7 +30,7 @@
            transactionalMode="off">
     </cache>
     
-    <cache
+   <cache
    name = "collectResultExcelCache"
    eternal = "false"
    maxElementsInMemory = "100"
@@ -40,7 +40,7 @@
    timeToLiveSeconds = "180"
    memoryStoreEvictionPolicy = "LRU"/>
    
-     <cache
+   <cache
    name = "vehicleQueueResultExcelCache"
    eternal = "false"
    maxElementsInMemory = "100"
@@ -49,6 +49,18 @@
    timeToIdleSeconds = "120"
    timeToLiveSeconds = "180"
    memoryStoreEvictionPolicy = "LRU"/>
+   
+   <cache
+   name = "vehicleQueueAnalysisExcelCache"
+   eternal = "false"
+   maxElementsInMemory = "100"
+   overflowToDisk = "false"
+   diskPersistent = "false"
+   timeToIdleSeconds = "120"
+   timeToLiveSeconds = "180"
+   memoryStoreEvictionPolicy = "LRU"/>
+   
+   
 
 </ehcache>
 

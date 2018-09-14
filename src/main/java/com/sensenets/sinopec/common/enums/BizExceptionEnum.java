@@ -44,6 +44,13 @@ public enum BizExceptionEnum {
     VEHICLE_QUEUE_ERROR_EXPORT_FAIL(600003,"车辆排队导出报表异常"),
     VEHICLE_QUEUE_ERROR_DOWNLOAD_PARAM(600004,"下载导出文件提交的参数异常"),
     VEHICLE_QUEUE_ERROR_EXPORT_GREATER_LIMIT_NUM(600005,"车辆排队导出记录数超过限额"),
+    
+    /*****车辆排队分析模块*****/
+    VEHICLE_QUEUE_ANALYSIS_INSERT_ERROR(700001,"插入车辆排队分析记录失败"),
+    VEHICLE_QUEUE_ANALYSIS_RESET_CACHE_ERROR(700002,"车辆排队分析重置缓存异常"),
+    VEHICLE_QUEUE_ANALYSIS_ERROR_DOWNLOAD_PARAM(700003,"下载导出文件提交的参数异常"),
+    VEHICLE_QUEUE_ANALYSIS_ERROR_EXPORT_FAIL(700004,"车辆排队分析导出报表异常"),
+    
 	/**
 	 * 字典
 	 */
