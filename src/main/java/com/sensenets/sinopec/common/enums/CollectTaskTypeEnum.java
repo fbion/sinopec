@@ -28,7 +28,7 @@ public enum CollectTaskTypeEnum {
     private CollectTaskTypeEnum(short code){
         this.code = code;
     }
-
+    
     public short getCode() {
         return code;
     }

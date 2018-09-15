@@ -37,7 +37,7 @@ public class VehicleQueueAnalysisController extends BaseController {
     @Autowired
     IVehicleQueueAnalysisService vehicleQueueAnalysisService;
     
-     @ApiOperation(value = "分页列表")
+     @ApiOperation(value = "排队报表统计")
      @RequestMapping(value = "/analysisCount", method= RequestMethod.POST, produces = "application/json")
      public ResponseInfo analysisCount(@RequestBody VehicleQueueAnalysisCondition condition){
          VehicleQueueResultDto dto = vehicleQueueAnalysisService.selectAnalysisCount(condition);

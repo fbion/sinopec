@@ -2,7 +2,6 @@ package com.sensenets.sinopec.buiness.controller;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
@@ -41,7 +40,6 @@ import com.sensenets.sinopec.common.utils.DateHelper;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 
  /**
   * @ClassName: MobileCollectTaskController
@@ -53,7 +51,6 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Api(value="MobileCollectTaskController", tags = "移动数据采集接口", description="MobileCollectTaskController")
 @RequestMapping(value = "/service/mobileCollectTask",produces = {APPLICATION_JSON_UTF8_VALUE})
-@Slf4j
 public class MobileCollectTaskController extends BaseController {
 
     @Autowired

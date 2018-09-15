@@ -39,6 +39,9 @@ public class CollectResultDto implements Serializable{
     @ApiModelProperty(value = "任务id")
     private Long taskId;
     
+    @ApiModelProperty(value = "任务类型1.进站统计2.站外统计3.全部")
+    private Short  taskType;
+    
     @ApiModelProperty(value = "进站车流量分析结果")
     private List<ResultInFlow> inFlows;
     

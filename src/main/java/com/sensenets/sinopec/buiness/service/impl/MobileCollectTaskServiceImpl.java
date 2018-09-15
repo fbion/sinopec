@@ -20,8 +20,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -334,6 +332,7 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
         if(task==null){
             throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_ID_PARAMS_ERROR);
         }
+        dto.setTaskType(task.getType());
         if(task.getTaskStatus()==CollectTaskStatusEnum.RUNNING.getCode()){
             throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_TASK_UNFINISH);
         }
