@@ -141,12 +141,13 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
         VehicleQueueAnalysisCriteria  dExample = new VehicleQueueAnalysisCriteria(); 
         VehicleQueueAnalysisCriteria.Criteria  dCri = dExample.createCriteria();
         VehicleQueueAnalysisCriteria  gExample = new VehicleQueueAnalysisCriteria(); 
-        VehicleQueueAnalysisCriteria.Criteria  gCri = dExample.createCriteria();
+        VehicleQueueAnalysisCriteria.Criteria  gCri = gExample.createCriteria();
         if(StringUtils.isNotBlank(condition.getInStartTime())){
             String date  = DateHelper.convertCommDateStrToOtherFormatByJodaTime(condition.getInStartTime(), DateHelper.FORMAT_1, DateHelper.FORMAT_6);
             dCri.andDataDayGreaterThanOrEqualTo(Integer.parseInt(date));
             gCri.andDataDayGreaterThanOrEqualTo(Integer.parseInt(date));
         }
+        
         if(StringUtils.isNotBlank(condition.getInEndTime())){
             String date = DateHelper.convertCommDateStrToOtherFormatByJodaTime(condition.getInEndTime(), DateHelper.FORMAT_1, DateHelper.FORMAT_6);
             dCri.andDataDayLessThanOrEqualTo(Integer.parseInt(date));

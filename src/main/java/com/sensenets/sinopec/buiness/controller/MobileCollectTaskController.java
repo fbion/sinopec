@@ -92,6 +92,7 @@ public class MobileCollectTaskController extends BaseController {
      public ResponseInfo listPage(@RequestBody MobileCollectTaskCondition condition){
          // 判断条件并转化为Criteria对象
          VjMobileCollectTaskViewCriteria example = new VjMobileCollectTaskViewCriteria();
+         example.setOrderByClause("uts desc");
          example.setDistinct(true);
          example.setPageNumber(condition.getPageNumber());
          example.setPageSize(condition.getPageSize());

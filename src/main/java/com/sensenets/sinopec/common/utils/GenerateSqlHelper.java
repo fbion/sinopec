@@ -18,11 +18,13 @@ import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
+import com.alibaba.druid.support.logging.Log;
 import com.google.common.collect.Lists;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
   * @ClassName: GenerateSqlHelper
@@ -31,6 +33,7 @@ import lombok.NoArgsConstructor;
   * @date 2018年9月15日 下午2:56:31
   *
   */
+@Slf4j
 public class GenerateSqlHelper {
     
     private static final String INSERT =" insert into " ;
@@ -49,20 +52,22 @@ public class GenerateSqlHelper {
                     for(String field: add.getFieldAry()){
                         fieldStr.append(field+",");
                     }
-                    StringBuffer valueStr = new StringBuffer();
-                    for(ValueObj value : add.getValueList()){
-                        if(value.getFieldType()==FieldType.BIGINT||value.getFieldType()==FieldType.INTEGER||value.getFieldType()==FieldType.SHORT){
-                            valueStr.append(value.getFieldValue()+",");
-                        }else if(value.getFieldType()==FieldType.BOOLEAN){
-                            valueStr.append(BooleanUtils.toBoolean(value.getFieldValue())?1:0+",");
-                        }else if(value.getFieldType()==FieldType.VARCHAR||value.getFieldType()==FieldType.TIMESTAMP){
-                            valueStr.append(value.getFieldValue()+",");
+                    
+                    for(ValueObj[] valueAry : add.getValueList()){
+                        StringBuffer valueStr = new StringBuffer();
+                        for(ValueObj  value :valueAry){
+                            if(value.getFieldType()==FieldType.BIGINT||value.getFieldType()==FieldType.INTEGER||value.getFieldType()==FieldType.SHORT){
+                                valueStr.append(value.getFieldValue()+",");
+                            }else if(value.getFieldType()==FieldType.BOOLEAN){
+                                valueStr.append(BooleanUtils.toBoolean(value.getFieldValue())?1:0+",");
+                            }else if(value.getFieldType()==FieldType.VARCHAR||value.getFieldType()==FieldType.TIMESTAMP){
+                                valueStr.append("'"+value.getFieldValue()+"'"+",");
+                            }
                         }
+                        String sqlStr = INSERT +add.getTableName()+LEFT_BR + StringUtils.substringBeforeLast(fieldStr.toString(), ",")+ RIGHT_BR + VALUES +LEFT_BR + StringUtils.substringBeforeLast(valueStr.toString(), ",")+RIGHT_BR ; 
+                        map.put(sqlStr, sqlStr);
+                        System.out.println(sqlStr);
                     }
-                    System.out.println(valueStr);
-//                    String sqlStr = INSERT + add.getTableName() + LEFT_BR + StringUtils.substringBeforeLast(fieldStr.toString(), ",") + RIGHT_BR+VALUES+ LEFT_BR + StringUtils.substringBeforeLast(valueStr.toString(), ",") + RIGHT_BR;
-//                    map.put(sqlStr, sqlStr);
-//                    System.out.println(sqlStr);
                 }
             }
         }
@@ -71,31 +76,78 @@ public class GenerateSqlHelper {
     
     public static void main(String[] args) {
         List<ParamObj> objs = Lists.newArrayList();
+        objs.add(generateFuncsParamsObj());
+        generateInsertSql(objs);
+    }
+    
+    private static ParamObj  generateFuncsParamsObj(){
         String tableName = " public.funcs " ;
         String[] fieldAry = {"func_id","func_name","func_uri"};
-        List<ValueObj> valueList = Lists.newArrayList();
-        valueList.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集列表",FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_uri","POST /service/mobileCollectTask/listPage;",FieldType.VARCHAR));
+        List<ValueObj[]> valueList = Lists.newArrayList();
+        List<ValueObj> values = null ;
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集列表",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/listPage;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
-        valueList.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集添加",FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_uri","POST /service/mobileCollectTask/add;",FieldType.VARCHAR));
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集添加",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/add;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
-        valueList.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集查询",FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_uri","GET /service/mobileCollectTask/query/;",FieldType.VARCHAR));
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集查询",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/query/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
-        valueList.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集修改",FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_uri","PUT /service/mobileCollectTask/update/;",FieldType.VARCHAR));
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集修改",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","PUT /service/mobileCollectTask/update/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
-        valueList.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集删除",FieldType.VARCHAR));
-        valueList.add(generateValueObj("func_uri","POST /service/mobileCollectTask/deleteBatch;",FieldType.VARCHAR));
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集删除",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/deleteBatch;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
-        objs.add(new AddParamObj(tableName,fieldAry,valueList.toArray(new ValueObj[valueList.size()])));
-        generateInsertSql(objs);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集管理/移动数据采集删除",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/deleteBatch;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集分析/获取分析结果",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/getResult/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/移动数据分析/移动数据采集分析/导出分析结果",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/exportResult/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+
+  
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/车辆应用/车辆排队/车辆排队列表",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/listPage;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",UUIDHelper.genSourceUUID(false),FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","/车辆应用/车辆排队/导出排队数据",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/exportData;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        
+        return new AddParamObj(tableName,fieldAry,valueList);
     }
     
     private static ValueObj generateValueObj(String fieldName,String fieldVal,FieldType type){
@@ -114,13 +166,13 @@ public class GenerateSqlHelper {
     @Data
     public static  class AddParamObj extends ParamObj{
         
-        ValueObj[] valueList;
+        List<ValueObj[]> valueList;
         
         public AddParamObj(){
             this.type = SqlType.Add;
         }
         
-        public AddParamObj(String tableName,String[] fieldAry,ValueObj[] valueList){
+        public AddParamObj(String tableName,String[] fieldAry,List<ValueObj[]> valueList){
             this.tableName = tableName;
             this.type = SqlType.Add;
             this.fieldAry = fieldAry;

@@ -45,7 +45,7 @@ public class VehicleQueueAnalysisController extends BaseController {
      }
      
      
-     @ApiOperation(value = "导出排队数据")
+     @ApiOperation(value = "导出排队分析数据")
      @RequestMapping(value="/exportData", method = RequestMethod.POST, produces = "application/json")
      @ResponseBody
      public ResponseInfo exportData(@RequestBody VehicleQueueAnalysisCondition condition,HttpServletRequest request,HttpServletResponse response){
