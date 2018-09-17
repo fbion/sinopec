@@ -2,6 +2,7 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -64,5 +65,5 @@ public interface IMobileCollectTaskService {
      * @param key
      * @return
      */
-    String downloadCollectResultExcel(HttpServletResponse response,String key);
+    String downloadCollectResultExcel(HttpServletRequest request , HttpServletResponse response,String key);
 }

@@ -7,6 +7,7 @@ import com.sensenets.sinopec.buiness.model.two.VehicleQueueAnalysis;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueAnalysisCriteria;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface IVehicleQueueAnalysisService {
@@ -42,14 +43,16 @@ public interface IVehicleQueueAnalysisService {
       */
     VehicleQueueResultDto selectAnalysisCount(VehicleQueueAnalysisCondition condition);
     
+
     /**
       * @Title: downloadVehicleQueueAnalysisExcel
       * @Description: 下载车辆排队分析表格
+      * @param request
       * @param response
       * @param key
       * @return
       */
-    String downloadVehicleQueueAnalysisExcel(HttpServletResponse response,String key);
+    String downloadVehicleQueueAnalysisExcel(HttpServletRequest request,HttpServletResponse response,String key);
     
     /**
       * @Title: getExportResultExcel

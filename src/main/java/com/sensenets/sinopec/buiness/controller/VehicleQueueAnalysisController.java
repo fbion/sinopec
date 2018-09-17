@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sensenets.sinopec.buiness.condition.VehicleQueueAnalysisCondition;
-import com.sensenets.sinopec.buiness.condition.VehicleQueueExportCondition;
 import com.sensenets.sinopec.buiness.dto.VehicleQueueResultDto;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueAnalysisService;
 import com.sensenets.sinopec.common.controller.BaseController;

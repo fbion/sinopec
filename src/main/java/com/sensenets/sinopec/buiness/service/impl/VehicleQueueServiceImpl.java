@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -96,6 +97,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
     public PageInfo<VehicleQueueDto> selectPageByExample(VehicleQueueCondition condition) {
         PageHelper.startPage(condition.getPageNumber(), condition.getPageSize());
         VehicleQueueCriteria example = new VehicleQueueCriteria();
+        example.setOrderByClause("in_time desc");
         example.setDistinct(true);
         example.setPageNumber(condition.getPageNumber());
         example.setPageSize(condition.getPageSize());
@@ -474,7 +476,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
     }
     
     @Override
-    public String downloadVehicleQueueResultExcel(HttpServletResponse response,String key) {
+    public String downloadVehicleQueueResultExcel(HttpServletRequest request,HttpServletResponse response,String key) {
         if(StringUtils.isBlank(key)){
             throw new BusinessException(BizExceptionEnum.VEHICLE_QUEUE_ERROR_DOWNLOAD_PARAM);
         }
@@ -492,10 +494,23 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
                 File file = new File(filePathCache);
                 byte[] fileData = FileUtils.readFileToByteArray(file);
                 out  = response.getOutputStream();
-                response.setContentType("application/octet-stream;charset=ISO8859-1");
-                response.setHeader("Content-Disposition", "attachment;filename="+ new String(fileNameCache.getBytes(),"ISO8859-1"));
+                
+                String userAgent = request.getHeader("User-Agent"); 
+                String formFileName = "";
+                // 针对IE或者以IE为内核的浏览器
+                if (userAgent.contains("MSIE") || userAgent.contains("Trident")) {
+                    response.setContentType("application/octet-stream;charset=UTF-8");
+                    formFileName = java.net.URLEncoder.encode(fileNameCache, "UTF-8");  
+                } else {
+                    response.setContentType("application/octet-stream;charset=ISO8859-1");
+                    // 非IE浏览器的处理  
+                    formFileName = new String(fileNameCache.getBytes("UTF-8"), "ISO-8859-1");  
+                }  
+                response.setHeader("Content-Disposition", "attachment;filename="+ formFileName);
                 response.addHeader("Pargam", "no-cache");
                 response.addHeader("Cache-Control", "no-cache");
+                response.setCharacterEncoding("UTF-8");
+                
                 out.write(fileData);
                 out.flush();
             } catch (Exception e) {

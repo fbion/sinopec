@@ -2,6 +2,7 @@ package com.sensenets.sinopec.buiness.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.github.pagehelper.PageInfo;
@@ -47,5 +48,5 @@ public interface IVehicleQueueService {
     * @param key
     * @return
     */
-   String downloadVehicleQueueResultExcel(HttpServletResponse response,String key);
+   String downloadVehicleQueueResultExcel(HttpServletRequest request,HttpServletResponse response,String key);
 }

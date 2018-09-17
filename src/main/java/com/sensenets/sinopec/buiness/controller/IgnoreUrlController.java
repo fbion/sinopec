@@ -71,7 +71,7 @@ public class IgnoreUrlController extends BaseController {
     @RequestMapping(value="/getExportResult/{key}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public void getExportResult(@PathVariable String key,HttpServletRequest request,HttpServletResponse response){
-        mobileCollectTaskService.downloadCollectResultExcel(response,key);
+        mobileCollectTaskService.downloadCollectResultExcel(request,response,key);
     }
     
     
@@ -79,14 +79,14 @@ public class IgnoreUrlController extends BaseController {
     @RequestMapping(value="/getVehicleQueueResult/{key}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public void getVehcileQueueExportResult(@PathVariable String key,HttpServletRequest request,HttpServletResponse response){
-        vehicleQueueService.downloadVehicleQueueResultExcel(response,key);
+        vehicleQueueService.downloadVehicleQueueResultExcel(request,response,key);
     }
     
     @ApiOperation(value = "获取车辆排队分析导出结果")
     @RequestMapping(value="/getVehicleQueueAnalysisResult/{key}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public void getVehicleQueueAnalysisResult(@PathVariable String key,HttpServletRequest request,HttpServletResponse response){
-        vehicleQueueAnalysisService.downloadVehicleQueueAnalysisExcel(response, key);
+        vehicleQueueAnalysisService.downloadVehicleQueueAnalysisExcel(request,response, key);
     }
     
 }
