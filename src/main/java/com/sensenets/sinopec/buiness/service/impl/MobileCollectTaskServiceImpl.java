@@ -55,6 +55,8 @@ import com.sensenets.sinopec.buiness.schedule.CollectTaskQueue;
 import com.sensenets.sinopec.buiness.service.IMobileCollectTaskService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
 import com.sensenets.sinopec.common.enums.CollectTaskStatusEnum;
+import com.sensenets.sinopec.common.enums.CollectTaskTypeEnum;
+import com.sensenets.sinopec.common.enums.DeleteStatusEnum;
 import com.sensenets.sinopec.common.enums.SensorGroupEnum;
 import com.sensenets.sinopec.common.enums.VehicleTypeEnum;
 import com.sensenets.sinopec.common.exception.BusinessException;
@@ -269,16 +271,24 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             repoList.add(dto.getCollectRepoId());
             repoList.add(dto.getOilStationRepoId());
             sencri.andRepoIdIn(repoList);
+            sencri.andStatusNotEqualTo(DeleteStatusEnum.DELETE.getCode());
             List<Short> groupType = Lists.newArrayList();
-            groupType.add(SensorGroupEnum.sensor_collect_come.getCode());
-            groupType.add(SensorGroupEnum.sensor_collect_out.getCode());
-            groupType.add(SensorGroupEnum.sensor_come.getCode());
-            groupType.add(SensorGroupEnum.sensor_out.getCode());
+            // 进站或者全部
+            if(view.getType()==CollectTaskTypeEnum.InStation.getCode()|| view.getType()==CollectTaskTypeEnum.ALL.getCode()){
+                groupType.add(SensorGroupEnum.sensor_collect_come.getCode());
+                groupType.add(SensorGroupEnum.sensor_come.getCode());
+            }
+            // 站外或者全部
+            if(view.getType()==CollectTaskTypeEnum.OutStation.getCode()|| view.getType()==CollectTaskTypeEnum.ALL.getCode()){
+                groupType.add(SensorGroupEnum.sensor_collect_out.getCode());
+                groupType.add(SensorGroupEnum.sensor_out.getCode());
+            }
             sencri.andGroupTypeIn(groupType);
             List<Sensors> sensorList = sensorsMapper.selectByExample(example);
             if(CollectionUtils.isEmpty(sensorList)){
                 throw new BusinessException(BizExceptionEnum.SENSOR_ERROR_NULL);
             }
+         
            List<Long> sensorCollectInIds = new ArrayList<Long>();
            List<Long> sensorCollectOutIds = new ArrayList<Long>();
            List<Long> sensorInIds = new ArrayList<Long>();
@@ -297,15 +307,30 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
                    sensorOutIds.add(sensor.getId());
                }
            }
-           if(dto.getType()==1&&(CollectionUtils.isEmpty(sensorCollectInIds)||CollectionUtils.isEmpty(sensorInIds))){
-               throw new BusinessException(BizExceptionEnum.SENSOR_ERROR_NULL);
+       
+           if(view.getType()==CollectTaskTypeEnum.InStation.getCode()||view.getType()==CollectTaskTypeEnum.ALL.getCode()){
+               if(CollectionUtils.isEmpty(sensorInIds)&&CollectionUtils.isEmpty(sensorCollectInIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_ALL_SENSOR_NOT_EXIST);
+               }
+               if(CollectionUtils.isEmpty(sensorInIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_SENSOR_NOT_EXIST);
+               }
+               if(CollectionUtils.isEmpty(sensorCollectInIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_COLLECT_SENSOR_NOT_EXIST);
+               }
            }
-           if(dto.getType()==2&&(CollectionUtils.isEmpty(sensorCollectOutIds)||CollectionUtils.isEmpty(sensorOutIds))){
-               throw new BusinessException(BizExceptionEnum.SENSOR_ERROR_NULL);
+           if(view.getType()==CollectTaskTypeEnum.OutStation.getCode()||view.getType()==CollectTaskTypeEnum.ALL.getCode()){
+               if(CollectionUtils.isEmpty(sensorOutIds)&&CollectionUtils.isEmpty(sensorCollectOutIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_ALL_SENSOR_NOT_EXIST);
+               }
+               if(CollectionUtils.isEmpty(sensorOutIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_SENSOR_NOT_EXIST);
+               }
+               if(CollectionUtils.isEmpty(sensorCollectOutIds)){
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_COLLECT_SENSOR_NOT_EXIST);
+               }
            }
-           if(dto.getType()==3&&(CollectionUtils.isEmpty(sensorCollectInIds)||CollectionUtils.isEmpty(sensorCollectOutIds)||CollectionUtils.isEmpty(sensorInIds)||CollectionUtils.isEmpty(sensorOutIds))){
-               throw new BusinessException(BizExceptionEnum.SENSOR_ERROR_NULL);
-           }
+        
            dto.setSensorCollectInIds(sensorCollectInIds);
            dto.setSensorCollectOutIds(sensorCollectOutIds);
            dto.setSensorInIds(sensorInIds);

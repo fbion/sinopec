@@ -74,7 +74,7 @@ public class CollectTaskDto {
     private Date collectEndTime;
 
     /**
-     * @Fields type 分析类型（1.进/出站流量2.站外流量）
+     * @Fields type 分析类型（1.进站流量2.站外流量3.全部）
      */
     private Short type;
 
