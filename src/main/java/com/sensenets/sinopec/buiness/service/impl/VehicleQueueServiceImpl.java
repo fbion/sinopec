@@ -542,6 +542,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             }
         }
         VehicleQueueCriteria queueExa = generateVehicleQueueCri(condition);
+        queueExa.setOrderByClause("in_time desc");
         List<VehicleQueue> list = this.vehicleQueueMapper.selectByExample(queueExa);
         if(CollectionUtils.isEmpty(list)){
             throw new BusinessException(BizExceptionEnum.VEHICLE_QUEUE_EXPORT_RESULT_IS_NULL);
