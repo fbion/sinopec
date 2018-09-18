@@ -1,13 +1,13 @@
 package com.sensenets.sinopec.core.security.url;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.access.ConfigAttribute;
 
 import com.sensenets.sinopec.common.enums.UrlMethod;
 
 import lombok.Getter;
-
-import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -28,13 +28,18 @@ public class UrlConfigAttribute implements ConfigAttribute {
     private final HttpServletRequest httpServletRequest;
     
     private final UrlGrantedAuthority requestAuthority;
+    
+    private final UrlGrantedAuthority requestPathAuthority;
 
     public UrlConfigAttribute(HttpServletRequest request) {
         this.httpServletRequest = request;
         String method = request.getMethod();
         this.requestAuthority = new UrlGrantedAuthority(request.getRequestURI(),UrlMethod.getEnumType(method));
+        String url = StringUtils.substringBeforeLast(request.getRequestURI(), "/")+"/"+"**";
+        this.requestPathAuthority = new UrlGrantedAuthority(url,UrlMethod.getEnumType(method));
     }
 
+    
 
     @Override
     public String getAttribute() {

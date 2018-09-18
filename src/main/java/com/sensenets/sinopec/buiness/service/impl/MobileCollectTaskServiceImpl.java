@@ -375,14 +375,18 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
                 inFlow.setCollectCount(flow.getCollectInCount());
                 inFlow.setStationCount(flow.getStationInCount());
                 inFlow.setDataTime(dateTime);
+                inFlow.setIndex(flow.getDataHour());
                 inFlowList.add(inFlow);
                 CollectResultDto.ResultOutFlow outFlow =  new CollectResultDto.ResultOutFlow();
                 outFlow.setCollectCount(flow.getCollectOutCount());
                 outFlow.setStationCount(flow.getStationOutCount());
                 outFlow.setDataTime(dateTime);
+                outFlow.setIndex(flow.getDataHour());
                 outFlowList.add(outFlow);
             }
         }
+        java.util.Collections.sort(inFlowList);
+        java.util.Collections.sort(outFlowList);
         dto.setInFlows(inFlowList);
         dto.setOutFlows(outFlowList);
         
@@ -410,25 +414,31 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
                 inType.setCollectCount(type.getCollectInCount());
                 inType.setStationCount(type.getStationInCount());
                 inType.setVehicleType(veType);
+                inType.setIndex(Integer.parseInt(type.getVerhicleType()));
                 inTypeList.add(inType);
                 CollectResultDto.ResultOutVehicleType outType =  new CollectResultDto.ResultOutVehicleType();
                 outType.setCollectCount(type.getCollectOutCount());
                 outType.setStationCount(type.getStationOutCount());
                 outType.setVehicleType(veType);
+                outType.setIndex(Integer.parseInt(type.getVerhicleType()));
                 outTypeList.add(outType);
             }
             CollectResultDto.ResultInVehicleType qitaInType =  new CollectResultDto.ResultInVehicleType();
             qitaInType.setCollectCount(collectInCount);
             qitaInType.setStationCount(stationInCount);
             qitaInType.setVehicleType("其他");
+            qitaInType.setIndex(VehicleTypeEnum.qita3.getCode());
             inTypeList.add(qitaInType);
             CollectResultDto.ResultOutVehicleType qitaOutType =  new CollectResultDto.ResultOutVehicleType();
             qitaOutType.setCollectCount(collectOutCount);
             qitaOutType.setStationCount(stationOutCount);
             qitaOutType.setVehicleType("其他");
+            qitaOutType.setIndex(VehicleTypeEnum.qita3.getCode());
             outTypeList.add(qitaOutType);
         }
         dto.setTaskId(id);
+        java.util.Collections.sort(inTypeList);
+        java.util.Collections.sort(outTypeList);
         dto.setInVehicleTypes(inTypeList);
         dto.setOutVehicleTypes(outTypeList);
         return dto;

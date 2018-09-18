@@ -19,6 +19,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.sensenets.sinopec.buiness.dto.CollectResultDto;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
+import com.sensenets.sinopec.common.enums.CollectTaskTypeEnum;
 import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
 
@@ -174,10 +175,18 @@ public class CollectResultExcelExport {
             file.mkdirs();
         }
         FileOutputStream fileOut = new FileOutputStream(filePath);
-        eeu.exportExcel(workbook, 0, "站外车流量统计", flowHeaders, outFlowList, 0,outFlowName);
-        eeu.exportExcel(workbook, 1, "进站车流量统计", flowHeaders, inFlowList, 0,inFlowName);
-        eeu.exportExcel(workbook, 2, "站外车辆类型统计", typeHeaders, outTypeList,0,outTypeName);
-        eeu.exportExcel(workbook, 3, "进站车辆类型统计", typeHeaders, inTypeList,0,inTypeName);
+        if(task.getType()==CollectTaskTypeEnum.InStation.getCode()){
+            eeu.exportExcel(workbook, 0, "进站车流量统计", flowHeaders, inFlowList, 0,inFlowName);
+            eeu.exportExcel(workbook, 1, "进站车辆类型统计", typeHeaders, inTypeList,0,inTypeName);
+        }else if(task.getType()==CollectTaskTypeEnum.OutStation.getCode()){
+            eeu.exportExcel(workbook, 0, "站外车流量统计", flowHeaders, outFlowList, 0,outFlowName);
+            eeu.exportExcel(workbook, 1, "站外车辆类型统计", typeHeaders, outTypeList,0,outTypeName);
+        }else if(task.getType()==CollectTaskTypeEnum.ALL.getCode()){
+            eeu.exportExcel(workbook, 0, "站外车流量统计", flowHeaders, outFlowList, 0,outFlowName);
+            eeu.exportExcel(workbook, 1, "进站车流量统计", flowHeaders, inFlowList, 0,inFlowName);
+            eeu.exportExcel(workbook, 2, "站外车辆类型统计", typeHeaders, outTypeList,0,outTypeName);
+            eeu.exportExcel(workbook, 3, "进站车辆类型统计", typeHeaders, inTypeList,0,inTypeName);
+        }
         workbook.write(fileOut);
         fileOut.flush();
         fileOut.close();

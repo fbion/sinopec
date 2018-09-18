@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
@@ -70,19 +69,23 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
             // 一个资源可以被多个角色访问，根据资源分组，统计每个资源对应的角色名称
             for (VjFuncRoleUrlView resource : resources) {
                 Set<ConfigAttribute> configAttributes = null;
-                String url = StringUtils.substringAfterLast(resource.getFuncUri(), " ");
-                String method = StringUtils.substringBefore(resource.getFuncUri(), " ");
-                UrlGrantedAuthority authority = new UrlGrantedAuthority(url, UrlMethod.getEnumType(method));
-                if (resourceMap.get(authority) == null) {
-                    configAttributes = new HashSet<ConfigAttribute>();
-                    ConfigAttribute attribute = new SecurityConfig(resource.getFuncRoleId());
-                    configAttributes.add(attribute);
-                } else {
-                    configAttributes = resourceMap.get(authority);
-                    ConfigAttribute attribute = new SecurityConfig(resource.getFuncRoleId());
-                    configAttributes.add(attribute);
+                String[] urlsAry = resource.getFuncUri().split(";");
+                for(String urls:urlsAry){
+                    String[] urlAry = urls.split(" ");
+                    String method = urlAry[0];
+                    String url = urlAry[1].endsWith("/")?urlAry[1]+"**":urlAry[1];
+                    UrlGrantedAuthority authority = new UrlGrantedAuthority(url, UrlMethod.getEnumType(method));
+                    if (resourceMap.get(authority) == null) {
+                        configAttributes = new HashSet<ConfigAttribute>();
+                        ConfigAttribute attribute = new SecurityConfig(resource.getFuncRoleId());
+                        configAttributes.add(attribute);
+                    } else {
+                        configAttributes = resourceMap.get(authority);
+                        ConfigAttribute attribute = new SecurityConfig(resource.getFuncRoleId());
+                        configAttributes.add(attribute);
+                    }
+                    resourceMap.put(authority, configAttributes);
                 }
-                resourceMap.put(authority, configAttributes);
             }
         }
     }
@@ -96,12 +99,14 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
         }
         UrlConfigAttribute attribute = new UrlConfigAttribute(request);
         Set<ConfigAttribute> configAttributes = resourceMap.get(attribute.getRequestAuthority());
-        if(CollectionUtils.isEmpty(configAttributes)){
+        Set<ConfigAttribute> configPathAttributes = resourceMap.get(attribute.getRequestPathAuthority());
+        
+        if(CollectionUtils.isEmpty(configAttributes)&&CollectionUtils.isEmpty(configPathAttributes)){
             Map<String,String> map = jwtConfig.getAllIgnoreMap();
             for(Map.Entry<String,String> entry : map.entrySet()){
                 // 此处排除需要放开的url
                 if(matchers(entry.getValue(), request)){
-                    log.info("匹配上忽略url直接返回");
+                    log.debug("匹配上忽略url直接返回");
                     return configAttributes;
                 }
             }
@@ -109,7 +114,7 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
             for(String basicUrl:basicList){
                 // 此处需要授权后放开的url
                 if(matchers(basicUrl, request)){
-                    log.info("匹配上基本授权url直接返回");
+                    log.debug("匹配上基本授权url直接返回");
                     configAttributes = new HashSet<ConfigAttribute>();
                     configAttributes.add(new SecurityConfig(ROLE_BASIC));
                     return configAttributes;
@@ -118,8 +123,12 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
             // 此处为空需要判断并添加默认的资源不存在权限，否则自定义的AccessDecisionManager不执行
             configAttributes = new HashSet<ConfigAttribute>();
             configAttributes.add(new SecurityConfig(ROLE_NO_EXIST));
+            return configAttributes;
+        }else if(CollectionUtils.isNotEmpty(configPathAttributes)){
+            return configPathAttributes;
+        }else{
+            return configAttributes;
         }
-        return configAttributes;
     }
 
     @Override
@@ -133,8 +142,8 @@ public class UrlSecurityMetadataSource implements FilterInvocationSecurityMetada
     }
     
     private boolean matchers(String url, HttpServletRequest request) {
-        AntPathRequestMatcher matcher = new AntPathRequestMatcher(url);
-        if (matcher.matches(request)) {
+        AntPathRequestMatcher matcherCommonUrl = new AntPathRequestMatcher(url);
+        if (matcherCommonUrl.matches(request)) {
             return true;
         }
         return false;

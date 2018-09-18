@@ -58,7 +58,7 @@ public class CollectResultDto implements Serializable{
     @ApiModel(value ="ResultInFlow")
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ResultInFlow{
+    public static class ResultInFlow implements Comparable<ResultInFlow>{
         
         @ApiModelProperty(value = "采集进站车流量数量")
         private int collectCount = 0 ;
@@ -66,13 +66,32 @@ public class CollectResultDto implements Serializable{
         private int stationCount = 0 ;
         @ApiModelProperty(value = "时间单位")
         private String dataTime =  "" ; 
+        @ApiModelProperty(value = "排序")
+        private int index = 0 ;
+     
+        @Override
+        public int compareTo(ResultInFlow o) {
+            if(o!=null){
+                if(o.getIndex()>this.getIndex()){
+                    return -1;
+                }else if(o.getIndex()<this.getIndex()){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+            return 0;
+        }
+
+        
+    
     }
     
     @Data
     @ApiModel(value ="ResultOutFlow")
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ResultOutFlow{
+    public static class ResultOutFlow implements Comparable<ResultOutFlow> {
         
         @ApiModelProperty(value = "采集站外车流量数量")
         private int collectCount = 0 ;
@@ -80,32 +99,81 @@ public class CollectResultDto implements Serializable{
         private int stationCount = 0 ;
         @ApiModelProperty(value = "时间单位")
         private String dataTime =  "" ; 
+        @ApiModelProperty(value = "排序")
+        private int index = 0 ; 
+        
+        @Override
+        public int compareTo(ResultOutFlow o) {
+            if(o!=null){
+                if(o.getIndex()>this.getIndex()){
+                    return -1;
+                }else if(o.getIndex()<this.getIndex()){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+            return 0;
+        }
     }
     
     @Data
     @ApiModel(value ="ResultInVehicleType")
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ResultInVehicleType{
+    public static class ResultInVehicleType implements Comparable<ResultInVehicleType>  {
         @ApiModelProperty(value = "采集进站车类型数量")
         private int collectCount = 0 ;
         @ApiModelProperty(value = "油站进站车类型数量")
         private int stationCount = 0 ;
         @ApiModelProperty(value = "车类型单位")
         private String vehicleType =  "" ; 
+        @ApiModelProperty(value = "排序")
+        private int index = 0 ; 
+        
+        @Override
+        public int compareTo(ResultInVehicleType o) {
+            if(o!=null){
+                if(o.getIndex()>this.getIndex()){
+                    return -1;
+                }else if(o.getIndex()<this.getIndex()){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+            return 0;
+        }
     }
     
     @Data
     @ApiModel(value ="ResultOutVehicleType")
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ResultOutVehicleType{
+    public static class ResultOutVehicleType implements Comparable<ResultOutVehicleType> {
         @ApiModelProperty(value = "采集出站车类型数量")
         private int collectCount = 0 ;
         @ApiModelProperty(value = "油站出站车类型数量")
         private int stationCount = 0 ;
         @ApiModelProperty(value = "车类型单位")
         private String vehicleType =  "" ; 
+        @ApiModelProperty(value = "排序")
+        private int index = 0 ; 
+        
+        @Override
+        public int compareTo(ResultOutVehicleType o) {
+            if(o!=null){
+                if(o.getIndex()>this.getIndex()){
+                    return  -1;
+                }else if(o.getIndex()<this.getIndex()){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+            return 0;
+        }
+        
     }
 
 }
