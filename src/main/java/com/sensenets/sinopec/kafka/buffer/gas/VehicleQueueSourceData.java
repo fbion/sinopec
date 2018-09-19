@@ -25,6 +25,12 @@ public class VehicleQueueSourceData {
 
 
     /**
+      * @Fields ts : 过车时间
+      */
+    @ApiModelProperty(value = "过车时间")
+    private Long ts;
+    
+    /**
      * @Fields sensorId 设备id
      */
     @ApiModelProperty(value = "设备id")
@@ -51,8 +57,20 @@ public class VehicleQueueSourceData {
     /**
      * @Fields time 时间
      */
-    @ApiModelProperty(value = "时间")
+    @ApiModelProperty(value = "进站或出站时间")
     private Date time;
+    
+    /**
+     * @Fields time 时间
+     */
+    @ApiModelProperty(value = "提枪时间")
+    private Date liftGunTime;
+    
+    /**
+     * @Fields time 时间
+     */
+    @ApiModelProperty(value = "挂枪时间")
+    private Date hangGunTime;
   
 
     /**

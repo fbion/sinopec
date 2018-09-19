@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sensenets.sinopec.buiness.dao.two.OilEventInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sensenets.sinopec.buiness.model.two.OilEventInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="uts" jdbcType="TIMESTAMP" property="uts" />
+        <result column="oil_station_id" jdbcType="VARCHAR" property="oilStationId" />
+        <result column="oil_gun_id" jdbcType="VARCHAR" property="oilGunId" />
+        <result column="lift_timestamp" jdbcType="TIMESTAMP" property="liftTimestamp" />
+        <result column="hang_timestamp" jdbcType="TIMESTAMP" property="hangTimestamp" />
+        <result column="tcc_no" jdbcType="VARCHAR" property="tccNo" />
+        <result column="oil_type_num" jdbcType="VARCHAR" property="oilTypeNum" />
+        <result column="oil_card_id" jdbcType="VARCHAR" property="oilCardId" />
+        <result column="limit_vehicle_plate" jdbcType="VARCHAR" property="limitVehiclePlate" />
+        <result column="vehicle_plate" jdbcType="VARCHAR" property="vehiclePlate" />
+        <result column="vehicle_brand" jdbcType="VARCHAR" property="vehicleBrand" />
+        <result column="vehicle_sub_brand" jdbcType="VARCHAR" property="vehicleSubBrand" />
+        <result column="vehicle_style" jdbcType="VARCHAR" property="vehicleStyle" />
+        <result column="vehicle_type" jdbcType="VARCHAR" property="vehicleType" />
+        <result column="vehicle_color" jdbcType="VARCHAR" property="vehicleColor" />
+        <result column="vehicle_plate_tyle" jdbcType="VARCHAR" property="vehiclePlateTyle" />
+        <result column="vehicle_plate_color" jdbcType="VARCHAR" property="vehiclePlateColor" />
+        <result column="vehicle_plate_image_url" jdbcType="VARCHAR" property="vehiclePlateImageUrl" />
+        <result column="additional_infos" jdbcType="VARCHAR" property="additionalInfos" />
+        <result column="status" jdbcType="SMALLINT" property="status" />
+        <result column="amount" jdbcType="REAL" property="amount" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, uts, oil_station_id, oil_gun_id, lift_timestamp, hang_timestamp, tcc_no, oil_type_num, 
+        oil_card_id, limit_vehicle_plate, vehicle_plate, vehicle_brand, vehicle_sub_brand, 
+        vehicle_style, vehicle_type, vehicle_color, vehicle_plate_tyle, vehicle_plate_color, 
+        vehicle_plate_image_url, additional_infos, status, amount
+    </sql>
+    <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfoCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from "public"."oil_event_info"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from "public"."oil_event_info"
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from "public"."oil_event_info"
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfoCriteria">
+        delete from "public"."oil_event_info"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfo">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "public"."oil_event_info" (uts, oil_station_id, oil_gun_id, 
+            lift_timestamp, hang_timestamp, tcc_no, 
+            oil_type_num, oil_card_id, limit_vehicle_plate, 
+            vehicle_plate, vehicle_brand, vehicle_sub_brand, 
+            vehicle_style, vehicle_type, vehicle_color, 
+            vehicle_plate_tyle, vehicle_plate_color, 
+            vehicle_plate_image_url, additional_infos, 
+            status, amount)
+        values (#{uts,jdbcType=TIMESTAMP}, #{oilStationId,jdbcType=VARCHAR}, #{oilGunId,jdbcType=VARCHAR}, 
+            #{liftTimestamp,jdbcType=TIMESTAMP}, #{hangTimestamp,jdbcType=TIMESTAMP}, #{tccNo,jdbcType=VARCHAR}, 
+            #{oilTypeNum,jdbcType=VARCHAR}, #{oilCardId,jdbcType=VARCHAR}, #{limitVehiclePlate,jdbcType=VARCHAR}, 
+            #{vehiclePlate,jdbcType=VARCHAR}, #{vehicleBrand,jdbcType=VARCHAR}, #{vehicleSubBrand,jdbcType=VARCHAR}, 
+            #{vehicleStyle,jdbcType=VARCHAR}, #{vehicleType,jdbcType=VARCHAR}, #{vehicleColor,jdbcType=VARCHAR}, 
+            #{vehiclePlateTyle,jdbcType=VARCHAR}, #{vehiclePlateColor,jdbcType=VARCHAR}, 
+            #{vehiclePlateImageUrl,jdbcType=VARCHAR}, #{additionalInfos,jdbcType=VARCHAR}, 
+            #{status,jdbcType=SMALLINT}, #{amount,jdbcType=REAL})
+    </insert>
+    <insert id="insertSelective" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfo">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            PostgreSQL
+        </selectKey>
+        insert into "public"."oil_event_info"
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uts != null">
+                uts,
+            </if>
+            <if test="oilStationId != null">
+                oil_station_id,
+            </if>
+            <if test="oilGunId != null">
+                oil_gun_id,
+            </if>
+            <if test="liftTimestamp != null">
+                lift_timestamp,
+            </if>
+            <if test="hangTimestamp != null">
+                hang_timestamp,
+            </if>
+            <if test="tccNo != null">
+                tcc_no,
+            </if>
+            <if test="oilTypeNum != null">
+                oil_type_num,
+            </if>
+            <if test="oilCardId != null">
+                oil_card_id,
+            </if>
+            <if test="limitVehiclePlate != null">
+                limit_vehicle_plate,
+            </if>
+            <if test="vehiclePlate != null">
+                vehicle_plate,
+            </if>
+            <if test="vehicleBrand != null">
+                vehicle_brand,
+            </if>
+            <if test="vehicleSubBrand != null">
+                vehicle_sub_brand,
+            </if>
+            <if test="vehicleStyle != null">
+                vehicle_style,
+            </if>
+            <if test="vehicleType != null">
+                vehicle_type,
+            </if>
+            <if test="vehicleColor != null">
+                vehicle_color,
+            </if>
+            <if test="vehiclePlateTyle != null">
+                vehicle_plate_tyle,
+            </if>
+            <if test="vehiclePlateColor != null">
+                vehicle_plate_color,
+            </if>
+            <if test="vehiclePlateImageUrl != null">
+                vehicle_plate_image_url,
+            </if>
+            <if test="additionalInfos != null">
+                additional_infos,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="amount != null">
+                amount,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uts != null">
+                #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oilStationId != null">
+                #{oilStationId,jdbcType=VARCHAR},
+            </if>
+            <if test="oilGunId != null">
+                #{oilGunId,jdbcType=VARCHAR},
+            </if>
+            <if test="liftTimestamp != null">
+                #{liftTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="hangTimestamp != null">
+                #{hangTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tccNo != null">
+                #{tccNo,jdbcType=VARCHAR},
+            </if>
+            <if test="oilTypeNum != null">
+                #{oilTypeNum,jdbcType=VARCHAR},
+            </if>
+            <if test="oilCardId != null">
+                #{oilCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="limitVehiclePlate != null">
+                #{limitVehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlate != null">
+                #{vehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleBrand != null">
+                #{vehicleBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleSubBrand != null">
+                #{vehicleSubBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleStyle != null">
+                #{vehicleStyle,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleType != null">
+                #{vehicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleColor != null">
+                #{vehicleColor,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateTyle != null">
+                #{vehiclePlateTyle,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateColor != null">
+                #{vehiclePlateColor,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateImageUrl != null">
+                #{vehiclePlateImageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="additionalInfos != null">
+                #{additionalInfos,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="amount != null">
+                #{amount,jdbcType=REAL},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfoCriteria" resultType="java.lang.Long">
+        select count(*) from "public"."oil_event_info"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update "public"."oil_event_info"
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.uts != null">
+                uts = #{record.uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.oilStationId != null">
+                oil_station_id = #{record.oilStationId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.oilGunId != null">
+                oil_gun_id = #{record.oilGunId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.liftTimestamp != null">
+                lift_timestamp = #{record.liftTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.hangTimestamp != null">
+                hang_timestamp = #{record.hangTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.tccNo != null">
+                tcc_no = #{record.tccNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.oilTypeNum != null">
+                oil_type_num = #{record.oilTypeNum,jdbcType=VARCHAR},
+            </if>
+            <if test="record.oilCardId != null">
+                oil_card_id = #{record.oilCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.limitVehiclePlate != null">
+                limit_vehicle_plate = #{record.limitVehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehiclePlate != null">
+                vehicle_plate = #{record.vehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehicleBrand != null">
+                vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehicleSubBrand != null">
+                vehicle_sub_brand = #{record.vehicleSubBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehicleStyle != null">
+                vehicle_style = #{record.vehicleStyle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehicleType != null">
+                vehicle_type = #{record.vehicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehicleColor != null">
+                vehicle_color = #{record.vehicleColor,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehiclePlateTyle != null">
+                vehicle_plate_tyle = #{record.vehiclePlateTyle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehiclePlateColor != null">
+                vehicle_plate_color = #{record.vehiclePlateColor,jdbcType=VARCHAR},
+            </if>
+            <if test="record.vehiclePlateImageUrl != null">
+                vehicle_plate_image_url = #{record.vehiclePlateImageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.additionalInfos != null">
+                additional_infos = #{record.additionalInfos,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=SMALLINT},
+            </if>
+            <if test="record.amount != null">
+                amount = #{record.amount,jdbcType=REAL},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update "public"."oil_event_info"
+        set id = #{record.id,jdbcType=BIGINT},
+            uts = #{record.uts,jdbcType=TIMESTAMP},
+            oil_station_id = #{record.oilStationId,jdbcType=VARCHAR},
+            oil_gun_id = #{record.oilGunId,jdbcType=VARCHAR},
+            lift_timestamp = #{record.liftTimestamp,jdbcType=TIMESTAMP},
+            hang_timestamp = #{record.hangTimestamp,jdbcType=TIMESTAMP},
+            tcc_no = #{record.tccNo,jdbcType=VARCHAR},
+            oil_type_num = #{record.oilTypeNum,jdbcType=VARCHAR},
+            oil_card_id = #{record.oilCardId,jdbcType=VARCHAR},
+            limit_vehicle_plate = #{record.limitVehiclePlate,jdbcType=VARCHAR},
+            vehicle_plate = #{record.vehiclePlate,jdbcType=VARCHAR},
+            vehicle_brand = #{record.vehicleBrand,jdbcType=VARCHAR},
+            vehicle_sub_brand = #{record.vehicleSubBrand,jdbcType=VARCHAR},
+            vehicle_style = #{record.vehicleStyle,jdbcType=VARCHAR},
+            vehicle_type = #{record.vehicleType,jdbcType=VARCHAR},
+            vehicle_color = #{record.vehicleColor,jdbcType=VARCHAR},
+            vehicle_plate_tyle = #{record.vehiclePlateTyle,jdbcType=VARCHAR},
+            vehicle_plate_color = #{record.vehiclePlateColor,jdbcType=VARCHAR},
+            vehicle_plate_image_url = #{record.vehiclePlateImageUrl,jdbcType=VARCHAR},
+            additional_infos = #{record.additionalInfos,jdbcType=VARCHAR},
+            status = #{record.status,jdbcType=SMALLINT},
+            amount = #{record.amount,jdbcType=REAL}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfo">
+        update "public"."oil_event_info"
+        <set>
+            <if test="uts != null">
+                uts = #{uts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oilStationId != null">
+                oil_station_id = #{oilStationId,jdbcType=VARCHAR},
+            </if>
+            <if test="oilGunId != null">
+                oil_gun_id = #{oilGunId,jdbcType=VARCHAR},
+            </if>
+            <if test="liftTimestamp != null">
+                lift_timestamp = #{liftTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="hangTimestamp != null">
+                hang_timestamp = #{hangTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tccNo != null">
+                tcc_no = #{tccNo,jdbcType=VARCHAR},
+            </if>
+            <if test="oilTypeNum != null">
+                oil_type_num = #{oilTypeNum,jdbcType=VARCHAR},
+            </if>
+            <if test="oilCardId != null">
+                oil_card_id = #{oilCardId,jdbcType=VARCHAR},
+            </if>
+            <if test="limitVehiclePlate != null">
+                limit_vehicle_plate = #{limitVehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlate != null">
+                vehicle_plate = #{vehiclePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleBrand != null">
+                vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleSubBrand != null">
+                vehicle_sub_brand = #{vehicleSubBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleStyle != null">
+                vehicle_style = #{vehicleStyle,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleType != null">
+                vehicle_type = #{vehicleType,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleColor != null">
+                vehicle_color = #{vehicleColor,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateTyle != null">
+                vehicle_plate_tyle = #{vehiclePlateTyle,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateColor != null">
+                vehicle_plate_color = #{vehiclePlateColor,jdbcType=VARCHAR},
+            </if>
+            <if test="vehiclePlateImageUrl != null">
+                vehicle_plate_image_url = #{vehiclePlateImageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="additionalInfos != null">
+                additional_infos = #{additionalInfos,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="amount != null">
+                amount = #{amount,jdbcType=REAL},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.sensenets.sinopec.buiness.model.two.OilEventInfo">
+        update "public"."oil_event_info"
+        set uts = #{uts,jdbcType=TIMESTAMP},
+            oil_station_id = #{oilStationId,jdbcType=VARCHAR},
+            oil_gun_id = #{oilGunId,jdbcType=VARCHAR},
+            lift_timestamp = #{liftTimestamp,jdbcType=TIMESTAMP},
+            hang_timestamp = #{hangTimestamp,jdbcType=TIMESTAMP},
+            tcc_no = #{tccNo,jdbcType=VARCHAR},
+            oil_type_num = #{oilTypeNum,jdbcType=VARCHAR},
+            oil_card_id = #{oilCardId,jdbcType=VARCHAR},
+            limit_vehicle_plate = #{limitVehiclePlate,jdbcType=VARCHAR},
+            vehicle_plate = #{vehiclePlate,jdbcType=VARCHAR},
+            vehicle_brand = #{vehicleBrand,jdbcType=VARCHAR},
+            vehicle_sub_brand = #{vehicleSubBrand,jdbcType=VARCHAR},
+            vehicle_style = #{vehicleStyle,jdbcType=VARCHAR},
+            vehicle_type = #{vehicleType,jdbcType=VARCHAR},
+            vehicle_color = #{vehicleColor,jdbcType=VARCHAR},
+            vehicle_plate_tyle = #{vehiclePlateTyle,jdbcType=VARCHAR},
+            vehicle_plate_color = #{vehiclePlateColor,jdbcType=VARCHAR},
+            vehicle_plate_image_url = #{vehiclePlateImageUrl,jdbcType=VARCHAR},
+            additional_infos = #{additionalInfos,jdbcType=VARCHAR},
+            status = #{status,jdbcType=SMALLINT},
+            amount = #{amount,jdbcType=REAL}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

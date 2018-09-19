@@ -124,22 +124,22 @@ public class VehicleQueueAnalysisCountService {
             cache.put(identity, true);
             sBuffer.setLength(0);
             sBuffer.append(identity).append("@time5");
-            // yyyyMMdd@oilType@reposId@time5:time5
+            // yyyyMMdd@oilType@reposId@vehicleType@time5:time5
             cache.put(sBuffer.toString(), st.getTime5());
 
             sBuffer.setLength(0);
             sBuffer.append(identity).append("@time10");
-            // yyyyMMdd@oilType@reposId@time10:time10
+            // yyyyMMdd@oilType@reposId@vehicleType@time10:time10
             cache.put(sBuffer.toString(), st.getTime10());
             
             sBuffer.setLength(0);
             sBuffer.append(identity).append("@time15");
-            // yyyyMMdd@oilType@reposId@time15:time15
+            // yyyyMMdd@oilType@reposId@vehicleType@time15:time15
             cache.put(sBuffer.toString(), st.getTime15());
             
             sBuffer.setLength(0);
             sBuffer.append(identity).append("@time20");
-            // yyyyMMdd@oilType@reposId@time20:time20
+            // yyyyMMdd@oilType@reposId@vehicleType@time20:time20
             cache.put(sBuffer.toString(), st.getTime20());
             
             sBuffer.setLength(0);
@@ -183,27 +183,27 @@ public class VehicleQueueAnalysisCountService {
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time5");
-        // yyyyMMdd@oilType@reposId@time5:time5
+        // yyyyMMdd@oilType@reposId@vehicleType@time5:time5
         cache.put(sBuffer.toString(), ve.getTime5());
 
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time10");
-        // yyyyMMdd@oilType@reposId@time10:time10
+        // yyyyMMdd@oilType@reposId@vehicleType@time10:time10
         cache.put(sBuffer.toString(), ve.getTime10());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time15");
-        // yyyyMMdd@oilType@reposId@time15:time15
+        // yyyyMMdd@oilType@reposId@vehicleType@time15:time15
         cache.put(sBuffer.toString(), ve.getTime15());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time20");
-        // yyyyMMdd@oilType@reposId@time20:time20
+        // yyyyMMdd@oilType@reposId@vehicleType@time20:time20
         cache.put(sBuffer.toString(), ve.getTime20());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time25");
-        // yyyyMMdd@oilType@reposId@time25:time25
+        // yyyyMMdd@oilType@reposId@vehicleType@time25:time25
         cache.put(sBuffer.toString(), ve.getTime25());
         // Cache Data Over!
         logger.debug("Cache data is " + cache);
@@ -317,27 +317,27 @@ public class VehicleQueueAnalysisCountService {
         cache.put(identity, true);
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time5");
-        // yyyyMMdd@oilType@reposId@time5:time5
+        // yyyyMMdd@oilType@reposId@vehicleType@time5:time5
         cache.put(sBuffer.toString(), ve.getTime5());
 
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time10");
-        // yyyyMMdd@oilType@reposId@time10:time10
+        // yyyyMMdd@oilType@reposId@vehicleType@time10:time10
         cache.put(sBuffer.toString(), ve.getTime10());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time15");
-        // yyyyMMdd@oilType@reposId@time15:time15
+        // yyyyMMdd@oilType@reposId@vehicleType@time15:time15
         cache.put(sBuffer.toString(), ve.getTime15());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time20");
-        // yyyyMMdd@oilType@reposId@time20:time20
+        // yyyyMMdd@oilType@reposId@vehicleType@time20:time20
         cache.put(sBuffer.toString(), ve.getTime20());
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time25");
-        // yyyyMMdd@oilType@reposId@time25:time25
+        // yyyyMMdd@oilType@reposId@vehicleType@time25:time25
         cache.put(sBuffer.toString(), ve.getTime25());
         
         // insert data
@@ -370,31 +370,31 @@ public class VehicleQueueAnalysisCountService {
         int result = -1;
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time5");
-        // yyyyMMdd@oilType@reposId@time5:time5
+        // yyyyMMdd@oilType@reposId@vehicleType@time5:time5
         String time5 = sBuffer.toString();
         cache.put(sBuffer.toString(), ve.getTime5()+(Long) cache.get(sBuffer.toString()));
 
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time10");
-        // yyyyMMdd@oilType@reposId@time10:time10
+        // yyyyMMdd@oilType@reposId@vehicleType@time10:time10
         String time10 = sBuffer.toString();
         cache.put(sBuffer.toString(), ve.getTime10()+(Long) cache.get(sBuffer.toString()));
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time15");
-        // yyyyMMdd@oilType@reposId@time15:time15
+        // yyyyMMdd@oilType@reposId@vehicleType@time15:time15
         String time15 = sBuffer.toString();
         cache.put(sBuffer.toString(), ve.getTime15()+(Long) cache.get(sBuffer.toString()));
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time20");
-        // yyyyMMdd@oilType@reposId@time20:time20
+        // yyyyMMdd@oilType@reposId@vehicleType@time20:time20
         String time20 = sBuffer.toString();
         cache.put(sBuffer.toString(), ve.getTime20()+(Long) cache.get(sBuffer.toString()));
         
         sBuffer.setLength(0);
         sBuffer.append(identity).append("@time25");
-        // yyyyMMdd@oilType@reposId@time25:time25
+        // yyyyMMdd@oilType@reposId@vehicleType@time25:time25
         String time25 = sBuffer.toString();
         cache.put(sBuffer.toString(), ve.getTime25()+(Long) cache.get(sBuffer.toString()));
         // update data

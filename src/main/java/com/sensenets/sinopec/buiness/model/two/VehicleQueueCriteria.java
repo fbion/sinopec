@@ -1,7 +1,7 @@
 /**
   * VehicleQueueCriteria.java
   * Copyright(C) 2017-2018 
-  * @date 2018-09-10
+  * @date 2018-09-19
   */
 package com.sensenets.sinopec.buiness.model.two;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-09-10 12:48:47
+ * @Date 2018-09-19 11:51:40
  */
 public class VehicleQueueCriteria {
     protected String orderByClause;
@@ -140,7 +140,7 @@ public class VehicleQueueCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-09-10 12:48:47
+     * @Date 2018-09-19 11:51:40
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2532,6 +2532,246 @@ public class VehicleQueueCriteria {
             addCriterion("out_plate_text not between", value1, value2, "outPlateText");
             return (Criteria) this;
         }
+
+        public Criteria andInVehicleIdIsNull() {
+            addCriterion("in_vehicle_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdIsNotNull() {
+            addCriterion("in_vehicle_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdEqualTo(Long value) {
+            addCriterion("in_vehicle_id =", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdNotEqualTo(Long value) {
+            addCriterion("in_vehicle_id <>", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdGreaterThan(Long value) {
+            addCriterion("in_vehicle_id >", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("in_vehicle_id >=", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdLessThan(Long value) {
+            addCriterion("in_vehicle_id <", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdLessThanOrEqualTo(Long value) {
+            addCriterion("in_vehicle_id <=", value, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdIn(List<Long> values) {
+            addCriterion("in_vehicle_id in", values, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdNotIn(List<Long> values) {
+            addCriterion("in_vehicle_id not in", values, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdBetween(Long value1, Long value2) {
+            addCriterion("in_vehicle_id between", value1, value2, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInVehicleIdNotBetween(Long value1, Long value2) {
+            addCriterion("in_vehicle_id not between", value1, value2, "inVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdIsNull() {
+            addCriterion("out_vehicle_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdIsNotNull() {
+            addCriterion("out_vehicle_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdEqualTo(Long value) {
+            addCriterion("out_vehicle_id =", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdNotEqualTo(Long value) {
+            addCriterion("out_vehicle_id <>", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdGreaterThan(Long value) {
+            addCriterion("out_vehicle_id >", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("out_vehicle_id >=", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdLessThan(Long value) {
+            addCriterion("out_vehicle_id <", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdLessThanOrEqualTo(Long value) {
+            addCriterion("out_vehicle_id <=", value, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdIn(List<Long> values) {
+            addCriterion("out_vehicle_id in", values, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdNotIn(List<Long> values) {
+            addCriterion("out_vehicle_id not in", values, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdBetween(Long value1, Long value2) {
+            addCriterion("out_vehicle_id between", value1, value2, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutVehicleIdNotBetween(Long value1, Long value2) {
+            addCriterion("out_vehicle_id not between", value1, value2, "outVehicleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdIsNull() {
+            addCriterion("oil_event_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdIsNotNull() {
+            addCriterion("oil_event_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdEqualTo(Long value) {
+            addCriterion("oil_event_id =", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdNotEqualTo(Long value) {
+            addCriterion("oil_event_id <>", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdGreaterThan(Long value) {
+            addCriterion("oil_event_id >", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("oil_event_id >=", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdLessThan(Long value) {
+            addCriterion("oil_event_id <", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdLessThanOrEqualTo(Long value) {
+            addCriterion("oil_event_id <=", value, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdIn(List<Long> values) {
+            addCriterion("oil_event_id in", values, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdNotIn(List<Long> values) {
+            addCriterion("oil_event_id not in", values, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdBetween(Long value1, Long value2) {
+            addCriterion("oil_event_id between", value1, value2, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOilEventIdNotBetween(Long value1, Long value2) {
+            addCriterion("oil_event_id not between", value1, value2, "oilEventId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeIsNull() {
+            addCriterion("in_out_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeIsNotNull() {
+            addCriterion("in_out_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeEqualTo(Long value) {
+            addCriterion("in_out_time =", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeNotEqualTo(Long value) {
+            addCriterion("in_out_time <>", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeGreaterThan(Long value) {
+            addCriterion("in_out_time >", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("in_out_time >=", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeLessThan(Long value) {
+            addCriterion("in_out_time <", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeLessThanOrEqualTo(Long value) {
+            addCriterion("in_out_time <=", value, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeIn(List<Long> values) {
+            addCriterion("in_out_time in", values, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeNotIn(List<Long> values) {
+            addCriterion("in_out_time not in", values, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeBetween(Long value1, Long value2) {
+            addCriterion("in_out_time between", value1, value2, "inOutTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInOutTimeNotBetween(Long value1, Long value2) {
+            addCriterion("in_out_time not between", value1, value2, "inOutTime");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2539,7 +2779,7 @@ public class VehicleQueueCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-09-10 12:48:47
+     * @Date 2018-09-19 11:51:40
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -2553,7 +2793,7 @@ public class VehicleQueueCriteria {
      * @Description 
      * @Version 1.0 
      * @Author kelly 
-     * @Date 2018-09-10 12:48:47
+     * @Date 2018-09-19 11:51:40
      */
     public static class Criterion {
         private String condition;

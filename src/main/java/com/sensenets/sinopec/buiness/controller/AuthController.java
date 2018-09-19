@@ -1,15 +1,5 @@
 package com.sensenets.sinopec.buiness.controller;
 
-import com.sensenets.sinopec.common.controller.BaseController;
-import com.sensenets.sinopec.common.domain.ResponseInfo;
-import com.sensenets.sinopec.common.utils.SpringMVCHelper;
-import com.sensenets.sinopec.config.JwtConfig;
-import com.sensenets.sinopec.core.security.entity.*;
-import com.sensenets.sinopec.core.security.util.JwtUtil;
-import com.sensenets.sinopec.core.security.util.SecurityHelper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,6 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sensenets.sinopec.common.controller.BaseController;
+import com.sensenets.sinopec.common.domain.ResponseInfo;
+import com.sensenets.sinopec.common.utils.SpringMVCHelper;
+import com.sensenets.sinopec.config.JwtConfig;
+import com.sensenets.sinopec.core.security.entity.JwtAuthRequest;
+import com.sensenets.sinopec.core.security.entity.JwtAuthResponse;
+import com.sensenets.sinopec.core.security.entity.JwtUser;
+import com.sensenets.sinopec.core.security.entity.ResponseMessage;
+import com.sensenets.sinopec.core.security.util.JwtUtil;
+import com.sensenets.sinopec.core.security.util.SecurityHelper;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 
 /**
   * @ClassName: AuthController
@@ -34,7 +38,6 @@ import org.springframework.web.bind.annotation.RestController;
   */
 @RestController
 @RequestMapping(value = "/service/auth", method = RequestMethod.POST)
-@Slf4j
 @Api(value="AuthController",tags="认证操作接口", description="AuthController")
 public class AuthController extends BaseController{
   

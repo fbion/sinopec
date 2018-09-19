@@ -217,16 +217,16 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             VehiclesCriteria.Criteria  inCollectCri = inCollectExample.createCriteria();
                             inCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                             inCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectInIds()));
-                            inCollectCri.andUtsGreaterThanOrEqualTo(start);
-                            inCollectCri.andUtsLessThan(end);
+                            inCollectCri.andTsGreaterThanOrEqualTo(start.getTime());
+                            inCollectCri.andTsLessThan(end.getTime());
                             inCollectCount = vehiclesService.countByExample(inCollectExample);
                             // 进站 油站摄像机
                             VehiclesCriteria inStationExample = new VehiclesCriteria();
                             VehiclesCriteria.Criteria  inStationCri = inStationExample.createCriteria();
                             inStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                             inStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorInIds()));
-                            inStationCri.andUtsGreaterThanOrEqualTo(start);
-                            inStationCri.andUtsLessThan(end);
+                            inStationCri.andTsGreaterThanOrEqualTo(start.getTime());
+                            inStationCri.andTsLessThan(end.getTime());
                             inStationCount = vehiclesService.countByExample(inStationExample);
                         }
                         // 进站车辆类型分析
@@ -238,6 +238,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             inCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                             inCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectInIds()));
                             inCollectCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                            inCollectCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                            inCollectCri.andTsLessThan(task.getCollectEndTime().getTime());
                             inCollectVehicleTypeCount = vehiclesService.countByExample(inCollectExample);
                             // 进站 油站摄像机
                             VehiclesCriteria inStationExample = new VehiclesCriteria();
@@ -245,6 +247,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             inStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                             inStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorInIds()));
                             inStationCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                            inStationCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                            inStationCri.andTsLessThan(task.getCollectEndTime().getTime());
                             intStationVehicleTypeCount = vehiclesService.countByExample(inStationExample);
                         }
                     }
@@ -261,16 +265,16 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             VehiclesCriteria.Criteria  outCollectCri = outCollectExample.createCriteria();
                             outCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                             outCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectOutIds()));
-                            outCollectCri.andUtsGreaterThanOrEqualTo(start);
-                            outCollectCri.andUtsLessThan(end);
+                            outCollectCri.andTsGreaterThanOrEqualTo(start.getTime());
+                            outCollectCri.andTsLessThan(end.getTime());
                             outCollectCount = vehiclesService.countByExample(outCollectExample);
                             // 站外 油站摄像机
                             VehiclesCriteria outStationExample = new VehiclesCriteria();
                             VehiclesCriteria.Criteria  outStationCri = outStationExample.createCriteria();
                             outStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                             outStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorOutIds()));
-                            outStationCri.andUtsGreaterThanOrEqualTo(start);
-                            outStationCri.andUtsLessThan(end);
+                            outStationCri.andTsGreaterThanOrEqualTo(start.getTime());
+                            outStationCri.andTsLessThan(end.getTime());
                             outStationCount = vehiclesService.countByExample(outStationExample);
                         }
                         // 站外车辆类型分析
@@ -282,6 +286,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             outCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                             outCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectOutIds()));
                             outCollectCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                            outCollectCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                            outCollectCri.andTsLessThan(task.getCollectEndTime().getTime());
                             outCollectVehicleTypeCount = vehiclesService.countByExample(outCollectExample);
                             // 站外 油站摄像机
                             VehiclesCriteria outStationExample = new VehiclesCriteria();
@@ -289,6 +295,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                             outStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                             outStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorOutIds()));
                             outStationCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                            outStationCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                            outStationCri.andTsLessThan(task.getCollectEndTime().getTime());
                             outStationVehicleTypeCount = vehiclesService.countByExample(outStationExample);
                         }
                     }
@@ -306,16 +314,16 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            VehiclesCriteria.Criteria  inCollectCri = inCollectExample.createCriteria();
                            inCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                            inCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectInIds()));
-                           inCollectCri.andUtsGreaterThanOrEqualTo(start);
-                           inCollectCri.andUtsLessThan(end);
+                           inCollectCri.andTsGreaterThanOrEqualTo(start.getTime());
+                           inCollectCri.andTsLessThan(end.getTime());
                            inCollectCount = vehiclesService.countByExample(inCollectExample);
                            // 进站 油站摄像机
                            VehiclesCriteria inStationExample = new VehiclesCriteria();
                            VehiclesCriteria.Criteria  inStationCri = inStationExample.createCriteria();
                            inStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                            inStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorInIds()));
-                           inStationCri.andUtsGreaterThanOrEqualTo(start);
-                           inStationCri.andUtsLessThan(end);
+                           inStationCri.andTsGreaterThanOrEqualTo(start.getTime());
+                           inStationCri.andTsLessThan(end.getTime());
                            inStationCount = vehiclesService.countByExample(inStationExample);
                        }
                        // 进站车辆类型分析
@@ -327,6 +335,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            inCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                            inCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectInIds()));
                            inCollectCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                           inCollectCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                           inCollectCri.andTsLessThan(task.getCollectEndTime().getTime());
                            inCollectVehicleTypeCount = vehiclesService.countByExample(inCollectExample);
                            // 进站 油站摄像机
                            VehiclesCriteria inStationExample = new VehiclesCriteria();
@@ -334,6 +344,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            inStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                            inStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorInIds()));
                            inStationCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                           inStationCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                           inStationCri.andTsLessThan(task.getCollectEndTime().getTime());
                            intStationVehicleTypeCount = vehiclesService.countByExample(inStationExample);
                        }
                        // 站外车流量分析
@@ -347,16 +359,16 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            VehiclesCriteria.Criteria  outCollectCri = outCollectExample.createCriteria();
                            outCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                            outCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectOutIds()));
-                           outCollectCri.andUtsGreaterThanOrEqualTo(start);
-                           outCollectCri.andUtsLessThan(end);
+                           outCollectCri.andTsGreaterThanOrEqualTo(start.getTime());
+                           outCollectCri.andTsLessThan(end.getTime());
                            outCollectCount = vehiclesService.countByExample(outCollectExample);
                            // 站外 油站摄像机
                            VehiclesCriteria outStationExample = new VehiclesCriteria();
                            VehiclesCriteria.Criteria  outStationCri = outStationExample.createCriteria();
                            outStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                            outStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorOutIds()));
-                           outStationCri.andUtsGreaterThanOrEqualTo(start);
-                           outStationCri.andUtsLessThan(end);
+                           outStationCri.andTsGreaterThanOrEqualTo(start.getTime());
+                           outStationCri.andTsLessThan(end.getTime());
                            outStationCount = vehiclesService.countByExample(outStationExample);
                        }
                        // 站外车辆类型分析
@@ -368,6 +380,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            outCollectCri.andRepoIdEqualTo(String.valueOf(task.getCollectId()));
                            outCollectCri.andSensorIdIn(convertLongList2StringList(task.getSensorCollectOutIds()));
                            outCollectCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                           outCollectCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                           outCollectCri.andTsLessThan(task.getCollectEndTime().getTime());
                            outCollectVehicleTypeCount = vehiclesService.countByExample(outCollectExample);
                            // 站外 油站摄像机
                            VehiclesCriteria outStationExample = new VehiclesCriteria();
@@ -375,6 +389,8 @@ public class ExecuteSubTask implements Callable<CollectTaskDto>, Serializable {
                            outStationCri.andRepoIdEqualTo(String.valueOf(task.getOilStationId()));
                            outStationCri.andSensorIdIn(convertLongList2StringList(task.getSensorOutIds()));
                            outStationCri.andTypeIdEqualTo(NumberUtils.toShort(vehicleType));
+                           outStationCri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+                           outStationCri.andTsLessThan(task.getCollectEndTime().getTime());
                            outStationVehicleTypeCount = vehiclesService.countByExample(outStationExample);
                        }
                    }

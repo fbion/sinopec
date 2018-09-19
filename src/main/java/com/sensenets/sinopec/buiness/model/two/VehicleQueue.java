@@ -1,7 +1,7 @@
 /**
   * VehicleQueue.java
   * Copyright(C) 2017-2018 
-  * @date 2018-09-10
+  * @date 2018-09-19
   */
 package com.sensenets.sinopec.buiness.model.two;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  * @Description 
  * @Version 1.0 
  * @Author kelly 
- * @Date 2018-09-10 12:48:47
+ * @Date 2018-09-19 11:51:40
  */
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -240,6 +240,30 @@ public class VehicleQueue implements Serializable {
      */
     @ApiModelProperty(value = "出站车牌号")
     private String outPlateText;
+
+    /**
+     * @Fields inVehicleId 进站关联车辆id
+     */
+    @ApiModelProperty(value = "进站关联车辆id")
+    private Long inVehicleId;
+
+    /**
+     * @Fields outVehicleId 出站关联车辆id
+     */
+    @ApiModelProperty(value = "出站关联车辆id")
+    private Long outVehicleId;
+
+    /**
+     * @Fields oilEventId 加油事件id
+     */
+    @ApiModelProperty(value = "加油事件id")
+    private Long oilEventId;
+
+    /**
+     * @Fields inOutTime 进出站时间(毫秒)
+     */
+    @ApiModelProperty(value = "进出站时间(毫秒)")
+    private Long inOutTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -907,5 +931,77 @@ public class VehicleQueue implements Serializable {
      */
     public void setOutPlateText(String outPlateText) {
         this.outPlateText = outPlateText;
+    }
+
+    /**
+     * 获取 进站关联车辆id 字段:public.vehicle_queue.in_vehicle_id
+     *
+     * @return public.vehicle_queue.in_vehicle_id, 进站关联车辆id
+     */
+    public Long getInVehicleId() {
+        return inVehicleId;
+    }
+
+    /**
+     * 设置 进站关联车辆id 字段:public.vehicle_queue.in_vehicle_id
+     *
+     * @param inVehicleId the value for public.vehicle_queue.in_vehicle_id, 进站关联车辆id
+     */
+    public void setInVehicleId(Long inVehicleId) {
+        this.inVehicleId = inVehicleId;
+    }
+
+    /**
+     * 获取 出站关联车辆id 字段:public.vehicle_queue.out_vehicle_id
+     *
+     * @return public.vehicle_queue.out_vehicle_id, 出站关联车辆id
+     */
+    public Long getOutVehicleId() {
+        return outVehicleId;
+    }
+
+    /**
+     * 设置 出站关联车辆id 字段:public.vehicle_queue.out_vehicle_id
+     *
+     * @param outVehicleId the value for public.vehicle_queue.out_vehicle_id, 出站关联车辆id
+     */
+    public void setOutVehicleId(Long outVehicleId) {
+        this.outVehicleId = outVehicleId;
+    }
+
+    /**
+     * 获取 加油事件id 字段:public.vehicle_queue.oil_event_id
+     *
+     * @return public.vehicle_queue.oil_event_id, 加油事件id
+     */
+    public Long getOilEventId() {
+        return oilEventId;
+    }
+
+    /**
+     * 设置 加油事件id 字段:public.vehicle_queue.oil_event_id
+     *
+     * @param oilEventId the value for public.vehicle_queue.oil_event_id, 加油事件id
+     */
+    public void setOilEventId(Long oilEventId) {
+        this.oilEventId = oilEventId;
+    }
+
+    /**
+     * 获取 进出站时间(毫秒) 字段:public.vehicle_queue.in_out_time
+     *
+     * @return public.vehicle_queue.in_out_time, 进出站时间(毫秒)
+     */
+    public Long getInOutTime() {
+        return inOutTime;
+    }
+
+    /**
+     * 设置 进出站时间(毫秒) 字段:public.vehicle_queue.in_out_time
+     *
+     * @param inOutTime the value for public.vehicle_queue.in_out_time, 进出站时间(毫秒)
+     */
+    public void setInOutTime(Long inOutTime) {
+        this.inOutTime = inOutTime;
     }
 }

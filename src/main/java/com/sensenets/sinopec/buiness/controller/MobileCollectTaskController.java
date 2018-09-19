@@ -90,29 +90,7 @@ public class MobileCollectTaskController extends BaseController {
      @ApiOperation(value = "分页列表")
      @RequestMapping(value = "/listPage", method= RequestMethod.POST, produces = "application/json")
      public ResponseInfo listPage(@RequestBody MobileCollectTaskCondition condition){
-         // 判断条件并转化为Criteria对象
-         VjMobileCollectTaskViewCriteria example = new VjMobileCollectTaskViewCriteria();
-         example.setOrderByClause("uts desc");
-         example.setDistinct(true);
-         example.setPageNumber(condition.getPageNumber());
-         example.setPageSize(condition.getPageSize());
-         VjMobileCollectTaskViewCriteria.Criteria cri = example.createCriteria();
-         
-         if(StringUtils.isNotBlank(condition.getCollectStartTime())){
-             Date startTime = DateHelper.string2Date(condition.getCollectStartTime(), DateHelper.FORMAT_0);
-             cri.andCollectStartTimeGreaterThanOrEqualTo(startTime);
-         }
-         if(StringUtils.isNotBlank(condition.getCollectEndTime())){
-             Date endTime = DateHelper.string2Date(condition.getCollectEndTime(), DateHelper.FORMAT_0);
-             cri.andCollectEndTimeLessThanOrEqualTo(endTime);
-         }
-         if(StringUtils.isNotBlank(condition.getCollectRepoId())){
-             cri.andCollectRepoIdEqualTo(condition.getCollectRepoId());
-         }
-         if(StringUtils.isNotBlank(condition.getOilStationRepoId())){
-             cri.andOilStationRepoIdEqualTo(condition.getOilStationRepoId());
-         }
-         PageInfo<MobileCollectTaskDto> page = mobileCollectTaskService.selectPageByExample(example);
+         PageInfo<MobileCollectTaskDto> page = mobileCollectTaskService.selectPageByExample(condition);
          return this.warpPageObject(page);
      }
 

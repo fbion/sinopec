@@ -45,7 +45,9 @@ public class VehicleSortObj  extends Vehicles implements Comparable<VehicleSortO
     public static void main(String[] args) {
         VehicleSortObj obj1 = new VehicleSortObj(1231);
         VehicleSortObj obj2 = new VehicleSortObj(1230);
+        
         List<VehicleSortObj> list = Lists.newArrayList();
+        Collections.sort(list);
         list.add(obj1);
         list.add(obj2);
         Collections.sort(list);

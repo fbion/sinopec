@@ -17,5 +17,5 @@ package com.sensenets.sinopec.common.enums;
   */
 public enum VehicleRecordTypeEnum {
 
-    In,Out
+    In,Out,Oil,Other
 }

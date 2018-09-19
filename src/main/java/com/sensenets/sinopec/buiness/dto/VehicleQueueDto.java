@@ -67,6 +67,12 @@ public class VehicleQueueDto implements Serializable {
     @ApiModelProperty(value = "燃油类型")
     private String oilType;
     
+    @ApiModelProperty(value = "进站车辆id")
+    private Long inVehicleId;
+    
+    @ApiModelProperty(value = "出站车辆id")
+    private Long outVehicleId;
+    
     @ApiModelProperty(value = "进出站记录")
     private List<VehicleRecord> records;
     

@@ -59,6 +59,7 @@ import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.MD5Helper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
 import com.sensenets.sinopec.config.AppConfig;
+import com.sensenets.sinopec.kafka.common.ConvertHelper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -172,11 +173,10 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         } 
         // 进站车牌号
         if(StringUtils.isNotBlank(condition.getPlateNumber())){
-            cri.andInPlateTextEqualTo(condition.getPlateNumber());
+            cri.andInPlateTextLike(condition.getPlateNumber());
         } 
         
         // 油站选择 查询当前油站的所有子节点
-        Map<String,String> map = Maps.newHashMap();
         Repos reps = null;
         if(StringUtils.isNotBlank(condition.getRepoId())){
             reps = reposMapper.selectByPrimaryKey(condition.getRepoId());
@@ -189,9 +189,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             if(CollectionUtils.isNotEmpty(reposList)){
                 reposList.forEach(repos->{
                     repodIdList.add(repos.getId());
-                    map.put(repos.getRepoId(), repos.getRepoName());
                 });
-                repodIdList.add(reps.getId());
                 cri.andReposIdIn(repodIdList);
             }
         }
@@ -233,6 +231,8 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         dto.setOilType(OilTypeEnum.getDescByCode(view.getOilType()));
         dto.setPlateNumber(view.getInPlateText());
         dto.setQueueTime(view.getQueueTime()/1000);
+        dto.setInVehicleId(view.getInVehicleId());
+        dto.setOutVehicleId(view.getOutVehicleId());
         List<VehicleRecord> records = Lists.newArrayList();
         VehicleRecord in = new VehicleRecord();
         in.setPlateColor(VehiclePlateColorTypeEnum.getDescByCode(view.getInPlateColorId()));

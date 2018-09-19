@@ -5,14 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
 import com.github.pagehelper.PageInfo;
+import com.sensenets.sinopec.buiness.condition.MobileCollectTaskCondition;
 import com.sensenets.sinopec.buiness.dto.CollectResultDto;
 import com.sensenets.sinopec.buiness.dto.MobileCollectTaskDto;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTask;
 import com.sensenets.sinopec.buiness.model.one.MobileCollectTaskCriteria;
-import com.sensenets.sinopec.buiness.model.one.VjMobileCollectTaskViewCriteria;
 
 public interface IMobileCollectTaskService {
     int countByExample(MobileCollectTaskCriteria example);
@@ -21,7 +19,7 @@ public interface IMobileCollectTaskService {
 
     List<MobileCollectTask> selectByExample(MobileCollectTaskCriteria example);
 
-    PageInfo<MobileCollectTaskDto> selectPageByExample(VjMobileCollectTaskViewCriteria example);
+    PageInfo<MobileCollectTaskDto> selectPageByExample(MobileCollectTaskCondition condition);
 
     int deleteByPrimaryKey(Long id);
 

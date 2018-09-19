@@ -195,8 +195,8 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
         VehiclesCriteria example = new VehiclesCriteria();
         example.setDistinct(true);
         VehiclesCriteria.Criteria cri = example.createCriteria();
-        cri.andUtsGreaterThanOrEqualTo(task.getCollectStartTime());
-        cri.andUtsLessThan(task.getCollectEndTime());
+        cri.andTsGreaterThanOrEqualTo(task.getCollectStartTime().getTime());
+        cri.andTsLessThan(task.getCollectEndTime().getTime());
         // 关联油站设备id
         List<String> sensorIds = getVehicleSensorIds(task);
         cri.andSensorIdIn(sensorIds);
@@ -254,7 +254,7 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
         }
         if(task.getType()==CollectTaskTypeEnum.OutStation.getCode()){
             if(CollectionUtils.isNotEmpty(task.getSensorOutIds())){
-                sensorIds.addAll(task.getSensorInIds());
+                sensorIds.addAll(task.getSensorOutIds());
             }
             if(CollectionUtils.isNotEmpty(task.getSensorCollectOutIds())){
                 sensorIds.addAll(task.getSensorCollectOutIds());
@@ -268,7 +268,7 @@ public class CollectSubTask implements Callable<CollectTaskDto>, Serializable {
                 sensorIds.addAll(task.getSensorCollectOutIds());
             }
             if(CollectionUtils.isNotEmpty(task.getSensorOutIds())){
-                sensorIds.addAll(task.getSensorInIds());
+                sensorIds.addAll(task.getSensorOutIds());
             }
             if(CollectionUtils.isNotEmpty(task.getSensorOutIds())){
                 sensorIds.addAll(task.getSensorInIds());

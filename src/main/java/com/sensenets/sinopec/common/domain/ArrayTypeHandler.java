@@ -17,6 +17,7 @@ public class ArrayTypeHandler extends BaseTypeHandler<Object[]> {
 
     private static final String TYPE_NAME_VARCHAR = "varchar";
     private static final String TYPE_NAME_INTEGER = "integer";
+    private static final String TYPE_NAME_BIGINT = "bigint";
     private static final String TYPE_NAME_BOOLEAN = "boolean";
     private static final String TYPE_NAME_NUMERIC = "numeric";
 
@@ -25,6 +26,8 @@ public class ArrayTypeHandler extends BaseTypeHandler<Object[]> {
         String typeName = null;
         if (parameter instanceof Integer[]) {
             typeName = TYPE_NAME_INTEGER;
+        } else if (parameter instanceof Long[]) {
+            typeName = TYPE_NAME_BIGINT;
         } else if (parameter instanceof String[]) {
             typeName = TYPE_NAME_VARCHAR;
         } else if (parameter instanceof Boolean[]) {

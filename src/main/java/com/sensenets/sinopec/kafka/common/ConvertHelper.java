@@ -36,4 +36,8 @@ public class ConvertHelper {
         return data!=null?Integer.parseInt(String.valueOf(data)):null;
     }
     
+    public static String long2Str(Long data){
+        return data!=null?String.valueOf(data):null;
+    }
+    
 }

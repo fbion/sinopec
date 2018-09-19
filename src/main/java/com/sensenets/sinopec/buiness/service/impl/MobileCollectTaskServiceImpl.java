@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.sensenets.sinopec.buiness.condition.MobileCollectTaskCondition;
 import com.sensenets.sinopec.buiness.dao.one.MobileCollectTaskMapper;
 import com.sensenets.sinopec.buiness.dao.one.ReposMapper;
 import com.sensenets.sinopec.buiness.dao.one.SensorsMapper;
@@ -110,8 +112,68 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
     }
 
     
+    /**
+     * @Title: getRepoChildren
+     * @Description: 递归获取子节点
+     * @param children
+     * @param parentRepoId
+     */
+   private void  getRepoChildren(List<Repos> children,String parentRepoId){
+       ReposCriteria  example = new ReposCriteria();
+       ReposCriteria.Criteria  cri = example.createCriteria();
+       cri.andParentIdEqualTo(parentRepoId);
+       List<Repos> reposList =  reposMapper.selectByExample(example);
+       if(CollectionUtils.isNotEmpty(reposList)){
+           children.addAll(reposList);
+           for(Repos repos:reposList){
+               getRepoChildren(children,repos.getRepoId());
+           }
+       }
+   }
     
-    public PageInfo<MobileCollectTaskDto> selectPageByExample(VjMobileCollectTaskViewCriteria example) {
+    public PageInfo<MobileCollectTaskDto> selectPageByExample(MobileCollectTaskCondition condition) {
+     // 判断条件并转化为Criteria对象
+        VjMobileCollectTaskViewCriteria example = new VjMobileCollectTaskViewCriteria();
+        example.setOrderByClause("uts desc");
+        example.setDistinct(true);
+        example.setPageNumber(condition.getPageNumber());
+        example.setPageSize(condition.getPageSize());
+        VjMobileCollectTaskViewCriteria.Criteria cri = example.createCriteria();
+        
+        if(StringUtils.isNotBlank(condition.getCollectStartTime())){
+            Date startTime = DateHelper.string2Date(condition.getCollectStartTime(), DateHelper.FORMAT_0);
+            cri.andCollectStartTimeGreaterThanOrEqualTo(startTime);
+        }
+        if(StringUtils.isNotBlank(condition.getCollectEndTime())){
+            Date endTime = DateHelper.string2Date(condition.getCollectEndTime(), DateHelper.FORMAT_0);
+            cri.andCollectEndTimeLessThanOrEqualTo(endTime);
+        }
+        if(StringUtils.isNotBlank(condition.getCollectRepoId())){
+            List<Repos> reposList = Lists.newArrayList();
+            getRepoChildren(reposList,condition.getCollectRepoId());
+            if(CollectionUtils.isNotEmpty(reposList)){
+                List<String> reposIds = Lists.newArrayList();
+                for(Repos repo:reposList){
+                    reposIds.add(repo.getRepoId());
+                }
+                cri.andCollectRepoIdIn(reposIds);
+            }else{
+                cri.andCollectRepoIdEqualTo(condition.getCollectRepoId()); 
+            }
+        }
+        if(StringUtils.isNotBlank(condition.getOilStationRepoId())){
+            List<Repos> reposList = Lists.newArrayList();
+            getRepoChildren(reposList,condition.getOilStationRepoId());
+            if(CollectionUtils.isNotEmpty(reposList)){
+                List<String> reposIds = Lists.newArrayList();
+                for(Repos repos:reposList){
+                    reposIds.add(repos.getRepoId());
+                }
+                cri.andOilStationRepoIdIn(reposIds);
+            }else{
+                cri.andOilStationRepoIdEqualTo(condition.getCollectRepoId()); 
+            }
+        }
         PageHelper.startPage(example.getPageNumber(), example.getPageSize(),true);
         List<VjMobileCollectTaskView> list = this.vjMobileCollectTaskViewMapper.selectByExample(example);
         PageInfo<VjMobileCollectTaskView> page = new PageInfo<VjMobileCollectTaskView>(list);
@@ -309,25 +371,27 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
            }
        
            if(view.getType()==CollectTaskTypeEnum.InStation.getCode()||view.getType()==CollectTaskTypeEnum.ALL.getCode()){
-               if(CollectionUtils.isEmpty(sensorInIds)&&CollectionUtils.isEmpty(sensorCollectInIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_ALL_SENSOR_NOT_EXIST);
-               }
                if(CollectionUtils.isEmpty(sensorInIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_SENSOR_NOT_EXIST);
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_SENSOR_NOT_EXIST.getCode()
+                           ,view.getRbRepoName()+BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_SENSOR_NOT_EXIST.getMessage()
+                           );
                }
                if(CollectionUtils.isEmpty(sensorCollectInIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_COLLECT_SENSOR_NOT_EXIST);
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_COLLECT_SENSOR_NOT_EXIST.getCode()
+                           ,view.getRaRepoName()+BizExceptionEnum.MOBILE_COLLECT_ERROR_IN_STATION_COLLECT_SENSOR_NOT_EXIST.getMessage()
+                           );
                }
            }
            if(view.getType()==CollectTaskTypeEnum.OutStation.getCode()||view.getType()==CollectTaskTypeEnum.ALL.getCode()){
-               if(CollectionUtils.isEmpty(sensorOutIds)&&CollectionUtils.isEmpty(sensorCollectOutIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_ALL_SENSOR_NOT_EXIST);
-               }
                if(CollectionUtils.isEmpty(sensorOutIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_SENSOR_NOT_EXIST);
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_SENSOR_NOT_EXIST.getCode()
+                           ,view.getRbRepoName()+BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_SENSOR_NOT_EXIST.getMessage()
+                           );
                }
                if(CollectionUtils.isEmpty(sensorCollectOutIds)){
-                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_COLLECT_SENSOR_NOT_EXIST);
+                   throw new BusinessException(BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_COLLECT_SENSOR_NOT_EXIST.getCode()
+                           ,view.getRaRepoName()+BizExceptionEnum.MOBILE_COLLECT_ERROR_OUT_STATION_COLLECT_SENSOR_NOT_EXIST.getMessage()
+                           );
                }
            }
         

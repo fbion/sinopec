@@ -32,7 +32,7 @@ public class KafkaReceiveHandler implements KafkaMessageHandler {
 			PimpRecObj.PetrolStationObj stationObj = PimpRecObj.PetrolStationObj.parseFrom(message.getMessage());
 			transformed = converter.transformObj(stationObj);
 			if (transformed==null) {
-				log.error("data transformed is null.type:{}", dataCategory);
+				log.debug("data transformed is null.type:{}", dataCategory);
 				return;
 			}
 			this.exchangeHandler.push(dataCategory, transformed);
