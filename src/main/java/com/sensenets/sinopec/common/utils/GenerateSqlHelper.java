@@ -88,76 +88,76 @@ public class GenerateSqlHelper {
         List<ValueObj[]> valueList = Lists.newArrayList();
         List<ValueObj> values = null ;
         String uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集列表",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/listPage;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集添加",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/add;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集查询",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/query/;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集修改",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","PUT /service/mobileCollectTask/update/;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集删除",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/deleteBatch;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//    
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集分析/获取分析结果",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/getResult/;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","移动分析/移动数据采集分析/导出分析结果",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/exportResult/;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","车辆应用/车辆排队/车辆排队列表",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/listPage;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
-//        
-//        uuid = UUIDHelper.genSourceUUID(false);
-//        funcIds.add(uuid);
-//        values = Lists.newArrayList();
-//        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
-//        values.add(generateValueObj("func_name","车辆应用/车辆排队/导出排队数据",FieldType.VARCHAR));
-//        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/exportData;",FieldType.VARCHAR));
-//        valueList.add(values.toArray(new ValueObj[values.size()]));
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集列表",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/listPage;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集添加",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/add;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集查询",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/query/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集修改",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","PUT /service/mobileCollectTask/update/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集管理/移动数据采集删除",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/mobileCollectTask/deleteBatch;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+    
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集分析/获取分析结果",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/getResult/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","移动分析/移动数据采集分析/导出分析结果",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","GET /service/mobileCollectTask/exportResult/;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","车辆应用/车辆排队/车辆排队列表",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/listPage;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
+        
+        uuid = UUIDHelper.genSourceUUID(false);
+        funcIds.add(uuid);
+        values = Lists.newArrayList();
+        values.add(generateValueObj("func_id",uuid,FieldType.VARCHAR));
+        values.add(generateValueObj("func_name","车辆应用/车辆排队/导出排队数据",FieldType.VARCHAR));
+        values.add(generateValueObj("func_uri","POST /service/vehicleQueue/exportData;",FieldType.VARCHAR));
+        valueList.add(values.toArray(new ValueObj[values.size()]));
         
         
         uuid = UUIDHelper.genSourceUUID(false);

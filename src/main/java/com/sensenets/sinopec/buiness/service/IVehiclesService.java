@@ -13,6 +13,10 @@ public interface IVehiclesService {
     List<Short> selectVehiclesType(VehiclesCriteria example);
     
     List<Vehicles> selectByExample(VehiclesCriteria example);
+    
+    List<String> getAllSensorIds(VehiclesCriteria example);
+    
+    List<String> getAllReposIds(VehiclesCriteria example);
 
     PageInfo<Vehicles> selectPageByExample(VehiclesCriteria example);
     

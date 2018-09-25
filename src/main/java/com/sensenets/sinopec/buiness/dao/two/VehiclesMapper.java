@@ -69,4 +69,20 @@ public interface VehiclesMapper {
      * @param example
      */
     int updateByExample(@Param("record") Vehicles record, @Param("example") VehiclesCriteria example);
+
+    /**
+      * @Title: selectSensorId
+      * @Description: 查询设备id
+      * @param example
+      * @return
+      */
+    List<String> selectSensorId(VehiclesCriteria example);
+    
+    /**
+     * @Title: selectReposId
+     * @Description: 查询油站id
+     * @param example
+     * @return
+     */
+    List<String> selectReposId(VehiclesCriteria example);
 }

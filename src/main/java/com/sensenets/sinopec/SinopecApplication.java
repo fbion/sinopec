@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.integration.annotation.IntegrationComponentScan;
 import org.springframework.integration.config.EnableIntegration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.sensenets.sinopec.common.startup.SysAppContextInitializer;
@@ -20,6 +21,7 @@ import com.sensenets.sinopec.common.utils.BeanHelper;
   *
   */
 @EnableWebMvc
+@EnableScheduling
 @EnableIntegration
 @IntegrationComponentScan
 @ServletComponentScan

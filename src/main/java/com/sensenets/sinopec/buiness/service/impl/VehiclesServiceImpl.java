@@ -1,11 +1,7 @@
 package com.sensenets.sinopec.buiness.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +9,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sensenets.sinopec.buiness.dao.one.SensorsMapper;
 import com.sensenets.sinopec.buiness.dao.two.VehiclesMapper;
-import com.sensenets.sinopec.buiness.dto.CollectTaskDto;
-import com.sensenets.sinopec.buiness.dto.CollectVehicleDto;
 import com.sensenets.sinopec.buiness.model.two.Vehicles;
 import com.sensenets.sinopec.buiness.model.two.VehiclesCriteria;
 import com.sensenets.sinopec.buiness.service.IVehiclesService;
-import com.sensenets.sinopec.common.utils.DateHelper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,6 +43,18 @@ public class VehiclesServiceImpl implements IVehiclesService {
     @Override
     public List<Short> selectVehiclesType(VehiclesCriteria example) {
         return this.vehiclesMapper.selectVehiclesType(example);
+    }
+
+
+    @Override
+    public List<String> getAllSensorIds(VehiclesCriteria example) {
+        return this.vehiclesMapper.selectSensorId(example);
+    }
+    
+
+    @Override
+    public List<String> getAllReposIds(VehiclesCriteria example) {
+        return this.vehiclesMapper.selectReposId(example);
     }
  
    

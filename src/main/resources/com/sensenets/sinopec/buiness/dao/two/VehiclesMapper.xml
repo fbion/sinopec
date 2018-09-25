@@ -103,7 +103,7 @@
         model_year_id, type_id, color_id, plate_text, plate_type_id, plate_color_id, side, 
         size, speed, direction, symbol_int, symbol_str, illegal_int, illegal_str, coillegal_int, 
         coillegal_str, special_int, special_str, driver_on_the_phone, driver_without_belt, 
-        codriver_without_belt, content, lane, face_id, oil_type, oil_amount, engine_fuel
+        codriver_without_belt, lane, face_id, oil_type, oil_amount, engine_fuel
     </sql>
     <select id="selectByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VehiclesCriteria" resultMap="BaseResultMap">
         select
@@ -134,6 +134,37 @@
             order by ${orderByClause}
         </if>
     </select>
+    
+     <select id="selectSensorId" parameterType="com.sensenets.sinopec.buiness.model.two.VehiclesCriteria" resultType="java.lang.String">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        sensor_id 
+        from "public"."vehicles"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    
+    <select id="selectReposId" parameterType="com.sensenets.sinopec.buiness.model.two.VehiclesCriteria" resultType="java.lang.String">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        repo_id 
+        from "public"."vehicles"
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    
 
     <select id="countByExample" parameterType="com.sensenets.sinopec.buiness.model.two.VehiclesCriteria" resultType="java.lang.Integer">
         select count(*) from "public"."vehicles"

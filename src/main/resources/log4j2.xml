@@ -113,7 +113,10 @@
         <logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
         <logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
         <logger name="org.thymeleaf" level="warn"/>
+        <logger name="org.springframework.security.web" level="warn"/>
+        <logger name="com.atomikos" level="error"/>
 		<logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR" />
+		
 		<!--记录druid-sql的记录-->
         <logger name="druid.sql.Statement" level="debug" additivity="false">
             <appender-ref ref="RollingFileDruidSqlError"/>

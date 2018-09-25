@@ -13,6 +13,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import com.sensenets.sinopec.buiness.schedule.VehicleQueue2DbProxy;
+import com.sensenets.sinopec.buiness.service.IVehicleQueueService;
 import com.sensenets.sinopec.kafka.buffer.vehana.VehicleQueueAnalysisConsumer;
 import com.sensenets.sinopec.kafka.buffer.vehana.VehicleQueueAnalysisCountService;
 
@@ -32,10 +34,16 @@ public class BizCountConsumerStartup implements ApplicationListener<ContextRefre
     @Autowired
     private VehicleQueueAnalysisCountService countService;
     
+    @Autowired
+    private IVehicleQueueService  vehicleQueueService;
+    
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         VehicleQueueAnalysisConsumer.start(countService);
         log.info("启动车辆排队分析--统计代理--完成");
+        
+        VehicleQueue2DbProxy.startTask(vehicleQueueService);
+        log.info("启动车辆排队--入库代理--完成");
     }
 
 }

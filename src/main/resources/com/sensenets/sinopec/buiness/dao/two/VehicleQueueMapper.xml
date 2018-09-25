@@ -141,8 +141,10 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
+
     <insert id="insert" useGeneratedKeys="true"  keyProperty="id" parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
-        insert into "public"."vehicle_queue" (biz_id, uts, queue_time, 
+        insert into "public"."vehicle_queue" (biz_id, uts, 
+            queue_time, 
             in_sensor_id, in_sensor_name, in_image_id, 
             in_source_image, in_feature_image, in_time, 
             out_sensor_id, out_sensor_name, out_image_id, 
@@ -171,6 +173,7 @@
             #{inVehicleId,jdbcType=BIGINT}, #{outVehicleId,jdbcType=BIGINT}, #{oilEventId,jdbcType=BIGINT}, 
             #{inOutTime,jdbcType=BIGINT})
     </insert>
+    
     <insert id="insertSelective"  useGeneratedKeys="true"  keyProperty="id"  parameterType="com.sensenets.sinopec.buiness.model.two.VehicleQueue">
         insert into "public"."vehicle_queue"
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -772,4 +775,7 @@
             in_out_time = #{inOutTime,jdbcType=BIGINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
+ 
+    
+    
 </mapper>

@@ -135,7 +135,7 @@ public class VehicleQueue2Db extends Common2KafkaTemplate implements Runnable {
                     }
 
                 }else{
-                    log.info("未找到车辆信息:"+sourceData.getPlateText()+" 过车时间:"+DateHelper.date2String(sourceData.getTime(), DateHelper.FORMAT_0)+" 时间戳:"+sourceData.getTime().getTime()+" 油站id:"+sourceData.getReposId());
+                    log.info("未找到车辆信息:"+sourceData.getPlateText()+" 过车时间:"+DateHelper.date2String(sourceData.getTime(), DateHelper.FORMAT_0)+" 时间戳:"+sourceData.getTs()+" 油站id:"+sourceData.getReposId());
                 }
 
             }

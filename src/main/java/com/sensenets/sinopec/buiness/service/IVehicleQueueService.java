@@ -30,7 +30,7 @@ public interface IVehicleQueueService {
     int updateByExample(VehicleQueue record, VehicleQueueCriteria example);
 
     int insert(VehicleQueue record);
-
+    
     int insertSelective(VehicleQueue record);
 
     /**

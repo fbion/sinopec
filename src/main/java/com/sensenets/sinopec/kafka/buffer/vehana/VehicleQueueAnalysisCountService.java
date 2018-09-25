@@ -23,7 +23,6 @@ import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueAnalysis;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueAnalysisCriteria;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueAnalysisService;
-import com.sensenets.sinopec.common.enums.OilTypeEnum;
 import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.JsonHelper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
@@ -492,8 +491,13 @@ public class VehicleQueueAnalysisCountService {
                         any.setDataDay(Integer.parseInt(d));
                         any.setReposId(reposId);
                         any.setVehicleType(Short.parseShort(vehicleType));
-                        any.setOilType(String.valueOf(OilTypeEnum.getTypeByCode(oilType)));
+                        any.setOilType(oilType);
                         any.setUts(new Date());
+                        any.setTime5(0L);
+                        any.setTime10(0L);
+                        any.setTime15(0L);
+                        any.setTime20(0L);
+                        any.setTime25(0L);
                         smap.put(entry.getKey(), any);
                     }
                     // 统计数据的时间点不对

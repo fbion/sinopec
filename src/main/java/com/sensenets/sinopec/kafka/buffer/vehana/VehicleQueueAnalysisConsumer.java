@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Component;
 
 import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
@@ -56,6 +57,15 @@ public class VehicleQueueAnalysisConsumer {
     public static void add(VehicleQueue queue) {
         synchronized (SYNC_ROOT) {
             vehicleQueue.offer(queue);
+        }
+    }
+    public static void add(List<VehicleQueue> queues) {
+        synchronized (SYNC_ROOT) {
+            if(CollectionUtils.isNotEmpty(queues)){
+                for(VehicleQueue queue:queues){
+                    vehicleQueue.offer(queue);
+                }
+            }
         }
     }
 

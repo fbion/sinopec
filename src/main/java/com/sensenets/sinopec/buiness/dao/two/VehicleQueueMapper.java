@@ -38,6 +38,7 @@ public interface VehicleQueueMapper {
      * @param record
      */
     int insert(VehicleQueue record);
+    
 
     /**
      *  动态字段,写入数据库记录:public.vehicle_queue

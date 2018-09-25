@@ -48,6 +48,7 @@ import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
+import com.sensenets.sinopec.common.enums.FuelTypeEnum;
 import com.sensenets.sinopec.common.enums.OilTypeEnum;
 import com.sensenets.sinopec.common.enums.VehicleAngleTypeEnum;
 import com.sensenets.sinopec.common.enums.VehicleColorTypeEnum;
@@ -108,6 +109,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             Date startTime = DateHelper.string2Date(condition.getInStartTime(), DateHelper.FORMAT_0);
             cri.andInTimeGreaterThanOrEqualTo(startTime);
         }
+        cri.andQueueTimeGreaterThan(0L);
         if(StringUtils.isNotBlank(condition.getInEndTime())){
             Date endTime = DateHelper.string2Date(condition.getInEndTime(), DateHelper.FORMAT_0);
             cri.andInTimeLessThanOrEqualTo(endTime);
@@ -186,11 +188,14 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             List<Repos> reposList  = new ArrayList<Repos>();
             getRepoChildren(reposList,condition.getRepoId());
             List<Long> repodIdList = new ArrayList<Long>();
+            repodIdList.add(reps.getId());
             if(CollectionUtils.isNotEmpty(reposList)){
                 reposList.forEach(repos->{
                     repodIdList.add(repos.getId());
                 });
                 cri.andReposIdIn(repodIdList);
+            }else{
+                cri.andReposIdEqualTo(reps.getId());
             }
         }
         PageHelper.startPage(example.getPageNumber(), example.getPageSize());
@@ -228,7 +233,8 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         dto.setOutTime(DateHelper.date2String(view.getOutTime(), DateHelper.FORMAT_0));
         dto.setOilStationRepoId(String.valueOf(view.getReposId()));
         dto.setOilStationRepoName(map.get(reposKey));
-        dto.setOilType(OilTypeEnum.getDescByCode(view.getOilType()));
+       
+        dto.setOilType(FuelTypeEnum.getDescByType(ConvertHelper.str2Short(view.getOilType())));
         dto.setPlateNumber(view.getInPlateText());
         dto.setQueueTime(view.getQueueTime()/1000);
         dto.setInVehicleId(view.getInVehicleId());
@@ -388,6 +394,7 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             Date endTime = DateHelper.string2Date(condition.getInEndTime(), DateHelper.FORMAT_0);
             cri.andInTimeLessThanOrEqualTo(endTime);
         }
+        cri.andQueueTimeGreaterThan(0L);
         // 排队开始时间
         if(condition.getStartQueueTime()!=null&&condition.getStartQueueTime()>0){
             cri.andQueueTimeGreaterThanOrEqualTo(condition.getStartQueueTime()*1000L);
@@ -463,13 +470,15 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
             List<Repos> reposList  = new ArrayList<Repos>();
             getRepoChildren(reposList,condition.getRepoId());
             List<Long> repodIdList = new ArrayList<Long>();
+            repodIdList.add(reps.getId());
             if(CollectionUtils.isNotEmpty(reposList)){
                 reposList.forEach(repos->{
                     repodIdList.add(repos.getId());
                     map.put(repos.getRepoId(), repos.getRepoName());
                 });
-                repodIdList.add(reps.getId());
                 cri.andReposIdIn(repodIdList);
+            }else{
+                cri.andReposIdEqualTo(reps.getId());
             }
         }
         return example;
@@ -620,5 +629,6 @@ public class VehicleQueueServiceImpl implements IVehicleQueueService {
         dto.setOutVehicleTypeName(VehicleTypeEnum.getDescByCode(view.getOutTypeId()));
         return  dto;
     }
+
 
 }

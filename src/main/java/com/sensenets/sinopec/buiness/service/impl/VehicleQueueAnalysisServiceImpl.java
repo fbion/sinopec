@@ -28,14 +28,12 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.sensenets.sinopec.buiness.condition.VehicleQueueAnalysisCondition;
-import com.sensenets.sinopec.buiness.dao.one.MotorBrandAllAttrMapper;
 import com.sensenets.sinopec.buiness.dao.one.ReposMapper;
 import com.sensenets.sinopec.buiness.dao.two.VehicleQueueAnalysisMapper;
 import com.sensenets.sinopec.buiness.dao.two.VehicleQueueMapper;
 import com.sensenets.sinopec.buiness.dto.VehicleQueueAnalysisExportDto;
 import com.sensenets.sinopec.buiness.dto.VehicleQueueResultDto;
 import com.sensenets.sinopec.buiness.export.VehicleQueueAnalysisExcelExport;
-import com.sensenets.sinopec.buiness.export.ZipCompressor;
 import com.sensenets.sinopec.buiness.model.one.Repos;
 import com.sensenets.sinopec.buiness.model.one.ReposCriteria;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueue;
@@ -45,7 +43,7 @@ import com.sensenets.sinopec.buiness.model.two.VehicleQueueAnalysisCriteria;
 import com.sensenets.sinopec.buiness.model.two.VehicleQueueCriteria;
 import com.sensenets.sinopec.buiness.service.IVehicleQueueAnalysisService;
 import com.sensenets.sinopec.common.enums.BizExceptionEnum;
-import com.sensenets.sinopec.common.enums.OilTypeEnum;
+import com.sensenets.sinopec.common.enums.FuelTypeEnum;
 import com.sensenets.sinopec.common.enums.VehicleColorTypeEnum;
 import com.sensenets.sinopec.common.enums.VehiclePlateColorTypeEnum;
 import com.sensenets.sinopec.common.enums.VehiclePlateTypeEnum;
@@ -55,6 +53,7 @@ import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.MD5Helper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
 import com.sensenets.sinopec.config.AppConfig;
+import com.sensenets.sinopec.kafka.common.ConvertHelper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -69,9 +68,6 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
     
     @Autowired
     private ReposMapper  reposMapper;
-    
-    @Autowired
-    private MotorBrandAllAttrMapper  brandMapper;
 
     @Resource
     private CacheManager cacheManager;
@@ -154,16 +150,34 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
             dCri.andDataDayLessThanOrEqualTo(Integer.parseInt(date));
             gCri.andDataDayLessThanOrEqualTo(Integer.parseInt(date));
         }
+        // 油站选择 查询当前油站的所有子节点
+        Repos reps = null;
         if(StringUtils.isNotBlank(condition.getRepoId())){
-            dCri.andReposIdEqualTo(condition.getRepoId());
-            gCri.andReposIdEqualTo(condition.getRepoId());
+            reps = reposMapper.selectById(Long.parseLong(condition.getRepoId()));
+            if(reps==null){
+                throw new BusinessException(BizExceptionEnum.VEHICLE_QUEUE_REPOS_ID_PARAM_ERROR);
+            }
+            List<Repos> reposList  = new ArrayList<Repos>();
+            getRepoChildren(reposList,reps.getRepoId());
+            List<String> repodIdList = new ArrayList<String>();
+            repodIdList.add(String.valueOf(reps.getId()));
+            if(CollectionUtils.isNotEmpty(reposList)){
+                reposList.forEach(repos->{
+                    repodIdList.add(String.valueOf(repos.getId()));
+                });
+                dCri.andReposIdIn(repodIdList);
+                gCri.andReposIdIn(repodIdList);
+            }else{
+                dCri.andReposIdEqualTo(String.valueOf(reps.getId()));
+                gCri.andReposIdEqualTo(String.valueOf(reps.getId()));
+            }
         }
         if(condition.getVehicleType()!=null){
             dCri.andVehicleTypeEqualTo(condition.getVehicleType());
             gCri.andVehicleTypeEqualTo(condition.getVehicleType());
         }
-        dCri.andOilTypeEqualTo(String.valueOf(OilTypeEnum.oil_0_v.getType()));
-        gCri.andOilTypeEqualTo(String.valueOf(OilTypeEnum.oil_92.getType()));
+        dCri.andOilTypeEqualTo(String.valueOf(FuelTypeEnum.chaiyou.getType()));
+        gCri.andOilTypeEqualTo(String.valueOf(FuelTypeEnum.qiyou.getType()));
         
         VehicleQueueResultDto dto = new VehicleQueueResultDto();
         VehicleQueueAnalysisCount dCount = vehicleQueueAnalysisMapper.selectAnalysisCount(dExample);
@@ -268,13 +282,15 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
             List<Repos> reposList  = new ArrayList<Repos>();
             getRepoChildren(reposList,condition.getRepoId());
             List<Long> repodIdList = new ArrayList<Long>();
+            repodIdList.add(reps.getId());
             if(CollectionUtils.isNotEmpty(reposList)){
                 reposList.forEach(repos->{
                     repodIdList.add(repos.getId());
                     map.put(repos.getRepoId(), repos.getRepoName());
                 });
-                repodIdList.add(reps.getId());
                 cri.andReposIdIn(repodIdList);
+            }else{
+                cri.andReposIdEqualTo(reps.getId());
             }
         }
         return example;
@@ -389,11 +405,13 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
         dto.setInTime(DateHelper.date2String(view.getInTime(), DateHelper.FORMAT_0));
         dto.setOutTime(DateHelper.date2String(view.getOutTime(), DateHelper.FORMAT_0));
         dto.setOilStationRepoName(map.get(reposKey));
-        if(OilTypeEnum.getTypeByCode(view.getOilType())==OilTypeEnum.oil_0_v.getType()){
+        Short oiltType = ConvertHelper.str2Short(view.getOilType());
+        if(FuelTypeEnum.chaiyou.getType()==oiltType){
             dto.setOilType("柴油");
-        }
-        if(OilTypeEnum.getTypeByCode(view.getOilType())==OilTypeEnum.oil_92.getType()){
+        }else if(FuelTypeEnum.qiyou.getType()==oiltType){
             dto.setOilType("汽油");
+        }else{
+            dto.setOilType("未知");
         }
         dto.setPlateNumber(view.getInPlateText());
         dto.setQueueTime((long)Math.round(view.getQueueTime()/60000));

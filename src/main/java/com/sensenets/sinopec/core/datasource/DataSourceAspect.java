@@ -20,14 +20,14 @@ public class DataSourceAspect {
 	public void doChangeDataSource(JoinPoint jp) {
 		String cName = jp.getSignature().getDeclaringTypeName();
 		DataSourceContextHolder.set(DataSourceKey.DS1);
-		log.info("====>接口：" + StringUtils.substringAfterLast(cName, ".") + ",use datasource:" +DataSourceContextHolder.get());
+		log.debug("====>接口：" + StringUtils.substringAfterLast(cName, ".") + ",use datasource:" +DataSourceContextHolder.get());
 	}
 	
 	@Before("execution(* com.sensenets.sinopec.buiness.dao.two.*.*(..)) ")
 	public void ChangeDataSource(JoinPoint jp) {
 		String cName = jp.getSignature().getDeclaringTypeName();
 		DataSourceContextHolder.set(DataSourceKey.DS2);
-		log.info("====>接口："  + StringUtils.substringAfterLast(cName, ".") + ",use datasource:" + DataSourceContextHolder.get());
+		log.debug("====>接口："  + StringUtils.substringAfterLast(cName, ".") + ",use datasource:" + DataSourceContextHolder.get());
 	}
 	
 }
