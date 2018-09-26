@@ -275,12 +275,12 @@ public class VehicleQueueAnalysisServiceImpl implements IVehicleQueueAnalysisSer
         Map<String,String> map = Maps.newHashMap();
         Repos reps = null;
         if(StringUtils.isNotBlank(condition.getRepoId())){
-            reps = reposMapper.selectByPrimaryKey(condition.getRepoId());
+            reps = reposMapper.selectById(Long.parseLong(condition.getRepoId()));
             if(reps==null){
                 throw new BusinessException(BizExceptionEnum.VEHICLE_QUEUE_REPOS_ID_PARAM_ERROR);
             }
             List<Repos> reposList  = new ArrayList<Repos>();
-            getRepoChildren(reposList,condition.getRepoId());
+            getRepoChildren(reposList,reps.getRepoId());
             List<Long> repodIdList = new ArrayList<Long>();
             repodIdList.add(reps.getId());
             if(CollectionUtils.isNotEmpty(reposList)){
