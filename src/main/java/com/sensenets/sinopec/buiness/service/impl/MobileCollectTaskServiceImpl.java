@@ -171,7 +171,7 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
                 }
                 cri.andOilStationRepoIdIn(reposIds);
             }else{
-                cri.andOilStationRepoIdEqualTo(condition.getCollectRepoId()); 
+                cri.andOilStationRepoIdEqualTo(condition.getOilStationRepoId()); 
             }
         }
         PageHelper.startPage(example.getPageNumber(), example.getPageSize(),true);
