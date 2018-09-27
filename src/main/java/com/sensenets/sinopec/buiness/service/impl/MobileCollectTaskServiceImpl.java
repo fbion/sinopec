@@ -271,7 +271,7 @@ public class MobileCollectTaskServiceImpl implements IMobileCollectTaskService {
             dto.setCollectParent(JsonHelper.toJson(collectParents));
         }
         if (ArrayUtils.isNotEmpty(view.getStationRpath())) {
-            String[] oilStationParents = new String[view.getCollectRpath().length];
+            String[] oilStationParents = new String[view.getStationRpath().length];
             for(int i= 0;i<view.getStationRpath().length;i++){
                 oilStationParents[i] = pMap.get(view.getStationRpath()[i]).getRepoId();
             }
