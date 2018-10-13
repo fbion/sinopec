@@ -37,5 +37,7 @@ public class AppConfig {
    private int vehicleQueueExportNum;
    
    private int vehicleQueueExportTotalNum;
+   
+   private boolean vehicleScheduleEnabled;
 
 }

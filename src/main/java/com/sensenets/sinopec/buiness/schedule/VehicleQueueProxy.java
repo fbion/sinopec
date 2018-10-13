@@ -13,9 +13,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
@@ -45,7 +42,10 @@ import com.sensenets.sinopec.common.enums.SensorGroupEnum;
 import com.sensenets.sinopec.common.enums.VehicleRecordTypeEnum;
 import com.sensenets.sinopec.common.utils.DateHelper;
 import com.sensenets.sinopec.common.utils.UUIDHelper;
+import com.sensenets.sinopec.config.AppConfig;
 import com.sensenets.sinopec.kafka.common.ConvertHelper;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @ClassName: VehicleQueueProxy
@@ -55,6 +55,7 @@ import com.sensenets.sinopec.kafka.common.ConvertHelper;
  *
  */
 @Service
+@Slf4j
 public class VehicleQueueProxy {
 
     @Autowired
@@ -68,6 +69,9 @@ public class VehicleQueueProxy {
     
     @Autowired
     private IImagesService imagesService;
+    
+    @Autowired
+    private AppConfig appConfig;
 
     private static final int pageSize = 500;
 
@@ -79,6 +83,9 @@ public class VehicleQueueProxy {
      */
     @Scheduled(cron = "0 0 3 * * ?")
     public void getVehicleByDay() {
+        if(!appConfig.isVehicleScheduleEnabled()){
+             log.info("油站端忽略执行车辆排队定时任务");
+        }
         map = Maps.newHashMap();
         int total = countRecord();
         int page = total <= pageSize ? 1 : total / pageSize + 1;
