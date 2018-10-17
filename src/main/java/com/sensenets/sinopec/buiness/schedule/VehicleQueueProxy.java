@@ -85,6 +85,7 @@ public class VehicleQueueProxy {
     public void getVehicleByDay() {
         if(!appConfig.isVehicleScheduleEnabled()){
              log.info("油站端忽略执行车辆排队定时任务");
+             return ;
         }
         map = Maps.newHashMap();
         int total = countRecord();
