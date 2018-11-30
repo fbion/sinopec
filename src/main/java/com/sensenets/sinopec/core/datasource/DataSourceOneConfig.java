@@ -72,6 +72,8 @@ public class DataSourceOneConfig {
         data.setFilters(get("filters"));
         data.setConnectionProperties(get("connectionProperties"));
         data.setUseGlobalDataSourceStat(BooleanUtils.toBoolean(get("useGlobalDataSourceStat")));
+        data.setRemoveAbandoned(BooleanUtils.toBoolean(get("removeAbandoned")));
+        data.setRemoveAbandonedTimeout(NumberUtils.toInt(get("removeAbandonedTimeout")));
         ds.setXaDataSource(data);
         return ds;
    }

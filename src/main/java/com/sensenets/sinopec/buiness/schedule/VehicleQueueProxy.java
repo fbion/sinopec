@@ -83,27 +83,27 @@ public class VehicleQueueProxy {
      */
     @Scheduled(cron = "0 0 3 * * ?")
     public void getVehicleByDay() {
-        if(!appConfig.isVehicleScheduleEnabled()){
-             log.info("油站端忽略执行车辆排队定时任务");
-             return ;
+        if(appConfig.isVehicleScheduleEnabled()){
+        	log.info("油站端开始执行车辆排队定时任务");
+        	map = Maps.newHashMap();
+            int total = countRecord();
+            int page = total <= pageSize ? 1 : total / pageSize + 1;
+            Map<String, Short> sensorGroupMap = Maps.newHashMap();
+            Map<String, String> sensorNameMap = Maps.newHashMap();
+            Set<String> allSensorIds = getDaySensor();
+            // 加载设备信息
+            loadAllSensors(allSensorIds,sensorGroupMap,sensorNameMap);
+            // 加载油站信息
+            Map<String, String> reposNameMap = Maps.newHashMap();
+            Set<String> allRespoIds = getDayRepos();
+            loadAllRespos(allRespoIds,reposNameMap);
+            // 记录分类 同一个油站同一个车牌 ，进站，加油，出站 记录分类
+            generateVehicleCountRecord(page,sensorGroupMap);
+            // 计算同一个油站 最早进站记录，最晚加油记录，最晚出站记录 ，排队时间=最晚加油记录-最早进站记录
+            generateVehicleQueueRecord(sensorNameMap,reposNameMap);
+        }else{
+        	log.info("油站端忽略执行车辆排队定时任务");
         }
-        map = Maps.newHashMap();
-        int total = countRecord();
-        int page = total <= pageSize ? 1 : total / pageSize + 1;
-        Map<String, Short> sensorGroupMap = Maps.newHashMap();
-        Map<String, String> sensorNameMap = Maps.newHashMap();
-        Set<String> allSensorIds = getDaySensor();
-        // 加载设备信息
-        loadAllSensors(allSensorIds,sensorGroupMap,sensorNameMap);
-        // 加载油站信息
-        Map<String, String> reposNameMap = Maps.newHashMap();
-        Set<String> allRespoIds = getDayRepos();
-        loadAllRespos(allRespoIds,reposNameMap);
-        // 记录分类 同一个油站同一个车牌 ，进站，加油，出站 记录分类
-        generateVehicleCountRecord(page,sensorGroupMap);
-        // 计算同一个油站 最早进站记录，最晚加油记录，最晚出站记录 ，排队时间=最晚加油记录-最早进站记录
-        generateVehicleQueueRecord(sensorNameMap,reposNameMap);
-        
     }
     
     /**
